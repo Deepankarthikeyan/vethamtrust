@@ -772,6 +772,43 @@
   min-height: 220px;
 }
 
+/* Gallery filters */
+.vetham-gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.vetham-gallery-filters .filter-btn {
+  border: 1px solid #C45A1A;
+  background: #fff;
+  color: #C45A1A;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vetham-gallery-filters .filter-btn:hover,
+.vetham-gallery-filters .filter-btn.active {
+  background: #C45A1A;
+  color: #fff;
+}
+
+.vetham-gallery-grid .gallery-item .image-box img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.vetham-gallery-grid .project-block-one .inner-box {
+  margin-bottom: 30px;
+}
+
 /* Village content blocks */
 .village-highlight-list {
   list-style: none;
