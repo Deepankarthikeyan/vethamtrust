@@ -861,3 +861,9 @@
   margin-bottom: 20px;
   color: #1a1a1a;
 }
+
+.contact-info-section .info-block-one .icon-box img {
+  max-width: 48px;
+  height: auto;
+  display: inline-block;
+}

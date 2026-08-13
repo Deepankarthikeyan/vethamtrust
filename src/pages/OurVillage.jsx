@@ -5,9 +5,9 @@ import PageTitle from '../components/PageTitle';
 import LazyImage from '../components/LazyImage';
 
 const PROJECTS = [
-  { image: 'meditationHall', title: 'Vethathiri Maharishi Spiritual Village', text: 'A peaceful retreat in Marisettipathi Village for meditation, health, and enlightenment near Coimbatore.', percent: '60%' },
+  { image: 'villagePlan', title: 'Vethathiri Maharishi Spiritual Village', text: 'A peaceful retreat in Marisettipathi Village for meditation, health, and enlightenment near Coimbatore.', percent: '60%' },
   { image: 'construction', title: 'Retirement Home for Elders', text: 'Building a retirement home where elders are cared for with dignity, love, and spiritual support.', percent: '40%' },
-  { image: 'villagePlan', title: 'Mini Meditation Hall & Gurukul', text: 'Mini Meditation Hall inaugurated. Gurukul opened for spiritual learning. Beautiful 3-acre garden.', percent: '100%' },
+  { image: 'history', title: 'Mini Meditation Hall & Gurukul', text: 'Mini Meditation Hall inaugurated. Gurukul opened for spiritual learning. Beautiful 3-acre garden.', percent: '100%' },
 ];
 
 export default function OurVillage() {

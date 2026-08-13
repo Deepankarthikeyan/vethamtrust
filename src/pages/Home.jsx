@@ -5,35 +5,35 @@ import { img } from '../config/images';
 import LazyImage from '../components/LazyImage';
 
 const FEATURES = [
-  { icon: 'icon1', title: 'Yoga & Meditation', text: 'Workshops, meditation sessions, and discourses guiding individuals on a path of self-discovery.', link: '/courses' },
-  { icon: 'icon2', title: 'Spiritual Village', text: 'Building Vethathiri Maharishi Spiritual Village — a peaceful retreat for meditation and enlightenment.', link: '/our-village' },
-  { icon: 'icon3', title: 'Join Satsang', text: 'Connect with the Guru, experience divine love and grace. Join our WhatsApp group for updates.', link: '/contact' },
+  { icon: 'icon-4', title: 'Yoga & Meditation', text: 'Workshops, meditation sessions, and discourses guiding individuals on a path of self-discovery.', link: '/courses' },
+  { icon: 'icon-5', title: 'Spiritual Village', text: 'Building Vethathiri Maharishi Spiritual Village — a peaceful retreat for meditation and enlightenment.', link: '/our-village' },
+  { icon: 'icon-6', title: 'Join Satsang', text: 'Connect with the Guru, experience divine love and grace. Join our WhatsApp group for updates.', link: '/contact' },
 ];
 
 const CAUSES = [
-  { image: 'meditationHall', category: 'Village', title: 'Vethathiri Maharishi Spiritual Village', text: 'A peaceful retreat in Marisettipathi Village for meditation, health, and enlightenment.', percent: '60%', left: 'Construction', right: 'Aug 2026 Target' },
+  { image: 'villagePlan', category: 'Village', title: 'Vethathiri Maharishi Spiritual Village', text: 'A peaceful retreat in Marisettipathi Village for meditation, health, and enlightenment.', percent: '60%', left: 'Construction', right: 'Aug 2026 Target' },
   { image: 'construction', category: 'Retirement Home', title: 'Retirement Home for Elders', text: 'Building a retirement home where elders are cared for with dignity, love, and spiritual support.', percent: '40%', left: 'Donate Now', right: 'Give with Heart' },
-  { image: 'villagePlan', category: 'Meditation Hall', title: 'Mini Meditation Hall & Gurukul', text: 'Mini Meditation Hall inaugurated. Gurukul opened for spiritual learning. Beautiful 3-acre garden.', percent: '100%', left: 'Inaugurated', right: 'Open Daily' },
+  { image: 'history', category: 'Meditation Hall', title: 'Mini Meditation Hall & Gurukul', text: 'Mini Meditation Hall inaugurated. Gurukul opened for spiritual learning. Beautiful 3-acre garden.', percent: '100%', left: 'Inaugurated', right: 'Open Daily' },
 ];
 
 const SERVICES = [
-  { iconBg: 'iconBg1', icon: 'icon-8', title: 'Teachings', text: 'Self-realization trainings guiding individuals to understand their true nature beyond body and mind.' },
-  { iconBg: 'iconBg2', icon: 'icon-9', title: 'Kundalini', text: 'Youngness Yogic Practices focusing on conserving and channelizing life-force energy for vitality.' },
-  { iconBg: 'iconBg3', icon: 'icon-10', title: 'Vinyasa', text: 'Mano Nirvan Kriya — deep relaxation practice to release stress and anxiety at the cellular level.' },
-  { iconBg: 'iconBg4', icon: 'icon-11', title: 'Hatha', text: 'Appeasement Sittings providing a safe space for emotional release, healing, and inner calm.' },
+  { icon: 'icon-8', title: 'Teachings', text: 'Self-realization trainings guiding individuals to understand their true nature beyond body and mind.' },
+  { icon: 'icon-9', title: 'Kundalini', text: 'Youngness Yogic Practices focusing on conserving and channelizing life-force energy for vitality.' },
+  { icon: 'icon-10', title: 'Vinyasa', text: 'Mano Nirvan Kriya — deep relaxation practice to release stress and anxiety at the cellular level.' },
+  { icon: 'icon-11', title: 'Hatha', text: 'Appeasement Sittings providing a safe space for emotional release, healing, and inner calm.' },
 ];
 
 const GALLERY = [
-  { image: 'gallery1', title: 'Spiritual Village', tag: 'Village' },
-  { image: 'gallery2', title: 'Meditation Hall', tag: 'Meditation' },
-  { image: 'gallery3', title: 'Community Satsang', tag: 'Satsang' },
-  { image: 'gallery4', title: 'Yoga Practice', tag: 'Yoga' },
+  { image: 'galleryPreview1', title: 'Foundation Course', tag: 'Foundation Course' },
+  { image: 'galleryPreview2', title: 'Foundation Course', tag: 'Foundation Course' },
+  { image: 'galleryPreview3', title: 'Event Photos', tag: 'Event Photos' },
+  { image: 'galleryPreview4', title: 'Event Photos', tag: 'Event Photos' },
 ];
 
 const BLOG = [
-  { image: 'blog1', date: '15', month: 'APRIL', title: 'How Yoga Can Help Reduce Stress', text: 'How Yoga Can Help Reduce Stress Naturally. In today\'s fast-paced world, yoga offers a natural path to calm.' },
-  { image: 'blog2', date: '14', month: 'APRIL', title: 'Our Spiritual Village Journey', text: 'Building a sanctuary for peace and enlightenment inspired by Vethathiri Maharishi\'s teachings.' },
-  { image: 'blog3', date: '12', month: 'APRIL', title: 'World Peace Through Individual Peace', text: 'Discover how individual transformation creates collective harmony through meditation and yoga.' },
+  { image: 'blog5', date: '15', month: 'APRIL', title: 'How Yoga Can Help Reduce Stress', text: 'How Yoga Can Help Reduce Stress Naturally. In today\'s fast-paced world, yoga offers a natural path to calm.' },
+  { image: 'blog4', date: '14', month: 'APRIL', title: 'The Difference Between Mindful Practice and Meditation', text: 'Understanding the distinction between mindful practice and deep meditation for spiritual growth.' },
+  { image: 'blog3', date: '12', month: 'APRIL', title: 'Yoga Can Actually Make You Happier', text: 'Discover how yoga practices create lasting happiness through inner peace and self-awareness.' },
 ];
 
 const FUNFACTS = [
@@ -84,7 +84,7 @@ export default function Home() {
               <div key={f.title} className="col-lg-4 col-md-6 col-sm-12 feature-block">
                 <div className={`feature-block-one wow fadeInUp animated`} data-wow-delay={`${i * 300}ms`} data-wow-duration="1500ms">
                   <div className="inner-box">
-                    <div className="icon-box"><LazyImage src={img(f.icon)} alt="" /></div>
+                    <div className="icon-box"><i className={f.icon} /></div>
                     <h3><Link to={f.link}>{f.title}</Link></h3>
                     <p>{f.text}</p>
                   </div>
@@ -131,11 +131,6 @@ export default function Home() {
             <div className="col-lg-6 col-md-12 col-sm-12 image-column">
               <div className="image_block_one">
                 <div className="image-box p_relative d_block ml_40">
-                  <div className="shape">
-                    <div className="shape-1" style={{ backgroundImage: `url(${img('shape1')})` }} />
-                    <div className="shape-2" style={{ backgroundImage: `url(${img('shape1')})` }} />
-                    <div className="shape-3" />
-                  </div>
                   <figure className="image image-1"><LazyImage src={img('about1')} alt="Vetham community" /></figure>
                   <figure className="image image-2"><LazyImage src={img('about2')} alt="Meditation Hall" /></figure>
                 </div>
@@ -146,7 +141,6 @@ export default function Home() {
       </section>
 
       <section className="funfact-section pt_80 pb_80 bg-color-2">
-        <div className="pattern-layer" style={{ backgroundImage: `url(${img('shape2')})` }} />
         <div className="auto-container">
           <div className="inner-container">
             {FUNFACTS.map((f) => (
@@ -227,7 +221,6 @@ export default function Home() {
                 <div className="service-block-one wow fadeInUp animated" data-wow-delay={`${i * 200}ms`} data-wow-duration="1500ms">
                   <div className="inner-box">
                     <div className="icon-box">
-                      <div className="icon-bg" style={{ backgroundImage: `url(${img(s.iconBg)})` }} />
                       <div className="icon"><i className={s.icon} /></div>
                     </div>
                     <h3><Link to="/courses">{s.title}</Link></h3>

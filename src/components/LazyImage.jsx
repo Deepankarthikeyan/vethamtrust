@@ -8,7 +8,7 @@ export default function LazyImage({ src, alt = '', className = '', width, height
 
   return (
     <img
-      src={error ? '/assets/images/logo.png' : src}
+      src={error ? '/assets/images/vetham/logo.png' : src}
       alt={alt}
       className={className}
       width={width}

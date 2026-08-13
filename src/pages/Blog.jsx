@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
 import { img } from '../config/images';
@@ -6,12 +5,11 @@ import PageTitle from '../components/PageTitle';
 import LazyImage from '../components/LazyImage';
 
 const POSTS = [
-  { image: 'blog1', date: '15', month: 'APRIL', title: 'How Yoga Can Help Reduce Stress', text: 'How Yoga Can Help Reduce Stress Naturally. In today\'s fast-paced world, stress affects us all — yoga offers a natural path to calm.' },
-  { image: 'blog2', date: '14', month: 'APRIL', title: 'Our Spiritual Village Journey', text: 'Building a sanctuary for peace and enlightenment inspired by Vethathiri Maharishi\'s timeless teachings.' },
-  { image: 'blog3', date: '12', month: 'APRIL', title: 'World Peace Through Individual Peace', text: 'Discover how individual transformation creates collective harmony through meditation and yoga practices.' },
-  { image: 'gallery5', date: '10', month: 'APRIL', title: 'Meditation Hall Inauguration', text: 'Celebrating the opening of our mini meditation hall and gurukul for spiritual learning and growth.' },
-  { image: 'gallery6', date: '08', month: 'APRIL', title: 'The History of Vetham Trust', text: 'From humble beginnings in 2017 to a thriving spiritual community serving seekers worldwide.' },
-  { image: 'leader', date: '05', month: 'APRIL', title: 'Guidance from Our Spiritual Masters', text: 'Learn about the dedicated leadership guiding Vetham Kuzhumam Spiritual Trust forward.' },
+  { image: 'blog5', date: '15', month: 'APRIL', title: 'How Yoga Can Help Reduce Stress', text: 'How Yoga Can Help Reduce Stress Naturally. In today\'s fast-paced world, stress affects us all — yoga offers a natural path to calm.' },
+  { image: 'blog4', date: '14', month: 'APRIL', title: 'The Difference Between Mindful Practice and Meditation', text: 'Understanding the distinction between mindful practice and deep meditation for spiritual growth.' },
+  { image: 'blog3', date: '12', month: 'APRIL', title: 'Yoga Can Actually Make You Happier', text: 'Discover how yoga practices create lasting happiness through inner peace and self-awareness.' },
+  { image: 'blog1', date: '10', month: 'APRIL', title: 'The Most Unusual Spiritual Practices and Yoga', text: 'Explore unique spiritual practices and yoga traditions that deepen your connection to inner peace.' },
+  { image: 'blog2', date: '08', month: 'APRIL', title: 'Meditation Is the Conscious Creation of Reality', text: 'Learn how meditation shapes your perception and helps you consciously create a peaceful reality.' },
 ];
 
 export default function Blog() {

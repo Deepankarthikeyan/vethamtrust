@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
+import { img } from '../config/images';
 
 const WHATSAPP_GROUP = 'https://chat.whatsapp.com/EQuPUtcPzEdIZVlT8JyyNw';
 const RAZORPAY_URL = 'https://rzp.io/rzp/vethamspiritualtrust';
-const QR_SRC = '/assets/images/vetham/qr-code-vkst-scan.png';
 const UPI_ID = '6515433630@indianbk';
 
 export default function FloatingWidgets() {
@@ -124,13 +124,13 @@ export default function FloatingWidgets() {
             onClick={() => setQrFullscreen(true)}
             aria-label="Tap to enlarge QR code for scanning"
           >
-            <img src={QR_SRC} alt="Scan to pay Vetham Kuzhumam Trust" />
+            <img src={img('qrCode')} alt="Scan to pay Vetham Kuzhumam Trust" />
           </button>
           <figcaption className="vetham-fab-upi">UPI: {UPI_ID}</figcaption>
           <p className="vetham-fab-qr-hint">Tap QR to enlarge for scanning</p>
         </figure>
         <a href={RAZORPAY_URL} className="vetham-fab-razorpay" target="_blank" rel="noopener noreferrer">
-          <img src="/assets/images/vetham/razorpay-logo.png" alt="Razorpay" />
+          <img src={img('razorpayLogo')} alt="Razorpay" />
           <span>Click Razorpay to donate</span>
         </a>
       </div>
@@ -144,7 +144,7 @@ export default function FloatingWidgets() {
         >
           &times;
         </button>
-        <img src={QR_SRC} alt="Scan to pay" />
+        <img src={img('qrCode')} alt="Scan to pay" />
         <p>UPI: {UPI_ID}</p>
       </div>
     </div>
