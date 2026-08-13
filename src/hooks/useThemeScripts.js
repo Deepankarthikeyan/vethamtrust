@@ -6,6 +6,7 @@ export function useThemeScripts() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     let active = true;
 
     (async () => {

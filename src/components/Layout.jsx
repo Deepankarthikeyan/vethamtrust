@@ -1,4 +1,4 @@
-import { Outlet, ScrollRestoration } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useThemeScripts } from '../hooks/useThemeScripts';
 import Preloader from './Preloader';
@@ -31,7 +31,6 @@ export default function Layout() {
           </div>
         </div>
       </div>
-      <ScrollRestoration />
     </div>
   );
 }
