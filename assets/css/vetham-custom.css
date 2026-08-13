@@ -1,0 +1,56 @@
+/* Vetham header layout fixes for 8-item navigation */
+
+.main-header .logo-box .logo img {
+  max-height: 58px;
+  width: auto;
+}
+
+.header-style-two.main-header .menu-area {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+  padding-right: 15px;
+}
+
+.header-style-two.main-header .main-menu {
+  float: none;
+  width: 100%;
+}
+
+.header-style-two.main-header .main-menu .navigation {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  float: none;
+}
+
+.header-style-two.main-header .main-menu .navigation > li {
+  float: none;
+  margin: 0 7px;
+  flex-shrink: 0;
+}
+
+.header-style-two.main-header .main-menu .navigation > li > a {
+  font-size: 14px;
+  line-height: 24px;
+  padding: 35px 0;
+  white-space: nowrap;
+}
+
+.header-style-two.main-header .header-lower .nav-right {
+  flex-shrink: 0;
+  margin: 20px 0;
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1499px) {
+  .header-style-two.main-header .main-menu .navigation > li {
+    margin: 0 4px;
+  }
+
+  .header-style-two.main-header .main-menu .navigation > li > a {
+    font-size: 13px;
+  }
+}
