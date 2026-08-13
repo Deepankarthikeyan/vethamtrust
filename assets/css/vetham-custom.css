@@ -1,54 +1,66 @@
 /* Vetham header customizations */
 
-.main-header .logo-box .logo img {
-  max-height: 62px;
+.main-header .logo-box .logo img,
+.sticky-header .logo-box .logo img {
+  max-height: 65px;
   width: auto;
 }
 
-/* Red logo background like Trusthand style */
-.header-style-two.main-header .header-lower .logo-box {
+/* Red logo background - main header */
+.header-style-two.main-header .header-lower .logo-box,
+.sticky-header .logo-box {
   background: #C45A1A;
-  padding: 18px 40px 18px 50px;
+  padding: 20px 45px 20px 55px;
   margin-right: 10px;
   position: relative;
+  z-index: 1;
 }
 
-.header-style-two.main-header .header-lower .logo-box:before {
+.header-style-two.main-header .header-lower .logo-box:before,
+.sticky-header .logo-box:before {
   display: block !important;
+  content: '';
+  position: absolute;
   background: #C45A1A !important;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
+  z-index: -1;
   clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
 }
 
-.header-style-two.main-header .header-lower .logo-box:after {
+.header-style-two.main-header .header-lower .logo-box:after,
+.sticky-header .logo-box:after {
   display: none !important;
 }
 
 /* Center navigation between logo and icons */
-.header-style-two.main-header .header-lower .outer-box {
+.header-style-two.main-header .header-lower .outer-box,
+.sticky-header .outer-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.header-style-two.main-header .menu-area {
+.header-style-two.main-header .menu-area,
+.sticky-header .menu-area {
   flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 0;
-  padding: 0 10px;
+  padding: 0 15px;
 }
 
-.header-style-two.main-header .main-menu {
+.header-style-two.main-header .main-menu,
+.sticky-header .main-menu {
   float: none;
   width: auto;
 }
 
-.header-style-two.main-header .main-menu .navigation {
+.header-style-two.main-header .main-menu .navigation,
+.sticky-header .main-menu .navigation {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -56,34 +68,58 @@
   float: none;
 }
 
-.header-style-two.main-header .main-menu .navigation > li {
+.header-style-two.main-header .main-menu .navigation > li,
+.sticky-header .main-menu .navigation > li {
   float: none;
-  margin: 0 10px;
+  margin: 0 18px;
   flex-shrink: 0;
 }
 
-.header-style-two.main-header .main-menu .navigation > li > a {
-  font-size: 16px;
-  line-height: 26px;
-  padding: 35px 0;
+.header-style-two.main-header .main-menu .navigation > li > a,
+.sticky-header .main-menu .navigation > li > a {
+  font-size: 18px;
+  line-height: 28px;
+  padding: 38px 0;
   white-space: nowrap;
   font-weight: 500;
 }
 
-.header-style-two.main-header .header-lower .nav-right {
+.header-style-two.main-header .header-lower .nav-right,
+.sticky-header .nav-right {
   flex-shrink: 0;
   margin: 20px 0;
 }
 
-/* Dropdown arrow position for header-style-two */
-.header-style-two.main-header .header-lower .main-menu .navigation > li.dropdown > a {
-  padding-right: 18px;
+/* Dropdown arrow position */
+.header-style-two.main-header .header-lower .main-menu .navigation > li.dropdown > a,
+.sticky-header .main-menu .navigation > li.dropdown > a {
+  padding-right: 22px;
 }
 
-.header-style-two.main-header .header-lower .main-menu .navigation > li.dropdown > a:before {
-  top: 35px;
+.header-style-two.main-header .header-lower .main-menu .navigation > li.dropdown > a:before,
+.sticky-header .main-menu .navigation > li.dropdown > a:before {
+  top: 38px;
   right: 0;
-  font-size: 12px;
+  font-size: 13px;
+}
+
+/* Sticky header scroll overrides */
+.sticky-header .logo-box {
+  padding: 16px 40px 16px 50px !important;
+}
+
+.sticky-header .main-menu .navigation > li > a {
+  padding-top: 32px !important;
+  padding-bottom: 32px !important;
+}
+
+.sticky-header .main-menu .navigation > li.dropdown > a:before {
+  top: 32px !important;
+}
+
+.sticky-header .outer-container {
+  padding-left: 0;
+  padding-right: 30px;
 }
 
 /* Ensure dropdown menus show on hover */
@@ -114,31 +150,37 @@
 }
 
 /* Search & donate icons */
-.header-style-two.main-header .nav-right li.search-toggler {
+.header-style-two.main-header .nav-right li.search-toggler,
+.sticky-header .nav-right li.search-toggler {
   color: #333;
-  font-size: 20px;
+  font-size: 22px;
 }
 
-.header-style-two.main-header .nav-right li.search-toggler i {
+.header-style-two.main-header .nav-right li.search-toggler i,
+.sticky-header .nav-right li.search-toggler i {
   display: inline-block;
 }
 
-@media only screen and (min-width: 1201px) and (max-width: 1499px) {
-  .header-style-two.main-header .main-menu .navigation > li {
-    margin: 0 6px;
+@media only screen and (min-width: 1201px) and (max-width: 1599px) {
+  .header-style-two.main-header .main-menu .navigation > li,
+  .sticky-header .main-menu .navigation > li {
+    margin: 0 12px;
   }
 
-  .header-style-two.main-header .main-menu .navigation > li > a {
-    font-size: 15px;
+  .header-style-two.main-header .main-menu .navigation > li > a,
+  .sticky-header .main-menu .navigation > li > a {
+    font-size: 16px;
   }
 }
 
 @media only screen and (min-width: 1201px) and (max-width: 1399px) {
-  .header-style-two.main-header .main-menu .navigation > li {
-    margin: 0 4px;
+  .header-style-two.main-header .main-menu .navigation > li,
+  .sticky-header .main-menu .navigation > li {
+    margin: 0 8px;
   }
 
-  .header-style-two.main-header .main-menu .navigation > li > a {
-    font-size: 14px;
+  .header-style-two.main-header .main-menu .navigation > li > a,
+  .sticky-header .main-menu .navigation > li > a {
+    font-size: 15px;
   }
 }
