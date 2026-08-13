@@ -73,6 +73,7 @@
   float: none;
   margin: 0 18px;
   flex-shrink: 0;
+  position: relative;
 }
 
 .header-style-two.main-header .main-menu .navigation > li > a,
@@ -90,17 +91,17 @@
   margin: 20px 0;
 }
 
-/* Dropdown arrow position */
-.header-style-two.main-header .header-lower .main-menu .navigation > li.dropdown > a,
-.sticky-header .main-menu .navigation > li.dropdown > a {
-  padding-right: 22px;
+/* Hide dropdown arrow icons on desktop */
+.main-header .main-menu .navigation > li.dropdown > a:before,
+.sticky-header .main-menu .navigation > li.dropdown > a:before {
+  display: none !important;
+  content: none !important;
 }
 
-.header-style-two.main-header .header-lower .main-menu .navigation > li.dropdown > a:before,
-.sticky-header .main-menu .navigation > li.dropdown > a:before {
-  top: 38px;
-  right: 0;
-  font-size: 13px;
+@media only screen and (min-width: 1201px) {
+  .main-header .main-menu .navigation li.dropdown .dropdown-btn {
+    display: none !important;
+  }
 }
 
 /* Sticky header scroll overrides */
@@ -113,26 +114,29 @@
   padding-bottom: 32px !important;
 }
 
-.sticky-header .main-menu .navigation > li.dropdown > a:before {
-  top: 32px !important;
-}
-
 .sticky-header .outer-container {
   padding-left: 0;
   padding-right: 30px;
 }
 
-/* Ensure dropdown menus show on hover */
+/* Dropdown opens directly under its parent menu item */
+.main-menu .navigation > li.dropdown {
+  position: relative;
+}
+
 .main-menu .navigation > li.dropdown:hover > ul {
   display: block;
   opacity: 1;
   visibility: visible;
 }
 
-.main-menu .navigation > li > ul {
-  left: 50%;
-  transform: translateX(-50%);
+.main-menu .navigation > li.dropdown > ul {
+  left: 0;
+  right: auto;
+  transform: none;
   margin-top: 0;
+  top: 100%;
+  min-width: 210px;
 }
 
 /* Header top icons */
