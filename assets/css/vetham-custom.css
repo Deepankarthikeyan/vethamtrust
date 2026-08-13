@@ -475,14 +475,79 @@
   margin: 0;
 }
 
+.vetham-fab-qr-enlarge {
+  display: block;
+  margin: 0 auto 6px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+}
+
 .vetham-fab-qr img {
-  max-width: 120px;
+  max-width: 150px;
   width: 100%;
   height: auto;
   border-radius: 6px;
-  margin: 0 auto 8px;
   display: block;
   border: 2px solid #f0e6d0;
+  background: #fff;
+}
+
+.vetham-fab-upi {
+  margin: 0 0 2px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #333;
+  word-break: break-all;
+}
+
+.vetham-fab-qr-hint {
+  margin: 0 0 8px;
+  font-size: 10px;
+  color: #999;
+}
+
+.vetham-qr-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 100001;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.vetham-qr-fullscreen img {
+  width: min(78vw, 320px);
+  height: auto;
+  background: #fff;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.vetham-qr-fullscreen p {
+  margin: 14px 0 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.vetham-qr-fullscreen-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .vetham-fab-razorpay {
@@ -536,7 +601,11 @@
   }
 
   .vetham-fab-qr img {
-    max-width: 100px;
+    max-width: 130px;
+  }
+
+  .vetham-qr-fullscreen img {
+    width: min(85vw, 280px);
   }
 
   .vetham-fab-label {

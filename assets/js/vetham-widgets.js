@@ -44,12 +44,21 @@
         '<h4>Donate us</h4>' +
         '<p class="vetham-fab-panel-sub">Scan QR or pay via Razorpay</p>' +
         '<figure class="vetham-fab-qr">' +
-          '<img src="assets/images/vetham/qr-code-vkst.jpg" alt="qr-code-vkst" title="qr-code-vkst">' +
+          '<button type="button" class="vetham-fab-qr-enlarge" id="vetham-qr-enlarge" aria-label="Tap to enlarge QR code for scanning">' +
+            '<img src="assets/images/vetham/qr-code-vkst-scan.png" alt="Scan to pay Vetham Kuzhumam Trust">' +
+          '</button>' +
+          '<figcaption class="vetham-fab-upi">UPI: 6515433630@indianbk</figcaption>' +
+          '<p class="vetham-fab-qr-hint">Tap QR to enlarge for scanning</p>' +
         '</figure>' +
         '<a href="' + RAZORPAY_URL + '" class="vetham-fab-razorpay" target="_blank" rel="noopener">' +
           '<img src="assets/images/vetham/razorpay-logo.png" alt="Razorpay">' +
           '<span>Click Razorpay to donate</span>' +
         '</a>' +
+      '</div>' +
+      '<div class="vetham-qr-fullscreen" id="vetham-qr-fullscreen" hidden>' +
+        '<button type="button" class="vetham-qr-fullscreen-close" aria-label="Close">&times;</button>' +
+        '<img src="assets/images/vetham/qr-code-vkst-scan.png" alt="Scan to pay">' +
+        '<p>UPI: 6515433630@indianbk</p>' +
       '</div>' +
     '</div>';
 
@@ -64,6 +73,7 @@
     document.getElementById('vetham-panel-language').hidden = true;
     document.getElementById('vetham-panel-donate').hidden = true;
     document.getElementById('vetham-fab-overlay').hidden = true;
+    document.getElementById('vetham-qr-fullscreen').hidden = true;
     document.getElementById('vetham-fab-language').classList.remove('active');
     document.getElementById('vetham-fab-donate').classList.remove('active');
   }
@@ -99,6 +109,15 @@
     document.getElementById('vetham-fab-overlay').addEventListener('click', closePanels);
     document.querySelectorAll('.vetham-fab-panel-close').forEach(function (btn) {
       btn.addEventListener('click', closePanels);
+    });
+    document.getElementById('vetham-qr-enlarge').addEventListener('click', function () {
+      document.getElementById('vetham-qr-fullscreen').hidden = false;
+    });
+    document.querySelector('.vetham-qr-fullscreen-close').addEventListener('click', function () {
+      document.getElementById('vetham-qr-fullscreen').hidden = true;
+    });
+    document.getElementById('vetham-qr-fullscreen').addEventListener('click', function (e) {
+      if (e.target === this) this.hidden = true;
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closePanels();

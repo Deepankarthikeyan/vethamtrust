@@ -191,7 +191,7 @@ DONATE_CONTENT = """
                                 <img src="assets/images/vetham/razorpay-logo.png" alt="Donate via Razorpay" width="150">
                             </a>
                             <p><small>Click Razorpay to donate</small></p>
-                            <img src="assets/images/vetham/qr-code-vkst.jpg" alt="Vetham Kuzhumam QR Code" class="vetham-qr-code" style="max-width:200px;margin:15px auto;display:block;">
+                            <img src="assets/images/vetham/qr-code-vkst-scan.png" alt="Vetham Kuzhumam QR Code" class="vetham-qr-code" style="max-width:220px;margin:15px auto;display:block;">
                         </div>
                     </div>
                 </div>
