@@ -89,7 +89,9 @@ FOOTER_SOCIAL_NEW = """<ul class="social-links">
                     </ul>"""
 
 NAV_PATTERN = re.compile(
-    r'<ul class="navigation clearfix">.*?</ul>',
+    r'<div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">\s*'
+    r'<ul class="navigation clearfix">.*?</ul>\s*'
+    r'</div>',
     re.DOTALL,
 )
 
