@@ -319,6 +319,24 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 6px 10px;
+  line-height: 1.6;
+}
+
+.vetham-footer-grid .language-widget .gtranslate_wrapper a.glink {
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.vetham-footer-grid .language-widget .gtranslate_wrapper a.glink:hover {
+  color: #ffcc99;
+}
+
+.vetham-footer-grid .language-widget .gtranslate_wrapper a.glink.gt-current-lang {
+  color: #D4A017;
+  font-weight: 600;
 }
 
 .vetham-footer-grid .language-widget .gt_switcher {
