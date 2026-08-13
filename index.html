@@ -8,22 +8,29 @@
   <link rel="icon" href="/assets/images/vetham/favicon.jpg" type="image/jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://vethamspiritualtrust.com" />
+  <link rel="preload" as="image" href="/assets/images/banner/banner-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/images/logo-2.png" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Fredoka:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <link href="/assets/css/bootstrap.css" rel="stylesheet" />
   <link href="/assets/css/font-awesome-all.css" rel="stylesheet" />
   <link href="/assets/css/flaticon.css" rel="stylesheet" />
   <link href="/assets/css/owl.css" rel="stylesheet" />
-  <link href="/assets/css/bootstrap.css" rel="stylesheet" />
-  <link href="/assets/css/jquery.fancybox.min.css" rel="stylesheet" />
-  <link href="/assets/css/animate.css" rel="stylesheet" />
-  <link href="/assets/css/nice-select.css" rel="stylesheet" />
-  <link href="/assets/css/jquery-ui.css" rel="stylesheet" />
-  <link href="/assets/css/jquery.bootstrap-touchspin.css" rel="stylesheet" />
   <link href="/assets/css/color.css" rel="stylesheet" />
   <link href="/assets/css/elpath.css" rel="stylesheet" />
   <link href="/assets/css/style.css" rel="stylesheet" />
   <link href="/assets/css/responsive.css" rel="stylesheet" />
   <link href="/assets/css/vetham-custom.css" rel="stylesheet" />
+  <link href="/assets/css/jquery.fancybox.min.css" rel="stylesheet" media="print" onload="this.media='all'" />
+  <link href="/assets/css/animate.css" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="/assets/css/jquery.fancybox.min.css" rel="stylesheet" />
+    <link href="/assets/css/animate.css" rel="stylesheet" />
+  </noscript>
+  <style>
+    .loader-wrap { transition: opacity 0.2s ease, visibility 0.2s ease; }
+    .loader-wrap.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    #root:not(:empty) + .loader-wrap-fallback { display: none; }
+  </style>
 </head>
 <body>
   <div id="root"></div>

@@ -207,3 +207,15 @@
     font-size: 15px;
   }
 }
+
+/* Fast preloader hide for React SPA */
+.loader-wrap {
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.loader-wrap.is-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  display: none !important;
+}

@@ -1,6 +1,15 @@
+import { useEffect } from 'react';
+import { hidePreloader } from '../utils/themeInit';
+
 export default function Preloader() {
+  useEffect(() => {
+    hidePreloader();
+    const timer = setTimeout(hidePreloader, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="loader-wrap">
+    <div className="loader-wrap" aria-hidden="true">
       <div className="preloader">
         <div className="preloader-close">x</div>
         <div id="handle-preloader" className="handle-preloader">
