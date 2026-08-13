@@ -208,14 +208,15 @@
   }
 }
 
-/* Fast preloader hide for React SPA */
+/* Fast preloader – visible briefly, then smooth fade out */
 .loader-wrap {
-  transition: opacity 0.2s ease, visibility 0.2s ease;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
 }
 
 .loader-wrap.is-hidden {
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
-  display: none !important;
 }

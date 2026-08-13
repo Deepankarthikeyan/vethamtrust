@@ -38,6 +38,7 @@ async function loadParallel(scripts) {
 export function hidePreloader() {
   document.querySelectorAll('.loader-wrap').forEach((el) => {
     el.classList.add('is-hidden');
+    el.setAttribute('aria-hidden', 'true');
   });
 }
 

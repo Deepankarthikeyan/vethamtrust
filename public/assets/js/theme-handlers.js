@@ -66,6 +66,6 @@
   });
 
   $('.preloader-close').on('click', function onClick() {
-    $('.loader-wrap').addClass('is-hidden');
+    $('.loader-wrap').addClass('is-hidden').attr('aria-hidden', 'true');
   });
 }(window.jQuery));
