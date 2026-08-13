@@ -272,7 +272,246 @@
   }
 }
 
-/* Footer widgets matching vethamspiritualtrust.com */
+/* Floating action buttons — WhatsApp, Donate QR, Language */
+.vetham-fab-container {
+  position: fixed;
+  z-index: 99999;
+  pointer-events: none;
+}
+
+.vetham-fab-container * {
+  pointer-events: auto;
+}
+
+.vetham-fab {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: visible;
+}
+
+.vetham-fab:hover,
+.vetham-fab.active {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  color: #fff;
+}
+
+.vetham-fab-label {
+  position: absolute;
+  right: calc(100% + 12px);
+  white-space: nowrap;
+  background: rgba(30, 30, 30, 0.92);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 20px;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.vetham-fab:hover .vetham-fab-label,
+.vetham-fab.active .vetham-fab-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.vetham-fab-whatsapp {
+  left: 22px;
+  bottom: 22px;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  animation: vetham-pulse-wa 2.5s infinite;
+}
+
+@keyframes vetham-pulse-wa {
+  0%, 100% { box-shadow: 0 4px 18px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 4px 28px rgba(37, 211, 102, 0.7); }
+}
+
+.vetham-fab-right {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.vetham-fab-right .vetham-fab {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  right: auto;
+}
+
+.vetham-fab-language {
+  background: linear-gradient(135deg, #4a90d9, #2c5f9e);
+}
+
+.vetham-fab-donate {
+  background: linear-gradient(135deg, #D4A017, #b8860b);
+}
+
+.vetham-fab-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 99998;
+}
+
+.vetham-fab-panel {
+  position: fixed;
+  right: 24px;
+  bottom: 100px;
+  width: 300px;
+  max-width: calc(100vw - 48px);
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 20px 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  z-index: 100000;
+  text-align: center;
+  animation: vetham-panel-in 0.3s ease;
+}
+
+@keyframes vetham-panel-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.vetham-fab-panel-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+}
+
+.vetham-fab-panel-close:hover {
+  color: #333;
+}
+
+.vetham-fab-panel h4 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.vetham-fab-panel-sub {
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: #777;
+}
+
+.vetham-fab-panel-language .gtranslate_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 12px;
+  line-height: 1.6;
+}
+
+.vetham-fab-panel-language .gtranslate_wrapper a.glink {
+  color: #2c5f9e;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.vetham-fab-panel-language .gtranslate_wrapper a.glink:hover {
+  background: #eef4fb;
+  color: #1a4a8a;
+}
+
+.vetham-fab-panel-language .gtranslate_wrapper a.glink.gt-current-lang {
+  background: #2c5f9e;
+  color: #fff;
+  font-weight: 600;
+}
+
+.vetham-fab-qr img {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 0 auto 14px;
+  display: block;
+  border: 2px solid #f0e6d0;
+}
+
+.vetham-fab-razorpay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.vetham-fab-razorpay img {
+  max-width: 110px;
+  height: auto;
+}
+
+.vetham-fab-razorpay:hover {
+  color: #D4A017;
+}
+
+@media only screen and (max-width: 767px) {
+  .vetham-fab {
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+  }
+
+  .vetham-fab-whatsapp {
+    left: 14px;
+    bottom: 14px;
+  }
+
+  .vetham-fab-right {
+    right: 14px;
+    bottom: 14px;
+    gap: 10px;
+  }
+
+  .vetham-fab-panel {
+    right: 14px;
+    bottom: 86px;
+    width: calc(100vw - 28px);
+  }
+
+  .vetham-fab-label {
+    display: none;
+  }
+}
+
+/* Footer widgets */
 .vetham-footer-grid-section {
   padding-top: 10px;
 }
@@ -391,15 +630,7 @@
 
   .vetham-footer-grid > .footer-column {
     flex: 0 0 auto;
-    max-width: 20%;
-  }
-
-  .vetham-footer-grid > .footer-column:nth-child(3) {
-    max-width: 28%;
-  }
-
-  .vetham-footer-grid > .footer-column:nth-child(5) {
-    max-width: 24%;
+    max-width: 33.333%;
   }
 }
 

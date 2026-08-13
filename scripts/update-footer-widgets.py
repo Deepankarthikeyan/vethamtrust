@@ -9,7 +9,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 FOOTER_WIDGETS = """                <div class="widget-section vetham-footer-grid-section">
                     <div class="row clearfix vetham-footer-grid">
-                        <div class="col-lg-2 col-md-6 col-sm-12 footer-column">
+                        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                             <div class="links-widget footer-widget">
                                 <div class="widget-title"><h3>Quick Links</h3></div>
                                 <div class="widget-content">
@@ -26,23 +26,7 @@ FOOTER_WIDGETS = """                <div class="widget-section vetham-footer-gri
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-6 col-sm-12 footer-column">
-                            <div class="donate-widget footer-widget centred">
-                                <div class="widget-title"><h3>Donate us</h3></div>
-                                <div class="widget-content">
-                                    <figure class="vetham-qr-figure">
-                                        <img src="assets/images/vetham/qr-code-vkst.jpg" alt="qr-code-vkst" title="qr-code-vkst" class="vetham-qr-code">
-                                    </figure>
-                                    <figure class="vetham-razorpay-figure">
-                                        <a href="https://rzp.io/rzp/vethamspiritualtrust" target="_blank" rel="noopener">
-                                            <img src="assets/images/vetham/razorpay-logo.png" alt="Razorpay">
-                                        </a>
-                                        <figcaption>Click Razorpay to donate</figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                             <div class="about-widget footer-widget">
                                 <div class="widget-title"><h3>Address</h3></div>
                                 <div class="text">
@@ -50,15 +34,7 @@ FOOTER_WIDGETS = """                <div class="widget-section vetham-footer-gri
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-6 col-sm-12 footer-column">
-                            <div class="language-widget footer-widget centred">
-                                <div class="widget-title"><h3>Click for language translation</h3></div>
-                                <div class="widget-content">
-                                    <div class="gtranslate_wrapper" id="gt-wrapper-vetham"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                             <div class="contact-widget footer-widget">
                                 <div class="widget-title"><h3>Contact Information</h3></div>
                                 <div class="widget-content vetham-footer-contact">
