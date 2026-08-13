@@ -1,43 +1,73 @@
-/* Vetham header layout fixes for 8-item navigation */
+/* Vetham header customizations */
 
 .main-header .logo-box .logo img {
-  max-height: 58px;
+  max-height: 62px;
   width: auto;
+}
+
+/* Red logo background like Trusthand style */
+.header-style-two.main-header .header-lower .logo-box {
+  background: #C45A1A;
+  padding: 18px 40px 18px 50px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.header-style-two.main-header .header-lower .logo-box:before {
+  display: block !important;
+  background: #C45A1A !important;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+}
+
+.header-style-two.main-header .header-lower .logo-box:after {
+  display: none !important;
+}
+
+/* Center navigation between logo and icons */
+.header-style-two.main-header .header-lower .outer-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header-style-two.main-header .menu-area {
   flex: 1 1 auto;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   min-width: 0;
-  padding-right: 15px;
+  padding: 0 10px;
 }
 
 .header-style-two.main-header .main-menu {
   float: none;
-  width: 100%;
+  width: auto;
 }
 
 .header-style-two.main-header .main-menu .navigation {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   float: none;
 }
 
 .header-style-two.main-header .main-menu .navigation > li {
   float: none;
-  margin: 0 7px;
+  margin: 0 10px;
   flex-shrink: 0;
 }
 
 .header-style-two.main-header .main-menu .navigation > li > a {
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 26px;
   padding: 35px 0;
   white-space: nowrap;
+  font-weight: 500;
 }
 
 .header-style-two.main-header .header-lower .nav-right {
@@ -45,12 +75,70 @@
   margin: 20px 0;
 }
 
+/* Dropdown arrow position for header-style-two */
+.header-style-two.main-header .header-lower .main-menu .navigation > li.dropdown > a {
+  padding-right: 18px;
+}
+
+.header-style-two.main-header .header-lower .main-menu .navigation > li.dropdown > a:before {
+  top: 35px;
+  right: 0;
+  font-size: 12px;
+}
+
+/* Ensure dropdown menus show on hover */
+.main-menu .navigation > li.dropdown:hover > ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.main-menu .navigation > li > ul {
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0;
+}
+
+/* Header top icons */
+.header-top .top-inner .info li i {
+  color: #D4A017;
+  margin-right: 8px;
+}
+
+.header-top .top-inner .social-links li a {
+  color: #fff;
+}
+
+.header-top .top-inner .social-links li a:hover {
+  color: #D4A017;
+}
+
+/* Search & donate icons */
+.header-style-two.main-header .nav-right li.search-toggler {
+  color: #333;
+  font-size: 20px;
+}
+
+.header-style-two.main-header .nav-right li.search-toggler i {
+  display: inline-block;
+}
+
 @media only screen and (min-width: 1201px) and (max-width: 1499px) {
+  .header-style-two.main-header .main-menu .navigation > li {
+    margin: 0 6px;
+  }
+
+  .header-style-two.main-header .main-menu .navigation > li > a {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1399px) {
   .header-style-two.main-header .main-menu .navigation > li {
     margin: 0 4px;
   }
 
   .header-style-two.main-header .main-menu .navigation > li > a {
-    font-size: 13px;
+    font-size: 14px;
   }
 }

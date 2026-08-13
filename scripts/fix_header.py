@@ -7,37 +7,63 @@ import os
 
 WORKSPACE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-CURRENT = {
-    'index.html': 'home', 'about.html': 'about', 'causes.html': 'village',
-    'causes-2.html': 'village', 'causes-details.html': 'village',
-    'service.html': 'service', 'team.html': 'team', 'team-details.html': 'team',
-    'events.html': 'events', 'events-details.html': 'events',
-    'blog.html': 'blog', 'blog-2.html': 'blog', 'blog-details.html': 'blog',
-    'contact.html': 'contact',
+# Which top-level / parent keys are active per page
+PAGE_ACTIVE = {
+    'index.html': {'home'},
+    'about.html': {'about'},
+    'team.html': {'about', 'leadership'},
+    'team-details.html': {'about', 'leadership'},
+    'causes.html': {'village'},
+    'causes-2.html': {'village'},
+    'causes-details.html': {'village', 'donate'},
+    'service.html': {'courses', 'services'},
+    'events.html': {'events'},
+    'events-details.html': {'events'},
+    'blog.html': {'blog'},
+    'blog-2.html': {'blog'},
+    'blog-details.html': {'blog'},
+    'gallery.html': {'social'},
+    'contact.html': {'contact'},
 }
 
-KEYS = ['home', 'about', 'village', 'service', 'team', 'events', 'blog', 'contact']
 
-MENU_ITEMS = [
-    ('home', 'index.html', 'Home'),
-    ('about', 'about.html', 'About Us'),
-    ('village', 'causes.html', 'Our Village'),
-    ('service', 'service.html', 'Services'),
-    ('team', 'team.html', 'Leadership'),
-    ('events', 'events.html', 'Events'),
-    ('blog', 'blog.html', 'Blog'),
-    ('contact', 'contact.html', 'Contact'),
-]
+def is_active(filename, key):
+    return key in PAGE_ACTIVE.get(filename, set())
 
 
 def build_nav(filename):
-    active = CURRENT.get(filename, '')
-    lines = ['                                <ul class="navigation clearfix">']
-    for key, href, label in MENU_ITEMS:
-        cls = ' class="current"' if key == active else ''
-        lines.append(f'                                    <li{cls}><a href="{href}">{label}</a></li>')
-    lines.append('                                </ul>')
-    return '\n'.join(lines)
+    active = PAGE_ACTIVE.get(filename, set())
+    about_cls = ' class="dropdown current"' if 'about' in active else ' class="dropdown"'
+    leadership_cls = ' class="current"' if 'leadership' in active else ''
+    village_cls = ' class="current"' if 'village' in active else ''
+    courses_cls = ' class="current"' if 'courses' in active else ''
+    events_cls = ' class="dropdown current"' if 'events' in active else ' class="dropdown"'
+    blog_cls = ' class="current"' if 'blog' in active else ''
+    services_cls = ' class="current"' if 'services' in active else ''
+    donate_cls = ' class="current"' if 'donate' in active else ''
+    social_cls = ' class="current"' if 'social' in active else ''
+    contact_cls = ' class="current"' if 'contact' in active else ''
+    home_cls = ' class="current"' if 'home' in active else ''
+
+    return f'''                                <ul class="navigation clearfix">
+                                    <li{home_cls}><a href="index.html">Home</a></li>
+                                    <li{about_cls}><a href="about.html">About Us</a>
+                                        <ul>
+                                            <li{leadership_cls}><a href="team.html">Leadership</a></li>
+                                        </ul>
+                                    </li>
+                                    <li{village_cls}><a href="causes.html">Our Village</a></li>
+                                    <li{courses_cls}><a href="service.html">Courses</a></li>
+                                    <li{events_cls}><a href="events.html">Events</a>
+                                        <ul>
+                                            <li{blog_cls}><a href="blog.html">Blog</a></li>
+                                            <li{services_cls}><a href="service.html">Services</a></li>
+                                            <li{donate_cls}><a href="causes.html">Donate</a></li>
+                                        </ul>
+                                    </li>
+                                    <li{social_cls}><a href="gallery.html">Social Media</a></li>
+                                    <li{contact_cls}><a href="contact.html">Contact</a></li>
+                                </ul>'''
 
 
 def build_header(filename):
@@ -50,9 +76,9 @@ def build_header(filename):
                     <div class="top-left">
                         <p>World Peace through Individual Peace</p>
                         <ul class="social-links clearfix">
-                            <li><a href="index.html"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="index.html"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="index.html"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.facebook.com/vetham.kuzhumam.1/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://www.instagram.com/vethamkuzhumam/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.youtube.com/@VethamSpiritualGroup" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a></li>
                         </ul>
                     </div>
                     <div class="top-right">
