@@ -30,7 +30,7 @@ export const NAV_ITEMS = [
     children: [
       { path: '/blog', label: 'Blog', key: 'blog' },
       { path: '/courses', label: 'Services', key: 'services' },
-      { path: '/our-village', label: 'Donate', key: 'donate' },
+      { path: '/donate', label: 'Donate', key: 'donate' },
     ],
   },
   { path: '/social-media', label: 'Social Media', key: 'social' },

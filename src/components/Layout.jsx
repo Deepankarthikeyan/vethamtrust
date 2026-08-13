@@ -6,6 +6,7 @@ import Header from './Header';
 import Footer from './Footer';
 import SearchPopup from './SearchPopup';
 import DonatePopup from './DonatePopup';
+import FloatingWidgets from './FloatingWidgets';
 
 export default function Layout() {
   useThemeScripts();
@@ -23,6 +24,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <FloatingWidgets />
       <div className="scroll-to-top">
         <div>
           <div className="scroll-top-inner">

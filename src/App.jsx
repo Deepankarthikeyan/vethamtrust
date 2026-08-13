@@ -12,6 +12,7 @@ const Events = lazy(() => import('./pages/Events'));
 const Blog = lazy(() => import('./pages/Blog'));
 const SocialMedia = lazy(() => import('./pages/SocialMedia'));
 const Contact = lazy(() => import('./pages/Contact'));
+const Donate = lazy(() => import('./pages/Donate'));
 
 function PageLoader() {
   return <div className="sec-pad centred"><div className="spinner" /></div>;
@@ -32,6 +33,7 @@ export default function App() {
             <Route path="blog" element={<Suspense fallback={<PageLoader />}><Blog /></Suspense>} />
             <Route path="social-media" element={<Suspense fallback={<PageLoader />}><SocialMedia /></Suspense>} />
             <Route path="contact" element={<Suspense fallback={<PageLoader />}><Contact /></Suspense>} />
+            <Route path="donate" element={<Suspense fallback={<PageLoader />}><Donate /></Suspense>} />
           </Route>
         </Routes>
       </BrowserRouter>

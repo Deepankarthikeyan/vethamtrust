@@ -1,22 +1,16 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
-import { img } from '../config/images';
+import { GALLERY_FILTERS, GALLERY_ITEMS, gallerySrc } from '../config/gallery';
 import PageTitle from '../components/PageTitle';
-import LazyImage from '../components/LazyImage';
-
-const GALLERY = [
-  { image: 'gallery1', title: 'Spiritual Village', tag: 'Village' },
-  { image: 'gallery2', title: 'Community Gathering', tag: 'Satsang' },
-  { image: 'gallery3', title: 'Yoga Practice', tag: 'Yoga' },
-  { image: 'gallery4', title: 'Meditation Hall', tag: 'Meditation' },
-  { image: 'gallery5', title: 'Construction Progress', tag: 'Village' },
-  { image: 'gallery6', title: 'Spiritual History', tag: 'Heritage' },
-  { image: 'villageAbout', title: 'Village Overview', tag: 'Village' },
-  { image: 'meditationHall', title: 'Meditation Centre', tag: 'Meditation' },
-  { image: 'leader', title: 'Spiritual Leadership', tag: 'Leadership' },
-];
 
 export default function SocialMedia() {
+  const [filter, setFilter] = useState('all');
+
+  const visible = filter === 'all'
+    ? GALLERY_ITEMS
+    : GALLERY_ITEMS.filter((item) => item.cat === filter);
+
   return (
     <>
       <Helmet>
@@ -24,31 +18,51 @@ export default function SocialMedia() {
       </Helmet>
       <PageTitle title="Social Media" crumbs={['Social Media']} />
 
-      <section className="gallery-section sec-pad">
+      <section className="gallery-page-section sec-pad bg-color-1">
         <div className="auto-container">
           <div className="sec-title centred mb_50">
-            <span className="sub-title">Gallery</span>
-            <h2>Moments from Our Spiritual Journey</h2>
+            <span className="sub-title">Photo Gallery</span>
+            <h2>Our Spiritual Journey in Pictures</h2>
           </div>
-          <div className="row clearfix">
-            {GALLERY.map((g) => (
-              <div key={g.title} className="col-lg-4 col-md-6 col-sm-12 gallery-block">
-                <div className="project-block-one">
-                  <div className="inner-box">
-                    <figure className="image-box"><LazyImage src={img(g.image)} alt={g.title} /></figure>
-                    <div className="content-box">
-                      <div className="inner">
-                        <div className="view-btn">
-                          <a href={img(g.image)} className="lightbox-image" data-fancybox="gallery"><i className="icon-12" /></a>
+          <div className="vetham-gallery-filters centred mb_40">
+            {GALLERY_FILTERS.map((f) => (
+              <button
+                key={f.key}
+                type="button"
+                className={`filter-btn${filter === f.key ? ' active' : ''}`}
+                onClick={() => setFilter(f.key)}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+          <div className="items-container row clearfix vetham-gallery-grid">
+            {visible.map((item) => {
+              const src = gallerySrc(item.file);
+              return (
+                <div
+                  key={item.file}
+                  className={`col-lg-4 col-md-6 col-sm-12 gallery-item ${item.cat}`}
+                  data-category={item.cat}
+                >
+                  <div className="project-block-one">
+                    <div className="inner-box">
+                      <figure className="image-box">
+                        <a href={src} data-fancybox="vetham-gallery" data-caption={item.title}>
+                          <img src={src} alt={item.title} loading="lazy" />
+                        </a>
+                      </figure>
+                      <div className="content-box">
+                        <div className="inner">
+                          <h3>{item.title}</h3>
+                          <p>{item.label}</p>
                         </div>
-                        <h3>{g.title}</h3>
-                        <p>{g.tag}</p>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
