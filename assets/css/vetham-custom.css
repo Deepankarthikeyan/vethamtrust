@@ -841,3 +841,9 @@
     max-width: 120px;
   }
 }
+
+/* Hide theme placeholder client logos — not used on vethamspiritualtrust.com */
+.clients-section,
+.clients-logo {
+  display: none !important;
+}
