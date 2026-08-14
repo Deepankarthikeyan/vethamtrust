@@ -66,12 +66,6 @@ export default function BlogSidebar() {
                 onChange={(e) => setSearchInput(e.target.value)}
                 aria-label="Search services"
                 autoComplete="off"
-                style={{
-                  color: '#000000',
-                  caretColor: '#000000',
-                  WebkitTextFillColor: '#000000',
-                  backgroundColor: '#ffffff',
-                }}
               />
               <button type="submit" className="vetham-services-search-btn" aria-label="Submit search">
                 <svg
