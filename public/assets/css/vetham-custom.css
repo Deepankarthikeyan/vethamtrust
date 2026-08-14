@@ -1254,6 +1254,131 @@
   flex: 1;
 }
 
+/* All Services listing page */
+.vetham-services-section.sidebar-page-container {
+  padding: 80px 0 90px;
+}
+
+.vetham-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.vetham-service-card {
+  background: #fff;
+  border: 1px solid #e8e0ea;
+  overflow: hidden;
+}
+
+.vetham-service-card__image {
+  display: block;
+  margin: 0;
+  overflow: hidden;
+}
+
+.vetham-service-card__image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.vetham-service-card:hover .vetham-service-card__image img {
+  transform: scale(1.04);
+}
+
+.vetham-service-card__body {
+  padding: 22px 24px 26px;
+}
+
+.vetham-service-card__body h3 {
+  font-size: 20px;
+  line-height: 1.35;
+  margin: 0 0 8px;
+  color: #322038;
+}
+
+.vetham-service-card__category {
+  display: block;
+  font-size: 14px;
+  color: #5f2c70;
+  margin-bottom: 12px;
+}
+
+.vetham-service-card__body p {
+  margin: 0 0 14px;
+  color: #847988;
+  line-height: 1.62;
+}
+
+.vetham-service-card .btn-box .theme-btn-two {
+  cursor: default;
+}
+
+.vetham-blog-sidebar .post-widget .post {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.vetham-blog-sidebar .post-widget .post-thumb {
+  flex: 0 0 72px;
+  width: 72px;
+  height: 72px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.vetham-blog-sidebar .post-widget .post-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vetham-blog-sidebar .post-widget .post h5 {
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 0 0 6px;
+}
+
+.vetham-blog-sidebar .post-widget .post-date {
+  font-size: 13px;
+  color: #b5afb8;
+}
+
+.vetham-sidebar-banner-widget {
+  margin-bottom: 30px;
+}
+
+.vetham-sidebar-banner {
+  display: block;
+  overflow: hidden;
+}
+
+.vetham-sidebar-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.vetham-blog-sidebar .tags-list .vetham-tag {
+  display: inline-block;
+  padding: 7px 14px;
+  margin: 0 8px 8px 0;
+  border: 1px solid #ded4e1;
+  color: #847988;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+@media only screen and (max-width: 991px) {
+  .vetham-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media only screen and (max-width: 1199px) {
   .sticky-header .main-menu .navigation > li {
     margin: 0 8px;

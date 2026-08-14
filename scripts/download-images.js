@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(__dirname, '../public/assets/images/vetham');
 const GALLERY_OUT = path.join(OUT, 'gallery');
+const SERVICES_OUT = path.join(OUT, 'services');
 const BASE = 'https://vethamspiritualtrust.com/wp-content/uploads';
 
 const IMAGES = {
@@ -40,6 +41,10 @@ const IMAGES = {
   'testimonial-boy.png': `${BASE}/2022/05/boy.png`,
   'testimonial-woman.png': `${BASE}/2022/05/woman.png`,
   'qr-code-vkst-scan.png': 'https://vethamspiritualtrust.com/wp-content/uploads/elementor/thumbs/qr-code-vkst-r9yiuvio85jaduh93cxo9jzyxlu5ugrgl32jta7d9s.jpg',
+  'sidebar-banner.jpg': `${BASE}/2022/03/vetham-spiritual-group-7-410x164.jpg`,
+  'sidebar-post-1.jpg': `${BASE}/2022/03/vetham-spiritual-group-7-120x120.jpg`,
+  'sidebar-post-2.jpg': `${BASE}/2023/04/vetham-spiritual-group-35-120x120.jpg`,
+  'sidebar-post-3.jpg': `${BASE}/2025/08/vetham-spiritual-group-38-120x120.jpg`,
 };
 
 const GALLERY = {
@@ -75,6 +80,25 @@ const GALLERY = {
   'sept-event-2025-4.jpg': `${BASE}/2025/10/sept-event-2025-4.jpg`,
 };
 
+const SERVICES = {
+  'service-yyp.png': `${BASE}/2025/09/vetham-spiritual-group-2-890x664.png`,
+  'service-awareness.png': `${BASE}/2025/09/vetham-spiritual-group-6-890x664.png`,
+  'service-mano-nirvan.png': `${BASE}/2025/09/vetham-spiritual-group-1-e1758956168665.png`,
+  'service-self-realization.png': `${BASE}/2025/09/vetham-spiritual-group-5-e1758918507811.png`,
+  'service-appeasement.png': `${BASE}/2025/09/vetham-spiritual-group-4-e1758956138374.png`,
+  'service-donation.jpg': `${BASE}/2025/08/construction-1-890x664.jpg`,
+  'service-philosophy.jpg': `${BASE}/2025/08/ASR-Ayya-Teacher-890x664.jpg`,
+  'service-meditation.jpg': `${BASE}/2022/03/vetham-spiritual-group-2-890x664.jpg`,
+  'service-ashram.jpg': `${BASE}/2025/08/village_about-890x664.jpg`,
+  'service-simplified-yoga.jpg': `${BASE}/2025/08/vetham-spiritual-group-8-890x664.jpg`,
+  'service-private.jpg': `${BASE}/2022/03/vetham-spiritual-group-10-890x664.jpg`,
+  'service-healing.jpg': `${BASE}/2025/08/vetham-spiritual-group-16-890x664.jpg`,
+  'service-hatha.jpg': `${BASE}/2025/08/vetham-spiritual-group-19-890x664.jpg`,
+  'service-vinyasa.jpg': `${BASE}/2023/04/vetham-spiritual-group-35-890x664.jpg`,
+  'service-kundalini.jpg': `${BASE}/2023/04/vetham-spiritual-group-33-890x664.jpg`,
+  'service-teachings.jpg': `${BASE}/2022/03/vetham-spiritual-group-3-890x664.jpg`,
+};
+
 async function downloadFile(url, dest) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
@@ -99,4 +123,5 @@ async function downloadMap(map, dir) {
 
 await downloadMap(IMAGES, OUT);
 await downloadMap(GALLERY, GALLERY_OUT);
+await downloadMap(SERVICES, SERVICES_OUT);
 console.log('done');

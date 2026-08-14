@@ -1,5 +1,6 @@
 const V = '/assets/images/vetham';
 const G = `${V}/gallery`;
+const S = `${V}/services`;
 
 const catalog = {
   logo: [`${V}/logo.png`],
@@ -42,6 +43,26 @@ const catalog = {
   galleryPreview2: [`${G}/foundation-course-2-scaled.jpg`],
   galleryPreview3: [`${G}/event-photos-1-scaled.jpg`],
   galleryPreview4: [`${G}/event-photos-4-scaled.jpg`],
+  serviceYyp: [`${S}/service-yyp.png`],
+  serviceAwareness: [`${S}/service-awareness.png`],
+  serviceManoNirvan: [`${S}/service-mano-nirvan.png`],
+  serviceSelfRealization: [`${S}/service-self-realization.png`],
+  serviceAppeasement: [`${S}/service-appeasement.png`],
+  serviceDonation: [`${S}/service-donation.jpg`],
+  servicePhilosophy: [`${S}/service-philosophy.jpg`],
+  serviceMeditation: [`${S}/service-meditation.jpg`],
+  serviceAshram: [`${S}/service-ashram.jpg`],
+  serviceSimplifiedYoga: [`${S}/service-simplified-yoga.jpg`],
+  servicePrivate: [`${S}/service-private.jpg`],
+  serviceHealing: [`${S}/service-healing.jpg`],
+  serviceHatha: [`${S}/service-hatha.jpg`],
+  serviceVinyasa: [`${S}/service-vinyasa.jpg`],
+  serviceKundalini: [`${S}/service-kundalini.jpg`],
+  serviceTeachings: [`${S}/service-teachings.jpg`],
+  sidebarBanner: [`${V}/sidebar-banner.jpg`],
+  sidebarPost1: [`${V}/sidebar-post-1.jpg`],
+  sidebarPost2: [`${V}/sidebar-post-2.jpg`],
+  sidebarPost3: [`${V}/sidebar-post-3.jpg`],
 };
 
 export function img(key) {

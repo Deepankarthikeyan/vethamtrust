@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
 import {
@@ -17,16 +17,12 @@ import PageTitle from '../components/PageTitle';
 import LazyImage from '../components/LazyImage';
 
 export default function Courses() {
-  const { pathname } = useLocation();
-  const isServices = pathname === '/services';
-  const pageTitle = isServices ? 'Services' : 'Courses';
-
   return (
     <>
       <Helmet>
-        <title>{pageTitle} – {SITE.name}</title>
+        <title>Courses – {SITE.name}</title>
       </Helmet>
-      <PageTitle title={pageTitle} crumbs={[pageTitle]} />
+      <PageTitle title="Courses" crumbs={['Courses']} />
 
       <section className="about-section sec-pad">
         <div className="auto-container">

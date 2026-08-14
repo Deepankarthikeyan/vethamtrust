@@ -8,7 +8,7 @@ export const UPCOMING_EVENTS = [
       'Join our free online yoga courses. Classes are held 3 days a week (Monday, Wednesday, Friday).',
     tamil:
       'இந்த பயிற்சி புதிய அன்பர்களுக்கான பயிற்சி. விருப்பமுள்ள அன்பர்கள் google form fill பண்ணுங்கள்.',
-    cta: { label: 'View Course Schedule', path: '/services' },
+    cta: { label: 'View Course Schedule', path: '/courses' },
     icon: 'icon-8',
     accent: '#C45A1A',
   },

@@ -7,6 +7,7 @@ const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const OurVillage = lazy(() => import('./pages/OurVillage'));
 const Courses = lazy(() => import('./pages/Courses'));
+const Services = lazy(() => import('./pages/Services'));
 const Leadership = lazy(() => import('./pages/Leadership'));
 const Events = lazy(() => import('./pages/Events'));
 const Blog = lazy(() => import('./pages/Blog'));
@@ -28,7 +29,8 @@ export default function App() {
             <Route path="about" element={<Suspense fallback={<PageLoader />}><About /></Suspense>} />
             <Route path="our-village" element={<Suspense fallback={<PageLoader />}><OurVillage /></Suspense>} />
             <Route path="courses" element={<Suspense fallback={<PageLoader />}><Courses /></Suspense>} />
-            <Route path="services" element={<Suspense fallback={<PageLoader />}><Courses /></Suspense>} />
+            <Route path="services" element={<Suspense fallback={<PageLoader />}><Services /></Suspense>} />
+            <Route path="services/page/:pageNum" element={<Suspense fallback={<PageLoader />}><Services /></Suspense>} />
             <Route path="leadership" element={<Suspense fallback={<PageLoader />}><Leadership /></Suspense>} />
             <Route path="events" element={<Suspense fallback={<PageLoader />}><Events /></Suspense>} />
             <Route path="blog" element={<Suspense fallback={<PageLoader />}><Blog /></Suspense>} />
