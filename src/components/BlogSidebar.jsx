@@ -57,13 +57,21 @@ export default function BlogSidebar() {
           <form onSubmit={handleSearchSubmit}>
             <div className="form-group">
               <input
-                type="search"
+                type="text"
+                role="searchbox"
                 name="search-field"
-                className="vetham-sidebar-search-input"
+                className="vetham-services-search-input"
                 placeholder="Search ..."
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 aria-label="Search services"
+                autoComplete="off"
+                style={{
+                  color: '#000000',
+                  caretColor: '#000000',
+                  WebkitTextFillColor: '#000000',
+                  backgroundColor: '#ffffff',
+                }}
               />
               <button type="submit" aria-label="Submit search">
                 <i className="icon-1" />

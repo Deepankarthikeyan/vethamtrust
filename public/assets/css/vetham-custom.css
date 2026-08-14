@@ -1323,37 +1323,49 @@
   object-fit: cover;
 }
 
-.vetham-blog-sidebar .search-widget .form-group input[type='search'],
-.vetham-blog-sidebar .search-widget .vetham-sidebar-search-input {
+/* Services page sidebar search – black visible typing cursor */
+.vetham-services-section .vetham-services-search-input,
+.vetham-services-section .search-widget .form-group input.vetham-services-search-input {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 70px;
+  padding: 10px 60px 10px 30px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
   cursor: text !important;
   color: #000 !important;
   -webkit-text-fill-color: #000 !important;
   caret-color: #000 !important;
   background-color: #fff !important;
-  color-scheme: light;
+  color-scheme: only light;
+  accent-color: #000;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: all 500ms ease;
 }
 
-.vetham-blog-sidebar .search-widget .form-group input[type='search']::placeholder,
-.vetham-blog-sidebar .search-widget .vetham-sidebar-search-input::placeholder {
-  color: #333 !important;
+.vetham-services-section .vetham-services-search-input::placeholder {
+  color: #666 !important;
   opacity: 1;
 }
 
-.vetham-blog-sidebar .search-widget .form-group input[type='search']:hover,
-.vetham-blog-sidebar .search-widget .form-group input[type='search']:focus,
-.vetham-blog-sidebar .search-widget .vetham-sidebar-search-input:hover,
-.vetham-blog-sidebar .search-widget .vetham-sidebar-search-input:focus {
-  cursor: text !important;
+.vetham-services-section .vetham-services-search-input:hover,
+.vetham-services-section .vetham-services-search-input:focus,
+.vetham-services-section .vetham-services-search-input:active {
   color: #000 !important;
   -webkit-text-fill-color: #000 !important;
   caret-color: #000 !important;
   background-color: #fff !important;
-  outline: none;
   border-color: #322038 !important;
+  outline: none;
+  box-shadow: none;
 }
 
-.vetham-blog-sidebar .search-widget .form-group input[type='search']:-webkit-autofill,
-.vetham-blog-sidebar .search-widget .vetham-sidebar-search-input:-webkit-autofill {
+.vetham-services-section .vetham-services-search-input:-webkit-autofill,
+.vetham-services-section .vetham-services-search-input:-webkit-autofill:focus {
   -webkit-text-fill-color: #000 !important;
   caret-color: #000 !important;
   box-shadow: 0 0 0 1000px #fff inset !important;
