@@ -29,7 +29,7 @@ export const NAV_ITEMS = [
     key: 'events',
     children: [
       { path: '/blog', label: 'Blog', key: 'blog' },
-      { path: '/courses', label: 'Services', key: 'services' },
+      { path: '/services', label: 'Services', key: 'services' },
       { path: '/donate', label: 'Donate', key: 'donate' },
     ],
   },

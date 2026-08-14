@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { SITE, NAV_ITEMS } from '../config/site';
 import { img } from '../config/images';
@@ -23,16 +24,24 @@ function childClass(pathname, child) {
 export default function Header() {
   const { pathname } = useLocation();
 
+  useEffect(() => {
+    document.body.classList.remove('mobile-menu-visible');
+  }, [pathname]);
+
+  const closeMobileMenu = () => {
+    document.body.classList.remove('mobile-menu-visible');
+  };
+
   const navigation = (
     <ul className="navigation clearfix">
       {NAV_ITEMS.map((item) => (
         <li key={item.key} className={navClass(pathname, item)}>
-          <Link to={item.path}>{item.label}</Link>
+          <Link to={item.path} onClick={closeMobileMenu}>{item.label}</Link>
           {item.children && (
             <ul>
               {item.children.map((child) => (
                 <li key={child.key} className={childClass(pathname, child)}>
-                  <Link to={child.path}>{child.label}</Link>
+                  <Link to={child.path} onClick={closeMobileMenu}>{child.label}</Link>
                 </li>
               ))}
             </ul>

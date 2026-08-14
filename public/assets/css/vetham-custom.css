@@ -868,6 +868,115 @@
   display: inline-block;
 }
 
+/* Events page cards */
+.vetham-events-empty-note {
+  color: #777;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.vetham-event-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 28px 32px;
+  margin-bottom: 30px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid var(--event-accent, #C45A1A);
+  height: 100%;
+}
+
+.vetham-event-card-past {
+  background: linear-gradient(135deg, #fff 0%, #faf6f2 100%);
+}
+
+.vetham-event-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.vetham-event-badge {
+  display: inline-block;
+  background: var(--event-accent, #C45A1A);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.vetham-event-badge-past {
+  background: #777;
+}
+
+.vetham-event-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(196, 90, 26, 0.1);
+  color: var(--event-accent, #C45A1A);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.vetham-event-card h3 {
+  font-size: 22px;
+  line-height: 1.35;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.vetham-event-period {
+  color: var(--event-accent, #C45A1A);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.vetham-event-card p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.vetham-event-tamil {
+  background: #faf6f2;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.vetham-ashram-hours {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Dropdown submenu links must stay clickable above parent */
+.main-menu .navigation > li.dropdown > ul {
+  z-index: 999;
+}
+
+.main-menu .navigation > li.dropdown > ul li a {
+  position: relative;
+  z-index: 2;
+  display: block;
+}
+
+.main-menu .navigation > li.dropdown .dropdown-btn {
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .main-menu .navigation > li.dropdown .dropdown-btn {
+    pointer-events: auto;
+  }
+}
+
 /* Sticky header: keep donate button and full nav (including Contact) visible */
 .sticky-header .outer-box {
   display: flex;

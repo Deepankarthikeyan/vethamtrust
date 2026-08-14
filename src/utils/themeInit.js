@@ -159,6 +159,10 @@ export function setupMobileMenu() {
   $('.mobile-menu .menu-box .menu-outer').append(mobileMenuContent);
   $('.sticky-header .main-menu').empty().append($('.main-header .menu-area .main-menu .navigation').clone());
 
+  $('.mobile-menu .menu-outer a').off('click.vethamNav').on('click.vethamNav', () => {
+    $('body').removeClass('mobile-menu-visible');
+  });
+
   $('.main-header .navigation li.dropdown').each(function each() {
     if (!$(this).children('.dropdown-btn').length) {
       $(this).append('<div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>');

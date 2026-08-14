@@ -28,6 +28,7 @@ export default function App() {
             <Route path="about" element={<Suspense fallback={<PageLoader />}><About /></Suspense>} />
             <Route path="our-village" element={<Suspense fallback={<PageLoader />}><OurVillage /></Suspense>} />
             <Route path="courses" element={<Suspense fallback={<PageLoader />}><Courses /></Suspense>} />
+            <Route path="services" element={<Suspense fallback={<PageLoader />}><Courses /></Suspense>} />
             <Route path="leadership" element={<Suspense fallback={<PageLoader />}><Leadership /></Suspense>} />
             <Route path="events" element={<Suspense fallback={<PageLoader />}><Events /></Suspense>} />
             <Route path="blog" element={<Suspense fallback={<PageLoader />}><Blog /></Suspense>} />

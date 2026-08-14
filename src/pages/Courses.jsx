@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
 import PageTitle from '../components/PageTitle';
@@ -13,12 +13,15 @@ const COURSES = [
 ];
 
 export default function Courses() {
+  const { pathname } = useLocation();
+  const isServices = pathname === '/services';
+
   return (
     <>
       <Helmet>
-        <title>Courses & Services – {SITE.name}</title>
+        <title>{isServices ? 'Services' : 'Courses'} – {SITE.name}</title>
       </Helmet>
-      <PageTitle title="Courses" crumbs={['Courses']} />
+      <PageTitle title={isServices ? 'Services' : 'Courses'} crumbs={[isServices ? 'Services' : 'Courses']} />
 
       <section className="service-section sec-pad bg-color-1 centred">
         <div className="auto-container">
