@@ -32,7 +32,21 @@
   </style>
 </head>
 <body>
+  <div class="gtranslate_wrapper vetham-gtranslate-host" id="gt-wrapper-vetham" aria-hidden="true"></div>
   <div id="root"></div>
+  <script>
+    window.gtranslateSettings = window.gtranslateSettings || {};
+    window.gtranslateSettings.vetham = {
+      default_language: 'en',
+      languages: ['en', 'fr', 'de', 'hi', 'kn', 'ml', 'pt', 'es', 'ta', 'te'],
+      url_structure: 'none',
+      native_language_names: 1,
+      wrapper_selector: '#gt-wrapper-vetham',
+      horizontal_position: 'inline',
+      flags_location: 'https://cdn.gtranslate.net/flags/',
+    };
+  </script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/base.js" data-gt-widget-id="vetham" defer></script>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
