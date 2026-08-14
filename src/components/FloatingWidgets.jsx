@@ -1,5 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { img } from '../config/images';
+import {
+  getCurrentLanguageCode,
+  installGTranslate,
+  LANGUAGES,
+  setLanguage,
+} from '../config/languages';
 
 const WHATSAPP_GROUP = 'https://chat.whatsapp.com/EQuPUtcPzEdIZVlT8JyyNw';
 const RAZORPAY_URL = 'https://rzp.io/rzp/vethamspiritualtrust';
@@ -8,6 +14,7 @@ const UPI_ID = '6515433630@indianbk';
 export default function FloatingWidgets() {
   const [activePanel, setActivePanel] = useState(null);
   const [qrFullscreen, setQrFullscreen] = useState(false);
+  const [currentLang, setCurrentLang] = useState('en');
 
   const closeAll = useCallback(() => {
     setActivePanel(null);
@@ -15,24 +22,9 @@ export default function FloatingWidgets() {
   }, []);
 
   useEffect(() => {
-    window.gtranslateSettings = window.gtranslateSettings || {};
-    window.gtranslateSettings.vetham = {
-      default_language: 'en',
-      languages: ['en', 'fr', 'de', 'hi', 'kn', 'ml', 'pt', 'es', 'ta', 'te'],
-      url_structure: 'none',
-      native_language_names: 1,
-      wrapper_selector: '#gt-wrapper-vetham',
-      horizontal_position: 'inline',
-      flags_location: 'https://cdn.gtranslate.net/flags/',
-    };
-
-    if (!document.querySelector('script[data-gt-widget-id="vetham"]')) {
-      const script = document.createElement('script');
-      script.src = 'https://cdn.gtranslate.net/widgets/latest/base.js';
-      script.setAttribute('data-gt-widget-id', 'vetham');
-      script.defer = true;
-      document.body.appendChild(script);
-    }
+    installGTranslate().then(() => {
+      setCurrentLang(getCurrentLanguageCode());
+    });
   }, []);
 
   useEffect(() => {
@@ -46,6 +38,12 @@ export default function FloatingWidgets() {
   const togglePanel = (name) => {
     setActivePanel((prev) => (prev === name ? null : name));
     setQrFullscreen(false);
+  };
+
+  const handleLanguageSelect = (code) => {
+    setLanguage(code);
+    setCurrentLang(code);
+    closeAll();
   };
 
   return (
@@ -95,22 +93,34 @@ export default function FloatingWidgets() {
       )}
 
       <div
-        className="vetham-fab-panel vetham-fab-panel-language"
+        className={`vetham-fab-panel vetham-fab-panel-language${activePanel === 'language' ? ' is-open' : ''}`}
         id="vetham-panel-language"
-        hidden={activePanel !== 'language'}
+        aria-hidden={activePanel !== 'language'}
       >
         <button type="button" className="vetham-fab-panel-close" onClick={closeAll} aria-label="Close">
           &times;
         </button>
         <h4>Choose Language</h4>
         <p className="vetham-fab-panel-sub">Click for language translation</p>
-        <div className="gtranslate_wrapper" id="gt-wrapper-vetham" />
+        <ul className="vetham-language-list">
+          {LANGUAGES.map((lang) => (
+            <li key={lang.code}>
+              <button
+                type="button"
+                className={`vetham-language-option${currentLang === lang.code ? ' is-active' : ''}`}
+                onClick={() => handleLanguageSelect(lang.code)}
+              >
+                {lang.label}
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div
-        className="vetham-fab-panel vetham-fab-panel-donate"
+        className={`vetham-fab-panel vetham-fab-panel-donate${activePanel === 'donate' ? ' is-open' : ''}`}
         id="vetham-panel-donate"
-        hidden={activePanel !== 'donate'}
+        aria-hidden={activePanel !== 'donate'}
       >
         <button type="button" className="vetham-fab-panel-close" onClick={closeAll} aria-label="Close">
           &times;
