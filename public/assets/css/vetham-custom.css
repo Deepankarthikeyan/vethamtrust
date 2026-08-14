@@ -1371,6 +1371,34 @@
   box-shadow: 0 0 0 1000px #fff inset !important;
 }
 
+.vetham-services-section .vetham-services-search-btn {
+  position: absolute;
+  top: 22px;
+  right: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #000 !important;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.vetham-services-section .vetham-services-search-icon {
+  display: block;
+  color: #000;
+}
+
+.vetham-services-section .vetham-services-search-btn:hover,
+.vetham-services-section .vetham-services-search-btn:focus,
+.vetham-services-section .vetham-services-search-input:focus + .vetham-services-search-btn {
+  color: #322038 !important;
+}
+
 .vetham-blog-sidebar .search-widget .form-group button {
   cursor: pointer;
   color: #000;

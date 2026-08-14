@@ -73,8 +73,17 @@ export default function BlogSidebar() {
                   backgroundColor: '#ffffff',
                 }}
               />
-              <button type="submit" aria-label="Submit search">
-                <i className="icon-1" />
+              <button type="submit" className="vetham-services-search-btn" aria-label="Submit search">
+                <svg
+                  className="vetham-services-search-icon"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                >
+                  <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" strokeWidth="2" />
+                  <path d="M16 16L21 21" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
               </button>
             </div>
           </form>
