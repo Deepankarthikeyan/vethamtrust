@@ -4,6 +4,7 @@ import {
   getCurrentLanguageCode,
   installGTranslate,
   LANGUAGES,
+  preserveLanguageLabels,
   setLanguage,
 } from '../config/languages';
 
@@ -27,6 +28,14 @@ export default function FloatingWidgets() {
       setCurrentLang(getCurrentLanguageCode());
     });
   }, []);
+
+  useEffect(() => {
+    if (activePanel !== 'language') return undefined;
+
+    preserveLanguageLabels();
+    const timer = setInterval(preserveLanguageLabels, 300);
+    return () => clearInterval(timer);
+  }, [activePanel, currentLang, translating]);
 
   useEffect(() => {
     const onKey = (e) => {
@@ -104,9 +113,10 @@ export default function FloatingWidgets() {
       )}
 
       <div
-        className={`vetham-fab-panel vetham-fab-panel-language${activePanel === 'language' ? ' is-open' : ''}`}
+        className={`vetham-fab-panel vetham-fab-panel-language notranslate${activePanel === 'language' ? ' is-open' : ''}`}
         id="vetham-panel-language"
         aria-hidden={activePanel !== 'language'}
+        translate="no"
       >
         <button type="button" className="vetham-fab-panel-close" onClick={closeAll} aria-label="Close">
           &times;
@@ -115,16 +125,19 @@ export default function FloatingWidgets() {
         <p className="vetham-fab-panel-sub">
           {translating ? 'Translating…' : 'Click for language translation'}
         </p>
-        <ul className={`vetham-language-list${translating ? ' is-busy' : ''}`}>
+        <ul className={`vetham-language-list${translating ? ' is-busy' : ''}`} aria-label="Available languages">
           {LANGUAGES.map((lang) => (
             <li key={lang.code}>
               <button
                 type="button"
-                className={`vetham-language-option${currentLang === lang.code ? ' is-active' : ''}`}
+                className={`vetham-language-option notranslate${currentLang === lang.code ? ' is-active' : ''}`}
                 onClick={() => handleLanguageSelect(lang.code)}
                 disabled={translating}
+                lang={lang.code}
+                translate="no"
+                data-lang={lang.code}
               >
-                {lang.label}
+                <span className="vetham-language-label">{lang.label}</span>
               </button>
             </li>
           ))}

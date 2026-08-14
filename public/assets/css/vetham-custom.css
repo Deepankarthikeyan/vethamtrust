@@ -470,6 +470,11 @@
   border: 0;
 }
 
+.vetham-fab-panel-language {
+  width: 300px;
+  max-height: min(520px, calc(100vh - 120px));
+}
+
 .vetham-language-list {
   list-style: none;
   margin: 0;
@@ -482,6 +487,7 @@
 
 .vetham-language-option {
   width: 100%;
+  min-height: 44px;
   border: 1px solid #ded4e1;
   border-radius: 8px;
   background: #fff;
@@ -492,6 +498,17 @@
   cursor: pointer;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.vetham-language-label {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .vetham-language-option:hover {

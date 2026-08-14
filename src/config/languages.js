@@ -105,12 +105,20 @@ function preloadTranslateEngine() {
 function applyTranslation(lang) {
   const pair = lang === 'en' ? 'en|en' : `en|${lang}`;
 
+  const run = () => {
+    if (typeof window.doGTranslate !== 'function') return Promise.resolve();
+    window.doGTranslate(pair);
+    preserveLanguageLabels();
+    return wait(TRANSLATE_APPLY_DELAY_MS);
+  };
+
   return waitForDoGTranslate()
     .then(() => preloadTranslateEngine())
+    .then(run)
+    .then(() => wait(450))
+    .then(run)
     .then(() => {
-      if (typeof window.doGTranslate !== 'function') return;
-      window.doGTranslate(pair);
-      return wait(TRANSLATE_APPLY_DELAY_MS);
+      preserveLanguageLabels();
     });
 }
 
@@ -124,8 +132,23 @@ function restoreEnglish() {
       writeGoogTransCookie('');
       document.documentElement.classList.remove('translated-ltr', 'translated-rtl');
       document.documentElement.lang = 'en';
+      preserveLanguageLabels();
       return wait(TRANSLATE_APPLY_DELAY_MS);
+    })
+    .then(() => {
+      preserveLanguageLabels();
     });
+}
+
+export function preserveLanguageLabels() {
+  if (typeof document === 'undefined') return;
+
+  LANGUAGES.forEach(({ code, label }) => {
+    const labelNode = document.querySelector(`[data-lang="${code}"] .vetham-language-label`);
+    if (labelNode && labelNode.textContent !== label) {
+      labelNode.textContent = label;
+    }
+  });
 }
 
 export function setLanguage(code) {
