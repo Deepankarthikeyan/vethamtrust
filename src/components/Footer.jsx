@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom';
 import { SITE } from '../config/site';
 import { img } from '../config/images';
-import { useGTranslate } from '../hooks/useGTranslate';
 import LazyImage from './LazyImage';
 
 export default function Footer() {
-  useGTranslate('footer', '#gt-wrapper-footer');
   return (
     <footer className="main-footer">
       <div className="auto-container">
@@ -43,10 +41,6 @@ export default function Footer() {
                 <div className="widget-title"><h3>Address</h3></div>
                 <div className="text">
                   <p>{SITE.address}</p>
-                </div>
-                <div className="language-widget footer-widget vetham-footer-language">
-                  <h4 className="vetham-footer-language-title">Click for language translation</h4>
-                  <div className="gtranslate_wrapper" id="gt-wrapper-footer" />
                 </div>
               </div>
             </div>

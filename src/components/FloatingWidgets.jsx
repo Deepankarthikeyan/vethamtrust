@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 import { img } from '../config/images';
-import { useGTranslate } from '../hooks/useGTranslate';
 
 const WHATSAPP_GROUP = 'https://chat.whatsapp.com/EQuPUtcPzEdIZVlT8JyyNw';
 const RAZORPAY_URL = 'https://rzp.io/rzp/vethamspiritualtrust';
@@ -15,7 +14,26 @@ export default function FloatingWidgets() {
     setQrFullscreen(false);
   }, []);
 
-  useGTranslate('vetham', '#gt-wrapper-vetham');
+  useEffect(() => {
+    window.gtranslateSettings = window.gtranslateSettings || {};
+    window.gtranslateSettings.vetham = {
+      default_language: 'en',
+      languages: ['en', 'fr', 'de', 'hi', 'kn', 'ml', 'pt', 'es', 'ta', 'te'],
+      url_structure: 'none',
+      native_language_names: 1,
+      wrapper_selector: '#gt-wrapper-vetham',
+      horizontal_position: 'inline',
+      flags_location: 'https://cdn.gtranslate.net/flags/',
+    };
+
+    if (!document.querySelector('script[data-gt-widget-id="vetham"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.gtranslate.net/widgets/latest/base.js';
+      script.setAttribute('data-gt-widget-id', 'vetham');
+      script.defer = true;
+      document.body.appendChild(script);
+    }
+  }, []);
 
   useEffect(() => {
     const onKey = (e) => {
