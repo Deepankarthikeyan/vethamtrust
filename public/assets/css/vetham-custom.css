@@ -1323,6 +1323,33 @@
   object-fit: cover;
 }
 
+.vetham-blog-sidebar .search-widget .form-group input[type='search'] {
+  cursor: text;
+  color: #000;
+  caret-color: #000;
+}
+
+.vetham-blog-sidebar .search-widget .form-group input[type='search']::placeholder {
+  color: #333;
+  opacity: 1;
+}
+
+.vetham-blog-sidebar .search-widget .form-group input[type='search']:hover,
+.vetham-blog-sidebar .search-widget .form-group input[type='search']:focus {
+  cursor: text;
+  color: #000;
+  caret-color: #000;
+}
+
+.vetham-blog-sidebar .search-widget .form-group button {
+  cursor: pointer;
+  color: #000;
+}
+
+.vetham-blog-sidebar .search-widget .form-group button:hover {
+  color: #322038;
+}
+
 .vetham-sidebar-active-filters {
   margin-bottom: 24px;
 }
