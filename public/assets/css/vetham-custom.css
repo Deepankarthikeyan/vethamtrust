@@ -507,6 +507,15 @@
   font-weight: 600;
 }
 
+.vetham-language-list.is-busy {
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.vetham-language-option:disabled {
+  cursor: wait;
+}
+
 .vetham-fab-panel-language .gtranslate_wrapper {
   display: flex;
   flex-wrap: wrap;

@@ -15,6 +15,7 @@ export default function FloatingWidgets() {
   const [activePanel, setActivePanel] = useState(null);
   const [qrFullscreen, setQrFullscreen] = useState(false);
   const [currentLang, setCurrentLang] = useState('en');
+  const [translating, setTranslating] = useState(false);
 
   const closeAll = useCallback(() => {
     setActivePanel(null);
@@ -40,10 +41,20 @@ export default function FloatingWidgets() {
     setQrFullscreen(false);
   };
 
-  const handleLanguageSelect = (code) => {
-    setLanguage(code);
-    setCurrentLang(code);
-    closeAll();
+  const handleLanguageSelect = async (code) => {
+    if (code === currentLang || translating) {
+      if (code === currentLang) closeAll();
+      return;
+    }
+
+    setTranslating(true);
+    try {
+      await setLanguage(code);
+      setCurrentLang(code);
+      closeAll();
+    } finally {
+      setTranslating(false);
+    }
   };
 
   return (
@@ -101,14 +112,17 @@ export default function FloatingWidgets() {
           &times;
         </button>
         <h4>Choose Language</h4>
-        <p className="vetham-fab-panel-sub">Click for language translation</p>
-        <ul className="vetham-language-list">
+        <p className="vetham-fab-panel-sub">
+          {translating ? 'Translating…' : 'Click for language translation'}
+        </p>
+        <ul className={`vetham-language-list${translating ? ' is-busy' : ''}`}>
           {LANGUAGES.map((lang) => (
             <li key={lang.code}>
               <button
                 type="button"
                 className={`vetham-language-option${currentLang === lang.code ? ' is-active' : ''}`}
                 onClick={() => handleLanguageSelect(lang.code)}
+                disabled={translating}
               >
                 {lang.label}
               </button>

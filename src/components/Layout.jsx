@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useThemeScripts } from '../hooks/useThemeScripts';
+import { useLanguageRetranslate } from '../hooks/useLanguageRetranslate';
 import Preloader from './Preloader';
 import Header from './Header';
 import Footer from './Footer';
@@ -10,6 +11,7 @@ import FloatingWidgets from './FloatingWidgets';
 
 export default function Layout() {
   useThemeScripts();
+  useLanguageRetranslate();
 
   return (
     <div className="boxed_wrapper">

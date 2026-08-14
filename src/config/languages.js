@@ -11,6 +11,9 @@ export const LANGUAGES = [
   { code: 'te', label: 'తెలుగు' },
 ];
 
+const TRANSLATE_READY_TIMEOUT_MS = 10000;
+const TRANSLATE_APPLY_DELAY_MS = 350;
+
 export function getCurrentLanguageCode() {
   if (typeof document === 'undefined') return 'en';
 
@@ -42,25 +45,109 @@ function writeGoogTransCookie(value) {
   }
 }
 
-export function setLanguage(code) {
-  const lang = LANGUAGES.some((item) => item.code === code) ? code : 'en';
-  const cookieValue = lang === 'en' ? '' : `/en/${lang}`;
+function wait(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
 
-  writeGoogTransCookie(cookieValue);
+function waitForDoGTranslate() {
+  return new Promise((resolve) => {
+    const started = Date.now();
+    const check = () => {
+      if (typeof window.doGTranslate === 'function') {
+        resolve();
+        return;
+      }
+      if (Date.now() - started > TRANSLATE_READY_TIMEOUT_MS) {
+        resolve();
+        return;
+      }
+      setTimeout(check, 50);
+    };
+    check();
+  });
+}
 
-  const pair = lang === 'en' ? 'en|en' : `en|${lang}`;
-  if (typeof window.doGTranslate === 'function') {
-    window.doGTranslate(pair);
+function isTranslateComboReady() {
+  const combo = document.querySelector('select.goog-te-combo');
+  return Boolean(combo && combo.options.length > 0);
+}
+
+function preloadTranslateEngine() {
+  if (isTranslateComboReady()) {
+    return Promise.resolve();
   }
 
-  window.location.reload();
+  if (!window.gt_translate_script && typeof window.googleTranslateElementInit2 === 'function') {
+    window.gt_translate_script = document.createElement('script');
+    window.gt_translate_script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2';
+    document.body.appendChild(window.gt_translate_script);
+  }
+
+  return new Promise((resolve) => {
+    const started = Date.now();
+    const check = () => {
+      if (isTranslateComboReady()) {
+        resolve();
+        return;
+      }
+      if (Date.now() - started > TRANSLATE_READY_TIMEOUT_MS) {
+        resolve();
+        return;
+      }
+      setTimeout(check, 100);
+    };
+    check();
+  });
+}
+
+function applyTranslation(lang) {
+  const pair = lang === 'en' ? 'en|en' : `en|${lang}`;
+
+  return waitForDoGTranslate()
+    .then(() => preloadTranslateEngine())
+    .then(() => {
+      if (typeof window.doGTranslate !== 'function') return;
+      window.doGTranslate(pair);
+      return wait(TRANSLATE_APPLY_DELAY_MS);
+    });
+}
+
+function restoreEnglish() {
+  return waitForDoGTranslate()
+    .then(() => preloadTranslateEngine())
+    .then(() => {
+      if (typeof window.doGTranslate === 'function' && getCurrentLanguageCode() !== 'en') {
+        window.doGTranslate('en|en');
+      }
+      writeGoogTransCookie('');
+      document.documentElement.classList.remove('translated-ltr', 'translated-rtl');
+      document.documentElement.lang = 'en';
+      return wait(TRANSLATE_APPLY_DELAY_MS);
+    });
+}
+
+export function setLanguage(code) {
+  const lang = LANGUAGES.some((item) => item.code === code) ? code : 'en';
+
+  if (lang === 'en') {
+    return restoreEnglish();
+  }
+
+  writeGoogTransCookie(`/en/${lang}`);
+  return applyTranslation(lang);
+}
+
+export function reapplyTranslation() {
+  return applyTranslation(getCurrentLanguageCode());
 }
 
 export function installGTranslate() {
   window.gtranslateSettings = window.gtranslateSettings || {};
   window.gtranslateSettings.vetham = {
     default_language: 'en',
-    languages: LANGUAGES.map((lang) => lang.code),
+    languages: LANGUAGES.map((item) => item.code),
     url_structure: 'none',
     native_language_names: 1,
     wrapper_selector: '#gt-wrapper-vetham',
@@ -68,17 +155,26 @@ export function installGTranslate() {
     flags_location: 'https://cdn.gtranslate.net/flags/',
   };
 
-  if (document.querySelector('script[data-gt-widget-id="vetham"]')) {
-    return Promise.resolve();
-  }
+  const existingScript = document.querySelector('script[data-gt-widget-id="vetham"]');
+  const scriptReady = existingScript
+    ? waitForDoGTranslate()
+    : new Promise((resolve) => {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.gtranslate.net/widgets/latest/base.js';
+        script.setAttribute('data-gt-widget-id', 'vetham');
+        script.defer = true;
+        script.onload = () => resolve();
+        script.onerror = () => resolve();
+        document.body.appendChild(script);
+      }).then(() => waitForDoGTranslate());
 
-  return new Promise((resolve) => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.gtranslate.net/widgets/latest/base.js';
-    script.setAttribute('data-gt-widget-id', 'vetham');
-    script.defer = true;
-    script.onload = () => resolve();
-    script.onerror = () => resolve();
-    document.body.appendChild(script);
-  });
+  return scriptReady
+    .then(() => preloadTranslateEngine())
+    .then(() => {
+      const lang = getCurrentLanguageCode();
+      if (lang !== 'en') {
+        return applyTranslation(lang);
+      }
+      return undefined;
+    });
 }
