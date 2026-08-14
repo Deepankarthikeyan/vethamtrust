@@ -6,6 +6,7 @@ import {
   LANGUAGES,
   preserveLanguageLabels,
   setLanguage,
+  syncUiLanguageAttribute,
 } from '../config/languages';
 
 const WHATSAPP_GROUP = 'https://chat.whatsapp.com/EQuPUtcPzEdIZVlT8JyyNw';
@@ -25,7 +26,9 @@ export default function FloatingWidgets() {
 
   useEffect(() => {
     installGTranslate().then(() => {
-      setCurrentLang(getCurrentLanguageCode());
+      const lang = getCurrentLanguageCode();
+      syncUiLanguageAttribute(lang);
+      setCurrentLang(lang);
     });
   }, []);
 

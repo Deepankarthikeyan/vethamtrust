@@ -30,6 +30,11 @@ export function getCurrentLanguageCode() {
   return lang && lang !== 'auto' ? lang : 'en';
 }
 
+export function syncUiLanguageAttribute(lang = getCurrentLanguageCode()) {
+  if (typeof document === 'undefined') return;
+  document.documentElement.dataset.uiLang = lang;
+}
+
 function writeGoogTransCookie(value) {
   const expires = value
     ? `;expires=${new Date(Date.now() + 365 * 864e5).toUTCString()}`
@@ -133,6 +138,7 @@ function restoreEnglish() {
       document.documentElement.classList.remove('translated-ltr', 'translated-rtl');
       document.documentElement.lang = 'en';
       preserveLanguageLabels();
+      syncUiLanguageAttribute('en');
       return wait(TRANSLATE_APPLY_DELAY_MS);
     })
     .then(() => {
@@ -155,11 +161,16 @@ export function setLanguage(code) {
   const lang = LANGUAGES.some((item) => item.code === code) ? code : 'en';
 
   if (lang === 'en') {
-    return restoreEnglish();
+    return restoreEnglish().then(() => {
+      syncUiLanguageAttribute('en');
+    });
   }
 
+  syncUiLanguageAttribute(lang);
   writeGoogTransCookie(`/en/${lang}`);
-  return applyTranslation(lang);
+  return applyTranslation(lang).then(() => {
+    syncUiLanguageAttribute(lang);
+  });
 }
 
 export function reapplyTranslation() {
@@ -195,6 +206,7 @@ export function installGTranslate() {
     .then(() => preloadTranslateEngine())
     .then(() => {
       const lang = getCurrentLanguageCode();
+      syncUiLanguageAttribute(lang);
       if (lang !== 'en') {
         return applyTranslation(lang);
       }

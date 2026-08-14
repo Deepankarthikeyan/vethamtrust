@@ -272,6 +272,137 @@
   }
 }
 
+/* Translated header: Tamil and other languages use longer words */
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top {
+  padding: 8px 20px;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner {
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px 14px;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner .top-left {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner .top-left p {
+  margin-right: 20px;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner .top-left p:before {
+  display: none;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner .top-right {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner .info {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px 14px;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner .info li {
+  margin-right: 0;
+  font-size: 12px;
+  line-height: 1.35;
+  white-space: normal;
+  max-width: 100%;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .header-lower .logo-box,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .logo-box {
+  padding: 12px 22px 12px 30px !important;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .main-header .logo-box .logo img,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .logo-box .logo img {
+  max-height: 54px;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .header-lower .logo-box .logo,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .logo-box .logo {
+  max-width: 170px;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .menu-area,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .menu-area {
+  padding: 0 6px;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation {
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 2px;
+  column-gap: 2px;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li {
+  margin: 0 4px;
+  flex: 0 1 auto;
+  max-width: 108px;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li > a,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li > a {
+  font-size: 13px;
+  line-height: 1.25;
+  padding: 16px 2px !important;
+  white-space: normal;
+  text-align: center;
+  display: block;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .main-header .nav-right li.btn-box .theme-btn-one,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box .theme-btn-one {
+  min-width: 0;
+  max-width: 118px;
+  padding: 10px 12px;
+  font-size: 11px;
+  line-height: 1.25;
+  white-space: normal;
+  text-align: center;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .main-header .nav-right li.btn-box .theme-btn-one span,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box .theme-btn-one span {
+  white-space: normal;
+  display: block;
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1499px) {
+  html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li,
+  html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li {
+    max-width: 96px;
+  }
+
+  html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li > a,
+  html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li > a {
+    font-size: 12px;
+    padding: 14px 1px !important;
+  }
+
+  html[data-ui-lang]:not([data-ui-lang="en"]) .main-header .nav-right li.btn-box .theme-btn-one,
+  html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box .theme-btn-one {
+    max-width: 104px;
+    font-size: 10px;
+    padding: 9px 10px;
+  }
+}
+
 /* Floating action buttons — WhatsApp, Donate QR, Language */
 .vetham-fab-container {
   position: fixed;
