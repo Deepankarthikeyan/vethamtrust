@@ -36,6 +36,8 @@ const catalog = {
   contactPhone: [`${V}/contact-phone.png`],
   contactEmail: [`${V}/contact-email.png`],
   contactHome: [`${V}/contact-home.png`],
+  testimonialBoy: [`${V}/testimonial-boy.png`],
+  testimonialWoman: [`${V}/testimonial-woman.png`],
   galleryPreview1: [`${G}/foundation-course-1.jpg`],
   galleryPreview2: [`${G}/foundation-course-2-scaled.jpg`],
   galleryPreview3: [`${G}/event-photos-1-scaled.jpg`],

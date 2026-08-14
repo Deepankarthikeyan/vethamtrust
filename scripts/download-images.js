@@ -37,6 +37,8 @@ const IMAGES = {
   'contact-phone.png': `${BASE}/2025/08/incoming-call-e1755454105274.png`,
   'contact-home.png': `${BASE}/2025/08/home-2-e1755454366869.png`,
   'contact-email.png': `${BASE}/2025/08/exchange-mails-1-e1755454643815.png`,
+  'testimonial-boy.png': `${BASE}/2022/05/boy.png`,
+  'testimonial-woman.png': `${BASE}/2022/05/woman.png`,
   'qr-code-vkst-scan.png': 'https://vethamspiritualtrust.com/wp-content/uploads/elementor/thumbs/qr-code-vkst-r9yiuvio85jaduh93cxo9jzyxlu5ugrgl32jta7d9s.jpg',
 };
 

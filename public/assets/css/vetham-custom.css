@@ -956,6 +956,58 @@
   margin: 0 auto;
 }
 
+.vetham-name-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vetham-name-list li {
+  position: relative;
+  padding: 10px 0 10px 22px;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.vetham-name-list li:before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #C45A1A;
+  font-weight: bold;
+}
+
+.vetham-donate-cta-text {
+  max-width: 720px;
+  margin: 0 auto 30px;
+}
+
+.vetham-donate-cta-text p {
+  margin-bottom: 12px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.vetham-quote {
+  font-style: italic;
+  color: #C45A1A;
+  font-weight: 500;
+}
+
+.testimonial-style-two .testimonial-block-one {
+  margin-bottom: 30px;
+}
+
+.meditation-timetable {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.meditation-timetable table {
+  min-width: 720px;
+}
+
 /* Dropdown submenu links must stay clickable above parent */
 .main-menu .navigation > li.dropdown > ul {
   z-index: 999;
