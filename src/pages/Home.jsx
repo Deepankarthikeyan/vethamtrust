@@ -48,7 +48,7 @@ export default function Home() {
         <meta name="description" content={`${SITE.tagline}. Yoga, meditation, and spiritual teachings in Coimbatore.`} />
       </Helmet>
 
-      <section className="banner-section p_relative">
+      <section className="banner-section vetham-home-banner p_relative">
         <div className="banner-carousel owl-theme owl-carousel owl-nav-none">
           {BANNERS.map((slide) => (
             <div key={slide.title} className="slide-item p_relative">

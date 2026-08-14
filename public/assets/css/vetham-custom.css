@@ -333,7 +333,8 @@
 
 .vetham-fab-whatsapp {
   left: 22px;
-  bottom: 22px;
+  bottom: 24px;
+  z-index: 100000;
   background: linear-gradient(135deg, #25d366, #128c7e);
   animation: vetham-pulse-wa 2.5s infinite;
 }
@@ -346,10 +347,14 @@
 .vetham-fab-right {
   position: fixed;
   right: 22px;
-  bottom: 22px;
+  bottom: 24px;
+  z-index: 100000;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  width: 58px;
 }
 
 .vetham-fab-right .vetham-fab {
@@ -357,6 +362,11 @@
   left: auto;
   bottom: auto;
   right: auto;
+  top: auto;
+  flex: 0 0 58px;
+  width: 58px;
+  height: 58px;
+  margin: 0;
 }
 
 .vetham-fab-language {
@@ -377,7 +387,7 @@
 .vetham-fab-panel {
   position: fixed;
   right: 24px;
-  bottom: 100px;
+  bottom: 160px;
   width: 280px;
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 120px);
@@ -658,26 +668,127 @@
 
 .vetham-footer-grid .language-widget .gtranslate_wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 6px 10px;
   line-height: 1.6;
 }
 
-.vetham-footer-grid .language-widget .gtranslate_wrapper a.glink {
-  color: #fff;
+.vetham-footer-language {
+  margin-top: 18px;
+  padding: 14px 16px;
+  background: #fff;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.vetham-footer-language-title {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #322038;
+}
+
+.vetham-footer-language .gtranslate_wrapper a.glink {
+  color: #2c5f9e;
   font-size: 13px;
   text-decoration: none;
   white-space: nowrap;
 }
 
-.vetham-footer-grid .language-widget .gtranslate_wrapper a.glink:hover {
-  color: #ffcc99;
+.vetham-footer-language .gtranslate_wrapper a.glink:hover {
+  color: #1a4a8a;
+  text-decoration: underline;
 }
 
-.vetham-footer-grid .language-widget .gtranslate_wrapper a.glink.gt-current-lang {
-  color: #D4A017;
+.vetham-footer-language .gtranslate_wrapper a.glink.gt-current-lang {
+  color: #C45A1A;
   font-weight: 600;
+}
+
+/* Home banner alignment */
+.vetham-home-banner.banner-section {
+  position: relative;
+  z-index: 1;
+}
+
+.vetham-home-banner .banner-carousel .slide-item {
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  padding: 140px 0 150px;
+}
+
+.vetham-home-banner .banner-carousel .owl-stage-outer,
+.vetham-home-banner .banner-carousel .owl-stage,
+.vetham-home-banner .banner-carousel .owl-item {
+  height: 100%;
+}
+
+.vetham-home-banner .banner-carousel .owl-item .slide-item {
+  min-height: 560px;
+}
+
+.vetham-home-banner .auto-container {
+  width: 100%;
+}
+
+.vetham-home-banner .content-box {
+  max-width: 620px;
+  margin: 0;
+  text-align: left;
+}
+
+.vetham-home-banner .banner-carousel .content-box h2,
+.vetham-home-banner .banner-carousel .content-box p,
+.vetham-home-banner .banner-carousel .content-box .special-text {
+  text-align: left;
+}
+
+.vetham-home-banner .banner-section .shape-1,
+.vetham-home-banner .shape-1,
+.vetham-home-banner .shape-2 {
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 991px) {
+  .vetham-home-banner .banner-carousel .slide-item,
+  .vetham-home-banner .banner-carousel .owl-item .slide-item {
+    min-height: 480px;
+    padding: 110px 0 120px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .vetham-home-banner .banner-carousel .slide-item,
+  .vetham-home-banner .banner-carousel .owl-item .slide-item {
+    min-height: 420px;
+    padding: 90px 0 100px;
+  }
+
+  .vetham-fab-right {
+    right: 14px;
+    bottom: 16px;
+    width: 52px;
+    gap: 10px;
+  }
+
+  .vetham-fab-right .vetham-fab {
+    flex-basis: 52px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .vetham-fab-whatsapp {
+    left: 14px;
+    bottom: 16px;
+  }
+
+  .vetham-fab-panel {
+    right: 14px;
+    bottom: 140px;
+  }
 }
 
 .vetham-footer-grid .language-widget .gt_switcher {
