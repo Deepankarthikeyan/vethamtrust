@@ -443,6 +443,70 @@
   margin-bottom: 8px;
 }
 
+.vetham-fab-panel {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.vetham-fab-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.vetham-gtranslate-host {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.vetham-language-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  text-align: left;
+}
+
+.vetham-language-option {
+  width: 100%;
+  border: 1px solid #ded4e1;
+  border-radius: 8px;
+  background: #fff;
+  color: #322038;
+  font-size: 14px;
+  line-height: 1.35;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  font-family: inherit;
+}
+
+.vetham-language-option:hover {
+  background: #eef4fb;
+  border-color: #2c5f9e;
+  color: #1a4a8a;
+}
+
+.vetham-language-option.is-active {
+  background: #2c5f9e;
+  border-color: #2c5f9e;
+  color: #fff;
+  font-weight: 600;
+}
+
 .vetham-fab-panel-language .gtranslate_wrapper {
   display: flex;
   flex-wrap: wrap;
