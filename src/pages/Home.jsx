@@ -282,7 +282,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="news-section sec-pad">
+      <section className="news-section sec-pad vetham-blog-section">
         <div className="auto-container">
           <div className="sec-title centred mb_55">
             <span className="sub-title">The Wisdom Blog</span>

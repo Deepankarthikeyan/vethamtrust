@@ -867,3 +867,215 @@
   height: auto;
   display: inline-block;
 }
+
+/* Sticky header: keep donate button and full nav (including Contact) visible */
+.sticky-header .outer-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.sticky-header .menu-area {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticky-header .main-menu .navigation {
+  flex-wrap: nowrap;
+}
+
+.sticky-header .main-menu .navigation > li {
+  margin: 0 12px;
+}
+
+.sticky-header .main-menu .navigation > li > a {
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.sticky-header .nav-right {
+  flex-shrink: 0;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sticky-header .nav-right li.btn-box {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.main-header .nav-right li.btn-box,
+.sticky-header .nav-right li.btn-box {
+  flex-shrink: 0;
+}
+
+.main-header .nav-right li.btn-box .theme-btn-one,
+.sticky-header .nav-right li.btn-box .theme-btn-one {
+  min-width: 150px;
+  padding: 14px 30px;
+  white-space: nowrap;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.main-header .nav-right li.btn-box .theme-btn-one span,
+.sticky-header .nav-right li.btn-box .theme-btn-one span {
+  white-space: nowrap;
+}
+
+/* Footer contact column visibility */
+.vetham-footer-grid .about-widget .text p,
+.vetham-footer-contact p,
+.vetham-footer-contact p a,
+.vetham-footer-social-names a {
+  color: #fff;
+}
+
+.vetham-footer-grid .about-widget .text p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Gallery overlay: smaller plus button and caption text */
+.vetham-gallery-grid .project-block-one .inner-box .image-box {
+  min-height: 260px;
+}
+
+.vetham-gallery-grid .project-block-one .inner-box .content-box {
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.vetham-gallery-grid .project-block-one .inner-box .content-box .inner {
+  max-width: 100%;
+}
+
+.vetham-gallery-grid .project-block-one .inner-box .content-box .view-btn {
+  margin-bottom: 10px;
+}
+
+.vetham-gallery-grid .project-block-one .inner-box .content-box .view-btn a {
+  width: 52px;
+  height: 52px;
+  line-height: 52px;
+  font-size: 18px;
+}
+
+.vetham-gallery-grid .project-block-one .inner-box .content-box h3 {
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 4px;
+}
+
+.vetham-gallery-grid .project-block-one .inner-box .content-box p {
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 0;
+}
+
+.project-section .project-block-one .inner-box .content-box .view-btn a {
+  width: 56px;
+  height: 56px;
+  line-height: 56px;
+  font-size: 20px;
+}
+
+.project-section .project-block-one .inner-box .content-box h3 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.project-section .project-block-one .inner-box .content-box p {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* Blog cards: equal height with consistent images */
+.vetham-blog-section .row.clearfix {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vetham-blog-section .news-block {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.vetham-blog-section .news-block-one {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.vetham-blog-section .news-block-one .inner-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+
+.vetham-blog-section .news-block-one .inner-box .image-box {
+  flex-shrink: 0;
+  height: 220px;
+  background: #f3f3f3;
+}
+
+.vetham-blog-section .news-block-one .inner-box .image-box img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  opacity: 1;
+  transform: none;
+}
+
+.vetham-blog-section .news-block-one .inner-box:hover .image-box img {
+  opacity: 0.9;
+  transform: none;
+}
+
+.vetham-blog-section .news-block-one .lower-content {
+  flex: 1;
+  display: flex;
+}
+
+.vetham-blog-section .news-block-one .inner-box .lower-content .text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.vetham-blog-section .news-block-one .inner-box .lower-content h3 {
+  color: #333;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.vetham-blog-section .news-block-one .inner-box .lower-content p {
+  flex: 1;
+}
+
+@media only screen and (max-width: 1199px) {
+  .sticky-header .main-menu .navigation > li {
+    margin: 0 8px;
+  }
+
+  .sticky-header .main-menu .navigation > li > a {
+    font-size: 14px;
+  }
+
+  .main-header .nav-right li.btn-box .theme-btn-one,
+  .sticky-header .nav-right li.btn-box .theme-btn-one {
+    min-width: 130px;
+    padding: 12px 22px;
+  }
+}
