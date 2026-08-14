@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BANNERS, SITE, TEAM } from '../config/site';
+import { HOME_BLOG_POSTS } from '../config/blog';
 import { img } from '../config/images';
 import LazyImage from '../components/LazyImage';
 
@@ -30,11 +31,7 @@ const GALLERY = [
   { image: 'galleryPreview4', title: 'Event Photos', tag: 'Event Photos' },
 ];
 
-const BLOG = [
-  { image: 'blog5', date: '15', month: 'APRIL', title: 'How Yoga Can Help Reduce Stress', text: 'How Yoga Can Help Reduce Stress Naturally. In today\'s fast-paced world, yoga offers a natural path to calm.' },
-  { image: 'blog4', date: '14', month: 'APRIL', title: 'The Difference Between Mindful Practice and Meditation', text: 'Understanding the distinction between mindful practice and deep meditation for spiritual growth.' },
-  { image: 'blog3', date: '12', month: 'APRIL', title: 'Yoga Can Actually Make You Happier', text: 'Discover how yoga practices create lasting happiness through inner peace and self-awareness.' },
-];
+const BLOG = HOME_BLOG_POSTS;
 
 const FUNFACTS = [
   { stop: 8, line1: 'Years of', line2: 'Spiritual Service' },
@@ -233,7 +230,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="project-section">
+      <section className="project-section vetham-gallery-icon-only">
         <div className="outer-container">
           <div className="project-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
             {GALLERY.map((g) => (
@@ -243,8 +240,6 @@ export default function Home() {
                   <div className="content-box">
                     <div className="inner">
                       <div className="view-btn"><a href={img(g.image)} className="lightbox-image" data-fancybox="gallery"><i className="icon-12" /></a></div>
-                      <h3><Link to="/social-media">{g.title}</Link></h3>
-                      <p>{g.tag}</p>
                     </div>
                   </div>
                 </div>
@@ -282,7 +277,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="news-section sec-pad vetham-blog-section">
+      <section className="news-section sec-pad vetham-blog-section vetham-home-blog">
         <div className="auto-container">
           <div className="sec-title centred mb_55">
             <span className="sub-title">The Wisdom Blog</span>
@@ -296,7 +291,6 @@ export default function Home() {
                     <figure className="image-box"><Link to="/blog"><LazyImage src={img(post.image)} alt="" /></Link></figure>
                     <div className="lower-content p_relative d_block">
                       <div className="text">
-                        <div className="post-date"><h3>{post.date} <span>{post.month}</span></h3></div>
                         <h3><Link to="/blog">{post.title}</Link></h3>
                         <p>{post.text}</p>
                         <div className="btn-box"><Link to="/blog" className="theme-btn-two">Read more</Link></div>

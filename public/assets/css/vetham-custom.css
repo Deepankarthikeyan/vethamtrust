@@ -958,6 +958,30 @@
   max-width: 100%;
 }
 
+/* Gallery: show only + lightbox button, no overlay text */
+.vetham-gallery-icon-only .project-block-one .inner-box .content-box h3,
+.vetham-gallery-icon-only .project-block-one .inner-box .content-box p {
+  display: none !important;
+}
+
+.vetham-gallery-icon-only .project-block-one .inner-box .content-box .view-btn {
+  margin-bottom: 0;
+  top: 0;
+}
+
+.vetham-gallery-icon-only .project-block-one .inner-box .content-box .inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.vetham-gallery-icon-only .project-block-one .inner-box:hover .content-box .view-btn {
+  top: 0;
+  opacity: 1;
+}
+
 .vetham-gallery-grid .project-block-one .inner-box .content-box .view-btn {
   margin-bottom: 10px;
 }
@@ -1052,6 +1076,11 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding: 30px 30px 30px 30px;
+}
+
+.vetham-blog-section.vetham-home-blog .news-block-one .inner-box .lower-content .text {
+  padding-top: 30px;
 }
 
 .vetham-blog-section .news-block-one .inner-box .lower-content h3 {

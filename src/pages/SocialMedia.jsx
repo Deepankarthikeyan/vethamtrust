@@ -36,7 +36,7 @@ export default function SocialMedia() {
               </button>
             ))}
           </div>
-          <div className="items-container row clearfix vetham-gallery-grid">
+          <div className="items-container row clearfix vetham-gallery-grid vetham-gallery-icon-only">
             {visible.map((item) => {
               const src = gallerySrc(item.file);
               return (
@@ -54,8 +54,11 @@ export default function SocialMedia() {
                       </figure>
                       <div className="content-box">
                         <div className="inner">
-                          <h3>{item.title}</h3>
-                          <p>{item.label}</p>
+                          <div className="view-btn">
+                            <a href={src} className="lightbox-image" data-fancybox="vetham-gallery" data-caption={item.title}>
+                              <i className="icon-12" />
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
