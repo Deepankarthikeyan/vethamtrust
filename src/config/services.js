@@ -19,21 +19,41 @@ export const SIDEBAR_RECENT_POSTS = [
     title: 'How yoga can help reduce stress',
     date: '30.08.2025',
     image: 'sidebarPost1',
-    path: '/blog',
+    slug: 'how-yoga-can-help-reduce-stress',
   },
   {
     title: 'The difference between mindful practice and meditation',
     date: '26.08.2025',
     image: 'sidebarPost2',
-    path: '/blog',
+    slug: 'the-difference-between-mindful-practice-and-meditation',
   },
   {
     title: 'Yoga can actually make you happier',
     date: '25.08.2025',
     image: 'sidebarPost3',
-    path: '/blog',
+    slug: 'yoga-can-actually-make-you-happier',
   },
 ];
+
+export function tagToSlug(tag) {
+  return tag.toLowerCase().replace(/\s+/g, '-');
+}
+
+export function slugToTagLabel(slug) {
+  return slug.replace(/-/g, ' ');
+}
+
+export function filterServices(services, { query = '', tag = '' } = {}) {
+  const normalizedQuery = query.trim().toLowerCase();
+  const normalizedTag = tag.trim().toLowerCase();
+
+  return services.filter((service) => {
+    const haystack = `${service.title} ${service.category} ${service.excerpt}`.toLowerCase();
+    if (normalizedQuery && !haystack.includes(normalizedQuery)) return false;
+    if (normalizedTag && !haystack.includes(slugToTagLabel(normalizedTag))) return false;
+    return true;
+  });
+}
 
 export const ALL_SERVICES = [
   {

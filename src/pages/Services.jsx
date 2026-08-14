@@ -1,7 +1,12 @@
-import { Link, useParams, Navigate } from 'react-router-dom';
+import { Link, useParams, Navigate, useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
-import { getServicesForPage, SERVICE_PAGE_COUNT } from '../config/services';
+import {
+  ALL_SERVICES,
+  filterServices,
+  getServicesForPage,
+  SERVICE_PAGE_COUNT,
+} from '../config/services';
 import { img } from '../config/images';
 import PageTitle from '../components/PageTitle';
 import BlogSidebar from '../components/BlogSidebar';
@@ -9,13 +14,23 @@ import LazyImage from '../components/LazyImage';
 
 export default function Services() {
   const { pageNum } = useParams();
+  const [searchParams] = useSearchParams();
   const currentPage = pageNum ? Number(pageNum) : 1;
+  const query = searchParams.get('q') || '';
+  const tag = searchParams.get('tag') || '';
+  const isFiltering = Boolean(query || tag);
 
   if (!Number.isInteger(currentPage) || currentPage < 1 || currentPage > SERVICE_PAGE_COUNT) {
     return <Navigate to="/services" replace />;
   }
 
-  const services = getServicesForPage(currentPage);
+  if (isFiltering && pageNum) {
+    return <Navigate to={{ pathname: '/services', search: searchParams.toString() }} replace />;
+  }
+
+  const services = isFiltering
+    ? filterServices(ALL_SERVICES, { query, tag })
+    : getServicesForPage(currentPage);
 
   return (
     <>
@@ -28,7 +43,20 @@ export default function Services() {
         <div className="auto-container">
           <div className="row clearfix">
             <div className="col-lg-8 col-md-12 col-sm-12 content-side">
+              {isFiltering && (
+                <p className="vetham-services-filter-summary">
+                  Showing {services.length} service{services.length === 1 ? '' : 's'}
+                  {query ? ` matching “${query}”` : ''}
+                  {tag ? ` tagged “${tag.replace(/-/g, ' ')}”` : ''}.
+                </p>
+              )}
+
               <div className="vetham-services-grid">
+                {services.length === 0 && (
+                  <div className="vetham-services-empty">
+                    <p>No services matched your search. Try another keyword or clear the filters.</p>
+                  </div>
+                )}
                 {services.map((service) => (
                   <div key={service.title} className="vetham-service-card">
                     <figure className="vetham-service-card__image">
@@ -46,6 +74,7 @@ export default function Services() {
                 ))}
               </div>
 
+              {!isFiltering && (
               <div className="pagination-wrapper centred">
                 <ul className="pagination clearfix">
                   {currentPage > 1 && (
@@ -77,6 +106,7 @@ export default function Services() {
                   )}
                 </ul>
               </div>
+              )}
             </div>
 
             <div className="col-lg-4 col-md-12 col-sm-12 sidebar-side">
