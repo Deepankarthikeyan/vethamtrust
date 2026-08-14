@@ -59,6 +59,7 @@ export default function BlogSidebar() {
               <input
                 type="search"
                 name="search-field"
+                className="vetham-sidebar-search-input"
                 placeholder="Search ..."
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
