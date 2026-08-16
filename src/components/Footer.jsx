@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { SITE } from '../config/site';
 import { DONATION } from '../config/donate';
 import { img } from '../config/images';
-import LazyImage from './LazyImage';
 
 export default function Footer() {
   return (
@@ -10,7 +9,15 @@ export default function Footer() {
       <div className="auto-container">
         <div className="footer-top">
           <figure className="footer-logo">
-            <Link to="/"><LazyImage src={img('logoFooter')} alt={SITE.name} /></Link>
+            <Link to="/">
+              <img
+                src={img('logo')}
+                alt={SITE.name}
+                className="vetham-footer-logo"
+                width={120}
+                height={120}
+              />
+            </Link>
           </figure>
           <ul className="social-links">
             <li><a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f" /></a></li>

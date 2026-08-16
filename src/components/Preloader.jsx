@@ -13,8 +13,8 @@ export default function Preloader() {
                 src={img('logo')}
                 alt="Vetham Kuzhumam Spiritual Trust"
                 className="vetham-preloader__logo"
-                width={160}
-                height={160}
+                width={100}
+                height={100}
               />
             </div>
           </div>

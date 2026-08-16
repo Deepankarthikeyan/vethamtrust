@@ -3983,17 +3983,19 @@ html[data-ui-lang] .sticky-header .menu-area {
   }
 }
 
-/* Site logo — meditation mark (square/portrait) */
+/* Site logo — meditation mark PNG */
 .footer-top .footer-logo {
-  max-width: 130px;
+  max-width: 120px;
 }
 
-.footer-top .footer-logo img {
+.footer-top .footer-logo img,
+.footer-top .footer-logo .vetham-footer-logo {
   width: auto;
-  max-width: 130px;
-  max-height: 150px;
+  max-width: 120px;
+  max-height: 120px;
   height: auto;
   object-fit: contain;
+  display: block;
 }
 
 .mobile-menu .nav-logo img {
@@ -4010,8 +4012,8 @@ html[data-ui-lang] .sticky-header .menu-area {
 
 .vetham-preloader__logo-wrap {
   position: relative;
-  width: 240px;
-  height: 240px;
+  width: 160px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4020,16 +4022,18 @@ html[data-ui-lang] .sticky-header .menu-area {
 .vetham-preloader__logo-wrap .spinner {
   position: absolute;
   inset: 0;
-  width: 240px !important;
-  height: 240px !important;
+  width: 160px !important;
+  height: 160px !important;
   margin: 0 !important;
+  border-radius: 50%;
 }
 
 .vetham-preloader__logo {
   position: relative;
   z-index: 2;
-  width: 190px;
-  max-width: 80%;
+  width: 96px;
+  max-width: 60%;
+  max-height: 60%;
   height: auto;
   object-fit: contain;
   animation: vetham-preloader-pulse 1.6s ease-in-out infinite;
@@ -4048,16 +4052,18 @@ html[data-ui-lang] .sticky-header .menu-area {
 
 @media screen and (max-width: 767px) {
   .vetham-preloader__logo-wrap {
-    width: 190px;
-    height: 190px;
+    width: 140px;
+    height: 140px;
   }
 
   .vetham-preloader__logo-wrap .spinner {
-    width: 190px !important;
-    height: 190px !important;
+    width: 140px !important;
+    height: 140px !important;
   }
 
   .vetham-preloader__logo {
-    width: 150px;
+    width: 84px;
+    max-width: 60%;
+    max-height: 60%;
   }
 }
