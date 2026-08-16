@@ -767,6 +767,22 @@ html[data-ui-lang] .sticky-header .menu-area {
   margin-top: 6px;
 }
 
+.vetham-footer-donate {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.vetham-footer-donate__title {
+  margin-bottom: 18px;
+}
+
+.vetham-footer-donate__title h3 {
+  font-size: 16px;
+  color: #ffcc99;
+  font-weight: 600;
+}
+
 .vetham-footer-donate__lead {
   margin: 0 0 10px;
   font-size: 14px;
@@ -909,8 +925,8 @@ html[data-ui-lang] .sticky-header .menu-area {
   }
 
   .vetham-footer-grid > .footer-column {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
   }
 }
 

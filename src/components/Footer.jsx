@@ -20,7 +20,7 @@ export default function Footer() {
         </div>
         <div className="widget-section vetham-footer-grid-section">
           <div className="row clearfix vetham-footer-grid">
-            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12 footer-column">
+            <div className="col-lg-4 col-md-6 col-sm-12 footer-column">
               <div className="links-widget footer-widget">
                 <div className="widget-title"><h3>Quick Links</h3></div>
                 <div className="widget-content">
@@ -37,15 +37,33 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12 footer-column">
+            <div className="col-lg-4 col-md-6 col-sm-12 footer-column">
               <div className="about-widget footer-widget">
                 <div className="widget-title"><h3>Address</h3></div>
                 <div className="text">
                   <p>{SITE.address}</p>
                 </div>
+                <div className="widget-content vetham-footer-donate">
+                  <div className="widget-title vetham-footer-donate__title"><h3>Donations</h3></div>
+                  <p className="vetham-footer-donate__lead">Scan &amp; pay via UPI</p>
+                  <figure className="vetham-footer-donate__qr">
+                    <img src={img('qrCode')} alt="Donate to Vetham Kuzhumam Spiritual Trust" className="vetham-qr-code" />
+                    <figcaption>UPI: {DONATION.upiId}</figcaption>
+                  </figure>
+                  <a
+                    href={DONATION.razorpayUrl}
+                    className="vetham-footer-donate__razorpay"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={img('razorpayLogo')} alt="Razorpay" />
+                    <span>Donate via Razorpay</span>
+                  </a>
+                  <Link to="/donate" className="vetham-footer-donate__link">View donation details</Link>
+                </div>
               </div>
             </div>
-            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12 footer-column">
+            <div className="col-lg-4 col-md-6 col-sm-12 footer-column">
               <div className="contact-widget footer-widget">
                 <div className="widget-title"><h3>Contact Information</h3></div>
                 <div className="widget-content vetham-footer-contact">
@@ -62,28 +80,6 @@ export default function Footer() {
                       <i className="fab fa-youtube" /> Youtube
                     </a>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12 footer-column">
-              <div className="donate-widget footer-widget">
-                <div className="widget-title"><h3>Donations</h3></div>
-                <div className="widget-content vetham-footer-donate">
-                  <p className="vetham-footer-donate__lead">Scan &amp; pay via UPI</p>
-                  <figure className="vetham-footer-donate__qr">
-                    <img src={img('qrCode')} alt="Donate to Vetham Kuzhumam Spiritual Trust" className="vetham-qr-code" />
-                    <figcaption>UPI: {DONATION.upiId}</figcaption>
-                  </figure>
-                  <a
-                    href={DONATION.razorpayUrl}
-                    className="vetham-footer-donate__razorpay"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img src={img('razorpayLogo')} alt="Razorpay" />
-                    <span>Donate via Razorpay</span>
-                  </a>
-                  <Link to="/donate" className="vetham-footer-donate__link">View donation details</Link>
                 </div>
               </div>
             </div>
