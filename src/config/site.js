@@ -38,66 +38,10 @@ export const NAV_ITEMS = [
 ];
 
 export const TEAM = [
-  {
-    name: 'Gnana Rishi A S Rathakrishnan',
-    role: 'Founder',
-    image: 'trustee1',
-    leadershipCard: 'leadershipCardFounder',
-    headline: 'Guiding Souls. Building Peace.',
-    bio: 'Spiritual master and founder of Vetham Kuzhumam Spiritual Trust, dedicated to spreading the teachings of Yogiraj Vethathiri Maharishi.',
-    highlights: ['Founder of Vetham Kuzhumam Spiritual Trust', 'Visionary for World Peace'],
-    achievements: [
-      { title: 'Founder', subtitle: 'Vetham Kuzhumam Spiritual Trust' },
-      { title: 'Visionary', subtitle: 'For World Peace' },
-    ],
-    signature: 'Gnana Rishi',
-    portraitSide: 'right',
-  },
-  {
-    name: 'Gnanasiriyar Selvin',
-    role: 'Co-Founder & President',
-    image: 'trustee2',
-    leadershipCard: 'leadershipCardPresident',
-    headline: 'Leading with Devotion. Serving with Purpose.',
-    bio: 'Co-founder and president guiding the trust’s spiritual programs, satsang, and community outreach with clarity and compassion.',
-    highlights: ['President of Vetham Kuzhumam Spiritual Trust', 'Mentor to spiritual seekers'],
-    achievements: [
-      { title: 'President', subtitle: 'Vetham Kuzhumam Spiritual Trust' },
-      { title: 'Mentor', subtitle: 'To spiritual seekers' },
-    ],
-    signature: 'Gnanasiriyar Selvin',
-    portraitSide: 'left',
-  },
-  {
-    name: 'Gnanasiriyar Balasubramanian',
-    role: 'Co-Founder & Secretary',
-    image: 'trustee3',
-    leadershipCard: 'leadershipCardSecretary',
-    headline: 'Nurturing Community. Growing Together.',
-    bio: 'Co-founder and secretary fostering spiritual learning, village development, and the daily rhythm of trust activities.',
-    highlights: ['Secretary of Vetham Kuzhumam Spiritual Trust', 'Guide for satsang and service'],
-    achievements: [
-      { title: 'Secretary', subtitle: 'Vetham Kuzhumam Spiritual Trust' },
-      { title: 'Guide', subtitle: 'For satsang and service' },
-    ],
-    signature: 'Gnanasiriyar Balasubramanian',
-    portraitSide: 'right',
-  },
-  {
-    name: 'Gnanasiriyar A S Sureash Kumaar',
-    role: 'Co-Founder & Treasurer',
-    image: 'trustee4',
-    leadershipCard: 'leadershipCardTreasurer',
-    headline: 'Stewarding Vision. Supporting Growth.',
-    bio: 'Co-founder and treasurer helping build the spiritual village vision through careful stewardship and dedicated service.',
-    highlights: ['Treasurer of Vetham Kuzhumam Spiritual Trust', 'Builder of the divine village vision'],
-    achievements: [
-      { title: 'Treasurer', subtitle: 'Vetham Kuzhumam Spiritual Trust' },
-      { title: 'Builder', subtitle: 'Of the divine village vision' },
-    ],
-    signature: 'Gnanasiriyar Sureash',
-    portraitSide: 'left',
-  },
+  { name: 'Gnana Rishi A S Rathakrishnan', role: 'Founder', image: 'trustee1' },
+  { name: 'Gnanasiriyar Selvin', role: 'Co-Founder & President', image: 'trustee2' },
+  { name: 'Gnanasiriyar Balasubramanian', role: 'Co-Founder & Secretary', image: 'trustee3' },
+  { name: 'Gnanasiriyar A S Sureash Kumaar', role: 'Co-Founder & Treasurer', image: 'trustee4' },
 ];
 
 export const BANNERS = [
