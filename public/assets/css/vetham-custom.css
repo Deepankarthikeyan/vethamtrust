@@ -1031,7 +1031,15 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   }
 }
 
-/* Social media cards */
+/* Service block icons — keep glyph above background shape */
+.service-section .service-block-one .inner-box .icon-box .icon {
+  position: relative;
+  z-index: 1;
+}
+
+.service-section .service-block-one .inner-box .icon-box .icon-bg {
+  z-index: 0;
+}
 .social-media-cards .service-block-one .inner-box {
   min-height: 220px;
 }

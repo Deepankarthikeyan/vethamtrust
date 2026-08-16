@@ -20,10 +20,10 @@ const CAUSES = [
 ];
 
 const SERVICES = [
-  { icon: 'icon-8', title: 'Teachings', text: 'Self-realization trainings guiding individuals to understand their true nature beyond body and mind.' },
-  { icon: 'icon-9', title: 'Kundalini', text: 'Youngness Yogic Practices focusing on conserving and channelizing life-force energy for vitality.' },
-  { icon: 'icon-10', title: 'Vinyasa', text: 'Mano Nirvan Kriya — deep relaxation practice to release stress and anxiety at the cellular level.' },
-  { icon: 'icon-11', title: 'Hatha', text: 'Appeasement Sittings providing a safe space for emotional release, healing, and inner calm.' },
+  { icon: 'icon-8', iconBg: 'iconBg1', title: 'Teachings', text: 'Self-realization trainings guiding individuals to understand their true nature beyond body and mind.' },
+  { icon: 'icon-9', iconBg: 'iconBg2', title: 'Kundalini', text: 'Youngness Yogic Practices focusing on conserving and channelizing life-force energy for vitality.' },
+  { icon: 'icon-10', iconBg: 'iconBg3', title: 'Vinyasa', text: 'Mano Nirvan Kriya — deep relaxation practice to release stress and anxiety at the cellular level.' },
+  { icon: 'icon-11', iconBg: 'iconBg4', title: 'Hatha', text: 'Appeasement Sittings providing a safe space for emotional release, healing, and inner calm.' },
 ];
 
 const GALLERY = [
@@ -223,6 +223,7 @@ export default function Home() {
                 <div className="service-block-one wow fadeInUp animated" data-wow-delay={`${i * 200}ms`} data-wow-duration="1500ms">
                   <div className="inner-box">
                     <div className="icon-box">
+                      <div className="icon-bg" style={{ backgroundImage: `url(${img(s.iconBg)})` }} />
                       <div className="icon"><i className={s.icon} /></div>
                     </div>
                     <h3><Link to="/courses">{s.title}</Link></h3>
