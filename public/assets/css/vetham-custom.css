@@ -2515,14 +2515,8 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   border-radius: 8px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
   text-align: center;
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.75s ease 0.3s, transform 0.75s ease 0.3s;
-}
-
-.vetham-leadership-poster__footer.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .vetham-leadership-poster__footer-title {
