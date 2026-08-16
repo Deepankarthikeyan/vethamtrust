@@ -3480,6 +3480,7 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
+  min-height: 380px;
 }
 
 .vetham-leader-card:hover {
@@ -3586,55 +3587,79 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
 }
 
 .vetham-leader-card__portrait-col {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 20px;
+  position: relative;
+  padding: 0;
   background: #0b1020;
-  min-height: 300px;
+  min-height: 380px;
   overflow: hidden;
 }
 
 .vetham-leader-card__portrait-wrap {
-  position: relative;
+  position: absolute;
+  inset: 0;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  width: 100%;
-  height: 100%;
 }
 
 .vetham-leader-card__arc {
   position: absolute;
-  width: min(240px, 90%);
-  height: min(240px, 90%);
-  border: 2px solid rgba(255, 255, 255, 0.88);
+  top: 50%;
+  right: -18%;
+  width: 115%;
+  height: 115%;
+  border: 2px solid rgba(255, 255, 255, 0.75);
   border-radius: 50%;
+  transform: translateY(-50%);
   pointer-events: none;
-  box-shadow: 0 0 40px rgba(201, 162, 74, 0.15);
+  opacity: 0.85;
+  z-index: 1;
+}
+
+.vetham-leader-card.is-portrait-left .vetham-leader-card__arc {
+  right: auto;
+  left: -18%;
 }
 
 .vetham-leader-card__portrait {
   position: relative;
-  z-index: 1;
-  width: min(200px, 85%);
-  height: min(200px, 85%);
+  z-index: 2;
+  width: 100%;
+  height: 100%;
   margin: 0;
-  border-radius: 50%;
+  border-radius: 0;
   overflow: hidden;
-  border: 3px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+  border: none;
+  box-shadow: none;
+}
+
+.vetham-leader-card__portrait a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .vetham-leader-card__portrait img {
   width: 100%;
   height: 100%;
+  min-height: 380px;
   object-fit: cover;
   object-position: top center;
-  filter: contrast(1.02) saturate(0.95);
+  display: block;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 100%);
+}
+
+.vetham-leader-card.is-portrait-left .vetham-leader-card__portrait img {
+  -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 18%, #000 100%);
+  mask-image: linear-gradient(270deg, transparent 0%, #000 18%, #000 100%);
 }
 
 @media only screen and (max-width: 767px) {
+  .vetham-leader-card {
+    min-height: auto;
+  }
+
   .vetham-leader-card__text {
     padding: 24px 22px 20px;
     order: 2;
@@ -3642,8 +3667,18 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
 
   .vetham-leader-card__portrait-col {
     order: 1;
-    min-height: 220px;
-    padding-top: 28px;
+    min-height: 320px;
+  }
+
+  .vetham-leader-card__portrait img {
+    min-height: 320px;
+    -webkit-mask-image: linear-gradient(180deg, #000 65%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 65%, transparent 100%);
+  }
+
+  .vetham-leader-card.is-portrait-left .vetham-leader-card__portrait img {
+    -webkit-mask-image: linear-gradient(180deg, #000 65%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 65%, transparent 100%);
   }
 
   .vetham-leader-card .row {

@@ -9,7 +9,7 @@ function LeaderCard({ member, linkToLeadership }) {
   const nameProps = linkToLeadership ? { to: '/leadership' } : {};
 
   const textCol = (
-    <div className="col-md-7 vetham-leader-card__text">
+    <div className="col-md-6 vetham-leader-card__text">
       <p className="vetham-leader-card__meta">
         Spiritual Master <span aria-hidden="true">•</span> {member.role}
       </p>
@@ -35,7 +35,7 @@ function LeaderCard({ member, linkToLeadership }) {
   );
 
   const portraitCol = (
-    <div className="col-md-5 vetham-leader-card__portrait-col">
+    <div className="col-md-6 vetham-leader-card__portrait-col">
       <div className="vetham-leader-card__portrait-wrap">
         <div className="vetham-leader-card__arc" aria-hidden="true" />
         <figure className="vetham-leader-card__portrait">
