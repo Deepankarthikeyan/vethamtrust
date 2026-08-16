@@ -3811,8 +3811,8 @@ html[data-ui-lang] .sticky-header .menu-area {
 
 .vetham-preloader__logo-wrap {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 240px;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3821,14 +3821,16 @@ html[data-ui-lang] .sticky-header .menu-area {
 .vetham-preloader__logo-wrap .spinner {
   position: absolute;
   inset: 0;
+  width: 240px !important;
+  height: 240px !important;
   margin: 0 !important;
 }
 
 .vetham-preloader__logo {
   position: relative;
   z-index: 2;
-  width: 110px;
-  max-width: 72%;
+  width: 190px;
+  max-width: 80%;
   height: auto;
   object-fit: contain;
   animation: vetham-preloader-pulse 1.6s ease-in-out infinite;
@@ -3847,11 +3849,16 @@ html[data-ui-lang] .sticky-header .menu-area {
 
 @media screen and (max-width: 767px) {
   .vetham-preloader__logo-wrap {
-    width: 128px;
-    height: 128px;
+    width: 190px;
+    height: 190px;
+  }
+
+  .vetham-preloader__logo-wrap .spinner {
+    width: 190px !important;
+    height: 190px !important;
   }
 
   .vetham-preloader__logo {
-    width: 92px;
+    width: 150px;
   }
 }
