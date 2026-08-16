@@ -3976,15 +3976,17 @@ html[data-ui-lang] .sticky-header .menu-area {
 
 /* Site logo — meditation mark PNG */
 .footer-top .footer-logo {
-  max-width: 120px;
+  max-width: 140px;
+  width: auto;
+  flex-shrink: 0;
 }
 
 .footer-top .footer-logo img,
 .footer-top .footer-logo .vetham-footer-logo {
-  width: auto;
+  width: 120px !important;
+  height: 120px !important;
   max-width: 120px;
   max-height: 120px;
-  height: auto;
   object-fit: contain;
   display: block;
   background: transparent;

@@ -11,11 +11,12 @@ export default function Footer() {
           <figure className="footer-logo">
             <Link to="/">
               <img
-                src={img('logo')}
+                src={img('logoFooter')}
                 alt={SITE.name}
                 className="vetham-footer-logo"
                 width={120}
                 height={120}
+                decoding="async"
               />
             </Link>
           </figure>
