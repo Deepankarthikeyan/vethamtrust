@@ -8,7 +8,7 @@ export default function Leadership() {
       <Helmet>
         <title>Leadership – {SITE.name}</title>
       </Helmet>
-      <LeadershipShowcase fullPage />
+      <LeadershipShowcase linkToLeadership={false} fullPage />
     </>
   );
 }
