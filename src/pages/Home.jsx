@@ -16,9 +16,9 @@ const FEATURES = [
 ];
 
 const CAUSES = [
-  { image: 'villagePlan', category: 'Village', title: 'Vethathiri Maharishi Spiritual Village', text: 'A peaceful retreat in Marisettipathi Village for meditation, health, and enlightenment.', percent: '60%', left: 'Construction', right: 'Aug 2026 Target' },
-  { image: 'construction', category: 'Retirement Home', title: 'Retirement Home for Elders', text: 'Building a retirement home where elders are cared for with dignity, love, and spiritual support.', percent: '40%', left: 'Donate Now', right: 'Give with Heart' },
-  { image: 'history', category: 'Meditation Hall', title: 'Mini Meditation Hall & Gurukul', text: 'Mini Meditation Hall inaugurated. Gurukul opened for spiritual learning. Beautiful 3-acre garden.', percent: '100%', left: 'Inaugurated', right: 'Open Daily' },
+  { image: 'villagePlan', category: 'Village', title: 'Vethathiri Maharishi Spiritual Village', text: 'A peaceful retreat in Marisettipathi Village for meditation, health, and enlightenment.' },
+  { image: 'construction', category: 'Retirement Home', title: 'Retirement Home for Elders', text: 'Building a retirement home where elders are cared for with dignity, love, and spiritual support.' },
+  { image: 'history', category: 'Meditation Hall', title: 'Mini Meditation Hall & Gurukul', text: 'Mini Meditation Hall inaugurated. Gurukul opened for spiritual learning. Beautiful 3-acre garden.' },
 ];
 
 const SERVICES = [
@@ -182,10 +182,6 @@ export default function Home() {
                       <div className="text">
                         <h3><Link to="/our-village">{c.title}</Link></h3>
                         <p>{c.text}</p>
-                      </div>
-                      <div className="progress-box">
-                        <div className="bar"><div className="bar-inner count-bar" data-percent={c.percent}><div className="count-text">{c.percent}</div></div></div>
-                        <div className="donate-text"><h6><span>{c.left}</span></h6><h6><span>{c.right}</span></h6></div>
                       </div>
                     </div>
                   </div>

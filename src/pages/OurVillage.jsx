@@ -5,9 +5,9 @@ import PageTitle from '../components/PageTitle';
 import LazyImage from '../components/LazyImage';
 
 const PROJECTS = [
-  { image: 'villagePlan', title: 'Vethathiri Maharishi Spiritual Village', text: 'A peaceful retreat in Marisettipathi Village for meditation, health, and enlightenment near Coimbatore.', percent: '60%' },
-  { image: 'construction', title: 'Retirement Home for Elders', text: 'Building a retirement home where elders are cared for with dignity, love, and spiritual support.', percent: '40%' },
-  { image: 'history', title: 'Mini Meditation Hall & Gurukul', text: 'Mini Meditation Hall inaugurated. Gurukul opened for spiritual learning. Beautiful 3-acre garden.', percent: '100%' },
+  { image: 'villagePlan', title: 'Vethathiri Maharishi Spiritual Village', text: 'A peaceful retreat in Marisettipathi Village for meditation, health, and enlightenment near Coimbatore.' },
+  { image: 'construction', title: 'Retirement Home for Elders', text: 'Building a retirement home where elders are cared for with dignity, love, and spiritual support.' },
+  { image: 'history', title: 'Mini Meditation Hall & Gurukul', text: 'Mini Meditation Hall inaugurated. Gurukul opened for spiritual learning. Beautiful 3-acre garden.' },
 ];
 
 export default function OurVillage() {
@@ -59,9 +59,6 @@ export default function OurVillage() {
                       <div className="text">
                         <h3>{p.title}</h3>
                         <p>{p.text}</p>
-                      </div>
-                      <div className="progress-box">
-                        <div className="bar"><div className="bar-inner count-bar" data-percent={p.percent}><div className="count-text">{p.percent}</div></div></div>
                       </div>
                     </div>
                   </div>
