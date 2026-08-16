@@ -33,7 +33,7 @@ const catalog = {
   blog3: [`${V}/blog-3.jpg`],
   blog4: [`${V}/blog-4.jpg`],
   blog5: [`${V}/blog-5.jpg`],
-  pageTitle: [`${V}/page-banner.jpg`],
+  pageTitle: [`${V}/village-about.jpg`],
   feature1: [`${V}/village-about.jpg`],
   feature2: [`${V}/meditation-hall.jpg`],
   qrCode: [`${V}/qr-code-vkst-scan.png`],

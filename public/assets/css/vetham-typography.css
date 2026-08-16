@@ -78,6 +78,20 @@ body :where(
   line-height: 1.1 !important;
 }
 
+.page-title .content-box h1,
+.vetham-page-title .content-box h1 {
+  font-size: 65px !important;
+  line-height: 1.15 !important;
+  text-align: center !important;
+}
+
+.page-title .content-box .bread-crumb li,
+.vetham-page-title .content-box .bread-crumb li {
+  font-family: var(--vetham-font) !important;
+  font-size: 20px !important;
+  line-height: 1.4 !important;
+}
+
 .banner-carousel .content-box .special-text {
   font-size: 24px !important;
   line-height: 1.35 !important;
@@ -251,5 +265,75 @@ font {
   html[data-ui-lang] .header-style-two.main-header .main-menu .navigation > li,
   html[data-ui-lang] .sticky-header .main-menu .navigation > li {
     max-width: none;
+  }
+}
+
+/* Inner page banners — centered text, village-about.jpg background */
+.vetham-page-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  padding: 110px 0 120px;
+}
+
+.vetham-page-title .bg-layer {
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+.vetham-page-title .auto-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vetham-page-title .content-box {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center !important;
+}
+
+.vetham-page-title .content-box h1 {
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vetham-page-title .content-box .bread-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vetham-page-title .content-box .bread-crumb li {
+  float: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 !important;
+  padding-right: 18px !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .vetham-page-title {
+    min-height: 260px;
+    padding: 80px 0 90px;
+  }
+
+  .vetham-page-title .content-box h1 {
+    font-size: 36px !important;
+    line-height: 1.15 !important;
   }
 }

@@ -3,8 +3,8 @@ import { img } from '../config/images';
 
 export default function PageTitle({ title, crumbs = [] }) {
   return (
-    <section className="page-title centred">
-      <div className="bg-layer" style={{ backgroundImage: `url(${img('pageTitle')})` }} />
+    <section className="page-title centred vetham-page-title">
+      <div className="bg-layer" style={{ backgroundImage: `url(${img('villageAbout')})` }} />
       <div className="auto-container">
         <div className="content-box">
           <h1>{title}</h1>
