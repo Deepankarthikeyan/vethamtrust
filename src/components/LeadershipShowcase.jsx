@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { SITE, TEAM } from '../config/site';
 import { img } from '../config/images';
@@ -6,36 +6,11 @@ import LazyImage from './LazyImage';
 
 export default function LeadershipShowcase({ linkToLeadership = true, fullPage = false }) {
   const sectionRef = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return undefined;
-
-    const reveal = () => setVisible(true);
-    if (el.getBoundingClientRect().top < window.innerHeight * 0.92) {
-      reveal();
-      return undefined;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          reveal();
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.06 },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section
       ref={sectionRef}
-      className={`vetham-leadership-images ${fullPage ? 'vetham-leadership-images--page' : ''} ${visible ? 'is-visible' : ''}`}
+      className={`vetham-leadership-images ${fullPage ? 'vetham-leadership-images--page' : ''}`}
       aria-label="Vetham Kuzhumam Spiritual Trust Leadership"
     >
       <div className="auto-container">
@@ -47,34 +22,32 @@ export default function LeadershipShowcase({ linkToLeadership = true, fullPage =
           </p>
         </header>
 
-        <div className="vetham-leadership-images__grid">
-          {TEAM.map((member, index) => {
-            const card = (
-              <figure className="vetham-leadership-images__card">
-                <LazyImage
-                  src={img(member.leadershipCard)}
-                  alt={`${member.name} – Spiritual Master, ${member.role}`}
-                  loading={index < 2 ? 'eager' : 'lazy'}
-                />
-              </figure>
-            );
+        <div className="vetham-leadership-images__frame">
+          <div className="vetham-leadership-images__grid">
+            {TEAM.map((member, index) => {
+              const card = (
+                <figure className="vetham-leadership-images__card">
+                  <LazyImage
+                    src={img(member.leadershipCard)}
+                    alt={`${member.name} – Spiritual Master, ${member.role}`}
+                    loading={index < 2 ? 'eager' : 'lazy'}
+                  />
+                </figure>
+              );
 
-            return (
-              <article
-                key={member.name}
-                className="vetham-leadership-images__item"
-                style={{ transitionDelay: `${120 + index * 100}ms` }}
-              >
-                {linkToLeadership ? (
-                  <Link to="/leadership" className="vetham-leadership-images__link">
-                    {card}
-                  </Link>
-                ) : (
-                  card
-                )}
-              </article>
-            );
-          })}
+              return (
+                <article key={member.name} className="vetham-leadership-images__item">
+                  {linkToLeadership ? (
+                    <Link to="/leadership" className="vetham-leadership-images__link">
+                      {card}
+                    </Link>
+                  ) : (
+                    card
+                  )}
+                </article>
+              );
+            })}
+          </div>
         </div>
 
         {linkToLeadership ? (
