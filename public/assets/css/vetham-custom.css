@@ -909,8 +909,8 @@ html[data-ui-lang] .sticky-header .menu-area {
   }
 
   .vetham-footer-grid > .footer-column {
-    flex: 0 0 auto;
-    max-width: 33.333%;
+    flex: 0 0 25%;
+    max-width: 25%;
   }
 }
 
