@@ -1,0 +1,255 @@
+/**
+ * Google Sans typography — one consistent size for every language (EN, TA, FR, etc.)
+ * Loaded after theme CSS so these rules win over Poppins/Fredoka and translate widgets.
+ */
+
+:root {
+  --vetham-font: 'Google Sans', 'Noto Sans Tamil', 'Noto Sans Telugu', 'Noto Sans Malayalam',
+    'Noto Sans Kannada', 'Noto Sans Devanagari', system-ui, sans-serif;
+  --vetham-text-base: 16px;
+  --vetham-text-nav: 17px;
+  --vetham-text-sm: 14px;
+  --vetham-text-btn: 15px;
+  --vetham-leading: 1.6;
+  --vetham-title-section: 50px;
+  --vetham-title-banner: 65px;
+  --vetham-title-card: 24px;
+}
+
+html {
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body,
+.boxed_wrapper {
+  font-family: var(--vetham-font) !important;
+  font-size: var(--vetham-text-base) !important;
+  line-height: var(--vetham-leading) !important;
+}
+
+body :where(
+  p, li, a, span, label, input, textarea, select, button,
+  td, th, div, figcaption, blockquote, small, strong, em
+) {
+  font-family: inherit;
+}
+
+body :where(
+  h1, h2, h3, h4, h5, h6,
+  .sec-title h2,
+  .sec-title .sub-title,
+  .special_fonts,
+  .banner-carousel .content-box h2,
+  .banner-carousel .content-box .special-text,
+  .feature-block-one .inner-box h3,
+  .service-block-one .inner-box h3,
+  .team-block-one .inner-box h3,
+  .news-block-one .inner-box h3,
+  .cause-block-one .inner-box .lower-content h3,
+  .theme-btn-one,
+  .theme-btn-two
+) {
+  font-family: var(--vetham-font) !important;
+}
+
+/* Keep icon fonts intact */
+[class^="icon-"]:before,
+[class*=" icon-"]:before,
+.fa, .fab, .fas, .far, .fal, .fal,
+.flaticon,
+.icomoon {
+  font-family: 'icomoon', 'Font Awesome 5 Pro', 'Font Awesome 5 Brands' !important;
+}
+
+/* Fixed type scale — same in every language */
+.sec-title h2 {
+  font-size: var(--vetham-title-section) !important;
+  line-height: 1.2 !important;
+}
+
+.sec-title .sub-title {
+  font-size: 18px !important;
+  line-height: 1.4 !important;
+}
+
+.banner-carousel .content-box h2 {
+  font-size: var(--vetham-title-banner) !important;
+  line-height: 1.1 !important;
+}
+
+.banner-carousel .content-box .special-text {
+  font-size: 24px !important;
+  line-height: 1.35 !important;
+}
+
+.banner-carousel .content-box p {
+  font-size: 18px !important;
+  line-height: 1.55 !important;
+}
+
+.feature-block-one .inner-box h3,
+.service-block-one .inner-box h3,
+.team-block-one .inner-box h3,
+.news-block-one .inner-box h3,
+.cause-block-one .inner-box .lower-content h3 {
+  font-size: var(--vetham-title-card) !important;
+  line-height: 1.35 !important;
+}
+
+.feature-block-one .inner-box p,
+.service-block-one .inner-box p,
+.news-block-one .inner-box p,
+.cause-block-one .inner-box .lower-content p,
+.about-section .text p {
+  font-size: var(--vetham-text-base) !important;
+  line-height: var(--vetham-leading) !important;
+}
+
+.theme-btn-one,
+.theme-btn-two {
+  font-size: var(--vetham-text-btn) !important;
+  line-height: 1.4 !important;
+}
+
+/* Navigation — one size for English, Tamil, French, and all others */
+.header-style-two.main-header .main-menu .navigation > li > a,
+.sticky-header .main-menu .navigation > li > a {
+  font-size: var(--vetham-text-nav) !important;
+  line-height: 1.45 !important;
+  font-weight: 500;
+  white-space: normal;
+  text-align: center;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.header-top .top-inner .top-left p,
+.header-top .top-inner .info li {
+  font-size: var(--vetham-text-sm) !important;
+  line-height: 1.45 !important;
+  white-space: normal;
+  text-align: start;
+}
+
+.main-header .nav-right li.btn-box .theme-btn-one,
+.sticky-header .nav-right li.btn-box .theme-btn-one {
+  font-size: var(--vetham-text-btn) !important;
+  line-height: 1.35 !important;
+  white-space: normal;
+  text-align: center;
+}
+
+/* Longer translations: wrap cleanly without shrinking type */
+html[data-ui-lang] .header-style-two.main-header .main-menu .navigation,
+html[data-ui-lang] .sticky-header .main-menu .navigation {
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 4px;
+  column-gap: 4px;
+}
+
+html[data-ui-lang] .header-style-two.main-header .main-menu .navigation > li,
+html[data-ui-lang] .sticky-header .main-menu .navigation > li {
+  margin: 0 10px;
+  flex: 0 1 auto;
+  max-width: 140px;
+}
+
+html[data-ui-lang] .header-top .top-inner {
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px 14px;
+}
+
+html[data-ui-lang] .header-top .top-inner .top-left,
+html[data-ui-lang] .header-top .top-inner .top-right {
+  min-width: 0;
+}
+
+html[data-ui-lang] .header-top .top-inner .info {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px 14px;
+}
+
+html[data-ui-lang] p,
+html[data-ui-lang] li,
+html[data-ui-lang] .text,
+html[data-ui-lang] .lower-content,
+html[data-ui-lang] .content-box {
+  text-align: start;
+  text-wrap: pretty;
+}
+
+html[data-ui-lang] .centred,
+html[data-ui-lang] .text-center,
+html[data-ui-lang] .sec-title.centred {
+  text-align: center !important;
+}
+
+/* Google Translate injects <font> tags that change size */
+font {
+  font: inherit !important;
+}
+
+.goog-te-banner-frame,
+.goog-te-gadget,
+.goog-te-gadget-simple,
+.goog-te-menu-value,
+.goog-te-menu-value span {
+  font-family: var(--vetham-font) !important;
+  font-size: var(--vetham-text-sm) !important;
+}
+
+.translated-ltr font,
+.translated-ltr span[style*="font-size"] {
+  font-size: inherit !important;
+  font-family: inherit !important;
+}
+
+.vetham-leader-card__name {
+  font-size: 24px !important;
+  line-height: 1.2 !important;
+}
+
+.vetham-leader-card__bio,
+.vetham-leader-card__tagline {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+.vetham-round-stat .odometer-counter {
+  font-size: 52px !important;
+  line-height: 1 !important;
+}
+
+.vetham-round-stat-title {
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+}
+
+@media only screen and (max-width: 1199px) {
+  .banner-carousel .content-box h2 {
+    font-size: 48px !important;
+  }
+
+  .sec-title h2 {
+    font-size: 40px !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  :root {
+    --vetham-title-banner: 36px;
+    --vetham-title-section: 32px;
+    --vetham-title-card: 20px;
+    --vetham-text-nav: 16px;
+  }
+
+  html[data-ui-lang] .header-style-two.main-header .main-menu .navigation > li,
+  html[data-ui-lang] .sticky-header .main-menu .navigation > li {
+    max-width: none;
+  }
+}

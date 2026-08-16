@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { getCurrentLanguageCode, reapplyTranslation } from '../config/languages';
+import { getCurrentLanguageCode, reapplyTranslation, stabilizeTranslatedTypography } from '../config/languages';
 
 export function useLanguageRetranslate() {
   const { pathname } = useLocation();
@@ -9,7 +9,9 @@ export function useLanguageRetranslate() {
     if (getCurrentLanguageCode() === 'en') return undefined;
 
     const timer = setTimeout(() => {
-      reapplyTranslation();
+      reapplyTranslation().then(() => {
+        stabilizeTranslatedTypography();
+      });
     }, 400);
 
     return () => clearTimeout(timer);

@@ -124,6 +124,7 @@ function applyTranslation(lang) {
     .then(run)
     .then(() => {
       preserveLanguageLabels();
+      stabilizeTranslatedTypography();
     });
 }
 
@@ -143,6 +144,7 @@ function restoreEnglish() {
     })
     .then(() => {
       preserveLanguageLabels();
+      stabilizeTranslatedTypography();
     });
 }
 
@@ -153,6 +155,25 @@ export function preserveLanguageLabels() {
     const labelNode = document.querySelector(`[data-lang="${code}"] .vetham-language-label`);
     if (labelNode && labelNode.textContent !== label) {
       labelNode.textContent = label;
+    }
+  });
+}
+
+export function stabilizeTranslatedTypography() {
+  if (typeof document === 'undefined') return;
+
+  document.querySelectorAll('font').forEach((node) => {
+    node.removeAttribute('size');
+    node.style.removeProperty('font-size');
+    node.style.removeProperty('font-family');
+  });
+
+  document.querySelectorAll('[style*="font-size"]').forEach((node) => {
+    if (node.closest('.goog-te-banner-frame, .goog-te-menu-frame, .skiptranslate')) return;
+    if (node.tagName === 'FONT') return;
+    const inlineSize = node.style.fontSize;
+    if (inlineSize && inlineSize !== 'inherit' && inlineSize !== '16px') {
+      node.style.removeProperty('font-size');
     }
   });
 }
