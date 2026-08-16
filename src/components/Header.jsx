@@ -54,26 +54,6 @@ export default function Header() {
   return (
     <>
       <header className="main-header header-style-two">
-        <div className="header-top">
-          <div className="top-inner">
-            <div className="top-left">
-              <p>{SITE.tagline}</p>
-              <ul className="social-links clearfix">
-                <li><a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f" /></a></li>
-                <li><a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram" /></a></li>
-                <li><a href={SITE.social.youtube} target="_blank" rel="noopener noreferrer"><i className="fab fa-youtube" /></a></li>
-              </ul>
-            </div>
-            <div className="top-right">
-              <ul className="info">
-                <li><i className="icon-20" />{SITE.addressShort}</li>
-                <li><i className="icon-21" /><a href={SITE.phoneHref}>{SITE.phone}</a></li>
-                <li><i className="icon-22" /><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
         <div className="header-lower">
           <div className="outer-box">
             <div className="logo-box">
