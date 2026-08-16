@@ -3322,14 +3322,14 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
 }
 
 .vetham-leadership-images__item {
-  opacity: 0;
-  transform: translateY(24px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .vetham-leadership-images.is-visible .vetham-leadership-images__item {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .vetham-leadership-images__link {

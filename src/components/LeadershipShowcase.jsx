@@ -6,14 +6,14 @@ import LazyImage from './LazyImage';
 
 export default function LeadershipShowcase({ linkToLeadership = true, fullPage = false }) {
   const sectionRef = useRef(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return undefined;
 
     const reveal = () => setVisible(true);
-    if (el.getBoundingClientRect().top < window.innerHeight * 0.92) {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.98) {
       reveal();
       return undefined;
     }
@@ -25,7 +25,7 @@ export default function LeadershipShowcase({ linkToLeadership = true, fullPage =
           observer.disconnect();
         }
       },
-      { threshold: 0.06 },
+      { threshold: 0.01, rootMargin: '80px' },
     );
 
     observer.observe(el);
