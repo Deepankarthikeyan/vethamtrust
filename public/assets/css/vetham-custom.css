@@ -1815,30 +1815,49 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
 /* Community stats — People / Mentors / Community / Services odometer section */
 .vetham-community-stats {
   position: relative;
-  background: #724d67;
-  padding-top: 70px;
-  padding-bottom: 70px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #5f2c70 0%, #724d67 45%, #4e0538 100%);
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+.vetham-community-stats .pattern-layer {
+  opacity: 0.14;
 }
 
 .vetham-community-stat {
+  position: relative;
   text-align: center;
-  padding: 20px 15px;
+  padding: 28px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(4px);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.vetham-community-stat:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.22);
 }
 
 .vetham-community-stat-title {
-  font-size: 17px;
-  line-height: 1.35;
+  font-size: 15px;
+  line-height: 1.3;
   font-style: italic;
-  color: rgba(255, 255, 255, 0.92);
-  margin-bottom: 18px;
-  min-height: 46px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 22px;
 }
 
 .vetham-community-stat-counter {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 72px;
+  min-height: 76px;
 }
 
 .vetham-community-stats .odometer-counter {
@@ -1846,11 +1865,17 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   align-items: flex-start;
   justify-content: center;
   color: #fff;
-  font-size: 56px;
+  font-size: 58px;
   line-height: 1;
   font-family: 'Fredoka', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
 }
+
+.vetham-community-stat-1 .odometer-counter { color: #ffd86b; }
+.vetham-community-stat-2 .odometer-counter { color: #8ef5c8; }
+.vetham-community-stat-3 .odometer-counter { color: #ffb4e6; }
+.vetham-community-stat-4 .odometer-counter { color: #b8c7ff; }
 
 .vetham-community-stats .odometer-digits {
   display: inline-flex;
@@ -1860,12 +1885,13 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
 
 .vetham-community-stats .odometer-unit {
   display: inline-block;
-  margin-left: 0.08em;
+  margin-left: 0.1em;
   line-height: 1;
+  font-size: 0.92em;
 }
 
 .vetham-community-stat-col:last-child .odometer-counter {
-  font-size: 48px;
+  font-size: 52px;
 }
 
 .vetham-community-stats .odometer-digit {
@@ -1902,15 +1928,16 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
 
 @media only screen and (max-width: 767px) {
   .vetham-community-stats {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 55px;
+    padding-bottom: 55px;
   }
 
   .vetham-community-stat-col {
-    margin-bottom: 10px;
+    margin-bottom: 18px;
   }
 
-  .vetham-community-stats .odometer-counter {
+  .vetham-community-stats .odometer-counter,
+  .vetham-community-stat-col:last-child .odometer-counter {
     font-size: 44px;
   }
 }

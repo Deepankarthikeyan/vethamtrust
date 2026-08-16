@@ -34,11 +34,11 @@ const GALLERY = [
 
 const BLOG = HOME_BLOG_POSTS;
 
-const FUNFACTS = [
-  { stop: 8, line1: 'Years of', line2: 'Spiritual Service' },
-  { stop: 4, line1: 'Founders &', line2: 'Trustees' },
-  { stop: 3, line1: 'Acres of', line2: 'Spiritual Garden' },
-  { stop: 400, line1: 'Meditation Hall', line2: 'Capacity' },
+const COMMUNITY_STATS = [
+  { title: 'People', value: 2, suffix: 'M' },
+  { title: 'Mentors', value: 25 },
+  { title: 'Community', value: 254 },
+  { title: 'Services', value: 10 },
 ];
 
 export default function Home() {
@@ -139,18 +139,15 @@ export default function Home() {
       </section>
 
       <OdometerSection className="vetham-community-stats sec-pad centred">
+        <div className="pattern-layer" style={{ backgroundImage: 'url(/assets/images/shape/shape-2.png)' }} />
         <div className="auto-container">
           <div className="row clearfix">
-            {FUNFACTS.map((stat) => (
-              <div key={stat.line1} className="col-lg-3 col-md-6 col-sm-12 vetham-community-stat-col">
-                <div className="vetham-community-stat">
-                  <div className="vetham-community-stat-title">
-                    {stat.line1}
-                    <br />
-                    {stat.line2}
-                  </div>
+            {COMMUNITY_STATS.map((stat, index) => (
+              <div key={stat.title} className="col-lg-3 col-md-6 col-sm-12 vetham-community-stat-col">
+                <div className={`vetham-community-stat vetham-community-stat-${index + 1}`}>
+                  <div className="vetham-community-stat-title">{stat.title}</div>
                   <div className="vetham-community-stat-counter">
-                    <OdometerCounter value={stat.stop} duration={1500} />
+                    <OdometerCounter value={stat.value} suffix={stat.suffix || ''} duration={1500} />
                   </div>
                 </div>
               </div>
