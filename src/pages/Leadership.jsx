@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
-import PageTitle from '../components/PageTitle';
-import LeadershipShowcase from '../components/LeadershipShowcase';
+import LeadershipHeroBanner from '../components/LeadershipHeroBanner';
 
 export default function Leadership() {
   return (
@@ -9,8 +8,7 @@ export default function Leadership() {
       <Helmet>
         <title>Leadership – {SITE.name}</title>
       </Helmet>
-      <PageTitle title="Leadership" crumbs={['Leadership']} />
-      <LeadershipShowcase showHeader={false} linkToLeadership={false} />
+      <LeadershipHeroBanner linkToLeadership={false} />
     </>
   );
 }

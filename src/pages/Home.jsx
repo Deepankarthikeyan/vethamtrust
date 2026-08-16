@@ -4,7 +4,7 @@ import { BANNERS, SITE } from '../config/site';
 import { HOME_BLOG_POSTS } from '../config/blog';
 import { img } from '../config/images';
 import LazyImage from '../components/LazyImage';
-import LeadershipShowcase from '../components/LeadershipShowcase';
+import LeadershipHeroBanner from '../components/LeadershipHeroBanner';
 import OdometerCounter, { OdometerSection } from '../components/OdometerCounter';
 
 const FEATURES = [
@@ -254,7 +254,7 @@ export default function Home() {
         </div>
       </section>
 
-      <LeadershipShowcase />
+      <LeadershipHeroBanner />
 
       <section className="news-section sec-pad vetham-blog-section vetham-home-blog">
         <div className="auto-container">
