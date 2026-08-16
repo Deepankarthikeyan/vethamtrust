@@ -3459,28 +3459,35 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   margin-top: 0;
 }
 
-/* Home gallery carousel — fixed tall image slides */
+/* Home gallery carousel — compact square image slides */
 .vetham-home-gallery-section .project-carousel.owl-carousel .owl-stage-outer,
 .vetham-home-gallery-section .project-carousel.owl-carousel .owl-stage,
 .vetham-home-gallery-section .project-carousel.owl-carousel .owl-item {
-  min-height: 560px;
+  min-height: 0;
+  height: auto !important;
 }
 
 .vetham-home-gallery-section .project-block-one .inner-box {
-  min-height: 560px !important;
-  height: 560px;
+  min-height: 0 !important;
+  height: auto !important;
 }
 
 .vetham-home-gallery-section .project-block-one .inner-box .image-box {
-  min-height: 560px !important;
-  height: 560px !important;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  min-height: 0 !important;
+  height: auto !important;
+  overflow: hidden;
 }
 
 .vetham-home-gallery-section .project-block-one .inner-box .image-box img {
   width: 100% !important;
-  height: 560px !important;
-  min-height: 560px !important;
+  height: 100% !important;
+  min-height: 0 !important;
   max-height: none !important;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center;
   display: block;
@@ -3713,14 +3720,23 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   .vetham-home-gallery-section .project-carousel.owl-carousel .owl-stage-outer,
   .vetham-home-gallery-section .project-carousel.owl-carousel .owl-stage,
   .vetham-home-gallery-section .project-carousel.owl-carousel .owl-item {
-    min-height: 380px;
+    min-height: 0;
+    height: auto !important;
   }
 
   .vetham-home-gallery-section .project-block-one .inner-box,
-  .vetham-home-gallery-section .project-block-one .inner-box .image-box,
+  .vetham-home-gallery-section .project-block-one .inner-box .image-box {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  .vetham-home-gallery-section .project-block-one .inner-box .image-box {
+    max-width: 240px;
+  }
+
   .vetham-home-gallery-section .project-block-one .inner-box .image-box img {
-    min-height: 380px !important;
-    height: 380px !important;
+    min-height: 0 !important;
+    height: 100% !important;
   }
 
   .vetham-leader-card {
