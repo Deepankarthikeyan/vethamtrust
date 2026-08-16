@@ -4156,6 +4156,12 @@ html[data-ui-lang] .sticky-header .menu-area {
   box-shadow: inset 0 0 0 1px rgba(196, 90, 26, 0.14);
 }
 
+.vetham-contact-card__icon-wrap i {
+  display: inline-block;
+  line-height: 1;
+  font-style: normal;
+}
+
 .vetham-contact-card--2 .vetham-contact-card__icon-wrap {
   color: #a86812;
 }
@@ -4224,5 +4230,282 @@ html[data-ui-lang] .sticky-header .menu-area {
 
   .vetham-contact-card__hint {
     font-size: 20px;
+  }
+}
+
+/* Contact page — creative form panel */
+.vetham-contact-form {
+  position: relative;
+  background: #fff;
+}
+
+.vetham-contact-form__shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+  gap: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(196, 90, 26, 0.12);
+  box-shadow: 0 24px 60px rgba(26, 20, 12, 0.08);
+}
+
+.vetham-contact-form__aside {
+  position: relative;
+  padding: 48px 38px;
+  background: linear-gradient(165deg, #1a1410 0%, #2a2018 42%, #3d2818 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+.vetham-contact-form__aside::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(212, 160, 23, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(196, 90, 26, 0.18) 0%, transparent 42%);
+  pointer-events: none;
+}
+
+.vetham-contact-form__aside .sub-title {
+  color: #d4a017;
+}
+
+.vetham-contact-form__aside h3 {
+  position: relative;
+  margin: 16px 0 18px;
+  font-size: 28px;
+  line-height: 1.35;
+  font-weight: 600;
+  color: #fff;
+}
+
+.vetham-contact-form__aside p {
+  position: relative;
+  margin-bottom: 28px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.75;
+}
+
+.vetham-contact-form__social {
+  position: relative;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.vetham-contact-form__social li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.vetham-contact-form__social li:last-child {
+  margin-right: 0;
+}
+
+.vetham-contact-form__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.vetham-contact-form__social a:hover {
+  background: rgba(212, 160, 23, 0.35);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.vetham-contact-form__quick {
+  position: relative;
+  display: grid;
+  gap: 12px;
+}
+
+.vetham-contact-form__quick-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.vetham-contact-form__quick-link:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(212, 160, 23, 0.35);
+  color: #fff;
+}
+
+.vetham-contact-form__quick-link strong {
+  display: block;
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.vetham-contact-form__quick-link small {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.vetham-contact-form__quick-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(212, 160, 23, 0.2);
+  color: #f3d078;
+  flex-shrink: 0;
+}
+
+.vetham-contact-form__quick-icon i {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.vetham-contact-form__panel {
+  padding: 44px 42px 42px;
+  background: linear-gradient(180deg, #fff 0%, #faf8f4 100%);
+}
+
+.vetham-contact-form__panel-head {
+  margin-bottom: 28px;
+}
+
+.vetham-contact-form__panel-head h4 {
+  margin: 0 0 8px;
+  font-size: 26px;
+  line-height: 1.3;
+  color: #1a1a1a;
+}
+
+.vetham-contact-form__panel-head p {
+  margin: 0;
+  color: #6b6358;
+  font-size: 15px;
+}
+
+.vetham-contact-field {
+  display: block;
+  width: 100%;
+  margin-bottom: 22px;
+}
+
+.vetham-contact-field__label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8a7f72;
+}
+
+.vetham-contact-field__control {
+  position: relative;
+  display: block;
+}
+
+.vetham-contact-field__control i {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #c45a1a;
+  font-size: 15px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.vetham-contact-field__control--textarea i {
+  top: 22px;
+  transform: none;
+}
+
+.vetham-contact-field__control input,
+.vetham-contact-field__control textarea {
+  width: 100%;
+  border: 1px solid rgba(196, 90, 26, 0.14);
+  border-radius: 12px;
+  background: #fff;
+  color: #2f2a24;
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 16px 18px 16px 48px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 10px rgba(26, 20, 12, 0.03);
+}
+
+.vetham-contact-field__control textarea {
+  min-height: 150px;
+  resize: vertical;
+  padding-top: 18px;
+}
+
+.vetham-contact-field__control input:focus,
+.vetham-contact-field__control textarea:focus {
+  outline: none;
+  border-color: rgba(196, 90, 26, 0.45);
+  box-shadow: 0 0 0 3px rgba(196, 90, 26, 0.12);
+}
+
+.vetham-contact-field__control input::placeholder,
+.vetham-contact-field__control textarea::placeholder {
+  color: #a59a8d;
+}
+
+.vetham-contact-form__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 190px;
+  margin-top: 6px;
+}
+
+.vetham-contact-form__submit i {
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 991px) {
+  .vetham-contact-form__shell {
+    grid-template-columns: 1fr;
+  }
+
+  .vetham-contact-form__aside {
+    padding: 36px 28px;
+  }
+
+  .vetham-contact-form__panel {
+    padding: 34px 28px 32px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .vetham-contact-form__aside h3 {
+    font-size: 24px;
+  }
+
+  .vetham-contact-form__panel-head h4 {
+    font-size: 22px;
+  }
+
+  .vetham-contact-form__submit {
+    width: 100%;
   }
 }

@@ -3,7 +3,7 @@ import { SITE } from '../config/site';
 const CONTACT_ITEMS = [
   {
     key: 'phone',
-    icon: 'fas fa-phone-alt',
+    icon: 'fas fa-phone',
     label: 'Phone Number',
     hint: 'Call us anytime',
     value: SITE.phone,
