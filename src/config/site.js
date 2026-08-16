@@ -45,7 +45,12 @@ export const TEAM = [
     headline: 'Guiding Souls. Building Peace.',
     bio: 'Spiritual master and founder of Vetham Kuzhumam Spiritual Trust, dedicated to spreading the teachings of Yogiraj Vethathiri Maharishi.',
     highlights: ['Founder of Vetham Kuzhumam Spiritual Trust', 'Visionary for World Peace'],
+    achievements: [
+      { title: 'Founder', subtitle: 'Vetham Kuzhumam Spiritual Trust' },
+      { title: 'Visionary', subtitle: 'For World Peace' },
+    ],
     signature: 'Gnana Rishi',
+    portraitSide: 'right',
   },
   {
     name: 'Gnanasiriyar Selvin',
@@ -54,7 +59,12 @@ export const TEAM = [
     headline: 'Leading with Devotion. Serving with Purpose.',
     bio: 'Co-founder and president guiding the trust’s spiritual programs, satsang, and community outreach with clarity and compassion.',
     highlights: ['President of Vetham Kuzhumam Spiritual Trust', 'Mentor to spiritual seekers'],
+    achievements: [
+      { title: 'President', subtitle: 'Vetham Kuzhumam Spiritual Trust' },
+      { title: 'Mentor', subtitle: 'To spiritual seekers' },
+    ],
     signature: 'Gnanasiriyar Selvin',
+    portraitSide: 'left',
   },
   {
     name: 'Gnanasiriyar Balasubramanian',
@@ -63,7 +73,12 @@ export const TEAM = [
     headline: 'Nurturing Community. Growing Together.',
     bio: 'Co-founder and secretary fostering spiritual learning, village development, and the daily rhythm of trust activities.',
     highlights: ['Secretary of Vetham Kuzhumam Spiritual Trust', 'Guide for satsang and service'],
+    achievements: [
+      { title: 'Secretary', subtitle: 'Vetham Kuzhumam Spiritual Trust' },
+      { title: 'Guide', subtitle: 'For satsang and service' },
+    ],
     signature: 'Gnanasiriyar Balasubramanian',
+    portraitSide: 'right',
   },
   {
     name: 'Gnanasiriyar A S Sureash Kumaar',
@@ -72,7 +87,12 @@ export const TEAM = [
     headline: 'Stewarding Vision. Supporting Growth.',
     bio: 'Co-founder and treasurer helping build the spiritual village vision through careful stewardship and dedicated service.',
     highlights: ['Treasurer of Vetham Kuzhumam Spiritual Trust', 'Builder of the divine village vision'],
+    achievements: [
+      { title: 'Treasurer', subtitle: 'Vetham Kuzhumam Spiritual Trust' },
+      { title: 'Builder', subtitle: 'Of the divine village vision' },
+    ],
     signature: 'Gnanasiriyar Sureash',
+    portraitSide: 'left',
   },
 ];
 
