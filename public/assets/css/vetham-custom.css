@@ -1737,3 +1737,79 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
     padding: 12px 22px;
   }
 }
+
+/* Funfact odometer counters — matches vethamspiritualtrust.com digit-roll transition */
+.funfact-section .funfact-odometer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.funfact-section .funfact-odometer .odometer-counter {
+  display: inline-block;
+  line-height: 1;
+}
+
+.funfact-section .funfact-odometer .odometer-digits {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.funfact-section .funfact-odometer .odometer-digit {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+}
+
+.funfact-section .funfact-odometer .odometer-digit-placeholder {
+  display: inline-block;
+  line-height: 1;
+  visibility: hidden;
+}
+
+.funfact-section .funfact-odometer .odometer-digit-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.funfact-section .funfact-odometer .odometer-digit-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  line-height: 1;
+}
+
+.funfact-section .funfact-odometer .odometer-digit-value {
+  display: block;
+  line-height: 1;
+  text-align: center;
+}
+
+.funfact-section .funfact-block-one:last-child .funfact-odometer {
+  width: 110px;
+  height: 110px;
+  line-height: 110px;
+}
+
+.funfact-section .funfact-block-one:last-child .funfact-odometer .odometer-counter {
+  font-size: 34px;
+}
+
+@media only screen and (max-width: 767px) {
+  .funfact-section .funfact-block-one:last-child .funfact-odometer {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+
+  .funfact-section .funfact-block-one:last-child .funfact-odometer .odometer-counter {
+    font-size: 28px;
+  }
+}

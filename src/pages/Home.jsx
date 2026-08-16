@@ -4,6 +4,7 @@ import { BANNERS, SITE, TEAM } from '../config/site';
 import { HOME_BLOG_POSTS } from '../config/blog';
 import { img } from '../config/images';
 import LazyImage from '../components/LazyImage';
+import OdometerCounter from '../components/OdometerCounter';
 
 const FEATURES = [
   { icon: 'icon-4', title: 'Yoga & Meditation', text: 'Workshops, meditation sessions, and discourses guiding individuals on a path of self-discovery.', link: '/courses' },
@@ -144,8 +145,8 @@ export default function Home() {
             {FUNFACTS.map((f, i) => (
               <div key={f.line1} className="funfact-block-one wow fadeInUp animated" data-wow-delay={`${i * 200}ms`} data-wow-duration="1500ms">
                 <div className="inner-box">
-                  <div className="count-outer count-box">
-                    <span className="count-text" data-speed="1500" data-stop={f.stop}>0</span>
+                  <div className="count-outer count-box funfact-odometer">
+                    <OdometerCounter value={f.stop} duration={1500} />
                   </div>
                   <h3>{f.line1} <br />{f.line2}</h3>
                 </div>

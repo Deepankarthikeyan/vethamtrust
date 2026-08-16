@@ -129,13 +129,13 @@ export function reinitThemePlugins() {
   });
 
   if ($.fn.appear) {
-    $('.count-box').each(function resetCounter() {
+    $('.count-box:not(.funfact-odometer)').each(function resetCounter() {
       const $box = $(this);
       $box.removeClass('counted');
       $box.find('.count-text').text('0');
     });
 
-    $('.count-box').appear(function onAppear() {
+    $('.count-box:not(.funfact-odometer)').appear(function onAppear() {
       const $t = $(this);
       if ($t.hasClass('counted')) return;
       $t.addClass('counted');
