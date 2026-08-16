@@ -40,9 +40,9 @@ function LeaderCard({ member, linkToLeadership }) {
         <div className="vetham-leader-card__arc" aria-hidden="true" />
         <figure className="vetham-leader-card__portrait">
           {linkToLeadership ? (
-            <Link to="/leadership"><LazyImage src={img(member.image)} alt={member.name} /></Link>
+            <Link to="/leadership"><LazyImage src={img(member.portrait)} alt={member.name} /></Link>
           ) : (
-            <LazyImage src={img(member.image)} alt={member.name} />
+            <LazyImage src={img(member.portrait)} alt={member.name} />
           )}
         </figure>
       </div>

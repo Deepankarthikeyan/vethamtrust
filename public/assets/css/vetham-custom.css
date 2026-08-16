@@ -3589,9 +3589,10 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 16px;
+  padding: 24px 20px;
   background: #0b1020;
-  min-height: 280px;
+  min-height: 300px;
+  overflow: hidden;
 }
 
 .vetham-leader-card__portrait-wrap {
@@ -3600,26 +3601,29 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100%;
 }
 
 .vetham-leader-card__arc {
   position: absolute;
-  width: 220px;
-  height: 220px;
-  border: 2px solid rgba(255, 255, 255, 0.85);
+  width: min(240px, 90%);
+  height: min(240px, 90%);
+  border: 2px solid rgba(255, 255, 255, 0.88);
   border-radius: 50%;
   pointer-events: none;
+  box-shadow: 0 0 40px rgba(201, 162, 74, 0.15);
 }
 
 .vetham-leader-card__portrait {
   position: relative;
   z-index: 1;
-  width: 160px;
-  height: 160px;
+  width: min(200px, 85%);
+  height: min(200px, 85%);
   margin: 0;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
 }
 
 .vetham-leader-card__portrait img {
@@ -3627,6 +3631,7 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   height: 100%;
   object-fit: cover;
   object-position: top center;
+  filter: contrast(1.02) saturate(0.95);
 }
 
 @media only screen and (max-width: 767px) {
