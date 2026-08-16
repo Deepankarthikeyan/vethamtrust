@@ -3448,18 +3448,19 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
 
 .vetham-home-gallery-section {
   position: relative;
-  background: #fff;
+  background: linear-gradient(180deg, #faf8f4 0%, #ffffff 55%, #faf8f4 100%);
   padding-top: 80px;
-  padding-bottom: 80px;
+  padding-bottom: 90px;
   margin-bottom: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .vetham-home-gallery-section .outer-container {
   margin-top: 0;
+  padding: 0 24px;
 }
 
-/* Home gallery carousel — compact square image slides */
+/* Home gallery carousel — stylish square cards with spacing */
 .vetham-home-gallery-section .project-carousel.owl-carousel .owl-stage-outer,
 .vetham-home-gallery-section .project-carousel.owl-carousel .owl-stage,
 .vetham-home-gallery-section .project-carousel.owl-carousel .owl-item {
@@ -3467,19 +3468,38 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   height: auto !important;
 }
 
+.vetham-home-gallery-section .project-block-one {
+  padding: 6px 4px 14px;
+}
+
 .vetham-home-gallery-section .project-block-one .inner-box {
   min-height: 0 !important;
   height: auto !important;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid rgba(201, 162, 74, 0.28);
+  box-shadow: 0 12px 32px rgba(11, 16, 32, 0.1);
+  padding: 14px;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.vetham-home-gallery-section .project-block-one .inner-box:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201, 162, 74, 0.55);
+  box-shadow: 0 20px 44px rgba(11, 16, 32, 0.16);
 }
 
 .vetham-home-gallery-section .project-block-one .inner-box .image-box {
   width: 100%;
-  max-width: 280px;
+  max-width: 260px;
   margin: 0 auto;
   aspect-ratio: 1 / 1;
   min-height: 0 !important;
   height: auto !important;
   overflow: hidden;
+  border-radius: 14px;
+  background: #f3efe6;
 }
 
 .vetham-home-gallery-section .project-block-one .inner-box .image-box img {
@@ -3491,6 +3511,47 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   object-fit: cover;
   object-position: center;
   display: block;
+  transition: transform 0.45s ease, opacity 0.35s ease;
+}
+
+.vetham-home-gallery-section .project-block-one .inner-box:hover .image-box img {
+  opacity: 1 !important;
+  transform: scale(1.07);
+}
+
+.vetham-home-gallery-section .project-block-one .inner-box .content-box {
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(11, 16, 32, 0) 35%, rgba(11, 16, 32, 0.42) 100%);
+}
+
+.vetham-home-gallery-section .project-block-one .inner-box .content-box .view-btn a {
+  width: 52px;
+  height: 52px;
+  line-height: 52px;
+  border-radius: 50%;
+  background: rgba(201, 162, 74, 0.95);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(201, 162, 74, 0.35);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.vetham-home-gallery-section .project-block-one .inner-box:hover .content-box .view-btn a {
+  transform: scale(1.08);
+  background: #c9a24a;
+}
+
+.vetham-home-gallery-section .project-carousel .owl-nav button {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #fff !important;
+  border: 1px solid rgba(201, 162, 74, 0.35) !important;
+  box-shadow: 0 8px 20px rgba(11, 16, 32, 0.1);
+}
+
+.vetham-home-gallery-section .project-carousel .owl-nav button:hover {
+  background: #c9a24a !important;
+  color: #fff !important;
 }
 
 /* Bootstrap leadership profile cards — separate founders section */
@@ -3717,6 +3778,19 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
     padding-bottom: 60px;
   }
 
+  .vetham-home-gallery-section .outer-container {
+    padding: 0 12px;
+  }
+
+  .vetham-home-gallery-section .project-block-one {
+    padding: 4px 2px 10px;
+  }
+
+  .vetham-home-gallery-section .project-block-one .inner-box {
+    padding: 12px;
+    border-radius: 16px;
+  }
+
   .vetham-home-gallery-section .project-carousel.owl-carousel .owl-stage-outer,
   .vetham-home-gallery-section .project-carousel.owl-carousel .owl-stage,
   .vetham-home-gallery-section .project-carousel.owl-carousel .owl-item {
@@ -3731,7 +3805,8 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   }
 
   .vetham-home-gallery-section .project-block-one .inner-box .image-box {
-    max-width: 240px;
+    max-width: 220px;
+    border-radius: 12px;
   }
 
   .vetham-home-gallery-section .project-block-one .inner-box .image-box img {

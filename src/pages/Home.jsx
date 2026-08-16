@@ -243,7 +243,7 @@ export default function Home() {
           </div>
         </div>
         <div className="outer-container">
-          <div className="project-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
+          <div className="project-carousel vetham-home-gallery-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
             {GALLERY.map((g) => (
               <div key={g.image} className="project-block-one">
                 <div className="inner-box">

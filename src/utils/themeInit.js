@@ -118,7 +118,16 @@ export function reinitThemePlugins() {
     margin: 0,
     responsive: { 0: { items: 2 }, 600: { items: 4 }, 1024: { items: 5 } },
   });
-  initOwl($, '.project-carousel', {
+  initOwl($, '.vetham-home-gallery-carousel', {
+    loop: true,
+    margin: 24,
+    nav: true,
+    smartSpeed: 400,
+    autoplay: 5000,
+    navText: ['<span class="fal fa-angle-left"></span>', '<span class="fal fa-angle-right"></span>'],
+    responsive: { 0: { items: 1, margin: 16 }, 600: { items: 3, margin: 20 }, 1024: { items: 4, margin: 24 } },
+  });
+  initOwl($, '.project-carousel:not(.vetham-home-gallery-carousel)', {
     loop: true,
     margin: 0,
     nav: true,
