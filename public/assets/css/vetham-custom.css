@@ -992,7 +992,7 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
 .banner-section .banner-carousel.owl-carousel:not(.owl-loaded) {
   display: block !important;
   opacity: 1 !important;
-  min-height: 520px;
+  min-height: 550px;
 }
 
 .banner-section .banner-carousel.owl-carousel:not(.owl-loaded) .slide-item:not(:first-child) {
@@ -1005,6 +1005,166 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
 .banner-section .banner-carousel.owl-carousel:not(.owl-loaded) .slide-item:first-child .content-box .btn-box {
   opacity: 1;
   transform: none;
+}
+
+/* WordPress-matched home page layout & sizing */
+.vetham-home-banner .banner-carousel .slide-item {
+  min-height: 550px;
+  padding: 150px 0 155px;
+}
+
+.vetham-home-about .text p,
+.vetham-home-what-we-do .text p,
+.vetham-home-village__intro p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #555;
+}
+
+.vetham-home-what-we-do__image img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
+.vetham-home-team .team-block-one .image-box .image img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.vetham-home-info-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 28px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  height: 100%;
+}
+
+.vetham-home-info-card h3 {
+  font-size: 22px;
+  margin-bottom: 14px;
+  color: #333;
+}
+
+.vetham-home-info-card p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #666;
+  margin: 0;
+}
+
+.vetham-home-highlights__list {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 1.2rem;
+  text-align: left;
+}
+
+.vetham-home-highlights__list li {
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #555;
+}
+
+.vetham-home-donation__box {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.vetham-home-donation__lead {
+  font-size: 20px;
+  font-weight: 600;
+  color: #8B4513;
+  margin-bottom: 16px;
+}
+
+.vetham-home-donation__quote {
+  font-style: italic;
+  margin: 20px 0 24px;
+  color: #666;
+}
+
+.vetham-home-whatsapp {
+  background: #1a1a2e;
+  color: #fff;
+}
+
+.vetham-home-whatsapp h2 {
+  color: #fff;
+  font-size: clamp(22px, 3vw, 32px);
+  max-width: 760px;
+  margin: 0 auto 24px;
+  line-height: 1.35;
+}
+
+.vetham-home-practical__card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+  height: 100%;
+}
+
+.vetham-home-practical__card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.vetham-home-practical__card ul {
+  padding-left: 1.1rem;
+  margin: 12px 0 0;
+}
+
+.vetham-home-practical__card li {
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.vetham-home-practical__image img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.vetham-home-social__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+.vetham-home-event-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+  text-align: left;
+  height: 100%;
+}
+
+.vetham-home-event-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 991px) {
+  .vetham-home-banner .banner-carousel .slide-item {
+    min-height: 480px;
+    padding: 120px 0 125px;
+  }
+
+  .vetham-home-practical__image {
+    margin: 20px 0;
+  }
 }
 
 /* Home "What We Do" feature icons — larger & stylish */

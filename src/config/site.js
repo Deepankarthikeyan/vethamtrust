@@ -103,7 +103,7 @@ export const BANNERS = [
   {
     image: 'banner2',
     subtitle: 'VETHATHIRI MAHARISHI',
-    title: 'Meditation Hall & Spiritual Centre',
+    title: 'The Need for a Spiritual Sanctuary',
     text: 'A sanctuary where individuals immerse in spiritual practices and connect with nature.',
     cta: { label: 'Our Story', path: '/about' },
   },
