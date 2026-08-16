@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { BANNERS, SITE, TEAM } from '../config/site';
+import { BANNERS, SITE } from '../config/site';
 import { HOME_BLOG_POSTS } from '../config/blog';
 import { img } from '../config/images';
 import LazyImage from '../components/LazyImage';
+import LeadershipShowcase from '../components/LeadershipShowcase';
 import OdometerCounter, { OdometerSection } from '../components/OdometerCounter';
 
 const FEATURES = [
@@ -253,33 +254,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="team-section sec-pad centred">
-        <div className="auto-container">
-          <div className="sec-title centred mb_50">
-            <span className="sub-title">Leadership</span>
-            <h2>Our Founders &amp; <br />Spiritual Masters</h2>
-          </div>
-          <div className="row clearfix">
-            {TEAM.map((member, i) => (
-              <div key={member.name} className="col-lg-3 col-md-6 col-sm-12 team-block">
-                <div className="team-block-one wow fadeInUp animated" data-wow-delay={`${i * 200}ms`} data-wow-duration="1500ms">
-                  <div className="inner-box">
-                    <div className="image-box">
-                      <figure className="image"><Link to="/leadership"><LazyImage src={img(member.image)} alt={member.name} /></Link></figure>
-                    </div>
-                    <div className="lower-content">
-                      <div className="inner">
-                        <h3><Link to="/leadership">{member.name}</Link></h3>
-                        <span className="designation">{member.role}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <LeadershipShowcase />
 
       <section className="news-section sec-pad vetham-blog-section vetham-home-blog">
         <div className="auto-container">
