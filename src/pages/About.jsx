@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { SITE, TEAM } from '../config/site';
+import { SITE } from '../config/site';
 import { img } from '../config/images';
 import PageTitle from '../components/PageTitle';
+import LeadershipShowcase from '../components/LeadershipShowcase';
 import LazyImage from '../components/LazyImage';
 
 export default function About() {
@@ -63,31 +64,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="team-section sec-pad centred">
-        <div className="auto-container">
-          <div className="sec-title centred mb_50">
-            <span className="sub-title">Leadership</span>
-            <h2>Our Trustees</h2>
-          </div>
-          <div className="row clearfix">
-            {TEAM.map((member) => (
-              <div key={member.name} className="col-lg-3 col-md-6 col-sm-12 team-block">
-                <div className="team-block-one">
-                  <div className="inner-box">
-                    <div className="image-box">
-                      <figure className="image"><LazyImage src={img(member.image)} alt={member.name} /></figure>
-                    </div>
-                    <div className="lower-content">
-                      <h3>{member.name}</h3>
-                      <span className="designation">{member.role}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <LeadershipShowcase linkToLeadership={false} />
     </>
   );
 }

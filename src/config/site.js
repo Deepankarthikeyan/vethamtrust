@@ -15,12 +15,7 @@ export const SITE = {
 
 export const NAV_ITEMS = [
   { path: '/', label: 'Home', key: 'home' },
-  {
-    path: '/about',
-    label: 'About Us',
-    key: 'about',
-    children: [{ path: '/leadership', label: 'Leadership', key: 'leadership' }],
-  },
+  { path: '/about', label: 'About Us', key: 'about' },
   { path: '/our-village', label: 'Our Village', key: 'village' },
   { path: '/courses', label: 'Courses', key: 'courses' },
   {
