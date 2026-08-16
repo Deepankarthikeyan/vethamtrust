@@ -4,34 +4,56 @@ import { TEAM } from '../config/site';
 import { img } from '../config/images';
 import LazyImage from './LazyImage';
 
-function LeaderCard({ member, reverse, delay, visible, linkToLeadership }) {
+function LeaderCard({ member, delay, visible, linkToLeadership }) {
   const NameTag = linkToLeadership ? Link : 'div';
   const nameProps = linkToLeadership ? { to: '/leadership' } : {};
 
   return (
     <article
-      className={`vetham-leader-card ${reverse ? 'is-reverse' : ''} ${visible ? 'is-visible' : ''}`}
+      className={`vetham-portfolio-card ${visible ? 'is-visible' : ''}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="vetham-leader-card__glow" aria-hidden="true" />
-      <div className="vetham-leader-card__content">
-        <span className="vetham-leader-card__eyebrow">Spiritual Master</span>
-        <h3 className="vetham-leader-card__name">
-          <NameTag {...nameProps}>{member.name}</NameTag>
-        </h3>
-        <p className="vetham-leader-card__role">{member.role}</p>
-        {member.tagline ? <p className="vetham-leader-card__tagline">{member.tagline}</p> : null}
-      </div>
-      <div className="vetham-leader-card__visual">
-        <div className="vetham-leader-card__orbit" aria-hidden="true" />
-        <div className="vetham-leader-card__ring">
-          <figure className="vetham-leader-card__image">
-            {linkToLeadership ? (
-              <Link to="/leadership"><LazyImage src={img(member.image)} alt={member.name} /></Link>
-            ) : (
-              <LazyImage src={img(member.image)} alt={member.name} />
-            )}
-          </figure>
+      <div className="vetham-portfolio-card__inner">
+        <div className="vetham-portfolio-card__content">
+          <p className="vetham-portfolio-card__meta">
+            Spiritual Master
+            <span aria-hidden="true"> • </span>
+            {member.role}
+          </p>
+          <h3 className="vetham-portfolio-card__name">
+            <NameTag {...nameProps}>{member.name}</NameTag>
+          </h3>
+          {member.headline ? (
+            <p className="vetham-portfolio-card__headline">{member.headline}</p>
+          ) : null}
+          {member.bio ? <p className="vetham-portfolio-card__bio">{member.bio}</p> : null}
+          {member.highlights?.length ? (
+            <ul className="vetham-portfolio-card__highlights">
+              {member.highlights.map((item) => (
+                <li key={item}>
+                  <span className="vetham-portfolio-card__icon" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          {member.signature ? (
+            <p className="vetham-portfolio-card__signature">{member.signature}</p>
+          ) : null}
+          <div className="vetham-portfolio-card__footer-line" aria-hidden="true" />
+        </div>
+
+        <div className="vetham-portfolio-card__portrait-wrap">
+          <div className="vetham-portfolio-card__arc" aria-hidden="true" />
+          <div className="vetham-portfolio-card__portrait">
+            <figure className="vetham-portfolio-card__image">
+              {linkToLeadership ? (
+                <Link to="/leadership"><LazyImage src={img(member.image)} alt={member.name} /></Link>
+              ) : (
+                <LazyImage src={img(member.image)} alt={member.name} />
+              )}
+            </figure>
+          </div>
         </div>
       </div>
     </article>
@@ -64,7 +86,7 @@ export default function LeadershipShowcase({ showHeader = true, linkToLeadership
           observer.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px 60px 0px' },
+      { threshold: 0.1, rootMargin: '0px 0px 60px 0px' },
     );
 
     observer.observe(el);
@@ -89,8 +111,7 @@ export default function LeadershipShowcase({ showHeader = true, linkToLeadership
             <LeaderCard
               key={member.name}
               member={member}
-              reverse={index % 2 === 1}
-              delay={index * 140}
+              delay={index * 160}
               visible={visible}
               linkToLeadership={linkToLeadership}
             />
