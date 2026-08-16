@@ -83,7 +83,7 @@ export default function LeadershipShowcase({ linkToLeadership = true, fullPage =
           <p className="vetham-leadership-cards__org">{SITE.name.toUpperCase()}</p>
         </header>
 
-        <div className="row g-4">
+        <div className="row g-5">
           {TEAM.map((member) => (
             <LeaderCard key={member.name} member={member} linkToLeadership={linkToLeadership} />
           ))}

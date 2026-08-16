@@ -235,7 +235,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="project-section vetham-gallery-icon-only">
+      <section className="project-section vetham-gallery-icon-only vetham-home-gallery-section sec-pad">
+        <div className="auto-container">
+          <div className="sec-title centred mb_50">
+            <span className="sub-title">Gallery</span>
+            <h2>Spiritual Moments &amp; <br />Community Events</h2>
+          </div>
+        </div>
         <div className="outer-container">
           <div className="project-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
             {GALLERY.map((g) => (
