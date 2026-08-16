@@ -7,7 +7,7 @@ import { img } from '../config/images';
 import LazyImage from '../components/LazyImage';
 import LeadershipShowcase from '../components/LeadershipShowcase';
 import SiteStats from '../components/SiteStats';
-import { loadThemeScripts, reinitBannerCarousel } from '../utils/themeInit';
+import { loadThemeScripts, destroyBannerCarousel, reinitBannerCarousel } from '../utils/themeInit';
 
 const FEATURES = [
   { icon: 'icon-4', title: 'Yoga & Meditation', text: 'Workshops, meditation sessions, and discourses guiding individuals on a path of self-discovery.', link: '/courses' },
@@ -47,22 +47,21 @@ const COMMUNITY_STATS = [
 export default function Home() {
   useEffect(() => {
     let active = true;
+    let initTimer;
 
     (async () => {
       await loadThemeScripts();
       if (!active) return;
 
-      reinitBannerCarousel();
-      requestAnimationFrame(() => {
+      initTimer = window.setTimeout(() => {
         if (active) reinitBannerCarousel();
-      });
-      window.setTimeout(() => {
-        if (active) reinitBannerCarousel();
-      }, 200);
+      }, 150);
     })();
 
     return () => {
       active = false;
+      window.clearTimeout(initTimer);
+      destroyBannerCarousel();
     };
   }, []);
 
@@ -74,7 +73,7 @@ export default function Home() {
       </Helmet>
 
       <section className="banner-section p_relative">
-        <div className="banner-carousel owl-theme owl-carousel owl-nav-none">
+        <div className="banner-carousel owl-theme owl-carousel">
           {BANNERS.map((slide) => (
             <div key={slide.title} className="slide-item p_relative">
               <div className="image-layer p_absolute" style={{ backgroundImage: `url(${img(slide.image)})` }} />

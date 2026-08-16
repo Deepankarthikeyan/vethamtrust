@@ -61,9 +61,10 @@ export function loadThemeScripts() {
   return loadingPromise;
 }
 
-function destroyOwl($) {
+function destroyOwl($, { skipBanner = false } = {}) {
   $('.owl-carousel').each(function destroy() {
     const $el = $(this);
+    if (skipBanner && $el.hasClass('banner-carousel')) return;
     if ($el.hasClass('owl-loaded')) {
       $el.trigger('destroy.owl.carousel');
       $el.removeClass('owl-loaded owl-hidden');
@@ -81,17 +82,37 @@ const BANNER_CAROUSEL_OPTIONS = {
   items: 1,
   loop: true,
   margin: 0,
-  nav: false,
+  nav: true,
   dots: true,
-  animateOut: 'fadeOut',
-  animateIn: 'fadeIn',
-  smartSpeed: 900,
+  navText: [
+    '<span class="fal fa-angle-left" aria-hidden="true"></span>',
+    '<span class="fal fa-angle-right" aria-hidden="true"></span>',
+  ],
+  smartSpeed: 800,
   autoplay: true,
-  autoplayTimeout: 5500,
+  autoplayTimeout: 5000,
   autoplayHoverPause: true,
-  autoplaySpeed: 900,
+  autoplaySpeed: 800,
   responsive: { 0: { items: 1 }, 1024: { items: 1 } },
+  onInitialized(event) {
+    $(event.target).trigger('play.owl.autoplay', [5000]);
+  },
 };
+
+let bannerCarouselReady = false;
+
+export function destroyBannerCarousel() {
+  const $ = window.jQuery;
+  if (!$) return;
+
+  const $banner = $('.banner-carousel');
+  if (!$banner.length || !$banner.hasClass('owl-loaded')) return;
+
+  $banner.trigger('stop.owl.autoplay');
+  $banner.trigger('destroy.owl.carousel');
+  $banner.removeClass('owl-loaded owl-hidden');
+  bannerCarouselReady = false;
+}
 
 export function reinitBannerCarousel() {
   const $ = window.jQuery;
@@ -101,20 +122,22 @@ export function reinitBannerCarousel() {
   if (!$banner.length) return;
 
   if ($banner.hasClass('owl-loaded')) {
-    $banner.trigger('destroy.owl.carousel');
-    $banner.removeClass('owl-loaded owl-hidden');
+    $banner.trigger('play.owl.autoplay', [5000]);
+    return;
   }
 
+  if (bannerCarouselReady) return;
+
   initOwl($, '.banner-carousel', BANNER_CAROUSEL_OPTIONS);
+  bannerCarouselReady = true;
+  $banner.trigger('play.owl.autoplay', [5000]);
 }
 
 export function reinitThemePlugins() {
   const $ = window.jQuery;
   if (!$) return;
 
-  destroyOwl($);
-
-  initOwl($, '.banner-carousel', BANNER_CAROUSEL_OPTIONS);
+  destroyOwl($, { skipBanner: true });
 
   const carouselDefaults = {
     loop: true,
