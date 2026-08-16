@@ -4,7 +4,10 @@ export const SITE = {
   phone: '+91 9944511067',
   phoneHref: 'tel:+919944511067',
   email: 'vethamkuzhumam@gmail.com',
+  addressLine1: 'No: 120, ST-2',
   address: 'Marisettipathi Village, Kumitipathi Post, Madukkarai, Coimbatore - 641032',
+  addressFull: 'Vetham Kuzhumam Spiritual Trust, No: 120, ST-2, Marisettipathi Village, Kumitipathi Post, Madukkarai, Coimbatore - 641032',
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Vetham+Kuzhumam+Spiritual+Trust+Marisettipathi+Village+Coimbatore',
   addressShort: 'Marisettipathi Village, Coimbatore - 641032',
   social: {
     facebook: 'https://www.facebook.com/vetham.kuzhumam.1/',

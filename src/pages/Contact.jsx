@@ -1,8 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
-import { img } from '../config/images';
 import PageTitle from '../components/PageTitle';
-import LazyImage from '../components/LazyImage';
+import ContactInfoCards from '../components/ContactInfoCards';
 
 export default function Contact() {
   const handleSubmit = (e) => {
@@ -20,39 +19,7 @@ export default function Contact() {
       </Helmet>
       <PageTitle title="Contact Us" crumbs={['Contact Us']} />
 
-      <section className="contact-info-section bg-color-1 centred">
-        <div className="auto-container">
-          <div className="row clearfix">
-            <div className="col-lg-4 col-md-6 col-sm-12 info-column">
-              <div className="info-block-one">
-                <div className="inner-box">
-                  <div className="icon-box"><LazyImage src={img('contactPhone')} alt="" /></div>
-                  <h3>Phone Number</h3>
-                  <p>Call us <br /><a href={SITE.phoneHref}>{SITE.phone}</a></p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 info-column">
-              <div className="info-block-one">
-                <div className="inner-box">
-                  <div className="icon-box"><LazyImage src={img('contactEmail')} alt="" /></div>
-                  <h3>Email Address</h3>
-                  <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 info-column">
-              <div className="info-block-one">
-                <div className="inner-box">
-                  <div className="icon-box"><LazyImage src={img('contactHome')} alt="" /></div>
-                  <h3>Our Location</h3>
-                  <p>{SITE.name}, No: 120, ST-2<br />{SITE.address}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ContactInfoCards />
 
       <section className="contact-section sec-pad">
         <div className="auto-container">
