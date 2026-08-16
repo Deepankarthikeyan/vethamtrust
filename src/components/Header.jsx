@@ -75,9 +75,6 @@ export default function Header() {
             </div>
             <ul className="nav-right">
               <li className="search-box-outer search-toggler"><i className="icon-1" /></li>
-              <li className="btn-box">
-                <button type="button" className="donate-box-btn theme-btn-one"><span>Donate Now</span></button>
-              </li>
             </ul>
           </div>
         </div>
@@ -95,9 +92,6 @@ export default function Header() {
               </div>
               <ul className="nav-right">
                 <li className="search-box-outer search-toggler"><i className="icon-1" /></li>
-                <li className="btn-box">
-                  <button type="button" className="donate-box-btn theme-btn-one"><span>Donate Now</span></button>
-                </li>
               </ul>
             </div>
           </div>

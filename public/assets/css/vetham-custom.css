@@ -1389,7 +1389,7 @@ html[data-ui-lang] .sticky-header .menu-area {
   }
 }
 
-/* Sticky header: keep donate button and full nav (including Contact) visible */
+/* Sticky header layout */
 .sticky-header .outer-box {
   display: flex;
   align-items: center;
@@ -1426,30 +1426,6 @@ html[data-ui-lang] .sticky-header .menu-area {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-.sticky-header .nav-right li.btn-box {
-  flex-shrink: 0;
-  margin: 0;
-}
-
-.main-header .nav-right li.btn-box,
-.sticky-header .nav-right li.btn-box {
-  flex-shrink: 0;
-}
-
-.main-header .nav-right li.btn-box .theme-btn-one,
-.sticky-header .nav-right li.btn-box .theme-btn-one {
-  min-width: 150px;
-  padding: 14px 30px;
-  white-space: nowrap;
-  display: inline-block;
-  box-sizing: border-box;
-}
-
-.main-header .nav-right li.btn-box .theme-btn-one span,
-.sticky-header .nav-right li.btn-box .theme-btn-one span {
-  white-space: nowrap;
 }
 
 /* Footer contact column visibility */
@@ -1870,10 +1846,62 @@ html[data-ui-lang] .sticky-header .menu-area {
     font-size: 14px;
   }
 
-  .main-header .nav-right li.btn-box .theme-btn-one,
-  .sticky-header .nav-right li.btn-box .theme-btn-one {
-    min-width: 130px;
-    padding: 12px 22px;
+  .header-style-two.main-header .header-lower .outer-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 16px 0 0 !important;
+  }
+
+  .header-style-two.main-header .header-lower .logo-box {
+    padding: 14px 24px 14px 28px !important;
+  }
+
+  .header-style-two.main-header .header-lower .logo-box .logo {
+    max-width: 180px;
+  }
+
+  .header-style-two.main-header .menu-area {
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    margin-left: auto;
+    padding: 0;
+  }
+
+  .header-style-two.main-header .header-lower .nav-right {
+    margin-left: 4px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .main-header .logo-box .logo img,
+  .sticky-header .logo-box .logo img {
+    max-height: 52px;
+  }
+
+  .header-style-two.main-header .header-lower .logo-box {
+    padding: 12px 16px 12px 20px !important;
+  }
+
+  .header-style-two.main-header .header-lower .logo-box .logo {
+    max-width: 150px;
+  }
+
+  .header-style-two.main-header .header-lower .outer-box {
+    padding: 0 12px 0 0 !important;
+  }
+
+  .header-style-two.main-header .header-lower .nav-right li.search-toggler,
+  .sticky-header .nav-right li.search-toggler {
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+  }
+
+  .header-style-two .menu-area .mobile-nav-toggler {
+    margin: 0;
+    padding: 8px;
   }
 }
 

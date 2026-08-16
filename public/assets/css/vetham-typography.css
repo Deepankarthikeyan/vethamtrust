@@ -147,14 +147,6 @@ body :where(
   text-align: start;
 }
 
-.main-header .nav-right li.btn-box .theme-btn-one,
-.sticky-header .nav-right li.btn-box .theme-btn-one {
-  font-size: var(--vetham-text-btn) !important;
-  line-height: 1.35 !important;
-  white-space: normal;
-  text-align: center;
-}
-
 /* Longer translations: wrap cleanly without shrinking type */
 html[data-ui-lang] .header-style-two.main-header .main-menu .navigation,
 html[data-ui-lang] .sticky-header .main-menu .navigation {
