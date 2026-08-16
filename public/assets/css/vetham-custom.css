@@ -1777,19 +1777,17 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   line-height: 1;
 }
 
-.funfact-section .funfact-odometer .odometer-digit-ribbon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+.funfact-section .funfact-odometer .odometer-digit-strip {
+  display: block;
   width: 100%;
-  line-height: 1;
+  will-change: transform;
 }
 
 .funfact-section .funfact-odometer .odometer-digit-value {
   display: block;
   line-height: 1;
   text-align: center;
+  height: 1em;
 }
 
 .funfact-section .funfact-block-one:last-child .funfact-odometer {

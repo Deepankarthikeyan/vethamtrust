@@ -4,7 +4,7 @@ import { BANNERS, SITE, TEAM } from '../config/site';
 import { HOME_BLOG_POSTS } from '../config/blog';
 import { img } from '../config/images';
 import LazyImage from '../components/LazyImage';
-import OdometerCounter from '../components/OdometerCounter';
+import OdometerCounter, { FunfactSection } from '../components/OdometerCounter';
 
 const FEATURES = [
   { icon: 'icon-4', title: 'Yoga & Meditation', text: 'Workshops, meditation sessions, and discourses guiding individuals on a path of self-discovery.', link: '/courses' },
@@ -138,12 +138,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="funfact-section pt_80 pb_80 bg-color-2">
+      <FunfactSection className="funfact-section pt_80 pb_80 bg-color-2">
         <div className="pattern-layer" style={{ backgroundImage: 'url(/assets/images/shape/shape-2.png)' }} />
         <div className="auto-container">
           <div className="inner-container">
-            {FUNFACTS.map((f, i) => (
-              <div key={f.line1} className="funfact-block-one wow fadeInUp animated" data-wow-delay={`${i * 200}ms`} data-wow-duration="1500ms">
+            {FUNFACTS.map((f) => (
+              <div key={f.line1} className="funfact-block-one">
                 <div className="inner-box">
                   <div className="count-outer count-box funfact-odometer">
                     <OdometerCounter value={f.stop} duration={1500} />
@@ -154,7 +154,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </FunfactSection>
 
       <section className="cause-section sec-pad">
         <div className="auto-container">

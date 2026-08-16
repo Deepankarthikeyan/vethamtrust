@@ -1,4 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+
+const FunfactActiveContext = createContext(false);
 
 function sleep(ms) {
   return new Promise((resolve) => {
@@ -8,99 +18,84 @@ function sleep(ms) {
 
 function OdometerDigit({ targetDigit, index, active, duration }) {
   const wrapRef = useRef(null);
-  const ribbonRef = useRef(null);
+  const [position, setPosition] = useState(0);
+  const [stepMs, setStepMs] = useState(0);
   const ranRef = useRef(false);
+  const steps = index * 10 + targetDigit;
+
+  const strip = useMemo(
+    () => Array.from({ length: 40 }, (_, i) => i % 10),
+    [],
+  );
+
+  useLayoutEffect(() => {
+    const wrap = wrapRef.current;
+    if (!wrap) return;
+    const value = wrap.querySelector('.odometer-digit-value');
+    if (value) {
+      wrap.style.height = `${value.offsetHeight}px`;
+    }
+  }, []);
 
   useEffect(() => {
     if (!active || ranRef.current) return;
-
-    const wrap = wrapRef.current;
-    const ribbon = ribbonRef.current;
-    if (!wrap || !ribbon) return;
+    if (steps === 0) return;
 
     ranRef.current = true;
+    const delay = Math.floor((duration - 300) / Math.max(1, steps));
+    setStepMs(delay);
 
-    const rounds = index * 10 + targetDigit;
-    const delay = Math.floor((duration - 300) / Math.max(1, rounds));
     let round = 0;
     let skip = 0;
 
-    const animateDigit = async () => {
+    const animate = async () => {
       if (skip < index) {
         skip += 1;
         await sleep(delay);
-        return animateDigit();
+        return animate();
       }
 
-      if (round >= rounds) return;
+      if (round >= steps) return;
 
       round += 1;
-      const nextVal = round % 10;
-      const height = wrap.clientHeight || parseFloat(getComputedStyle(wrap).lineHeight) || 44;
-      const currentValue = ribbon.querySelector('.odometer-digit-value');
-
-      const nextValue = document.createElement('span');
-      nextValue.className = 'odometer-digit-value';
-      nextValue.textContent = String(nextVal);
-      ribbon.appendChild(nextValue);
-
-      ribbon.style.transition = `top ${delay}ms linear`;
-      ribbon.style.top = `-${height}px`;
-
+      setPosition(round);
       await sleep(delay);
-
-      currentValue?.remove();
-      ribbon.style.transition = 'none';
-      ribbon.style.top = '0';
-
-      return animateDigit();
+      return animate();
     };
 
-    animateDigit();
-  }, [active, targetDigit, index, duration]);
+    animate();
+  }, [active, duration, index, steps]);
 
   return (
     <span className="odometer-digit">
       <span className="odometer-digit-placeholder">8</span>
       <span className="odometer-digit-wrap" ref={wrapRef}>
-        <span className="odometer-digit-ribbon" ref={ribbonRef}>
-          <span className="odometer-digit-value">0</span>
+        <span
+          className="odometer-digit-strip"
+          style={{
+            transform: `translateY(-${position}em)`,
+            transition: position > 0 && stepMs ? `transform ${stepMs}ms linear` : 'none',
+          }}
+        >
+          {strip.map((digit, i) => (
+            <span key={i} className="odometer-digit-value">{digit}</span>
+          ))}
         </span>
       </span>
     </span>
   );
 }
 
-export default function OdometerCounter({ value, duration = 1500, className = '' }) {
-  const rootRef = useRef(null);
-  const [active, setActive] = useState(false);
-
-  useEffect(() => {
-    const el = rootRef.current;
-    if (!el) return undefined;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setActive(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2, rootMargin: '0px 0px -40px 0px' },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
+function OdometerCounter({ value, duration = 1500, className = '' }) {
+  const active = useContext(FunfactActiveContext);
   const digits = String(value).split('').map((digit) => Number(digit));
 
   return (
-    <span ref={rootRef} className={`odometer-counter ${active ? 'is-active' : ''} ${className}`.trim()}>
+    <span className={`odometer-counter ${active ? 'is-active' : ''} ${className}`.trim()}>
       <span className="odometer-digits">
         {digits.map((digit, index) => (
           <OdometerDigit
-            key={`${index}-${digit}`}
+            key={`${index}-${value}`}
             targetDigit={digit}
             index={index}
             active={active}
@@ -111,3 +106,64 @@ export default function OdometerCounter({ value, duration = 1500, className = ''
     </span>
   );
 }
+
+export function FunfactSection({ children, className = '' }) {
+  const sectionRef = useRef(null);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return undefined;
+
+    const activate = () => {
+      setActive(true);
+    };
+
+    const isVisible = () => {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+    };
+
+    if (isVisible()) {
+      activate();
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          activate();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.05, rootMargin: '0px 0px 80px 0px' },
+    );
+
+    observer.observe(el);
+
+    const onScroll = () => {
+      if (isVisible()) {
+        activate();
+        observer.disconnect();
+        window.removeEventListener('scroll', onScroll);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
+  return (
+    <section ref={sectionRef} className={className}>
+      <FunfactActiveContext.Provider value={active}>
+        {children}
+      </FunfactActiveContext.Provider>
+    </section>
+  );
+}
+
+export default OdometerCounter;
