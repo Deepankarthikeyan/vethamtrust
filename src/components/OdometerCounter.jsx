@@ -75,7 +75,9 @@ function OdometerDigit({ targetDigit, index, active, duration }) {
           className="odometer-digit-strip"
           style={{
             transform: `translateY(-${position}em)`,
-            transition: position > 0 && stepMs ? `transform ${stepMs}ms linear` : 'none',
+            transition: position > 0 && stepMs
+              ? `transform ${stepMs}ms cubic-bezier(0.22, 0.85, 0.35, 1)`
+              : 'none',
           }}
         >
           {strip.map((digit, i) => (
@@ -160,7 +162,7 @@ export function OdometerSection({ children, className = '' }) {
   }, []);
 
   return (
-    <section ref={sectionRef} className={className}>
+    <section ref={sectionRef} className={`${className} ${active ? 'is-active' : ''}`.trim()}>
       <FunfactActiveContext.Provider value={active}>
         {children}
       </FunfactActiveContext.Provider>

@@ -1812,7 +1812,207 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   }
 }
 
-/* Community stats — People / Mentors / Community / Services odometer section */
+/* Round community stats — circular odometer with sliding digits */
+.vetham-round-stats {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #9c44e1 0%, #724d67 42%, #4e0538 100%);
+  padding-top: 85px;
+  padding-bottom: 85px;
+}
+
+.vetham-round-stats .pattern-layer {
+  opacity: 0.12;
+}
+
+.vetham-round-stats-grid {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px 20px;
+}
+
+.vetham-round-stat {
+  flex: 1 1 200px;
+  max-width: 25%;
+  text-align: center;
+}
+
+.vetham-round-stat-orbit {
+  position: relative;
+  width: 148px;
+  height: 148px;
+  margin: 0 auto 22px;
+}
+
+.vetham-round-stat-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(#724d67, #724d67) padding-box,
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.15)) border-box;
+  animation: vetham-ring-spin 8s linear infinite;
+}
+
+.vetham-round-stat-ring-2 {
+  inset: 8px;
+  opacity: 0.45;
+  animation-direction: reverse;
+  animation-duration: 5s;
+}
+
+.vetham-round-stat-circle {
+  position: absolute;
+  inset: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.08), 0 12px 28px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.vetham-round-stat-title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+
+.vetham-round-stats .odometer-counter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 38px;
+  line-height: 1;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500;
+}
+
+.vetham-round-stat-1 .odometer-counter { color: #fff8dc; }
+.vetham-round-stat-2 .odometer-counter { color: #d4ffe8; }
+.vetham-round-stat-3 .odometer-counter { font-size: 30px; color: #ffe0f5; }
+.vetham-round-stat-4 .odometer-counter { color: #e8ecff; }
+
+.vetham-round-stats .odometer-digits {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vetham-round-stats .odometer-unit {
+  display: inline-block;
+  margin-left: 0.06em;
+  line-height: 1;
+  font-size: 0.85em;
+}
+
+.vetham-round-stats .odometer-digit {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.vetham-round-stats .odometer-digit-placeholder {
+  display: inline-block;
+  line-height: 1;
+  visibility: hidden;
+}
+
+.vetham-round-stats .odometer-digit-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.vetham-round-stats .odometer-digit-strip {
+  display: block;
+  width: 100%;
+  will-change: transform;
+}
+
+.vetham-round-stats .odometer-digit-value {
+  display: block;
+  line-height: 1;
+  text-align: center;
+  height: 1em;
+}
+
+@keyframes vetham-ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes vetham-round-pop {
+  0% { transform: scale(0.85); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.vetham-round-stats.is-active .vetham-round-stat-circle {
+  animation: vetham-round-pop 0.7s ease forwards;
+}
+
+.vetham-round-stats.is-active .vetham-round-stat-1 .vetham-round-stat-circle { animation-delay: 0s; }
+.vetham-round-stats.is-active .vetham-round-stat-2 .vetham-round-stat-circle { animation-delay: 0.1s; }
+.vetham-round-stats.is-active .vetham-round-stat-3 .vetham-round-stat-circle { animation-delay: 0.2s; }
+.vetham-round-stats.is-active .vetham-round-stat-4 .vetham-round-stat-circle { animation-delay: 0.3s; }
+
+@media only screen and (max-width: 991px) {
+  .vetham-round-stat {
+    max-width: 48%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .vetham-round-stats {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .vetham-round-stats-grid {
+    justify-content: center;
+    gap: 28px 16px;
+  }
+
+  .vetham-round-stat {
+    flex: 1 1 140px;
+    max-width: 46%;
+  }
+
+  .vetham-round-stat-orbit {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 16px;
+  }
+
+  .vetham-round-stat-circle {
+    inset: 14px;
+  }
+
+  .vetham-round-stats .odometer-counter {
+    font-size: 30px;
+  }
+
+  .vetham-round-stat-3 .odometer-counter {
+    font-size: 24px;
+  }
+
+  .vetham-round-stat-title {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+/* Legacy community stats selectors kept for odometer in funfact section */
 .vetham-community-stats {
   position: relative;
   overflow: hidden;

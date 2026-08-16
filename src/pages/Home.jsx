@@ -138,18 +138,20 @@ export default function Home() {
         </div>
       </section>
 
-      <OdometerSection className="vetham-community-stats sec-pad centred">
+      <OdometerSection className="vetham-round-stats sec-pad centred">
         <div className="pattern-layer" style={{ backgroundImage: 'url(/assets/images/shape/shape-2.png)' }} />
         <div className="auto-container">
-          <div className="row clearfix">
+          <div className="vetham-round-stats-grid">
             {COMMUNITY_STATS.map((stat, index) => (
-              <div key={stat.title} className="col-lg-3 col-md-6 col-sm-12 vetham-community-stat-col">
-                <div className={`vetham-community-stat vetham-community-stat-${index + 1}`}>
-                  <div className="vetham-community-stat-title">{stat.title}</div>
-                  <div className="vetham-community-stat-counter">
-                    <OdometerCounter value={stat.value} suffix={stat.suffix || ''} duration={1500} />
+              <div key={stat.title} className={`vetham-round-stat vetham-round-stat-${index + 1}`}>
+                <div className="vetham-round-stat-orbit">
+                  <span className="vetham-round-stat-ring" aria-hidden="true" />
+                  <span className="vetham-round-stat-ring vetham-round-stat-ring-2" aria-hidden="true" />
+                  <div className="vetham-round-stat-circle">
+                    <OdometerCounter value={stat.value} suffix={stat.suffix || ''} duration={2000} />
                   </div>
                 </div>
+                <h3 className="vetham-round-stat-title">{stat.title}</h3>
               </div>
             ))}
           </div>
