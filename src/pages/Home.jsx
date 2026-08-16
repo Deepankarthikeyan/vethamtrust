@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { BANNERS, SITE, TEAM } from '../config/site';
+import { BANNERS, SITE } from '../config/site';
 import { HOME_BLOG_POSTS } from '../config/blog';
 import { img } from '../config/images';
 import LazyImage from '../components/LazyImage';
+import LeadershipShowcase from '../components/LeadershipShowcase';
+import OdometerCounter, { OdometerSection } from '../components/OdometerCounter';
 
 const FEATURES = [
   { icon: 'icon-4', title: 'Yoga & Meditation', text: 'Workshops, meditation sessions, and discourses guiding individuals on a path of self-discovery.', link: '/courses' },
@@ -33,11 +35,11 @@ const GALLERY = [
 
 const BLOG = HOME_BLOG_POSTS;
 
-const FUNFACTS = [
-  { stop: 8, line1: 'Years of', line2: 'Spiritual Service' },
-  { stop: 4, line1: 'Founders &', line2: 'Trustees' },
-  { stop: 3, line1: 'Acres of', line2: 'Spiritual Garden' },
-  { stop: 400, line1: 'Meditation Hall', line2: 'Capacity' },
+const COMMUNITY_STATS = [
+  { title: 'People', value: 2, suffix: 'M' },
+  { title: 'Mentors', value: 25 },
+  { title: 'Community', value: 254 },
+  { title: 'Services', value: 10 },
 ];
 
 export default function Home() {
@@ -137,22 +139,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="funfact-section pt_80 pb_80 bg-color-2">
+      <OdometerSection className="vetham-round-stats sec-pad centred">
+        <div className="pattern-layer" style={{ backgroundImage: 'url(/assets/images/shape/shape-2.png)' }} />
         <div className="auto-container">
-          <div className="inner-container">
-            {FUNFACTS.map((f) => (
-              <div key={f.line1} className="funfact-block-one">
-                <div className="inner-box">
-                  <div className="count-outer count-box">
-                    <span className="count-text" data-speed="1500" data-stop={f.stop}>0</span>
+          <div className="vetham-round-stats-grid">
+            {COMMUNITY_STATS.map((stat, index) => (
+              <div key={stat.title} className={`vetham-round-stat vetham-round-stat-${index + 1}`}>
+                <div className="vetham-round-stat-orbit">
+                  <span className="vetham-round-stat-ring" aria-hidden="true" />
+                  <span className="vetham-round-stat-ring vetham-round-stat-ring-2" aria-hidden="true" />
+                  <div className="vetham-round-stat-circle">
+                    <OdometerCounter value={stat.value} suffix={stat.suffix || ''} duration={2000} />
                   </div>
-                  <h3>{f.line1} <br />{f.line2}</h3>
                 </div>
+                <h3 className="vetham-round-stat-title">{stat.title}</h3>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </OdometerSection>
 
       <section className="cause-section sec-pad">
         <div className="auto-container">
@@ -249,33 +254,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="team-section sec-pad centred">
-        <div className="auto-container">
-          <div className="sec-title centred mb_50">
-            <span className="sub-title">Leadership</span>
-            <h2>Our Founders &amp; <br />Spiritual Masters</h2>
-          </div>
-          <div className="row clearfix">
-            {TEAM.map((member, i) => (
-              <div key={member.name} className="col-lg-3 col-md-6 col-sm-12 team-block">
-                <div className="team-block-one wow fadeInUp animated" data-wow-delay={`${i * 200}ms`} data-wow-duration="1500ms">
-                  <div className="inner-box">
-                    <div className="image-box">
-                      <figure className="image"><Link to="/leadership"><LazyImage src={img(member.image)} alt={member.name} /></Link></figure>
-                    </div>
-                    <div className="lower-content">
-                      <div className="inner">
-                        <h3><Link to="/leadership">{member.name}</Link></h3>
-                        <span className="designation">{member.role}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <LeadershipShowcase />
 
       <section className="news-section sec-pad vetham-blog-section vetham-home-blog">
         <div className="auto-container">

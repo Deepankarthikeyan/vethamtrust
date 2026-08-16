@@ -129,20 +129,32 @@ export function reinitThemePlugins() {
   });
 
   if ($.fn.appear) {
-    $('.count-text').appear();
-    $('.count-text').off('appear').on('appear', function onAppear() {
-      const $t = $(this);
-      if (!$t.hasClass('counted')) {
-        $t.addClass('counted');
-        const stop = parseInt($t.data('stop'), 10) || 0;
-        $({ count: 0 }).animate({ count: stop }, {
-          duration: 1200,
-          easing: 'linear',
-          step() { $t.text(Math.floor(this.count)); },
-          complete() { $t.text(stop); },
-        });
-      }
+    $('.count-box:not(.funfact-odometer)').each(function resetCounter() {
+      const $box = $(this);
+      $box.removeClass('counted');
+      $box.find('.count-text').text('0');
     });
+
+    $('.count-box:not(.funfact-odometer)').appear(function onAppear() {
+      const $t = $(this);
+      if ($t.hasClass('counted')) return;
+      $t.addClass('counted');
+
+      const $countText = $t.find('.count-text');
+      const stop = parseInt($countText.attr('data-stop'), 10) || 0;
+      const speed = parseInt($countText.attr('data-speed'), 10) || 1500;
+
+      $({ countNum: 0 }).animate({ countNum: stop }, {
+        duration: speed,
+        easing: 'linear',
+        step() {
+          $countText.text(Math.floor(this.countNum));
+        },
+        complete() {
+          $countText.text(stop);
+        },
+      });
+    }, { accY: 0 });
   }
 
   if ($.fn.fancybox) {

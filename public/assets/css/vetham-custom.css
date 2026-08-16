@@ -1737,3 +1737,1693 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
     padding: 12px 22px;
   }
 }
+
+/* Funfact odometer counters — matches vethamspiritualtrust.com digit-roll transition */
+.funfact-section .funfact-odometer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.funfact-section .funfact-odometer .odometer-counter {
+  display: inline-block;
+  line-height: 1;
+}
+
+.funfact-section .funfact-odometer .odometer-digits {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.funfact-section .funfact-odometer .odometer-digit {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+}
+
+.funfact-section .funfact-odometer .odometer-digit-placeholder {
+  display: inline-block;
+  line-height: 1;
+  visibility: hidden;
+}
+
+.funfact-section .funfact-odometer .odometer-digit-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.funfact-section .funfact-odometer .odometer-digit-strip {
+  display: block;
+  width: 100%;
+  will-change: transform;
+}
+
+.funfact-section .funfact-odometer .odometer-digit-value {
+  display: block;
+  line-height: 1;
+  text-align: center;
+  height: 1em;
+}
+
+.funfact-section .funfact-block-one:last-child .funfact-odometer {
+  width: 110px;
+  height: 110px;
+  line-height: 110px;
+}
+
+.funfact-section .funfact-block-one:last-child .funfact-odometer .odometer-counter {
+  font-size: 34px;
+}
+
+@media only screen and (max-width: 767px) {
+  .funfact-section .funfact-block-one:last-child .funfact-odometer {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+
+  .funfact-section .funfact-block-one:last-child .funfact-odometer .odometer-counter {
+    font-size: 28px;
+  }
+}
+
+/* Round community stats — circular odometer with sliding digits */
+.vetham-round-stats {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #9c44e1 0%, #724d67 42%, #4e0538 100%);
+  padding-top: 85px;
+  padding-bottom: 85px;
+}
+
+.vetham-round-stats .pattern-layer {
+  opacity: 0.12;
+}
+
+.vetham-round-stats-grid {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px 20px;
+}
+
+.vetham-round-stat {
+  flex: 1 1 200px;
+  max-width: 25%;
+  text-align: center;
+}
+
+.vetham-round-stat-orbit {
+  position: relative;
+  width: 148px;
+  height: 148px;
+  margin: 0 auto 22px;
+}
+
+.vetham-round-stat-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(#724d67, #724d67) padding-box,
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.15)) border-box;
+  animation: vetham-ring-spin 8s linear infinite;
+}
+
+.vetham-round-stat-ring-2 {
+  inset: 8px;
+  opacity: 0.45;
+  animation-direction: reverse;
+  animation-duration: 5s;
+}
+
+.vetham-round-stat-circle {
+  position: absolute;
+  inset: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.08), 0 12px 28px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.vetham-round-stat-title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+
+.vetham-round-stats .odometer-counter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 38px;
+  line-height: 1;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500;
+}
+
+.vetham-round-stat-1 .odometer-counter { color: #fff8dc; }
+.vetham-round-stat-2 .odometer-counter { color: #d4ffe8; }
+.vetham-round-stat-3 .odometer-counter { font-size: 30px; color: #ffe0f5; }
+.vetham-round-stat-4 .odometer-counter { color: #e8ecff; }
+
+.vetham-round-stats .odometer-digits {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vetham-round-stats .odometer-unit {
+  display: inline-block;
+  margin-left: 0.06em;
+  line-height: 1;
+  font-size: 0.85em;
+}
+
+.vetham-round-stats .odometer-digit {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.vetham-round-stats .odometer-digit-placeholder {
+  display: inline-block;
+  line-height: 1;
+  visibility: hidden;
+}
+
+.vetham-round-stats .odometer-digit-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.vetham-round-stats .odometer-digit-strip {
+  display: block;
+  width: 100%;
+  will-change: transform;
+}
+
+.vetham-round-stats .odometer-digit-value {
+  display: block;
+  line-height: 1;
+  text-align: center;
+  height: 1em;
+}
+
+@keyframes vetham-ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes vetham-round-pop {
+  0% { transform: scale(0.85); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.vetham-round-stats.is-active .vetham-round-stat-circle {
+  animation: vetham-round-pop 0.7s ease forwards;
+}
+
+.vetham-round-stats.is-active .vetham-round-stat-1 .vetham-round-stat-circle { animation-delay: 0s; }
+.vetham-round-stats.is-active .vetham-round-stat-2 .vetham-round-stat-circle { animation-delay: 0.1s; }
+.vetham-round-stats.is-active .vetham-round-stat-3 .vetham-round-stat-circle { animation-delay: 0.2s; }
+.vetham-round-stats.is-active .vetham-round-stat-4 .vetham-round-stat-circle { animation-delay: 0.3s; }
+
+@media only screen and (max-width: 991px) {
+  .vetham-round-stat {
+    max-width: 48%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .vetham-round-stats {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .vetham-round-stats-grid {
+    justify-content: center;
+    gap: 28px 16px;
+  }
+
+  .vetham-round-stat {
+    flex: 1 1 140px;
+    max-width: 46%;
+  }
+
+  .vetham-round-stat-orbit {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 16px;
+  }
+
+  .vetham-round-stat-circle {
+    inset: 14px;
+  }
+
+  .vetham-round-stats .odometer-counter {
+    font-size: 30px;
+  }
+
+  .vetham-round-stat-3 .odometer-counter {
+    font-size: 24px;
+  }
+
+  .vetham-round-stat-title {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+/* Legacy community stats selectors kept for odometer in funfact section */
+.vetham-community-stats {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #5f2c70 0%, #724d67 45%, #4e0538 100%);
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+.vetham-community-stats .pattern-layer {
+  opacity: 0.14;
+}
+
+.vetham-community-stat {
+  position: relative;
+  text-align: center;
+  padding: 28px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(4px);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.vetham-community-stat:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.22);
+}
+
+.vetham-community-stat-title {
+  font-size: 15px;
+  line-height: 1.3;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 22px;
+}
+
+.vetham-community-stat-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 76px;
+}
+
+.vetham-community-stats .odometer-counter {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: #fff;
+  font-size: 58px;
+  line-height: 1;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.vetham-community-stat-1 .odometer-counter { color: #ffd86b; }
+.vetham-community-stat-2 .odometer-counter { color: #8ef5c8; }
+.vetham-community-stat-3 .odometer-counter { color: #ffb4e6; }
+.vetham-community-stat-4 .odometer-counter { color: #b8c7ff; }
+
+.vetham-community-stats .odometer-digits {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vetham-community-stats .odometer-unit {
+  display: inline-block;
+  margin-left: 0.1em;
+  line-height: 1;
+  font-size: 0.92em;
+}
+
+.vetham-community-stat-col:last-child .odometer-counter {
+  font-size: 52px;
+}
+
+.vetham-community-stats .odometer-digit {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+}
+
+.vetham-community-stats .odometer-digit-placeholder {
+  display: inline-block;
+  line-height: 1;
+  visibility: hidden;
+}
+
+.vetham-community-stats .odometer-digit-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.vetham-community-stats .odometer-digit-strip {
+  display: block;
+  width: 100%;
+  will-change: transform;
+}
+
+.vetham-community-stats .odometer-digit-value {
+  display: block;
+  line-height: 1;
+  text-align: center;
+  height: 1em;
+}
+
+@media only screen and (max-width: 767px) {
+  .vetham-community-stats {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .vetham-community-stat-col {
+    margin-bottom: 18px;
+  }
+
+  .vetham-community-stats .odometer-counter,
+  .vetham-community-stat-col:last-child .odometer-counter {
+    font-size: 44px;
+  }
+}
+
+/* Premium 2×2 leadership profile poster — reference-inspired portfolio layout */
+.vetham-leadership-poster {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(165deg, #0b1020 0%, #12151f 45%, #0d1428 100%);
+  padding: 56px 0 64px;
+}
+
+.vetham-leadership-poster__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.vetham-leadership-poster__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(201, 162, 74, 0.1), transparent 32%),
+    radial-gradient(circle at 82% 78%, rgba(255, 255, 255, 0.05), transparent 36%);
+}
+
+.vetham-leadership-poster__dots {
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 90%);
+}
+
+.vetham-leadership-poster__lotus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(820px, 90vw);
+  height: min(820px, 90vw);
+  transform: translate(-50%, -50%);
+  opacity: 0.05;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23c9a24a' stroke-width='0.5'%3E%3Ccircle cx='100' cy='100' r='70'/%3E%3Cpath d='M100 30c-7 22-7 44 0 66 7-22 7-44 0-66z'/%3E%3Cpath d='M100 30c-7 22-7 44 0 66 7-22 7-44 0-66z' transform='rotate(60 100 100)'/%3E%3Cpath d='M100 30c-7 22-7 44 0 66 7-22 7-44 0-66z' transform='rotate(120 100 100)'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.vetham-leadership-poster__container {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+}
+
+.vetham-leadership-poster__header {
+  margin-bottom: 32px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.vetham-leadership-poster__header.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vetham-leadership-poster__org {
+  margin: 0 0 10px;
+  font-size: clamp(14px, 2vw, 18px);
+  line-height: 1.2;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: #fff;
+}
+
+.vetham-leadership-poster__org-tag {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.vetham-leadership-poster__org-tag span {
+  color: #c9a24a;
+  padding: 0 6px;
+}
+
+.vetham-leadership-poster__frame {
+  border: 1px solid rgba(201, 162, 74, 0.42);
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 1px rgba(201, 162, 74, 0.08) inset,
+    0 28px 70px rgba(0, 0, 0, 0.48);
+  background: rgba(18, 21, 31, 0.65);
+  overflow: hidden;
+}
+
+.vetham-leadership-poster__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(380px, auto));
+}
+
+.vetham-leadership-poster__grid::before,
+.vetham-leadership-poster__grid::after {
+  content: '';
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, #c9a24a 20%, #e8d5a3 50%, #c9a24a 80%, transparent);
+  box-shadow: 0 0 12px rgba(201, 162, 74, 0.35);
+}
+
+.vetham-leadership-poster__grid::before {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+.vetham-leadership-poster__grid::after {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  transform: translateY(-50%);
+  background: linear-gradient(180deg, transparent, #c9a24a 20%, #e8d5a3 50%, #c9a24a 80%, transparent);
+}
+
+.vetham-leadership-panel {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.vetham-leadership-panel.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vetham-leadership-panel__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(200px, 0.9fr);
+  align-items: stretch;
+  min-height: 380px;
+  height: 100%;
+  background: linear-gradient(135deg, #171b26 0%, #1d2230 55%, #141820 100%);
+  overflow: hidden;
+  transition: background 0.4s ease;
+}
+
+.vetham-leadership-panel:hover .vetham-leadership-panel__inner {
+  background: linear-gradient(135deg, #1a1f2c 0%, #212736 55%, #171b26 100%);
+}
+
+.vetham-leadership-panel__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px 30px 32px 36px;
+}
+
+.vetham-leadership-panel__meta {
+  margin: 0 0 14px;
+  font-size: 9px;
+  line-height: 1.5;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.vetham-leadership-panel__name {
+  margin: 0 0 10px;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.15;
+  font-weight: 700;
+  color: #fff;
+}
+
+.vetham-leadership-panel__name a {
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.vetham-leadership-panel__name a:hover {
+  color: #d4af6a;
+}
+
+.vetham-leadership-panel__headline {
+  margin: 0 0 14px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  line-height: 1.45;
+  font-style: italic;
+  font-weight: 500;
+  color: #c9a24a;
+}
+
+.vetham-leadership-panel__bio {
+  margin: 0 0 18px;
+  font-size: 12px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.vetham-leadership-panel__achievements {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.vetham-leadership-panel__achievement {
+  padding: 10px 12px;
+  border: 1px solid rgba(201, 162, 74, 0.22);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.vetham-leadership-panel__achievement-title {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #d4af6a;
+}
+
+.vetham-leadership-panel__achievement-sub {
+  display: block;
+  font-size: 10px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.vetham-leadership-panel__signature {
+  margin: 0 0 12px;
+  font-family: 'Brush Script MT', 'Segoe Script', cursive;
+  font-size: 24px;
+  line-height: 1;
+  color: #c9a24a;
+}
+
+.vetham-leadership-panel__footer-line {
+  width: 68%;
+  height: 2px;
+  margin-top: auto;
+  background: linear-gradient(90deg, #c9a24a 0%, rgba(201, 162, 74, 0.12) 100%);
+  border-radius: 2px;
+}
+
+.vetham-leadership-panel__portrait-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+  overflow: hidden;
+}
+
+.vetham-leadership-panel__arc {
+  position: absolute;
+  right: -48px;
+  top: 50%;
+  width: min(300px, 42vw);
+  height: min(300px, 42vw);
+  border: 2px solid rgba(255, 255, 255, 0.88);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0.92;
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.06);
+}
+
+.vetham-leadership-panel__portrait {
+  position: relative;
+  z-index: 1;
+  width: min(210px, 28vw);
+  height: min(210px, 28vw);
+  margin-right: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+  transition: transform 0.5s ease;
+}
+
+.vetham-leadership-panel:hover .vetham-leadership-panel__portrait {
+  transform: scale(1.03);
+}
+
+.vetham-leadership-panel__image {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.vetham-leadership-panel__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.55s ease;
+}
+
+.vetham-leadership-panel:hover .vetham-leadership-panel__image img {
+  transform: scale(1.05);
+}
+
+/* Portrait on left — top-right & bottom-right quadrants */
+.vetham-leadership-panel.is-portrait-left .vetham-leadership-panel__inner {
+  grid-template-columns: minmax(200px, 0.9fr) minmax(0, 1.1fr);
+}
+
+.vetham-leadership-panel.is-portrait-left .vetham-leadership-panel__portrait-wrap {
+  order: -1;
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: 12px;
+}
+
+.vetham-leadership-panel.is-portrait-left .vetham-leadership-panel__content {
+  order: 1;
+  padding: 36px 36px 32px 24px;
+}
+
+.vetham-leadership-panel.is-portrait-left .vetham-leadership-panel__arc {
+  right: auto;
+  left: -48px;
+}
+
+.vetham-leadership-panel.is-portrait-left .vetham-leadership-panel__portrait {
+  margin-right: 0;
+  margin-left: 20px;
+}
+
+.vetham-leadership-poster__footer {
+  margin-top: 28px;
+  padding: 18px 24px 20px;
+  border: 1px solid rgba(201, 162, 74, 0.35);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+  text-align: center;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.75s ease 0.3s, transform 0.75s ease 0.3s;
+}
+
+.vetham-leadership-poster__footer.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vetham-leadership-poster__footer-title {
+  margin-bottom: 6px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  color: #fff;
+}
+
+.vetham-leadership-poster__footer-tagline {
+  margin: 0 0 14px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.vetham-leadership-poster__footer-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 22px;
+}
+
+.vetham-leadership-poster__footer-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+@media only screen and (max-width: 1199px) {
+  .vetham-leadership-poster__grid {
+    grid-template-rows: repeat(2, minmax(360px, auto));
+  }
+
+  .vetham-leadership-panel__inner {
+    min-height: 360px;
+  }
+
+  .vetham-leadership-panel__portrait {
+    width: 180px;
+    height: 180px;
+  }
+
+  .vetham-leadership-panel__arc {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .vetham-leadership-poster__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .vetham-leadership-poster__grid::before {
+    display: none;
+  }
+
+  .vetham-leadership-poster__grid::after {
+    left: 8%;
+    right: 8%;
+    top: auto;
+    bottom: 0;
+    height: 1px;
+    transform: none;
+    background: linear-gradient(90deg, transparent, #c9a24a 20%, #e8d5a3 50%, #c9a24a 80%, transparent);
+  }
+
+  .vetham-leadership-panel:not(:last-child) {
+    border-bottom: 1px solid rgba(201, 162, 74, 0.35);
+    box-shadow: 0 1px 8px rgba(201, 162, 74, 0.12);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .vetham-leadership-poster {
+    padding: 40px 0 48px;
+  }
+
+  .vetham-leadership-panel__inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .vetham-leadership-panel.is-portrait-left .vetham-leadership-panel__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .vetham-leadership-panel__content,
+  .vetham-leadership-panel.is-portrait-left .vetham-leadership-panel__content {
+    order: 2;
+    padding: 24px 22px 28px;
+  }
+
+  .vetham-leadership-panel__portrait-wrap,
+  .vetham-leadership-panel.is-portrait-left .vetham-leadership-panel__portrait-wrap {
+    order: 1;
+    justify-content: center;
+    padding: 28px 0 8px;
+  }
+
+  .vetham-leadership-panel__arc,
+  .vetham-leadership-panel.is-portrait-left .vetham-leadership-panel__arc {
+    right: auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 58%;
+    width: 220px;
+    height: 220px;
+  }
+
+  .vetham-leadership-panel__portrait,
+  .vetham-leadership-panel.is-portrait-left .vetham-leadership-panel__portrait {
+    width: 160px;
+    height: 160px;
+    margin: 0;
+  }
+
+  .vetham-leadership-panel__achievements {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Legacy portfolio card aliases — kept for backward compatibility */
+.vetham-leadership-showcase {
+  position: relative;
+  overflow: hidden;
+  background: #12151f;
+}
+
+.vetham-leadership-showcase__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(201, 162, 74, 0.08), transparent 30%),
+    radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.04), transparent 35%);
+  pointer-events: none;
+}
+
+.vetham-leadership-showcase__header .sub-title {
+  color: #c9a24a;
+}
+
+.vetham-leadership-showcase__header h2 {
+  color: #fff;
+}
+
+.vetham-leadership-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.vetham-portfolio-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.vetham-portfolio-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vetham-portfolio-card__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(170px, 0.85fr);
+  align-items: stretch;
+  min-height: 340px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #171b26 0%, #1d2230 55%, #141820 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.vetham-portfolio-card:hover .vetham-portfolio-card__inner {
+  transform: translateY(-3px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.52);
+}
+
+.vetham-portfolio-card__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 34px 28px 30px 34px;
+}
+
+.vetham-portfolio-card__meta {
+  margin: 0 0 14px;
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.vetham-portfolio-card__name {
+  margin: 0 0 10px;
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #fff;
+}
+
+.vetham-portfolio-card__name a {
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.vetham-portfolio-card__name a:hover {
+  color: #d4af6a;
+}
+
+.vetham-portfolio-card__headline {
+  margin: 0 0 16px;
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 500;
+  color: #c9a24a;
+}
+
+.vetham-portfolio-card__bio {
+  margin: 0 0 18px;
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.vetham-portfolio-card__highlights {
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.vetham-portfolio-card__highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.vetham-portfolio-card__icon {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  margin-top: 1px;
+  border: 1px solid rgba(201, 162, 74, 0.45);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  position: relative;
+}
+
+.vetham-portfolio-card__icon::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: rgba(201, 162, 74, 0.55);
+}
+
+.vetham-portfolio-card__signature {
+  margin: 0 0 14px;
+  font-family: 'Brush Script MT', 'Segoe Script', cursive;
+  font-size: 26px;
+  line-height: 1;
+  color: #c9a24a;
+}
+
+.vetham-portfolio-card__footer-line {
+  width: 72%;
+  height: 2px;
+  margin-top: auto;
+  background: linear-gradient(90deg, #c9a24a 0%, rgba(201, 162, 74, 0.15) 100%);
+  border-radius: 2px;
+}
+
+.vetham-portfolio-card__portrait-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  overflow: hidden;
+}
+
+.vetham-portfolio-card__arc {
+  position: absolute;
+  right: -42px;
+  top: 50%;
+  width: 260px;
+  height: 260px;
+  border: 2px solid rgba(255, 255, 255, 0.88);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.vetham-portfolio-card__portrait {
+  position: relative;
+  z-index: 1;
+  width: 178px;
+  height: 178px;
+  margin-right: 18px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42);
+  transition: transform 0.5s ease;
+}
+
+.vetham-portfolio-card:hover .vetham-portfolio-card__portrait {
+  transform: scale(1.03);
+}
+
+.vetham-portfolio-card__image {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.vetham-portfolio-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.vetham-portfolio-card:hover .vetham-portfolio-card__image img {
+  transform: scale(1.06);
+}
+
+@media only screen and (max-width: 1199px) {
+  .vetham-portfolio-card__name {
+    font-size: 24px;
+  }
+
+  .vetham-portfolio-card__inner {
+    min-height: 320px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .vetham-leadership-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .vetham-portfolio-card__inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .vetham-portfolio-card__content {
+    padding: 28px 22px 20px;
+    order: 2;
+  }
+
+  .vetham-portfolio-card__portrait-wrap {
+    order: 1;
+    justify-content: center;
+    padding: 28px 0 10px;
+  }
+
+  .vetham-portfolio-card__arc {
+    right: auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 58%;
+    width: 220px;
+    height: 220px;
+  }
+
+  .vetham-portfolio-card__portrait {
+    margin-right: 0;
+    width: 150px;
+    height: 150px;
+  }
+
+  .vetham-portfolio-card__name {
+    font-size: 22px;
+  }
+}
+
+/* Premium leadership hero banner — 16:9 spiritual profile composition */
+.vetham-leadership-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(165deg, #0b1020 0%, #0f1a35 42%, #0b1530 100%);
+  padding: 56px 0 0;
+}
+
+.vetham-leadership-hero__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.vetham-leadership-hero__sunrise {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38%;
+  background: linear-gradient(180deg, rgba(212, 175, 106, 0.12) 0%, rgba(201, 162, 74, 0.04) 35%, transparent 100%);
+  opacity: 0.65;
+}
+
+.vetham-leadership-hero__glow {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  width: min(720px, 80vw);
+  height: min(720px, 80vw);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 162, 74, 0.22) 0%, rgba(201, 162, 74, 0.06) 38%, transparent 72%);
+}
+
+.vetham-leadership-hero__lotus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(900px, 95vw);
+  height: min(900px, 95vw);
+  transform: translate(-50%, -48%);
+  opacity: 0.07;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23c9a24a' stroke-width='0.6'%3E%3Ccircle cx='100' cy='100' r='72'/%3E%3Cpath d='M100 28c-8 24-8 48 0 72 8-24 8-48 0-72z'/%3E%3Cpath d='M100 28c-8 24-8 48 0 72 8-24 8-48 0-72z' transform='rotate(45 100 100)'/%3E%3Cpath d='M100 28c-8 24-8 48 0 72 8-24 8-48 0-72z' transform='rotate(90 100 100)'/%3E%3Cpath d='M100 28c-8 24-8 48 0 72 8-24 8-48 0-72z' transform='rotate(135 100 100)'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.vetham-leadership-hero__pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.45) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 85%);
+}
+
+.vetham-leadership-hero__particles {
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image:
+    radial-gradient(circle at 12% 22%, rgba(201, 162, 74, 0.55) 1px, transparent 1.5px),
+    radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.35) 1px, transparent 1.5px),
+    radial-gradient(circle at 34% 68%, rgba(201, 162, 74, 0.4) 1px, transparent 1.5px),
+    radial-gradient(circle at 88% 72%, rgba(255, 255, 255, 0.28) 1px, transparent 1.5px),
+    radial-gradient(circle at 52% 42%, rgba(201, 162, 74, 0.32) 1px, transparent 1.5px);
+}
+
+.vetham-leadership-hero__temple {
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  background:
+    linear-gradient(180deg, transparent, rgba(11, 16, 32, 0.2) 30%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' fill='none'%3E%3Cpath d='M0 200V120c80-20 160-20 240 0s160 20 240 0 160-20 240 0 160 20 240 0 160-20 240 0V200z' fill='%23c9a24a' fill-opacity='0.08'/%3E%3C/svg%3E") center bottom / cover no-repeat;
+  opacity: 0.7;
+}
+
+.vetham-leadership-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  min-height: min(72vw, 1000px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.vetham-leadership-hero__intro {
+  max-width: 720px;
+  margin: 0 0 42px;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.vetham-leadership-hero__intro.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vetham-leadership-hero__eyebrow {
+  margin: 0 0 14px;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(201, 162, 74, 0.88);
+}
+
+.vetham-leadership-hero__title {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #fff;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.vetham-leadership-hero__tagline {
+  margin: 0 0 16px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.35;
+  font-style: italic;
+  color: #d4af6a;
+}
+
+.vetham-leadership-hero__mission {
+  margin: 0 0 22px;
+  max-width: 640px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.vetham-leadership-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 24px;
+  border: 1px solid rgba(201, 162, 74, 0.55);
+  border-radius: 999px;
+  color: #f8f1df;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.vetham-leadership-hero__cta:hover {
+  background: rgba(201, 162, 74, 0.18);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.vetham-leadership-hero__leaders {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.vetham-hero-leader {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.vetham-hero-leader.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vetham-hero-leader__frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.vetham-hero-leader__halo {
+  position: absolute;
+  inset: 8% 10%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 40px rgba(201, 162, 74, 0.18);
+}
+
+.vetham-hero-leader.is-featured .vetham-hero-leader__halo {
+  inset: 2% 6%;
+  border-width: 2px;
+  box-shadow: 0 0 55px rgba(201, 162, 74, 0.28);
+}
+
+.vetham-hero-leader__photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 168px;
+  aspect-ratio: 3 / 4;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
+}
+
+.vetham-hero-leader.is-featured .vetham-hero-leader__photo {
+  max-width: 196px;
+  transform: translateY(-8px);
+}
+
+.vetham-hero-leader__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.vetham-hero-leader__card {
+  padding: 16px 14px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 162, 74, 0.18);
+  backdrop-filter: blur(6px);
+}
+
+.vetham-hero-leader__meta {
+  margin: 0 0 8px;
+  font-size: 9px;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(201, 162, 74, 0.9);
+}
+
+.vetham-hero-leader__headline {
+  margin: 0 0 8px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 13px;
+  line-height: 1.45;
+  font-style: italic;
+  color: #d4af6a;
+}
+
+.vetham-hero-leader__name {
+  margin: 0 0 8px;
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, #d4af6a 55%, #f8f1df 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vetham-hero-leader__bio {
+  margin: 0 0 10px;
+  font-size: 11px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.vetham-hero-leader__highlights {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vetham-hero-leader__highlights li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 5px;
+  font-size: 10px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.vetham-hero-leader__highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c9a24a;
+}
+
+.vetham-leadership-hero__footer {
+  margin-top: 10px;
+  padding: 22px 24px 26px;
+  border: 1px solid rgba(201, 162, 74, 0.45);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 0.35s, transform 0.8s ease 0.35s;
+}
+
+.vetham-leadership-hero__footer.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vetham-leadership-hero__footer-title {
+  margin-bottom: 8px;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: #fff;
+}
+
+.vetham-leadership-hero__footer-tagline {
+  margin-bottom: 16px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4af6a;
+}
+
+.vetham-leadership-hero__footer-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 24px;
+}
+
+.vetham-leadership-hero__footer-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media only screen and (max-width: 1199px) {
+  .vetham-leadership-hero__inner {
+    min-height: auto;
+  }
+
+  .vetham-leadership-hero__intro {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .vetham-leadership-hero__mission {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .vetham-leadership-hero__leaders {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .vetham-hero-leader.is-featured .vetham-hero-leader__photo {
+    max-width: 180px;
+    transform: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .vetham-leadership-hero {
+    padding-top: 50px;
+  }
+
+  .vetham-leadership-hero__leaders {
+    grid-template-columns: 1fr;
+  }
+
+  .vetham-hero-leader__photo,
+  .vetham-hero-leader.is-featured .vetham-hero-leader__photo {
+    max-width: 220px;
+  }
+}
+
+/* Leadership section — AI profile card images in 2×2 grid */
+.vetham-leadership-images {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(165deg, #0b1020 0%, #12151f 50%, #0d1428 100%);
+  padding: 70px 0 64px;
+}
+
+.vetham-leadership-images--page {
+  padding-top: 100px;
+}
+
+.vetham-leadership-images__header {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.vetham-leadership-images__title {
+  margin: 0 0 10px;
+  font-size: clamp(14px, 2vw, 18px);
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: #fff;
+}
+
+.vetham-leadership-images__tagline {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.vetham-leadership-images__tagline span {
+  color: #c9a24a;
+  padding: 0 6px;
+}
+
+.vetham-leadership-images__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.vetham-leadership-images__item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.vetham-leadership-images.is-visible .vetham-leadership-images__item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vetham-leadership-images__link {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.vetham-leadership-images__link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+}
+
+.vetham-leadership-images__card {
+  margin: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 162, 74, 0.28);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  background: #12151f;
+}
+
+.vetham-leadership-images__card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+.vetham-leadership-images__cta-wrap {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.vetham-leadership-images__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 28px;
+  border: 1px solid rgba(201, 162, 74, 0.55);
+  border-radius: 999px;
+  color: #f8f1df;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.vetham-leadership-images__cta:hover {
+  background: rgba(201, 162, 74, 0.18);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.vetham-leadership-images__footer {
+  margin-top: 28px;
+  padding: 18px 24px;
+  border: 1px solid rgba(201, 162, 74, 0.35);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+  text-align: center;
+}
+
+.vetham-leadership-images__footer-title {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  color: #fff;
+}
+
+.vetham-leadership-images__footer-tagline {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+@media only screen and (max-width: 991px) {
+  .vetham-leadership-images__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .vetham-leadership-images {
+    padding: 50px 0 48px;
+  }
+
+  .vetham-leadership-images--page {
+    padding-top: 80px;
+  }
+}
