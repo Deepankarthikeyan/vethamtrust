@@ -3803,3 +3803,55 @@ html[data-ui-lang] .sticky-header .menu-area {
     flex-direction: column;
   }
 }
+
+/* Preloader — show header logo instead of VETHAM text */
+.vetham-preloader .txt-loading {
+  display: none !important;
+}
+
+.vetham-preloader__logo-wrap {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vetham-preloader__logo-wrap .spinner {
+  position: absolute;
+  inset: 0;
+  margin: 0 !important;
+}
+
+.vetham-preloader__logo {
+  position: relative;
+  z-index: 2;
+  width: 110px;
+  max-width: 72%;
+  height: auto;
+  object-fit: contain;
+  animation: vetham-preloader-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes vetham-preloader-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.92;
+    transform: scale(1.04);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .vetham-preloader__logo-wrap {
+    width: 128px;
+    height: 128px;
+  }
+
+  .vetham-preloader__logo {
+    width: 92px;
+  }
+}
