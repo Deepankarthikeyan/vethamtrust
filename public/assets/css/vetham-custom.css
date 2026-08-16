@@ -1849,292 +1849,158 @@ html[data-ui-lang] .sticky-header .menu-area {
   }
 }
 
-/* Round community stats — circular odometer with sliding digits */
-.vetham-round-stats {
+/* Site stats — professional number + label strip (site cream/gold/orange palette) */
+.vetham-site-stats {
   position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(255, 216, 107, 0.18), transparent 32%),
-    radial-gradient(circle at 85% 75%, rgba(184, 199, 255, 0.16), transparent 30%),
-    linear-gradient(160deg, #9c44e1 0%, #724d67 42%, #4e0538 100%);
-  padding-top: 90px;
-  padding-bottom: 90px;
+  background: linear-gradient(180deg, #f7f5f1 0%, #f0ebe3 100%);
+  border-top: 1px solid rgba(196, 90, 26, 0.12);
+  border-bottom: 1px solid rgba(196, 90, 26, 0.12);
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
-.vetham-round-stats__glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.vetham-round-stats__glow--1 {
-  width: 280px;
-  height: 280px;
-  top: -40px;
-  left: 8%;
-  background: rgba(255, 180, 230, 0.35);
-}
-
-.vetham-round-stats__glow--2 {
-  width: 320px;
-  height: 320px;
-  right: 5%;
-  bottom: -60px;
-  background: rgba(142, 245, 200, 0.28);
-}
-
-.vetham-round-stats .pattern-layer {
-  opacity: 0.1;
-}
-
-.vetham-round-stats__heading .sub-title,
-.vetham-round-stats__heading h2 {
-  color: #fff;
-}
-
-.vetham-round-stats__heading h2 {
-  margin-bottom: 0;
-}
-
-.vetham-round-stats-grid {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: center;
-  gap: 28px 24px;
-}
-
-.vetham-round-stat {
-  flex: 1 1 220px;
-  max-width: 260px;
-}
-
-.vetham-round-stat-card {
-  height: 100%;
-  padding: 26px 18px 22px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(8px);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-}
-
-.vetham-round-stat-card:hover {
-  transform: translateY(-6px);
-  border-color: color-mix(in srgb, var(--stat-accent) 55%, white);
-  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.24), 0 0 0 1px color-mix(in srgb, var(--stat-accent) 25%, transparent);
-}
-
-.vetham-round-stat-orbit {
-  position: relative;
-  width: 156px;
-  height: 156px;
-  margin: 0 auto 20px;
-}
-
-.vetham-round-stat-ring {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  background:
-    linear-gradient(#724d67, #724d67) padding-box,
-    linear-gradient(135deg, var(--stat-accent), rgba(255, 255, 255, 0.2)) border-box;
-  animation: vetham-ring-spin 8s linear infinite;
-}
-
-.vetham-round-stat-ring-2 {
-  inset: 9px;
-  opacity: 0.5;
-  animation-direction: reverse;
-  animation-duration: 5.5s;
-}
-
-.vetham-round-stat-circle {
-  position: absolute;
-  inset: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06) 58%, rgba(0, 0, 0, 0.12) 100%);
-  border: 2px solid rgba(255, 255, 255, 0.34);
-  box-shadow:
-    inset 0 0 28px rgba(255, 255, 255, 0.1),
-    0 14px 30px rgba(0, 0, 0, 0.22);
-  overflow: hidden;
-}
-
-.vetham-round-stat-meta {
-  text-align: center;
-}
-
-.vetham-round-stat-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  margin-bottom: 10px;
-  border-radius: 50%;
-  color: var(--stat-accent);
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 16px;
-}
-
-.vetham-round-stat-title {
-  font-size: 20px;
-  line-height: 28px;
-  font-weight: 600;
-  color: #fff;
-  margin: 0;
-  letter-spacing: 0.02em;
-}
-
-.vetham-round-stats .odometer-counter {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--stat-accent);
-  font-size: 40px;
-  line-height: 1;
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 600;
-}
-
-.vetham-round-stat-3 .odometer-counter {
-  font-size: 32px;
-}
-
-.vetham-round-stats .odometer-digits {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.vetham-round-stats .odometer-unit {
-  display: inline-block;
-  margin-left: 0.05em;
-  line-height: 1;
-  font-size: 0.72em;
-  font-weight: 700;
-}
-
-.vetham-round-stats .odometer-digit {
-  position: relative;
-  display: inline-block;
-  line-height: 1;
-  overflow: hidden;
-  vertical-align: top;
-}
-
-.vetham-round-stats .odometer-digit-placeholder {
-  display: block;
-  line-height: 1;
-  visibility: hidden;
-  height: 1em;
-}
-
-.vetham-round-stats .odometer-digit-wrap {
+.vetham-site-stats__accent {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  overflow: hidden;
-  line-height: 1;
+  height: 4px;
+  background: linear-gradient(90deg, #c45a1a 0%, #d4a017 50%, #c45a1a 100%);
 }
 
-.vetham-round-stats .odometer-digit-strip {
-  display: block;
-  width: 100%;
-  will-change: transform;
+.vetham-site-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
 }
 
-.vetham-round-stats .odometer-digit-value {
-  display: block;
-  line-height: 1;
+.vetham-site-stat {
+  position: relative;
   text-align: center;
-  height: 1em;
+  padding: 18px 24px;
 }
 
-@keyframes vetham-ring-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.vetham-site-stat:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 1px;
+  height: 72px;
+  transform: translateY(-50%);
+  background: linear-gradient(180deg, transparent, rgba(196, 90, 26, 0.28), transparent);
 }
 
-@keyframes vetham-round-pop {
-  0% { transform: scale(0.85); opacity: 0.4; }
-  100% { transform: scale(1); opacity: 1; }
+.vetham-site-stat__number {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 10px;
+  line-height: 1;
 }
 
-.vetham-round-stats.is-active .vetham-round-stat-circle {
-  animation: vetham-round-pop 0.7s ease forwards;
+.vetham-site-stat__value {
+  font-size: 52px;
+  font-weight: 700;
+  color: #c45a1a;
+  letter-spacing: -0.02em;
 }
 
-.vetham-round-stats.is-active .vetham-round-stat-1 .vetham-round-stat-circle { animation-delay: 0s; }
-.vetham-round-stats.is-active .vetham-round-stat-2 .vetham-round-stat-circle { animation-delay: 0.1s; }
-.vetham-round-stats.is-active .vetham-round-stat-3 .vetham-round-stat-circle { animation-delay: 0.2s; }
-.vetham-round-stats.is-active .vetham-round-stat-4 .vetham-round-stat-circle { animation-delay: 0.3s; }
+.vetham-site-stat__suffix {
+  font-size: 28px;
+  font-weight: 700;
+  color: #d4a017;
+}
+
+.vetham-site-stat__label {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding-top: 14px;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #5c4033;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.vetham-site-stat__label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 36px;
+  height: 2px;
+  transform: translateX(-50%);
+  background: #d4a017;
+  border-radius: 2px;
+}
+
+.vetham-site-stats.is-active .vetham-site-stat {
+  animation: vetham-stat-fade-up 0.7s ease both;
+}
+
+.vetham-site-stats.is-active .vetham-site-stat:nth-child(1) { animation-delay: 0s; }
+.vetham-site-stats.is-active .vetham-site-stat:nth-child(2) { animation-delay: 0.08s; }
+.vetham-site-stats.is-active .vetham-site-stat:nth-child(3) { animation-delay: 0.16s; }
+.vetham-site-stats.is-active .vetham-site-stat:nth-child(4) { animation-delay: 0.24s; }
+
+@keyframes vetham-stat-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @media only screen and (max-width: 991px) {
-  .vetham-round-stat {
-    max-width: 48%;
+  .vetham-site-stats__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 0;
+  }
+
+  .vetham-site-stat:nth-child(2)::after {
+    display: none;
+  }
+
+  .vetham-site-stat__value {
+    font-size: 44px;
+  }
+
+  .vetham-site-stat__suffix {
+    font-size: 24px;
   }
 }
 
-@media only screen and (max-width: 767px) {
-  .vetham-round-stats {
-    padding-top: 60px;
-    padding-bottom: 60px;
+@media only screen and (max-width: 575px) {
+  .vetham-site-stats {
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 
-  .vetham-round-stats-grid {
-    gap: 20px 14px;
+  .vetham-site-stats__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
-  .vetham-round-stat {
-    flex: 1 1 150px;
-    max-width: calc(50% - 8px);
+  .vetham-site-stat::after {
+    display: none;
   }
 
-  .vetham-round-stat-card {
-    padding: 20px 12px 18px;
-    border-radius: 20px;
+  .vetham-site-stat__value {
+    font-size: 40px;
   }
 
-  .vetham-round-stat-orbit {
-    width: 124px;
-    height: 124px;
-    margin-bottom: 14px;
+  .vetham-site-stat__suffix {
+    font-size: 22px;
   }
 
-  .vetham-round-stat-circle {
-    inset: 14px;
-  }
-
-  .vetham-round-stats .odometer-counter {
-    font-size: 30px;
-  }
-
-  .vetham-round-stat-3 .odometer-counter {
-    font-size: 24px;
-  }
-
-  .vetham-round-stat-title {
-    font-size: 16px;
-    line-height: 22px;
-  }
-
-  .vetham-round-stat-icon {
-    width: 36px;
-    height: 36px;
+  .vetham-site-stat__label {
     font-size: 14px;
   }
 }

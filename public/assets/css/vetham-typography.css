@@ -234,16 +234,12 @@ font {
   line-height: 1.6 !important;
 }
 
-.vetham-round-stat .odometer-counter {
-  font-size: 40px !important;
-  line-height: 1 !important;
+.vetham-site-stat__value,
+.vetham-site-stat__suffix {
+  font-family: 'Google Sans', 'Product Sans', sans-serif !important;
 }
 
-.vetham-round-stat-3 .odometer-counter {
-  font-size: 32px !important;
-}
-
-.vetham-round-stat-title {
+.vetham-site-stat__label {
   font-size: 15px !important;
   line-height: 1.35 !important;
 }
