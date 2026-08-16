@@ -988,6 +988,25 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   background: #faf6f2;
 }
 
+/* Home banner — show first slide before Owl Carousel initializes (lazy route timing) */
+.banner-section .banner-carousel.owl-carousel:not(.owl-loaded) {
+  display: block !important;
+  opacity: 1 !important;
+  min-height: 520px;
+}
+
+.banner-section .banner-carousel.owl-carousel:not(.owl-loaded) .slide-item:not(:first-child) {
+  display: none;
+}
+
+.banner-section .banner-carousel.owl-carousel:not(.owl-loaded) .slide-item:first-child .content-box .special-text,
+.banner-section .banner-carousel.owl-carousel:not(.owl-loaded) .slide-item:first-child .content-box h2,
+.banner-section .banner-carousel.owl-carousel:not(.owl-loaded) .slide-item:first-child .content-box p,
+.banner-section .banner-carousel.owl-carousel:not(.owl-loaded) .slide-item:first-child .content-box .btn-box {
+  opacity: 1;
+  transform: none;
+}
+
 /* Home "What We Do" feature icons — larger & stylish */
 .feature-section .feature-block-one .inner-box .icon-box {
   display: inline-flex;

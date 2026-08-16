@@ -3,6 +3,14 @@ import { useLocation } from 'react-router-dom';
 import { runInitialPreloader } from '../utils/preloader';
 import { loadThemeScripts, reinitThemePlugins, setupMobileMenu } from '../utils/themeInit';
 
+function schedulePluginInit() {
+  setupMobileMenu();
+  reinitThemePlugins();
+  requestAnimationFrame(() => reinitThemePlugins());
+  window.setTimeout(reinitThemePlugins, 150);
+  window.setTimeout(reinitThemePlugins, 600);
+}
+
 export function useThemeScripts() {
   const { pathname } = useLocation();
   const booted = useRef(false);
@@ -14,8 +22,7 @@ export function useThemeScripts() {
       booted.current = true;
       runInitialPreloader(async () => {
         await loadThemeScripts();
-        setupMobileMenu();
-        reinitThemePlugins();
+        schedulePluginInit();
       });
       return;
     }
@@ -24,8 +31,7 @@ export function useThemeScripts() {
     (async () => {
       await loadThemeScripts();
       if (!active) return;
-      setupMobileMenu();
-      reinitThemePlugins();
+      schedulePluginInit();
     })();
 
     return () => {

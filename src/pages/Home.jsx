@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BANNERS, SITE } from '../config/site';
@@ -6,6 +7,7 @@ import { img } from '../config/images';
 import LazyImage from '../components/LazyImage';
 import LeadershipShowcase from '../components/LeadershipShowcase';
 import OdometerCounter, { OdometerSection } from '../components/OdometerCounter';
+import { loadThemeScripts, reinitThemePlugins } from '../utils/themeInit';
 
 const FEATURES = [
   { icon: 'icon-4', title: 'Yoga & Meditation', text: 'Workshops, meditation sessions, and discourses guiding individuals on a path of self-discovery.', link: '/courses' },
@@ -43,6 +45,17 @@ const COMMUNITY_STATS = [
 ];
 
 export default function Home() {
+  useEffect(() => {
+    let active = true;
+    (async () => {
+      await loadThemeScripts();
+      if (active) reinitThemePlugins();
+    })();
+    return () => {
+      active = false;
+    };
+  }, []);
+
   return (
     <>
       <Helmet>
