@@ -29,11 +29,11 @@
   display: block;
 }
 
-/* Red logo background - main header */
+/* Header logo — transparent PNG, no white plate behind mark */
 .header-style-two.main-header .header-lower .logo-box,
 .sticky-header .logo-box {
-  background: #fff;
-  padding: 12px 28px 12px 36px !important;
+  background: transparent;
+  padding: 8px 20px 8px 24px !important;
   margin-right: 0;
   position: relative;
   z-index: 1;
@@ -45,16 +45,7 @@
 
 .header-style-two.main-header .header-lower .logo-box:before,
 .sticky-header .logo-box:before {
-  display: block !important;
-  content: '';
-  position: absolute;
-  background: #fff !important;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+  display: none !important;
 }
 
 .header-style-two.main-header .header-lower .logo-box:after,
@@ -3996,6 +3987,7 @@ html[data-ui-lang] .sticky-header .menu-area {
   height: auto;
   object-fit: contain;
   display: block;
+  background: transparent;
 }
 
 .mobile-menu .nav-logo img {
