@@ -4,7 +4,7 @@ import { BANNERS, SITE, TEAM } from '../config/site';
 import { HOME_BLOG_POSTS } from '../config/blog';
 import { img } from '../config/images';
 import LazyImage from '../components/LazyImage';
-import OdometerCounter, { FunfactSection } from '../components/OdometerCounter';
+import OdometerCounter, { FunfactSection, OdometerSection } from '../components/OdometerCounter';
 
 const FEATURES = [
   { icon: 'icon-4', title: 'Yoga & Meditation', text: 'Workshops, meditation sessions, and discourses guiding individuals on a path of self-discovery.', link: '/courses' },
@@ -39,6 +39,13 @@ const FUNFACTS = [
   { stop: 4, line1: 'Founders &', line2: 'Trustees' },
   { stop: 3, line1: 'Acres of', line2: 'Spiritual Garden' },
   { stop: 400, line1: 'Meditation Hall', line2: 'Capacity' },
+];
+
+const COMMUNITY_STATS = [
+  { title: 'People', value: 2, suffix: 'M' },
+  { title: 'Mentors', value: 25 },
+  { title: 'Community', value: 254 },
+  { title: 'Services', value: 10 },
 ];
 
 export default function Home() {
@@ -250,6 +257,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <OdometerSection className="vetham-community-stats sec-pad centred">
+        <div className="auto-container">
+          <div className="row clearfix">
+            {COMMUNITY_STATS.map((stat) => (
+              <div key={stat.title} className="col-lg-3 col-md-6 col-sm-12 vetham-community-stat-col">
+                <div className="vetham-community-stat">
+                  <div className="vetham-community-stat-title">{stat.title}</div>
+                  <div className="vetham-community-stat-counter">
+                    <OdometerCounter value={stat.value} suffix={stat.suffix || ''} duration={1500} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </OdometerSection>
 
       <section className="team-section sec-pad centred">
         <div className="auto-container">

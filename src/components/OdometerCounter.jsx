@@ -9,6 +9,7 @@ import {
 } from 'react';
 
 const FunfactActiveContext = createContext(false);
+export const OdometerActiveContext = FunfactActiveContext;
 
 function sleep(ms) {
   return new Promise((resolve) => {
@@ -86,7 +87,7 @@ function OdometerDigit({ targetDigit, index, active, duration }) {
   );
 }
 
-function OdometerCounter({ value, duration = 1500, className = '' }) {
+function OdometerCounter({ value, duration = 1500, suffix = '', className = '' }) {
   const active = useContext(FunfactActiveContext);
   const digits = String(value).split('').map((digit) => Number(digit));
 
@@ -103,11 +104,12 @@ function OdometerCounter({ value, duration = 1500, className = '' }) {
           />
         ))}
       </span>
+      {suffix ? <span className="odometer-unit">{suffix}</span> : null}
     </span>
   );
 }
 
-export function FunfactSection({ children, className = '' }) {
+export function OdometerSection({ children, className = '' }) {
   const sectionRef = useRef(null);
   const [active, setActive] = useState(false);
 
@@ -165,5 +167,7 @@ export function FunfactSection({ children, className = '' }) {
     </section>
   );
 }
+
+export const FunfactSection = OdometerSection;
 
 export default OdometerCounter;

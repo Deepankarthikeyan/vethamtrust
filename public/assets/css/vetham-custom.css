@@ -1811,3 +1811,101 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
     font-size: 28px;
   }
 }
+
+/* Community stats — People / Mentors / Community / Services odometer section */
+.vetham-community-stats {
+  position: relative;
+  background: #724d67;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.vetham-community-stat {
+  text-align: center;
+  padding: 20px 15px;
+}
+
+.vetham-community-stat-title {
+  font-size: 17px;
+  line-height: 1.25;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 18px;
+}
+
+.vetham-community-stat-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+}
+
+.vetham-community-stats .odometer-counter {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: #fff;
+  font-size: 56px;
+  line-height: 1;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 400;
+}
+
+.vetham-community-stats .odometer-digits {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vetham-community-stats .odometer-unit {
+  display: inline-block;
+  margin-left: 0.08em;
+  line-height: 1;
+}
+
+.vetham-community-stats .odometer-digit {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+}
+
+.vetham-community-stats .odometer-digit-placeholder {
+  display: inline-block;
+  line-height: 1;
+  visibility: hidden;
+}
+
+.vetham-community-stats .odometer-digit-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.vetham-community-stats .odometer-digit-strip {
+  display: block;
+  width: 100%;
+  will-change: transform;
+}
+
+.vetham-community-stats .odometer-digit-value {
+  display: block;
+  line-height: 1;
+  text-align: center;
+  height: 1em;
+}
+
+@media only screen and (max-width: 767px) {
+  .vetham-community-stats {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .vetham-community-stat-col {
+    margin-bottom: 10px;
+  }
+
+  .vetham-community-stats .odometer-counter {
+    font-size: 44px;
+  }
+}
