@@ -1794,17 +1794,22 @@ html[data-ui-lang] .sticky-header .menu-area {
   position: relative;
   display: inline-block;
   line-height: 1;
+  overflow: hidden;
+  vertical-align: top;
 }
 
 .funfact-section .funfact-odometer .odometer-digit-placeholder {
-  display: inline-block;
+  display: block;
   line-height: 1;
   visibility: hidden;
+  height: 1em;
 }
 
 .funfact-section .funfact-odometer .odometer-digit-wrap {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   overflow: hidden;
   line-height: 1;
 }
@@ -1848,35 +1853,88 @@ html[data-ui-lang] .sticky-header .menu-area {
 .vetham-round-stats {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(160deg, #9c44e1 0%, #724d67 42%, #4e0538 100%);
-  padding-top: 85px;
-  padding-bottom: 85px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 216, 107, 0.18), transparent 32%),
+    radial-gradient(circle at 85% 75%, rgba(184, 199, 255, 0.16), transparent 30%),
+    linear-gradient(160deg, #9c44e1 0%, #724d67 42%, #4e0538 100%);
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+.vetham-round-stats__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.vetham-round-stats__glow--1 {
+  width: 280px;
+  height: 280px;
+  top: -40px;
+  left: 8%;
+  background: rgba(255, 180, 230, 0.35);
+}
+
+.vetham-round-stats__glow--2 {
+  width: 320px;
+  height: 320px;
+  right: 5%;
+  bottom: -60px;
+  background: rgba(142, 245, 200, 0.28);
 }
 
 .vetham-round-stats .pattern-layer {
-  opacity: 0.12;
+  opacity: 0.1;
+}
+
+.vetham-round-stats__heading .sub-title,
+.vetham-round-stats__heading h2 {
+  color: #fff;
+}
+
+.vetham-round-stats__heading h2 {
+  margin-bottom: 0;
 }
 
 .vetham-round-stats-grid {
   position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 30px 20px;
+  align-items: stretch;
+  justify-content: center;
+  gap: 28px 24px;
 }
 
 .vetham-round-stat {
-  flex: 1 1 200px;
-  max-width: 25%;
-  text-align: center;
+  flex: 1 1 220px;
+  max-width: 260px;
+}
+
+.vetham-round-stat-card {
+  height: 100%;
+  padding: 26px 18px 22px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(8px);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.vetham-round-stat-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--stat-accent) 55%, white);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.24), 0 0 0 1px color-mix(in srgb, var(--stat-accent) 25%, transparent);
 }
 
 .vetham-round-stat-orbit {
   position: relative;
-  width: 148px;
-  height: 148px;
-  margin: 0 auto 22px;
+  width: 156px;
+  height: 156px;
+  margin: 0 auto 20px;
 }
 
 .vetham-round-stat-ring {
@@ -1884,54 +1942,76 @@ html[data-ui-lang] .sticky-header .menu-area {
   inset: 0;
   border-radius: 50%;
   border: 2px solid transparent;
-  background: linear-gradient(#724d67, #724d67) padding-box,
-    linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.15)) border-box;
+  background:
+    linear-gradient(#724d67, #724d67) padding-box,
+    linear-gradient(135deg, var(--stat-accent), rgba(255, 255, 255, 0.2)) border-box;
   animation: vetham-ring-spin 8s linear infinite;
 }
 
 .vetham-round-stat-ring-2 {
-  inset: 8px;
-  opacity: 0.45;
+  inset: 9px;
+  opacity: 0.5;
   animation-direction: reverse;
-  animation-duration: 5s;
+  animation-duration: 5.5s;
 }
 
 .vetham-round-stat-circle {
   position: absolute;
-  inset: 16px;
+  inset: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.35);
-  box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.08), 0 12px 28px rgba(0, 0, 0, 0.2);
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06) 58%, rgba(0, 0, 0, 0.12) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.34);
+  box-shadow:
+    inset 0 0 28px rgba(255, 255, 255, 0.1),
+    0 14px 30px rgba(0, 0, 0, 0.22);
   overflow: hidden;
+}
+
+.vetham-round-stat-meta {
+  text-align: center;
+}
+
+.vetham-round-stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  color: var(--stat-accent);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 16px;
 }
 
 .vetham-round-stat-title {
   font-size: 20px;
   line-height: 28px;
-  font-weight: 500;
+  font-weight: 600;
   color: #fff;
   margin: 0;
+  letter-spacing: 0.02em;
 }
 
 .vetham-round-stats .odometer-counter {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 38px;
+  color: var(--stat-accent);
+  font-size: 40px;
   line-height: 1;
   font-family: 'Fredoka', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-.vetham-round-stat-1 .odometer-counter { color: #fff8dc; }
-.vetham-round-stat-2 .odometer-counter { color: #d4ffe8; }
-.vetham-round-stat-3 .odometer-counter { font-size: 30px; color: #ffe0f5; }
-.vetham-round-stat-4 .odometer-counter { color: #e8ecff; }
+.vetham-round-stat-3 .odometer-counter {
+  font-size: 32px;
+}
 
 .vetham-round-stats .odometer-digits {
   display: inline-flex;
@@ -1941,9 +2021,10 @@ html[data-ui-lang] .sticky-header .menu-area {
 
 .vetham-round-stats .odometer-unit {
   display: inline-block;
-  margin-left: 0.06em;
+  margin-left: 0.05em;
   line-height: 1;
-  font-size: 0.85em;
+  font-size: 0.72em;
+  font-weight: 700;
 }
 
 .vetham-round-stats .odometer-digit {
@@ -1951,17 +2032,21 @@ html[data-ui-lang] .sticky-header .menu-area {
   display: inline-block;
   line-height: 1;
   overflow: hidden;
+  vertical-align: top;
 }
 
 .vetham-round-stats .odometer-digit-placeholder {
-  display: inline-block;
+  display: block;
   line-height: 1;
   visibility: hidden;
+  height: 1em;
 }
 
 .vetham-round-stats .odometer-digit-wrap {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   overflow: hidden;
   line-height: 1;
 }
@@ -2011,19 +2096,23 @@ html[data-ui-lang] .sticky-header .menu-area {
   }
 
   .vetham-round-stats-grid {
-    justify-content: center;
-    gap: 28px 16px;
+    gap: 20px 14px;
   }
 
   .vetham-round-stat {
-    flex: 1 1 140px;
-    max-width: 46%;
+    flex: 1 1 150px;
+    max-width: calc(50% - 8px);
+  }
+
+  .vetham-round-stat-card {
+    padding: 20px 12px 18px;
+    border-radius: 20px;
   }
 
   .vetham-round-stat-orbit {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 16px;
+    width: 124px;
+    height: 124px;
+    margin-bottom: 14px;
   }
 
   .vetham-round-stat-circle {
@@ -2039,8 +2128,14 @@ html[data-ui-lang] .sticky-header .menu-area {
   }
 
   .vetham-round-stat-title {
-    font-size: 17px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .vetham-round-stat-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
   }
 }
 

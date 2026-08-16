@@ -38,10 +38,10 @@ const GALLERY = [
 const BLOG = HOME_BLOG_POSTS;
 
 const COMMUNITY_STATS = [
-  { title: 'People', value: 2, suffix: 'M' },
-  { title: 'Mentors', value: 25 },
-  { title: 'Community', value: 254 },
-  { title: 'Services', value: 10 },
+  { title: 'People', value: 2, suffix: 'M', icon: 'fas fa-users', accent: '#ffd86b' },
+  { title: 'Mentors', value: 25, suffix: '+', icon: 'fas fa-user-graduate', accent: '#8ef5c8' },
+  { title: 'Community', value: 254, suffix: '+', icon: 'fas fa-hands-helping', accent: '#ffb4e6' },
+  { title: 'Services', value: 10, suffix: '+', icon: 'fas fa-spa', accent: '#b8c7ff' },
 ];
 
 export default function Home() {
@@ -153,19 +153,36 @@ export default function Home() {
       </section>
 
       <OdometerSection className="vetham-round-stats sec-pad centred">
+        <div className="vetham-round-stats__glow vetham-round-stats__glow--1" aria-hidden="true" />
+        <div className="vetham-round-stats__glow vetham-round-stats__glow--2" aria-hidden="true" />
         <div className="pattern-layer" style={{ backgroundImage: 'url(/assets/images/shape/shape-2.png)' }} />
         <div className="auto-container">
+          <div className="sec-title centred vetham-round-stats__heading mb_50">
+            <span className="sub-title">Our Impact</span>
+            <h2>Growing Spiritual Community</h2>
+          </div>
           <div className="vetham-round-stats-grid">
             {COMMUNITY_STATS.map((stat, index) => (
-              <div key={stat.title} className={`vetham-round-stat vetham-round-stat-${index + 1}`}>
-                <div className="vetham-round-stat-orbit">
-                  <span className="vetham-round-stat-ring" aria-hidden="true" />
-                  <span className="vetham-round-stat-ring vetham-round-stat-ring-2" aria-hidden="true" />
-                  <div className="vetham-round-stat-circle">
-                    <OdometerCounter value={stat.value} suffix={stat.suffix || ''} duration={2000} />
+              <div
+                key={stat.title}
+                className={`vetham-round-stat vetham-round-stat-${index + 1}`}
+                style={{ '--stat-accent': stat.accent }}
+              >
+                <div className="vetham-round-stat-card">
+                  <div className="vetham-round-stat-orbit">
+                    <span className="vetham-round-stat-ring" aria-hidden="true" />
+                    <span className="vetham-round-stat-ring vetham-round-stat-ring-2" aria-hidden="true" />
+                    <div className="vetham-round-stat-circle">
+                      <OdometerCounter value={stat.value} suffix={stat.suffix || ''} duration={2200} />
+                    </div>
+                  </div>
+                  <div className="vetham-round-stat-meta">
+                    <span className="vetham-round-stat-icon" aria-hidden="true">
+                      <i className={stat.icon} />
+                    </span>
+                    <h3 className="vetham-round-stat-title">{stat.title}</h3>
                   </div>
                 </div>
-                <h3 className="vetham-round-stat-title">{stat.title}</h3>
               </div>
             ))}
           </div>

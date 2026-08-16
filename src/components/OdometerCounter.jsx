@@ -18,28 +18,38 @@ function sleep(ms) {
 }
 
 function OdometerDigit({ targetDigit, index, active, duration }) {
+  const digitRef = useRef(null);
   const wrapRef = useRef(null);
+  const [digitHeight, setDigitHeight] = useState(0);
   const [position, setPosition] = useState(0);
   const [stepMs, setStepMs] = useState(0);
   const ranRef = useRef(false);
   const steps = index * 10 + targetDigit;
 
   const strip = useMemo(
-    () => Array.from({ length: 40 }, (_, i) => i % 10),
-    [],
+    () => Array.from({ length: 30 + targetDigit + index * 10 }, (_, i) => i % 10),
+    [index, targetDigit],
   );
 
   useLayoutEffect(() => {
-    const wrap = wrapRef.current;
-    if (!wrap) return;
-    const value = wrap.querySelector('.odometer-digit-value');
-    if (value) {
-      wrap.style.height = `${value.offsetHeight}px`;
-    }
+    const measure = () => {
+      const digit = digitRef.current;
+      const wrap = wrapRef.current;
+      if (!digit || !wrap) return;
+      const height = digit.getBoundingClientRect().height;
+      if (height > 0) {
+        setDigitHeight(height);
+        wrap.style.height = `${height}px`;
+      }
+    };
+
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
   }, []);
 
   useEffect(() => {
-    if (!active || ranRef.current) return;
+    if (!active || ranRef.current || digitHeight === 0) return;
     if (steps === 0) return;
 
     ranRef.current = true;
@@ -65,16 +75,16 @@ function OdometerDigit({ targetDigit, index, active, duration }) {
     };
 
     animate();
-  }, [active, duration, index, steps]);
+  }, [active, digitHeight, duration, index, steps]);
 
   return (
-    <span className="odometer-digit">
-      <span className="odometer-digit-placeholder">8</span>
+    <span className="odometer-digit" ref={digitRef}>
+      <span className="odometer-digit-placeholder" aria-hidden="true">0</span>
       <span className="odometer-digit-wrap" ref={wrapRef}>
         <span
           className="odometer-digit-strip"
           style={{
-            transform: `translateY(-${position}em)`,
+            transform: digitHeight ? `translate3d(0, -${position * digitHeight}px, 0)` : 'none',
             transition: position > 0 && stepMs
               ? `transform ${stepMs}ms cubic-bezier(0.22, 0.85, 0.35, 1)`
               : 'none',
