@@ -22,32 +22,30 @@ export default function LeadershipShowcase({ linkToLeadership = true, fullPage =
           </p>
         </header>
 
-        <div className="vetham-leadership-images__frame">
-          <div className="vetham-leadership-images__grid">
-            {TEAM.map((member, index) => {
-              const card = (
-                <figure className="vetham-leadership-images__card">
-                  <LazyImage
-                    src={img(member.leadershipCard)}
-                    alt={`${member.name} – Spiritual Master, ${member.role}`}
-                    loading={index < 2 ? 'eager' : 'lazy'}
-                  />
-                </figure>
-              );
+        <div className="vetham-leadership-images__grid">
+          {TEAM.map((member, index) => {
+            const card = (
+              <figure className="vetham-leadership-images__card">
+                <LazyImage
+                  src={img(member.leadershipCard)}
+                  alt={`${member.name} – Spiritual Master, ${member.role}`}
+                  loading={index < 2 ? 'eager' : 'lazy'}
+                />
+              </figure>
+            );
 
-              return (
-                <article key={member.name} className="vetham-leadership-images__item">
-                  {linkToLeadership ? (
-                    <Link to="/leadership" className="vetham-leadership-images__link">
-                      {card}
-                    </Link>
-                  ) : (
-                    card
-                  )}
-                </article>
-              );
-            })}
-          </div>
+            return (
+              <article key={member.name} className="vetham-leadership-images__item">
+                {linkToLeadership ? (
+                  <Link to="/leadership" className="vetham-leadership-images__link">
+                    {card}
+                  </Link>
+                ) : (
+                  card
+                )}
+              </article>
+            );
+          })}
         </div>
 
         {linkToLeadership ? (
