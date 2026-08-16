@@ -77,24 +77,44 @@ function initOwl($, selector, options) {
   }
 }
 
+const BANNER_CAROUSEL_OPTIONS = {
+  items: 1,
+  loop: true,
+  margin: 0,
+  nav: false,
+  dots: true,
+  animateOut: 'fadeOut',
+  animateIn: 'fadeIn',
+  smartSpeed: 900,
+  autoplay: true,
+  autoplayTimeout: 5500,
+  autoplayHoverPause: true,
+  autoplaySpeed: 900,
+  responsive: { 0: { items: 1 }, 1024: { items: 1 } },
+};
+
+export function reinitBannerCarousel() {
+  const $ = window.jQuery;
+  if (!$) return;
+
+  const $banner = $('.banner-carousel');
+  if (!$banner.length) return;
+
+  if ($banner.hasClass('owl-loaded')) {
+    $banner.trigger('destroy.owl.carousel');
+    $banner.removeClass('owl-loaded owl-hidden');
+  }
+
+  initOwl($, '.banner-carousel', BANNER_CAROUSEL_OPTIONS);
+}
+
 export function reinitThemePlugins() {
   const $ = window.jQuery;
   if (!$) return;
 
   destroyOwl($);
 
-  initOwl($, '.banner-carousel', {
-    loop: true,
-    margin: 0,
-    nav: true,
-    animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
-    smartSpeed: 600,
-    autoplay: 6000,
-    autoplayTimeout: 6000,
-    navText: ['<span class="fal fa-angle-left"></span>', '<span class="fal fa-angle-right"></span>'],
-    responsive: { 0: { items: 1 }, 1024: { items: 1 } },
-  });
+  initOwl($, '.banner-carousel', BANNER_CAROUSEL_OPTIONS);
 
   const carouselDefaults = {
     loop: true,

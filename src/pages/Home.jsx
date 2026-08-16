@@ -7,7 +7,7 @@ import { img } from '../config/images';
 import LazyImage from '../components/LazyImage';
 import LeadershipShowcase from '../components/LeadershipShowcase';
 import SiteStats from '../components/SiteStats';
-import { loadThemeScripts, reinitThemePlugins } from '../utils/themeInit';
+import { loadThemeScripts, reinitBannerCarousel } from '../utils/themeInit';
 
 const FEATURES = [
   { icon: 'icon-4', title: 'Yoga & Meditation', text: 'Workshops, meditation sessions, and discourses guiding individuals on a path of self-discovery.', link: '/courses' },
@@ -47,10 +47,20 @@ const COMMUNITY_STATS = [
 export default function Home() {
   useEffect(() => {
     let active = true;
+
     (async () => {
       await loadThemeScripts();
-      if (active) reinitThemePlugins();
+      if (!active) return;
+
+      reinitBannerCarousel();
+      requestAnimationFrame(() => {
+        if (active) reinitBannerCarousel();
+      });
+      window.setTimeout(() => {
+        if (active) reinitBannerCarousel();
+      }, 200);
     })();
+
     return () => {
       active = false;
     };

@@ -951,10 +951,21 @@ html[data-ui-lang] .sticky-header .menu-area {
 }
 
 /* Home banner — show first slide before Owl Carousel initializes (lazy route timing) */
+.banner-section {
+  overflow: hidden;
+}
+
+.banner-section .banner-carousel,
+.banner-section .banner-carousel .owl-stage-outer,
+.banner-section .banner-carousel .owl-item {
+  overflow: hidden;
+}
+
 .banner-section .banner-carousel.owl-carousel:not(.owl-loaded) {
   display: block !important;
   opacity: 1 !important;
   min-height: 520px;
+  overflow: hidden;
 }
 
 .banner-section .banner-carousel.owl-carousel:not(.owl-loaded) .slide-item:not(:first-child) {
@@ -967,6 +978,37 @@ html[data-ui-lang] .sticky-header .menu-area {
 .banner-section .banner-carousel.owl-carousel:not(.owl-loaded) .slide-item:first-child .content-box .btn-box {
   opacity: 1;
   transform: none;
+}
+
+.banner-section .banner-carousel.owl-loaded {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+.banner-carousel .slide-item {
+  overflow: hidden;
+  min-height: 520px;
+}
+
+.banner-carousel .slide-item .image-layer {
+  overflow: hidden;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.banner-carousel .active .slide-item .image-layer {
+  transform: scale(1.12);
+}
+
+@media only screen and (max-width: 767px) {
+  .banner-section .banner-carousel.owl-carousel:not(.owl-loaded),
+  .banner-carousel .slide-item {
+    min-height: 460px;
+  }
+
+  .banner-carousel .active .slide-item .image-layer {
+    transform: scale(1.08);
+  }
 }
 
 /* Home "What We Do" feature icons — larger & stylish */
