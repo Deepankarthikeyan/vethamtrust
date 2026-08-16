@@ -9,7 +9,7 @@ function LeaderCard({ member, linkToLeadership }) {
   const nameProps = linkToLeadership ? { to: '/leadership' } : {};
 
   const textCol = (
-    <div className="col-md-5 vetham-leader-card__text">
+    <div className="col-md-6 vetham-leader-card__text">
       <p className="vetham-leader-card__meta">
         Spiritual Master <span aria-hidden="true">•</span> {member.role}
       </p>
@@ -35,7 +35,7 @@ function LeaderCard({ member, linkToLeadership }) {
   );
 
   const portraitCol = (
-    <div className="col-md-7 vetham-leader-card__portrait-col">
+    <div className="col-md-6 vetham-leader-card__portrait-col">
       <div className="vetham-leader-card__portrait-wrap">
         <div className="vetham-leader-card__arc" aria-hidden="true" />
         <figure className="vetham-leader-card__portrait">
@@ -70,10 +70,10 @@ function LeaderCard({ member, linkToLeadership }) {
   );
 }
 
-export default function LeadershipShowcase({ linkToLeadership = true, fullPage = false, large = false }) {
+export default function LeadershipShowcase({ linkToLeadership = true, fullPage = false }) {
   return (
     <section
-      className={`vetham-leadership-cards sec-pad ${fullPage ? 'vetham-leadership-cards--page' : ''} ${large ? 'vetham-leadership-cards--large' : ''}`}
+      className={`vetham-leadership-cards sec-pad ${fullPage ? 'vetham-leadership-cards--page' : ''}`}
       aria-label="Vetham Kuzhumam Spiritual Trust Leadership"
     >
       <div className="auto-container">

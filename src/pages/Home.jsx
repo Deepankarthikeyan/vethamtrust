@@ -235,8 +235,6 @@ export default function Home() {
         </div>
       </section>
 
-      <LeadershipShowcase large />
-
       <section className="project-section vetham-gallery-icon-only">
         <div className="outer-container">
           <div className="project-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
@@ -255,6 +253,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <LeadershipShowcase />
 
       <section className="news-section sec-pad vetham-blog-section vetham-home-blog">
         <div className="auto-container">
