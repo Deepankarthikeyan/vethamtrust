@@ -724,6 +724,20 @@ html[data-ui-lang] .sticky-header .menu-area {
   }
 }
 
+/* Responsive: hide side donate button (floating FAB + header donate) */
+@media only screen and (max-width: 1199px) {
+  .vetham-fab-donate,
+  .vetham-fab-panel-donate,
+  .vetham-qr-fullscreen {
+    display: none !important;
+  }
+
+  .main-header .nav-right li.btn-box,
+  .sticky-header .nav-right li.btn-box {
+    display: none !important;
+  }
+}
+
 /* Footer widgets */
 .vetham-footer-grid-section {
   padding-top: 10px;
