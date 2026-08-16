@@ -3493,7 +3493,7 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 32px 28px 28px 32px;
+  padding: 38px 32px 34px 38px;
   background: #0b1020;
 }
 
