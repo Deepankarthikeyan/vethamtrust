@@ -1827,10 +1827,11 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
 
 .vetham-community-stat-title {
   font-size: 17px;
-  line-height: 1.25;
+  line-height: 1.35;
   font-style: italic;
   color: rgba(255, 255, 255, 0.92);
   margin-bottom: 18px;
+  min-height: 46px;
 }
 
 .vetham-community-stat-counter {
@@ -1861,6 +1862,10 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .nav-right li.btn-box
   display: inline-block;
   margin-left: 0.08em;
   line-height: 1;
+}
+
+.vetham-community-stat-col:last-child .odometer-counter {
+  font-size: 48px;
 }
 
 .vetham-community-stats .odometer-digit {
