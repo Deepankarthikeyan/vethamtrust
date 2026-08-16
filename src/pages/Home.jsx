@@ -138,10 +138,11 @@ export default function Home() {
       </section>
 
       <section className="funfact-section pt_80 pb_80 bg-color-2">
+        <div className="pattern-layer" style={{ backgroundImage: 'url(/assets/images/shape/shape-2.png)' }} />
         <div className="auto-container">
           <div className="inner-container">
-            {FUNFACTS.map((f) => (
-              <div key={f.line1} className="funfact-block-one">
+            {FUNFACTS.map((f, i) => (
+              <div key={f.line1} className="funfact-block-one wow fadeInUp animated" data-wow-delay={`${i * 200}ms`} data-wow-duration="1500ms">
                 <div className="inner-box">
                   <div className="count-outer count-box">
                     <span className="count-text" data-speed="1500" data-stop={f.stop}>0</span>
