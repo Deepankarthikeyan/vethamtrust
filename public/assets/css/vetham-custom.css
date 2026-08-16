@@ -21,15 +21,19 @@
 
 .main-header .logo-box .logo img,
 .sticky-header .logo-box .logo img {
-  max-height: 65px;
+  max-height: 72px;
+  max-width: 72px;
   width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* Red logo background - main header */
 .header-style-two.main-header .header-lower .logo-box,
 .sticky-header .logo-box {
-  background: #C45A1A;
-  padding: 18px 40px 18px 50px !important;
+  background: #fff;
+  padding: 12px 28px 12px 36px !important;
   margin-right: 0;
   position: relative;
   z-index: 1;
@@ -44,7 +48,7 @@
   display: block !important;
   content: '';
   position: absolute;
-  background: #C45A1A !important;
+  background: #fff !important;
   width: 100%;
   height: 100%;
   left: 0;
@@ -60,7 +64,7 @@
 
 .header-style-two.main-header .header-lower .logo-box .logo,
 .sticky-header .logo-box .logo {
-  max-width: 200px;
+  max-width: 72px;
   margin: 0;
 }
 
@@ -1859,7 +1863,13 @@ html[data-ui-lang] .sticky-header .menu-area {
   }
 
   .header-style-two.main-header .header-lower .logo-box .logo {
-    max-width: 180px;
+    max-width: 52px;
+  }
+
+  .main-header .logo-box .logo img,
+  .sticky-header .logo-box .logo img {
+    max-height: 58px;
+    max-width: 58px;
   }
 
   .header-style-two.main-header .menu-area {
@@ -1878,14 +1888,15 @@ html[data-ui-lang] .sticky-header .menu-area {
   .main-header .logo-box .logo img,
   .sticky-header .logo-box .logo img {
     max-height: 52px;
+    max-width: 52px;
   }
 
   .header-style-two.main-header .header-lower .logo-box {
-    padding: 12px 16px 12px 20px !important;
+    padding: 10px 14px 10px 18px !important;
   }
 
   .header-style-two.main-header .header-lower .logo-box .logo {
-    max-width: 150px;
+    max-width: 52px;
   }
 
   .header-style-two.main-header .header-lower .outer-box {
@@ -3970,6 +3981,26 @@ html[data-ui-lang] .sticky-header .menu-area {
   .vetham-leader-card .row {
     flex-direction: column;
   }
+}
+
+/* Site logo — meditation mark (square/portrait) */
+.footer-top .footer-logo {
+  max-width: 130px;
+}
+
+.footer-top .footer-logo img {
+  width: auto;
+  max-width: 130px;
+  max-height: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+.mobile-menu .nav-logo img {
+  max-height: 110px;
+  width: auto;
+  max-width: 110px;
+  object-fit: contain;
 }
 
 /* Preloader — show header logo instead of VETHAM text */
