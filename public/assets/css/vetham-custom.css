@@ -767,6 +767,73 @@ html[data-ui-lang] .sticky-header .menu-area {
   margin-top: 6px;
 }
 
+.vetham-footer-donate__lead {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #ddd;
+}
+
+.vetham-footer-donate__qr {
+  margin: 0 0 14px;
+  text-align: center;
+}
+
+.vetham-footer-donate__qr img,
+.vetham-footer-donate .vetham-qr-code {
+  max-width: 140px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 8px;
+  background: #fff;
+  padding: 6px;
+}
+
+.vetham-footer-donate__qr figcaption {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #ffcc99;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.vetham-footer-donate__razorpay {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.vetham-footer-donate__razorpay img {
+  max-width: 110px;
+  height: auto;
+  display: block;
+  background: #fff;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.vetham-footer-donate__razorpay:hover {
+  color: #ffcc99;
+}
+
+.vetham-footer-donate__link {
+  display: inline-block;
+  font-size: 13px;
+  color: #ffcc99;
+  text-decoration: underline;
+}
+
+.vetham-footer-donate__link:hover {
+  color: #fff;
+}
+
 .vetham-footer-grid .language-widget .gtranslate_wrapper {
   display: flex;
   justify-content: center;

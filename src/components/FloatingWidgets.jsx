@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { DONATION } from '../config/donate';
 import { img } from '../config/images';
 import {
   getCurrentLanguageCode,
@@ -10,8 +11,6 @@ import {
 } from '../config/languages';
 
 const WHATSAPP_GROUP = 'https://chat.whatsapp.com/EQuPUtcPzEdIZVlT8JyyNw';
-const RAZORPAY_URL = 'https://rzp.io/rzp/vethamspiritualtrust';
-const UPI_ID = '6515433630@indianbk';
 
 export default function FloatingWidgets() {
   const [activePanel, setActivePanel] = useState(null);
@@ -166,10 +165,10 @@ export default function FloatingWidgets() {
           >
             <img src={img('qrCode')} alt="Scan to pay Vetham Kuzhumam Trust" />
           </button>
-          <figcaption className="vetham-fab-upi">UPI: {UPI_ID}</figcaption>
+          <figcaption className="vetham-fab-upi">UPI: {DONATION.upiId}</figcaption>
           <p className="vetham-fab-qr-hint">Tap QR to enlarge for scanning</p>
         </figure>
-        <a href={RAZORPAY_URL} className="vetham-fab-razorpay" target="_blank" rel="noopener noreferrer">
+        <a href={DONATION.razorpayUrl} className="vetham-fab-razorpay" target="_blank" rel="noopener noreferrer">
           <img src={img('razorpayLogo')} alt="Razorpay" />
           <span>Click Razorpay to donate</span>
         </a>
@@ -185,7 +184,7 @@ export default function FloatingWidgets() {
           &times;
         </button>
         <img src={img('qrCode')} alt="Scan to pay" />
-        <p>UPI: {UPI_ID}</p>
+        <p>UPI: {DONATION.upiId}</p>
       </div>
     </div>
   );
