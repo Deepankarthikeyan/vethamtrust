@@ -38,10 +38,30 @@ export const NAV_ITEMS = [
 ];
 
 export const TEAM = [
-  { name: 'Gnana Rishi A S Rathakrishnan', role: 'Founder', image: 'trustee1' },
-  { name: 'Gnanasiriyar Selvin', role: 'Co-Founder & President', image: 'trustee2' },
-  { name: 'Gnanasiriyar Balasubramanian', role: 'Co-Founder & Secretary', image: 'trustee3' },
-  { name: 'Gnanasiriyar A S Sureash Kumaar', role: 'Co-Founder & Treasurer', image: 'trustee4' },
+  {
+    name: 'Gnana Rishi A S Rathakrishnan',
+    role: 'Founder',
+    image: 'trustee1',
+    tagline: 'Leading the vision of World Peace through Individual Peace.',
+  },
+  {
+    name: 'Gnanasiriyar Selvin',
+    role: 'Co-Founder & President',
+    image: 'trustee2',
+    tagline: 'Guiding the trust with devotion, discipline, and spiritual clarity.',
+  },
+  {
+    name: 'Gnanasiriyar Balasubramanian',
+    role: 'Co-Founder & Secretary',
+    image: 'trustee3',
+    tagline: 'Nurturing satsang, service, and the growth of our spiritual community.',
+  },
+  {
+    name: 'Gnanasiriyar A S Sureash Kumaar',
+    role: 'Co-Founder & Treasurer',
+    image: 'trustee4',
+    tagline: 'Stewarding resources to build the divine spiritual village vision.',
+  },
 ];
 
 export const BANNERS = [
