@@ -1115,6 +1115,15 @@ html[data-ui-lang] .sticky-header .menu-area {
 }
 
 /* Service block icons — keep glyph above background shape */
+.service-block-one .inner-box .icon-box .icon {
+  position: relative;
+  z-index: 1;
+}
+
+.service-block-one .inner-box .icon-box .icon-bg {
+  z-index: 0;
+}
+
 .service-section .service-block-one .inner-box .icon-box .icon {
   position: relative;
   z-index: 1;
