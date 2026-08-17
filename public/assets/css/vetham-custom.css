@@ -959,7 +959,8 @@ html[data-ui-lang] .sticky-header .menu-area {
 .banner-section .banner-carousel.owl-carousel:not(.owl-loaded) {
   display: block !important;
   opacity: 1 !important;
-  min-height: 520px;
+  height: 640px;
+  min-height: 640px;
   overflow: hidden;
 }
 
@@ -978,21 +979,115 @@ html[data-ui-lang] .sticky-header .menu-area {
 .banner-section .banner-carousel.owl-loaded {
   display: block !important;
   opacity: 1 !important;
+  height: 640px;
+  min-height: 640px;
+}
+
+.banner-section .banner-carousel .owl-stage-outer,
+.banner-section .banner-carousel .owl-stage,
+.banner-section .banner-carousel .owl-item,
+.banner-carousel .slide-item {
+  height: 640px;
+  min-height: 640px;
 }
 
 .banner-carousel .slide-item {
   overflow: hidden;
-  min-height: 520px;
+  display: flex;
+  align-items: flex-start;
+  padding: 96px 0 120px !important;
+  box-sizing: border-box;
+}
+
+.banner-carousel .slide-item .auto-container {
+  width: 100%;
+}
+
+.banner-carousel .content-box {
+  position: relative;
+  z-index: 5;
+}
+
+.banner-carousel .content-box .special-text {
+  margin-bottom: 14px !important;
+}
+
+.banner-carousel .content-box h2 {
+  font-size: 52px !important;
+  line-height: 1.12 !important;
+  margin-bottom: 18px !important;
+}
+
+.banner-carousel .content-box p {
+  display: block !important;
+  margin-bottom: 22px !important;
+  color: #fff !important;
+  visibility: visible !important;
+}
+
+.banner-carousel .content-box .btn-box {
+  display: block !important;
+  margin-bottom: 0;
+  visibility: visible !important;
 }
 
 .banner-carousel .slide-item .image-layer {
   overflow: hidden;
   transform-origin: center center;
   will-change: transform;
+  height: 100%;
+  min-height: 100%;
 }
 
+.banner-carousel .owl-item.active .slide-item .image-layer,
 .banner-carousel .active .slide-item .image-layer {
   transform: scale(1.12);
+}
+
+.banner-section .banner-carousel .owl-dots {
+  position: absolute;
+  left: 50%;
+  right: auto;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 8;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: auto;
+  margin: 0;
+  pointer-events: auto;
+}
+
+.banner-section .owl-theme .owl-dots .owl-dot {
+  margin: 0 !important;
+}
+
+.banner-section .owl-theme .owl-dots .owl-dot span {
+  display: none;
+}
+
+.banner-section .owl-theme .owl-dots button,
+.banner-section .owl-theme .owl-dots .owl-dot {
+  position: relative;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  margin: 0 !important;
+  padding: 0;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.banner-section .owl-theme .owl-dots button.active,
+.banner-section .owl-theme .owl-dots button:hover,
+.banner-section .owl-theme .owl-dots .owl-dot.active,
+.banner-section .owl-theme .owl-dots .owl-dot:hover {
+  background: #fff;
 }
 
 .banner-section .banner-carousel .owl-nav {
@@ -1040,19 +1135,76 @@ html[data-ui-lang] .sticky-header .menu-area {
 .banner-carousel .owl-item.active .content-box .special-text,
 .banner-carousel .owl-item.active .content-box h2,
 .banner-carousel .owl-item.active .content-box p,
-.banner-carousel .owl-item.active .content-box .btn-box {
-  opacity: 1;
-  transform: none;
+.banner-carousel .owl-item.active .content-box .btn-box,
+.banner-carousel .active .content-box .special-text,
+.banner-carousel .active .content-box h2,
+.banner-carousel .active .content-box p,
+.banner-carousel .active .content-box .btn-box {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+@media only screen and (max-width: 991px) {
+  .banner-section .banner-carousel.owl-carousel:not(.owl-loaded),
+  .banner-section .banner-carousel.owl-loaded,
+  .banner-section .banner-carousel .owl-stage-outer,
+  .banner-section .banner-carousel .owl-stage,
+  .banner-section .banner-carousel .owl-item,
+  .banner-carousel .slide-item {
+    height: 560px;
+    min-height: 560px;
+  }
+
+  .banner-carousel .slide-item {
+    padding: 84px 0 108px !important;
+  }
+
+  .banner-carousel .content-box h2 {
+    font-size: 42px !important;
+  }
 }
 
 @media only screen and (max-width: 767px) {
   .banner-section .banner-carousel.owl-carousel:not(.owl-loaded),
+  .banner-section .banner-carousel.owl-loaded,
+  .banner-section .banner-carousel .owl-stage-outer,
+  .banner-section .banner-carousel .owl-stage,
+  .banner-section .banner-carousel .owl-item,
   .banner-carousel .slide-item {
-    min-height: 460px;
+    height: 480px;
+    min-height: 480px;
   }
 
+  .banner-carousel .slide-item {
+    padding: 76px 0 100px !important;
+  }
+
+  .banner-carousel .content-box h2 {
+    font-size: 34px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .banner-carousel .content-box .special-text {
+    font-size: 18px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .banner-carousel .content-box p {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .banner-carousel .owl-item.active .slide-item .image-layer,
   .banner-carousel .active .slide-item .image-layer {
     transform: scale(1.08);
+  }
+
+  .banner-section .banner-carousel .owl-dots {
+    bottom: 18px;
+    display: flex !important;
   }
 
   .banner-section .banner-carousel .owl-nav .owl-prev {

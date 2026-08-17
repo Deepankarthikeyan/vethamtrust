@@ -84,6 +84,7 @@ const BANNER_CAROUSEL_OPTIONS = {
   margin: 0,
   nav: true,
   dots: true,
+  autoHeight: false,
   navText: [
     '<span class="fal fa-angle-left" aria-hidden="true"></span>',
     '<span class="fal fa-angle-right" aria-hidden="true"></span>',
