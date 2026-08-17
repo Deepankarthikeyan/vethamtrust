@@ -1187,26 +1187,45 @@ html[data-ui-lang] .sticky-header .menu-area {
 }
 
 /* Our Village — equal-height highlight images */
+.vetham-village-highlights .row {
+  align-items: flex-start;
+}
+
 .vetham-village-highlights .vetham-village-highlight__image {
+  position: relative;
   display: block;
   width: 100%;
-  height: 240px;
+  height: 260px !important;
+  min-height: 260px;
+  max-height: 260px;
   margin: 0;
+  padding: 0;
   overflow: hidden;
   border-radius: 8px;
+  background: #f0ebe3;
+  flex-shrink: 0;
 }
 
 .vetham-village-highlights .vetham-village-highlight__image img {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none;
+  max-height: none;
   object-fit: cover;
   object-position: center;
   display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 @media only screen and (max-width: 991px) {
   .vetham-village-highlights .vetham-village-highlight__image {
-    height: 220px;
+    height: 240px !important;
+    min-height: 240px;
+    max-height: 240px;
   }
 }
 
@@ -1216,7 +1235,9 @@ html[data-ui-lang] .sticky-header .menu-area {
   }
 
   .vetham-village-highlights .vetham-village-highlight__image {
-    height: 200px;
+    height: 220px !important;
+    min-height: 220px;
+    max-height: 220px;
   }
 }
 
