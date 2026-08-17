@@ -11,6 +11,46 @@ export const LANGUAGES = [
   { code: 'te', label: 'తెలుగు' },
 ];
 
+export const UI_LANGUAGE_CHANGE_EVENT = 'vetham:languagechange';
+
+export const NAV_LABELS = {
+  en: {
+    home: 'Home',
+    about: 'About Us',
+    village: 'Our Village',
+    courses: 'Courses',
+    events: 'Events',
+    social: 'Social Media',
+    contact: 'Contact',
+    blog: 'Blog',
+    services: 'Services',
+    donate: 'Donate',
+  },
+  ta: {
+    home: 'வீடு',
+    about: 'எங்களைப் பற்றி',
+    village: 'எங்கள் கிராமம்',
+    courses: 'படிப்புகள்',
+    events: 'நிகழ்வுகள்',
+    social: 'சமூக ஊடகங்கள்',
+    contact: 'தொடர்பு',
+    blog: 'வலைப்பதிவு',
+    services: 'சேவைகள்',
+    donate: 'நன்கொடை',
+  },
+};
+
+export function getNavLabel(key, lang = getCurrentLanguageCode()) {
+  const localized = NAV_LABELS[lang]?.[key];
+  if (localized) return localized;
+  return NAV_LABELS.en[key] || key;
+}
+
+function notifyLanguageChange(lang) {
+  if (typeof window === 'undefined') return;
+  window.dispatchEvent(new CustomEvent(UI_LANGUAGE_CHANGE_EVENT, { detail: { lang } }));
+}
+
 const TRANSLATE_READY_TIMEOUT_MS = 10000;
 const TRANSLATE_APPLY_DELAY_MS = 350;
 const TYPOGRAPHY_STABILIZE_DEBOUNCE_MS = 120;
@@ -179,6 +219,7 @@ function restoreEnglish() {
       document.documentElement.lang = 'en';
       preserveLanguageLabels();
       syncUiLanguageAttribute('en');
+      notifyLanguageChange('en');
       return wait(TRANSLATE_APPLY_DELAY_MS);
     })
     .then(() => {
@@ -240,13 +281,16 @@ export function setLanguage(code) {
   if (lang === 'en') {
     return restoreEnglish().then(() => {
       syncUiLanguageAttribute('en');
+      notifyLanguageChange('en');
     });
   }
 
   syncUiLanguageAttribute(lang);
+  notifyLanguageChange(lang);
   writeGoogTransCookie(`/en/${lang}`);
   return applyTranslation(lang).then(() => {
     syncUiLanguageAttribute(lang);
+    notifyLanguageChange(lang);
   });
 }
 
@@ -285,6 +329,7 @@ export function installGTranslate() {
       watchTranslatedTypography();
       const lang = getCurrentLanguageCode();
       syncUiLanguageAttribute(lang);
+      notifyLanguageChange(lang);
       if (lang !== 'en') {
         return applyTranslation(lang);
       }

@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { SITE, NAV_ITEMS } from '../config/site';
+import { getNavLabel } from '../config/languages';
 import { img } from '../config/images';
+import { useUiLanguage } from '../hooks/useUiLanguage';
+import { loadThemeScripts, setupMobileMenu } from '../utils/themeInit';
 import LazyImage from './LazyImage';
 
 function isActive(pathname, item) {
@@ -23,25 +26,37 @@ function childClass(pathname, child) {
 
 export default function Header() {
   const { pathname } = useLocation();
+  const lang = useUiLanguage();
+  const useNativeNav = lang === 'en' || lang === 'ta';
 
   useEffect(() => {
     document.body.classList.remove('mobile-menu-visible');
   }, [pathname]);
+
+  useEffect(() => {
+    loadThemeScripts().then(() => {
+      setupMobileMenu();
+    });
+  }, [lang, pathname]);
 
   const closeMobileMenu = () => {
     document.body.classList.remove('mobile-menu-visible');
   };
 
   const navigation = (
-    <ul className="navigation clearfix">
+    <ul className={`navigation clearfix${useNativeNav ? ' notranslate' : ''}`}>
       {NAV_ITEMS.map((item) => (
         <li key={item.key} className={navClass(pathname, item)}>
-          <Link to={item.path} onClick={closeMobileMenu}>{item.label}</Link>
+          <Link to={item.path} onClick={closeMobileMenu}>
+            <span className="vetham-nav-label">{getNavLabel(item.key, lang)}</span>
+          </Link>
           {item.children && (
             <ul>
               {item.children.map((child) => (
                 <li key={child.key} className={childClass(pathname, child)}>
-                  <Link to={child.path} onClick={closeMobileMenu}>{child.label}</Link>
+                  <Link to={child.path} onClick={closeMobileMenu}>
+                    <span className="vetham-nav-label">{getNavLabel(child.key, lang)}</span>
+                  </Link>
                 </li>
               ))}
             </ul>

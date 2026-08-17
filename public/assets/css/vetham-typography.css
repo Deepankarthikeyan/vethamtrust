@@ -204,21 +204,61 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigatio
 
 html[data-ui-lang="ta"] .header-style-two.main-header .main-menu .navigation > li > a,
 html[data-ui-lang="ta"] .sticky-header .main-menu .navigation > li > a {
-  word-break: keep-all;
-  line-height: 1.42 !important;
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-height: 1.38 !important;
   letter-spacing: 0;
+  padding: 18px 4px !important;
+  min-height: 4.5em;
 }
 
-html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation,
-html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation {
+html[data-ui-lang="ta"] .header-style-two.main-header .main-menu .navigation,
+html[data-ui-lang="ta"] .sticky-header .main-menu .navigation {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: nowrap !important;
+  gap: 0;
+}
+
+html[data-ui-lang="ta"] .header-style-two.main-header .main-menu .navigation > li,
+html[data-ui-lang="ta"] .sticky-header .main-menu .navigation > li {
+  margin: 0 !important;
+  max-width: none !important;
+  flex: none !important;
+  display: block !important;
+  float: none !important;
+  min-width: 0;
+}
+
+html[data-ui-lang="ta"] .vetham-nav-label {
+  display: block;
+  width: 100%;
+  white-space: normal !important;
+  text-align: center;
+  line-height: 1.38;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+}
+
+html[data-ui-lang="ta"] .main-menu .navigation > li > a .vetham-nav-label,
+html[data-ui-lang="ta"] .mobile-menu .navigation li > a .vetham-nav-label {
+  font-family: var(--vetham-font-ta) !important;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]):not([data-ui-lang="ta"]) .header-style-two.main-header .main-menu .navigation,
+html[data-ui-lang]:not([data-ui-lang="en"]):not([data-ui-lang="ta"]) .sticky-header .main-menu .navigation {
   flex-wrap: nowrap;
   justify-content: center;
   align-items: stretch;
   gap: 0;
 }
 
-html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li,
-html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li {
+html[data-ui-lang]:not([data-ui-lang="en"]):not([data-ui-lang="ta"]) .header-style-two.main-header .main-menu .navigation > li,
+html[data-ui-lang]:not([data-ui-lang="en"]):not([data-ui-lang="ta"]) .sticky-header .main-menu .navigation > li {
   margin: 0 5px;
   flex: 1 1 0;
   min-width: 0;
@@ -266,8 +306,29 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .mobile-menu .navigation li > a {
   text-align: left;
 }
 
+html[data-ui-lang="en"] .vetham-nav-label,
+html:not([data-ui-lang]) .vetham-nav-label {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 html[data-ui-lang="ta"] .mobile-menu .navigation li > a {
-  word-break: keep-all;
+  word-break: normal;
+  overflow-wrap: break-word;
+  text-align: left;
+  line-height: 1.45 !important;
+}
+
+@media only screen and (max-width: 1399px) {
+  html[data-ui-lang="ta"] {
+    --vetham-text-nav: 14px;
+  }
+
+  html[data-ui-lang="ta"] .header-style-two.main-header .main-menu .navigation > li > a,
+  html[data-ui-lang="ta"] .sticky-header .main-menu .navigation > li > a {
+    min-height: 4.75em;
+    padding: 16px 2px !important;
+  }
 }
 
 html[data-ui-lang]:not([data-ui-lang="en"]) body :where(
