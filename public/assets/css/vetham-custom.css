@@ -993,6 +993,37 @@ html[data-ui-lang] .sticky-header .menu-area {
 
 .banner-carousel .slide-item {
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 88px 0 112px !important;
+  box-sizing: border-box;
+}
+
+.banner-carousel .slide-item .auto-container {
+  width: 100%;
+}
+
+.banner-carousel .content-box {
+  position: relative;
+  z-index: 5;
+}
+
+.banner-carousel .content-box .special-text {
+  margin-bottom: 14px !important;
+}
+
+.banner-carousel .content-box h2 {
+  font-size: 52px !important;
+  line-height: 1.12 !important;
+  margin-bottom: 18px !important;
+}
+
+.banner-carousel .content-box p {
+  margin-bottom: 22px !important;
+}
+
+.banner-carousel .content-box .btn-box {
+  margin-bottom: 0;
 }
 
 .banner-carousel .slide-item .image-layer {
@@ -1104,6 +1135,16 @@ html[data-ui-lang] .sticky-header .menu-area {
   transform: none;
 }
 
+@media only screen and (max-width: 991px) {
+  .banner-carousel .slide-item {
+    padding: 80px 0 104px !important;
+  }
+
+  .banner-carousel .content-box h2 {
+    font-size: 42px !important;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .banner-section .banner-carousel.owl-carousel:not(.owl-loaded),
   .banner-section .banner-carousel.owl-loaded,
@@ -1113,6 +1154,27 @@ html[data-ui-lang] .sticky-header .menu-area {
   .banner-carousel .slide-item {
     height: 480px;
     min-height: 480px;
+  }
+
+  .banner-carousel .slide-item {
+    padding: 72px 0 96px !important;
+  }
+
+  .banner-carousel .content-box h2 {
+    font-size: 34px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .banner-carousel .content-box .special-text {
+    font-size: 18px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .banner-carousel .content-box p {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 18px !important;
   }
 
   .banner-carousel .owl-item.active .slide-item .image-layer,
