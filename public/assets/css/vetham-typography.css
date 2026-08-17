@@ -467,12 +467,8 @@ font * {
 }
 
 @media only screen and (max-width: 1399px) {
-  html[data-ui-lang="ta"] {
-    --vetham-text-nav: 15px;
-  }
-
-  html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li,
-  html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li {
+  html[data-ui-lang]:not([data-ui-lang="en"]):not([data-ui-lang="ta"]) .header-style-two.main-header .main-menu .navigation > li,
+  html[data-ui-lang]:not([data-ui-lang="en"]):not([data-ui-lang="ta"]) .sticky-header .main-menu .navigation > li {
     max-width: 10rem;
     margin: 0 3px;
   }
