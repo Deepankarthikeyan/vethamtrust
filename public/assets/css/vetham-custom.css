@@ -1163,6 +1163,13 @@ html[data-ui-lang] .sticky-header .menu-area {
   .banner-carousel .content-box h2 {
     font-size: 42px !important;
   }
+
+  .banner-section .banner-carousel .owl-dots {
+    display: flex !important;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
 }
 
 @media only screen and (max-width: 767px) {
