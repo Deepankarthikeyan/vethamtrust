@@ -959,7 +959,8 @@ html[data-ui-lang] .sticky-header .menu-area {
 .banner-section .banner-carousel.owl-carousel:not(.owl-loaded) {
   display: block !important;
   opacity: 1 !important;
-  min-height: 520px;
+  height: 600px;
+  min-height: 600px;
   overflow: hidden;
 }
 
@@ -978,21 +979,79 @@ html[data-ui-lang] .sticky-header .menu-area {
 .banner-section .banner-carousel.owl-loaded {
   display: block !important;
   opacity: 1 !important;
+  height: 600px;
+  min-height: 600px;
+}
+
+.banner-section .banner-carousel .owl-stage-outer,
+.banner-section .banner-carousel .owl-stage,
+.banner-section .banner-carousel .owl-item,
+.banner-carousel .slide-item {
+  height: 600px;
+  min-height: 600px;
 }
 
 .banner-carousel .slide-item {
   overflow: hidden;
-  min-height: 520px;
 }
 
 .banner-carousel .slide-item .image-layer {
   overflow: hidden;
   transform-origin: center center;
   will-change: transform;
+  height: 100%;
+  min-height: 100%;
 }
 
+.banner-carousel .owl-item.active .slide-item .image-layer,
 .banner-carousel .active .slide-item .image-layer {
   transform: scale(1.12);
+}
+
+.banner-section .banner-carousel .owl-dots {
+  position: absolute;
+  left: 50%;
+  right: auto;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 8;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: auto;
+  margin: 0;
+  pointer-events: auto;
+}
+
+.banner-section .owl-theme .owl-dots .owl-dot {
+  margin: 0 !important;
+}
+
+.banner-section .owl-theme .owl-dots .owl-dot span {
+  display: none;
+}
+
+.banner-section .owl-theme .owl-dots button,
+.banner-section .owl-theme .owl-dots .owl-dot {
+  position: relative;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  margin: 0 !important;
+  padding: 0;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.banner-section .owl-theme .owl-dots button.active,
+.banner-section .owl-theme .owl-dots button:hover,
+.banner-section .owl-theme .owl-dots .owl-dot.active,
+.banner-section .owl-theme .owl-dots .owl-dot:hover {
+  background: #fff;
 }
 
 .banner-section .banner-carousel .owl-nav {
@@ -1047,12 +1106,23 @@ html[data-ui-lang] .sticky-header .menu-area {
 
 @media only screen and (max-width: 767px) {
   .banner-section .banner-carousel.owl-carousel:not(.owl-loaded),
+  .banner-section .banner-carousel.owl-loaded,
+  .banner-section .banner-carousel .owl-stage-outer,
+  .banner-section .banner-carousel .owl-stage,
+  .banner-section .banner-carousel .owl-item,
   .banner-carousel .slide-item {
-    min-height: 460px;
+    height: 480px;
+    min-height: 480px;
   }
 
+  .banner-carousel .owl-item.active .slide-item .image-layer,
   .banner-carousel .active .slide-item .image-layer {
     transform: scale(1.08);
+  }
+
+  .banner-section .banner-carousel .owl-dots {
+    bottom: 18px;
+    display: flex !important;
   }
 
   .banner-section .banner-carousel .owl-nav .owl-prev {
