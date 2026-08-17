@@ -122,10 +122,9 @@
 
 .header-style-two.main-header .main-menu .navigation > li > a,
 .sticky-header .main-menu .navigation > li > a {
-  font-size: 17px;
+  font-size: var(--vetham-text-nav) !important;
   line-height: 26px;
   padding: 32px 0 !important;
-  white-space: nowrap;
   font-weight: 500;
 }
 
@@ -1522,11 +1521,14 @@ html[data-ui-lang] .sticky-header .menu-area {
 }
 
 .vetham-event-tamil {
+  font-family: var(--vetham-font-ta, 'Noto Sans Tamil', system-ui, sans-serif) !important;
+  font-size: var(--vetham-text-base, 16px) !important;
+  line-height: 1.65 !important;
+  overflow-wrap: break-word;
+  word-break: normal;
   background: #faf6f2;
   border-radius: 10px;
   padding: 14px 16px;
-  font-size: 15px;
-  line-height: 1.8;
 }
 
 .vetham-ashram-hours {

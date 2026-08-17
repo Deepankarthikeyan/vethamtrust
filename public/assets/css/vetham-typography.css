@@ -4,8 +4,13 @@
  */
 
 :root {
-  --vetham-font: 'Google Sans', 'Noto Sans Tamil', 'Noto Sans Telugu', 'Noto Sans Malayalam',
-    'Noto Sans Kannada', 'Noto Sans Devanagari', system-ui, sans-serif;
+  --vetham-font-en: 'Google Sans', system-ui, sans-serif;
+  --vetham-font-ta: 'Noto Sans Tamil', 'Lohit Tamil', system-ui, sans-serif;
+  --vetham-font-hi: 'Noto Sans Devanagari', system-ui, sans-serif;
+  --vetham-font-kn: 'Noto Sans Kannada', system-ui, sans-serif;
+  --vetham-font-ml: 'Noto Sans Malayalam', system-ui, sans-serif;
+  --vetham-font-te: 'Noto Sans Telugu', system-ui, sans-serif;
+  --vetham-font: var(--vetham-font-en);
   --vetham-text-base: 16px;
   --vetham-text-nav: 17px;
   --vetham-text-sm: 14px;
@@ -14,6 +19,37 @@
   --vetham-title-section: 50px;
   --vetham-title-banner: 65px;
   --vetham-title-card: 24px;
+}
+
+html[data-ui-lang="en"] {
+  --vetham-font: var(--vetham-font-en);
+}
+
+html[data-ui-lang="ta"] {
+  --vetham-font: var(--vetham-font-ta);
+}
+
+html[data-ui-lang="hi"] {
+  --vetham-font: var(--vetham-font-hi);
+}
+
+html[data-ui-lang="kn"] {
+  --vetham-font: var(--vetham-font-kn);
+}
+
+html[data-ui-lang="ml"] {
+  --vetham-font: var(--vetham-font-ml);
+}
+
+html[data-ui-lang="te"] {
+  --vetham-font: var(--vetham-font-te);
+}
+
+html[data-ui-lang="fr"],
+html[data-ui-lang="de"],
+html[data-ui-lang="pt"],
+html[data-ui-lang="es"] {
+  --vetham-font: var(--vetham-font-en);
 }
 
 html {
@@ -126,17 +162,35 @@ body :where(
   line-height: 1.4 !important;
 }
 
-/* Navigation — one size for English, Tamil, French, and all others */
+/* Navigation — English: single line; translated: wrap cleanly, same font size */
 .header-style-two.main-header .main-menu .navigation > li > a,
 .sticky-header .main-menu .navigation > li > a {
   font-size: var(--vetham-text-nav) !important;
-  line-height: 1.45 !important;
+  line-height: 1.4 !important;
   font-weight: 500;
-  white-space: normal;
   text-align: center;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: manual;
+}
+
+html[data-ui-lang="en"] .header-style-two.main-header .main-menu .navigation > li > a,
+html[data-ui-lang="en"] .sticky-header .main-menu .navigation > li > a,
+html:not([data-ui-lang]) .header-style-two.main-header .main-menu .navigation > li > a,
+html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
+  white-space: nowrap;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li > a,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li > a {
+  white-space: normal !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.2em;
+  max-width: 9.5rem;
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
 }
 
 .header-top .top-inner .top-left p,
@@ -147,57 +201,112 @@ body :where(
   text-align: start;
 }
 
-/* Longer translations: wrap cleanly without shrinking type */
-html[data-ui-lang] .header-style-two.main-header .main-menu .navigation,
-html[data-ui-lang] .sticky-header .main-menu .navigation {
+/* Longer translations: wrap cleanly without shrinking type or stacking letters */
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation {
   flex-wrap: wrap;
   justify-content: center;
-  row-gap: 4px;
-  column-gap: 4px;
+  align-items: stretch;
+  row-gap: 2px;
+  column-gap: 2px;
 }
 
-html[data-ui-lang] .header-style-two.main-header .main-menu .navigation > li,
-html[data-ui-lang] .sticky-header .main-menu .navigation > li {
-  margin: 0 10px;
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li {
+  margin: 0 8px;
   flex: 0 1 auto;
-  max-width: 140px;
+  display: flex;
+  align-items: stretch;
 }
 
-html[data-ui-lang] .header-top .top-inner {
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner {
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 8px 14px;
 }
 
-html[data-ui-lang] .header-top .top-inner .top-left,
-html[data-ui-lang] .header-top .top-inner .top-right {
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner .top-left,
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner .top-right {
   min-width: 0;
 }
 
-html[data-ui-lang] .header-top .top-inner .info {
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner .info {
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 6px 14px;
 }
 
-html[data-ui-lang] p,
-html[data-ui-lang] li,
-html[data-ui-lang] .text,
-html[data-ui-lang] .lower-content,
-html[data-ui-lang] .content-box {
-  text-align: start;
+html[data-ui-lang]:not([data-ui-lang="en"]) body :where(
+  p, li, span, h1, h2, h3, h4, h5, h6,
+  .text, .lower-content, .content-box, .sec-title h2, .sec-title .sub-title
+) {
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: manual;
   text-wrap: pretty;
 }
 
-html[data-ui-lang] .centred,
-html[data-ui-lang] .text-center,
-html[data-ui-lang] .sec-title.centred {
+html[data-ui-lang="ta"] body :where(
+  p, li, span, h1, h2, h3, h4, h5, h6,
+  .text, .lower-content, .content-box
+) {
+  line-height: 1.65 !important;
+  letter-spacing: 0.01em;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) p,
+html[data-ui-lang]:not([data-ui-lang="en"]) li,
+html[data-ui-lang]:not([data-ui-lang="en"]) .text,
+html[data-ui-lang]:not([data-ui-lang="en"]) .lower-content,
+html[data-ui-lang]:not([data-ui-lang="en"]) .content-box {
+  text-align: start;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .centred,
+html[data-ui-lang]:not([data-ui-lang="en"]) .text-center,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title.centred {
   text-align: center !important;
 }
 
-/* Google Translate injects <font> tags that change size */
-font {
+html[data-ui-lang]:not([data-ui-lang="en"]) .theme-btn-one,
+html[data-ui-lang]:not([data-ui-lang="en"]) .theme-btn-two {
+  white-space: normal !important;
+  text-align: center;
+  line-height: 1.35 !important;
+  height: auto !important;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .banner-carousel .content-box h2,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title h2 {
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: manual;
+  max-width: 100%;
+}
+
+/* Google Translate injects <font> tags that change size — force inherit everywhere */
+font,
+font * {
   font: inherit !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  line-height: inherit !important;
+}
+
+.translated-ltr font,
+.translated-ltr span[style*="font-size"],
+.translated-ltr font[style*="font-size"] {
+  font-size: inherit !important;
+  font-family: inherit !important;
+}
+
+.goog-text-highlight {
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .goog-te-banner-frame,
@@ -207,12 +316,6 @@ font {
 .goog-te-menu-value span {
   font-family: var(--vetham-font) !important;
   font-size: var(--vetham-text-sm) !important;
-}
-
-.translated-ltr font,
-.translated-ltr span[style*="font-size"] {
-  font-size: inherit !important;
-  font-family: inherit !important;
 }
 
 .vetham-leader-card__name {
@@ -254,9 +357,10 @@ font {
     --vetham-text-nav: 16px;
   }
 
-  html[data-ui-lang] .header-style-two.main-header .main-menu .navigation > li,
-  html[data-ui-lang] .sticky-header .main-menu .navigation > li {
+  html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li > a,
+  html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li > a {
     max-width: none;
+    min-height: 2.8em;
   }
 }
 

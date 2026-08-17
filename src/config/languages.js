@@ -13,6 +13,45 @@ export const LANGUAGES = [
 
 const TRANSLATE_READY_TIMEOUT_MS = 10000;
 const TRANSLATE_APPLY_DELAY_MS = 350;
+const TYPOGRAPHY_STABILIZE_DEBOUNCE_MS = 120;
+
+let typographyObserverStarted = false;
+let typographyStabilizeTimer = null;
+
+function scheduleTypographyStabilize() {
+  if (typeof document === 'undefined') return;
+  clearTimeout(typographyStabilizeTimer);
+  typographyStabilizeTimer = setTimeout(() => {
+    stabilizeTranslatedTypography();
+  }, TYPOGRAPHY_STABILIZE_DEBOUNCE_MS);
+}
+
+export function watchTranslatedTypography() {
+  if (typeof document === 'undefined' || typographyObserverStarted) return;
+  typographyObserverStarted = true;
+
+  const observer = new MutationObserver((mutations) => {
+    const shouldStabilize = mutations.some((mutation) => {
+      if (mutation.type === 'attributes') {
+        return mutation.attributeName === 'style' || mutation.attributeName === 'size';
+      }
+      return mutation.type === 'childList';
+    });
+
+    if (shouldStabilize) {
+      scheduleTypographyStabilize();
+    }
+  });
+
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['style', 'size', 'class'],
+  });
+
+  scheduleTypographyStabilize();
+}
 
 export function getCurrentLanguageCode() {
   if (typeof document === 'undefined') return 'en';
@@ -164,17 +203,25 @@ export function stabilizeTranslatedTypography() {
 
   document.querySelectorAll('font').forEach((node) => {
     node.removeAttribute('size');
+    node.removeAttribute('face');
     node.style.removeProperty('font-size');
     node.style.removeProperty('font-family');
+    node.style.removeProperty('line-height');
   });
 
   document.querySelectorAll('[style*="font-size"]').forEach((node) => {
-    if (node.closest('.goog-te-banner-frame, .goog-te-menu-frame, .skiptranslate')) return;
+    if (node.closest('.goog-te-banner-frame, .goog-te-menu-frame, .skiptranslate, .notranslate')) return;
     if (node.tagName === 'FONT') return;
     const inlineSize = node.style.fontSize;
-    if (inlineSize && inlineSize !== 'inherit' && inlineSize !== '16px') {
+    if (inlineSize && inlineSize !== 'inherit') {
       node.style.removeProperty('font-size');
     }
+  });
+
+  document.querySelectorAll('[style*="font-family"]').forEach((node) => {
+    if (node.closest('.goog-te-banner-frame, .goog-te-menu-frame, .skiptranslate, .notranslate')) return;
+    if (node.classList.contains('fa') || node.classList.contains('fab') || node.classList.contains('fas')) return;
+    node.style.removeProperty('font-family');
   });
 }
 
@@ -226,6 +273,7 @@ export function installGTranslate() {
   return scriptReady
     .then(() => preloadTranslateEngine())
     .then(() => {
+      watchTranslatedTypography();
       const lang = getCurrentLanguageCode();
       syncUiLanguageAttribute(lang);
       if (lang !== 'en') {

@@ -1,9 +1,13 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { getCurrentLanguageCode, reapplyTranslation, stabilizeTranslatedTypography } from '../config/languages';
+import { getCurrentLanguageCode, reapplyTranslation, stabilizeTranslatedTypography, watchTranslatedTypography } from '../config/languages';
 
 export function useLanguageRetranslate() {
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    watchTranslatedTypography();
+  }, []);
 
   useEffect(() => {
     if (getCurrentLanguageCode() === 'en') return undefined;
