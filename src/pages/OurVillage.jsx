@@ -69,21 +69,27 @@ export default function OurVillage() {
         </div>
       </section>
 
-      <section className="about-section bg-color-1 sec-pad">
+      <section className="about-section bg-color-1 sec-pad vetham-village-highlights">
         <div className="auto-container">
           <div className="row clearfix">
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              <LazyImage src={img('history')} alt="History" />
+            <div className="col-lg-4 col-md-6 col-sm-12 vetham-village-highlight">
+              <figure className="vetham-village-highlight__image">
+                <LazyImage src={img('history')} alt="History" />
+              </figure>
               <h3 className="mt_20">Our History</h3>
               <p>Founded in 2017, the Trust has grown from humble beginnings to a vibrant spiritual community.</p>
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              <LazyImage src={img('leader')} alt="Leadership" />
+            <div className="col-lg-4 col-md-6 col-sm-12 vetham-village-highlight">
+              <figure className="vetham-village-highlight__image">
+                <LazyImage src={img('leader')} alt="Leadership" />
+              </figure>
               <h3 className="mt_20">Guided Leadership</h3>
               <p>Our founders and trustees dedicate their lives to spreading Maharishi&apos;s teachings.</p>
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              <LazyImage src={img('villagePlan')} alt="Village Plan" />
+            <div className="col-lg-4 col-md-6 col-sm-12 vetham-village-highlight">
+              <figure className="vetham-village-highlight__image">
+                <LazyImage src={img('villagePlan')} alt="Village Plan" />
+              </figure>
               <h3 className="mt_20">Village Plan</h3>
               <p>A comprehensive plan for meditation halls, gardens, and community spaces.</p>
             </div>
