@@ -162,16 +162,24 @@ body :where(
   line-height: 1.4 !important;
 }
 
-/* Navigation — English: single line; translated: wrap cleanly, same font size */
+/* Google Translate wraps words in <font> — keep inline so they stay on one line */
+html[data-ui-lang]:not([data-ui-lang="en"]) font,
+html[data-ui-lang]:not([data-ui-lang="en"]) .goog-text-highlight {
+  display: inline !important;
+  white-space: inherit !important;
+  vertical-align: baseline !important;
+}
+
+/* Navigation — English: single line; translated: word wrap, same font size */
 .header-style-two.main-header .main-menu .navigation > li > a,
 .sticky-header .main-menu .navigation > li > a {
   font-size: var(--vetham-text-nav) !important;
   line-height: 1.4 !important;
   font-weight: 500;
   text-align: center;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
   word-break: normal;
-  hyphens: manual;
+  hyphens: none;
 }
 
 html[data-ui-lang="en"] .header-style-two.main-header .main-menu .navigation > li > a,
@@ -183,14 +191,45 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
 
 html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li > a,
 html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li > a {
+  display: block !important;
   white-space: normal !important;
-  display: flex;
-  align-items: center;
+  width: 100%;
+  min-height: 4.25em;
+  padding: 22px 6px !important;
+  line-height: 1.38 !important;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: balance;
+}
+
+html[data-ui-lang="ta"] .header-style-two.main-header .main-menu .navigation > li > a,
+html[data-ui-lang="ta"] .sticky-header .main-menu .navigation > li > a {
+  word-break: keep-all;
+  line-height: 1.42 !important;
+  letter-spacing: 0;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation {
+  flex-wrap: nowrap;
   justify-content: center;
-  min-height: 3.2em;
-  max-width: 9.5rem;
-  padding-top: 24px !important;
-  padding-bottom: 24px !important;
+  align-items: stretch;
+  gap: 0;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li {
+  margin: 0 5px;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 11.5rem;
+  display: flex;
+  align-items: stretch;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li > a {
+  white-space: normal !important;
+  font-size: var(--vetham-text-nav) !important;
 }
 
 .header-top .top-inner .top-left p,
@@ -201,24 +240,7 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigatio
   text-align: start;
 }
 
-/* Longer translations: wrap cleanly without shrinking type or stacking letters */
-html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation,
-html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation {
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-  row-gap: 2px;
-  column-gap: 2px;
-}
-
-html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li,
-html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li {
-  margin: 0 8px;
-  flex: 0 1 auto;
-  display: flex;
-  align-items: stretch;
-}
-
+/* Longer translations: word wrap at spaces, aligned sections site-wide */
 html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner {
   flex-wrap: wrap;
   align-items: flex-start;
@@ -236,13 +258,25 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner .info {
   gap: 6px 14px;
 }
 
+html[data-ui-lang]:not([data-ui-lang="en"]) .mobile-menu .navigation li > a {
+  white-space: normal !important;
+  line-height: 1.45 !important;
+  word-break: normal;
+  overflow-wrap: normal;
+  text-align: left;
+}
+
+html[data-ui-lang="ta"] .mobile-menu .navigation li > a {
+  word-break: keep-all;
+}
+
 html[data-ui-lang]:not([data-ui-lang="en"]) body :where(
   p, li, span, h1, h2, h3, h4, h5, h6,
   .text, .lower-content, .content-box, .sec-title h2, .sec-title .sub-title
 ) {
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
   word-break: normal;
-  hyphens: manual;
+  hyphens: none;
   text-wrap: pretty;
 }
 
@@ -250,22 +284,40 @@ html[data-ui-lang="ta"] body :where(
   p, li, span, h1, h2, h3, h4, h5, h6,
   .text, .lower-content, .content-box
 ) {
+  word-break: keep-all;
   line-height: 1.65 !important;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
 }
 
 html[data-ui-lang]:not([data-ui-lang="en"]) p,
-html[data-ui-lang]:not([data-ui-lang="en"]) li,
-html[data-ui-lang]:not([data-ui-lang="en"]) .text,
-html[data-ui-lang]:not([data-ui-lang="en"]) .lower-content,
-html[data-ui-lang]:not([data-ui-lang="en"]) .content-box {
+html[data-ui-lang]:not([data-ui-lang="en"]) .about-section .text p,
+html[data-ui-lang]:not([data-ui-lang="en"]) .lower-content p {
   text-align: start;
 }
 
 html[data-ui-lang]:not([data-ui-lang="en"]) .centred,
 html[data-ui-lang]:not([data-ui-lang="en"]) .text-center,
-html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title.centred {
+html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title.centred,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title.centred h2,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title.centred .sub-title,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title.centred p,
+html[data-ui-lang]:not([data-ui-lang="en"]) .feature-block-one .inner-box.centred,
+html[data-ui-lang]:not([data-ui-lang="en"]) .service-block-one .inner-box.centred,
+html[data-ui-lang]:not([data-ui-lang="en"]) .cause-block-one .inner-box,
+html[data-ui-lang]:not([data-ui-lang="en"]) .banner-carousel .content-box {
   text-align: center !important;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .feature-block-one .inner-box h3,
+html[data-ui-lang]:not([data-ui-lang="en"]) .service-block-one .inner-box h3,
+html[data-ui-lang]:not([data-ui-lang="en"]) .feature-block-one .inner-box p,
+html[data-ui-lang]:not([data-ui-lang="en"]) .service-block-one .inner-box p {
+  text-align: center !important;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .row.align-items-center .content-column,
+html[data-ui-lang]:not([data-ui-lang="en"]) .about-section .text {
+  text-align: start;
 }
 
 html[data-ui-lang]:not([data-ui-lang="en"]) .theme-btn-one,
@@ -278,14 +330,28 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .theme-btn-two {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  max-width: 100%;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+html[data-ui-lang="ta"] .theme-btn-one,
+html[data-ui-lang="ta"] .theme-btn-two {
+  word-break: keep-all;
 }
 
 html[data-ui-lang]:not([data-ui-lang="en"]) .banner-carousel .content-box h2,
 html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title h2 {
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
   word-break: normal;
-  hyphens: manual;
+  hyphens: none;
   max-width: 100%;
+  text-align: inherit;
+}
+
+html[data-ui-lang="ta"] .banner-carousel .content-box h2,
+html[data-ui-lang="ta"] .sec-title h2 {
+  word-break: keep-all;
 }
 
 /* Google Translate injects <font> tags that change size — force inherit everywhere */
@@ -359,8 +425,8 @@ font * {
 
   html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li > a,
   html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li > a {
-    max-width: none;
-    min-height: 2.8em;
+    min-height: 3.5em;
+    padding: 18px 4px !important;
   }
 }
 

@@ -207,6 +207,15 @@ export function stabilizeTranslatedTypography() {
     node.style.removeProperty('font-size');
     node.style.removeProperty('font-family');
     node.style.removeProperty('line-height');
+    node.style.setProperty('display', 'inline', 'important');
+    node.style.setProperty('white-space', 'inherit', 'important');
+  });
+
+  document.querySelectorAll('.main-menu .navigation > li > a, .mobile-menu .navigation li > a').forEach((link) => {
+    link.style.removeProperty('display');
+    link.querySelectorAll('font, span').forEach((child) => {
+      child.style.setProperty('display', 'inline', 'important');
+    });
   });
 
   document.querySelectorAll('[style*="font-size"]').forEach((node) => {

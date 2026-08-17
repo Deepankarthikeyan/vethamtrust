@@ -1636,6 +1636,10 @@ html[data-ui-lang] .sticky-header .menu-area {
 
 .sticky-header .main-menu .navigation > li > a {
   font-size: 15px;
+}
+
+html[data-ui-lang="en"] .sticky-header .main-menu .navigation > li > a,
+html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
   white-space: nowrap;
 }
 
