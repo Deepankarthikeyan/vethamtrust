@@ -21,18 +21,19 @@
 
 .main-header .logo-box .logo img,
 .sticky-header .logo-box .logo img {
-  max-height: 65px;
+  max-height: 72px;
+  max-width: 72px;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
 }
 
-/* Header logo — full wordmark with text (logo-vetham.png) */
+/* Header logo — transparent PNG, no white plate behind mark */
 .header-style-two.main-header .header-lower .logo-box,
 .sticky-header .logo-box {
   background: transparent;
-  padding: 10px 24px 10px 30px !important;
+  padding: 8px 20px 8px 24px !important;
   margin-right: 0;
   position: relative;
   z-index: 1;
@@ -54,7 +55,7 @@
 
 .header-style-two.main-header .header-lower .logo-box .logo,
 .sticky-header .logo-box .logo {
-  max-width: 220px;
+  max-width: 72px;
   margin: 0;
 }
 
@@ -1853,12 +1854,13 @@ html[data-ui-lang] .sticky-header .menu-area {
   }
 
   .header-style-two.main-header .header-lower .logo-box .logo {
-    max-width: 180px;
+    max-width: 52px;
   }
 
   .main-header .logo-box .logo img,
   .sticky-header .logo-box .logo img {
     max-height: 58px;
+    max-width: 58px;
   }
 
   .header-style-two.main-header .menu-area {
@@ -1876,15 +1878,16 @@ html[data-ui-lang] .sticky-header .menu-area {
 @media only screen and (max-width: 767px) {
   .main-header .logo-box .logo img,
   .sticky-header .logo-box .logo img {
-    max-height: 48px;
+    max-height: 52px;
+    max-width: 52px;
   }
 
   .header-style-two.main-header .header-lower .logo-box {
-    padding: 8px 12px 8px 16px !important;
+    padding: 10px 14px 10px 18px !important;
   }
 
   .header-style-two.main-header .header-lower .logo-box .logo {
-    max-width: 150px;
+    max-width: 52px;
   }
 
   .header-style-two.main-header .header-lower .outer-box {
@@ -3971,7 +3974,7 @@ html[data-ui-lang] .sticky-header .menu-area {
   }
 }
 
-/* Site logo — wordmark in header, meditation mark in footer */
+/* Site logo — meditation mark PNG */
 .footer-top .footer-logo {
   max-width: 140px;
   width: auto;
@@ -3990,9 +3993,9 @@ html[data-ui-lang] .sticky-header .menu-area {
 }
 
 .mobile-menu .nav-logo img {
-  max-height: 72px;
+  max-height: 110px;
   width: auto;
-  max-width: 240px;
+  max-width: 110px;
   object-fit: contain;
 }
 
@@ -4022,9 +4025,9 @@ html[data-ui-lang] .sticky-header .menu-area {
 .vetham-preloader__logo {
   position: relative;
   z-index: 2;
-  width: 180px;
-  max-width: 72%;
-  max-height: 56%;
+  width: 96px;
+  max-width: 60%;
+  max-height: 60%;
   height: auto;
   object-fit: contain;
   animation: vetham-preloader-pulse 1.6s ease-in-out infinite;
@@ -4053,9 +4056,9 @@ html[data-ui-lang] .sticky-header .menu-area {
   }
 
   .vetham-preloader__logo {
-    width: 150px;
-    max-width: 72%;
-    max-height: 56%;
+    width: 84px;
+    max-width: 60%;
+    max-height: 60%;
   }
 }
 
