@@ -37,6 +37,7 @@ export default function Courses() {
                 <div className="service-block-one wow fadeInUp animated" data-wow-delay={`${i * 150}ms`} data-wow-duration="1500ms">
                   <div className="inner-box centred">
                     <div className="icon-box">
+                      <div className="icon-bg" style={{ backgroundImage: `url(${img(course.iconBg)})` }} />
                       <div className="icon"><i className={course.icon} /></div>
                     </div>
                     <h3>{course.title}</h3>

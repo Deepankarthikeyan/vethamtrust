@@ -1,21 +1,25 @@
 export const COURSE_TYPES = [
   {
     icon: 'icon-8',
+    iconBg: 'iconBg1',
     title: 'Teachings',
     text: 'Spreading the timeless teachings of Vethathiri Maharishi through yoga and meditation.',
   },
   {
     icon: 'icon-9',
+    iconBg: 'iconBg2',
     title: 'Kundalini',
     text: 'Awakening inner energy through guided Kundalini practices and spiritual discipline.',
   },
   {
     icon: 'icon-10',
+    iconBg: 'iconBg3',
     title: 'Vinyasa',
     text: 'Flowing yoga sequences that harmonize body, mind, and breath for holistic wellness.',
   },
   {
     icon: 'icon-11',
+    iconBg: 'iconBg4',
     title: 'Hatha',
     text: 'Traditional Hatha yoga for physical health, mental clarity, and spiritual growth.',
   },
