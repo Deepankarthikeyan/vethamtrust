@@ -27,7 +27,6 @@ function childClass(pathname, child) {
 export default function Header() {
   const { pathname } = useLocation();
   const lang = useUiLanguage();
-  const useNativeNav = lang === 'en' || lang === 'ta';
 
   useEffect(() => {
     document.body.classList.remove('mobile-menu-visible');
@@ -44,7 +43,7 @@ export default function Header() {
   };
 
   const navigation = (
-    <ul className={`navigation clearfix${useNativeNav ? ' notranslate' : ''}`}>
+    <ul className="navigation clearfix notranslate">
       {NAV_ITEMS.map((item) => (
         <li key={item.key} className={navClass(pathname, item)}>
           <Link to={item.path} onClick={closeMobileMenu}>

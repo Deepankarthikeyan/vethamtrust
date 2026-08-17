@@ -194,26 +194,17 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigatio
   display: block !important;
   white-space: normal !important;
   width: 100%;
-  min-height: 4.25em;
-  padding: 22px 6px !important;
+  min-height: 4.5em;
+  padding: 18px 4px !important;
   line-height: 1.38 !important;
-  overflow-wrap: normal;
+  overflow-wrap: break-word;
   word-break: normal;
+  hyphens: none;
   text-wrap: balance;
 }
 
-html[data-ui-lang="ta"] .header-style-two.main-header .main-menu .navigation > li > a,
-html[data-ui-lang="ta"] .sticky-header .main-menu .navigation > li > a {
-  word-break: normal;
-  overflow-wrap: break-word;
-  line-height: 1.38 !important;
-  letter-spacing: 0;
-  padding: 18px 4px !important;
-  min-height: 4.5em;
-}
-
-html[data-ui-lang="ta"] .header-style-two.main-header .main-menu .navigation,
-html[data-ui-lang="ta"] .sticky-header .main-menu .navigation {
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation {
   display: grid !important;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   align-items: stretch;
@@ -223,8 +214,8 @@ html[data-ui-lang="ta"] .sticky-header .main-menu .navigation {
   gap: 0;
 }
 
-html[data-ui-lang="ta"] .header-style-two.main-header .main-menu .navigation > li,
-html[data-ui-lang="ta"] .sticky-header .main-menu .navigation > li {
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li {
   margin: 0 !important;
   max-width: none !important;
   flex: none !important;
@@ -233,7 +224,7 @@ html[data-ui-lang="ta"] .sticky-header .main-menu .navigation > li {
   min-width: 0;
 }
 
-html[data-ui-lang="ta"] .vetham-nav-label {
+html[data-ui-lang]:not([data-ui-lang="en"]) .vetham-nav-label {
   display: block;
   width: 100%;
   white-space: normal !important;
@@ -242,34 +233,35 @@ html[data-ui-lang="ta"] .vetham-nav-label {
   overflow-wrap: break-word;
   word-break: normal;
   hyphens: none;
+  font-family: var(--vetham-font) !important;
 }
 
-html[data-ui-lang="ta"] .main-menu .navigation > li > a .vetham-nav-label,
-html[data-ui-lang="ta"] .mobile-menu .navigation li > a .vetham-nav-label {
-  font-family: var(--vetham-font-ta) !important;
+html[data-ui-lang]:not([data-ui-lang="en"]) .mobile-menu .navigation li > a {
+  word-break: normal;
+  overflow-wrap: break-word;
+  text-align: left;
+  line-height: 1.45 !important;
 }
 
-html[data-ui-lang]:not([data-ui-lang="en"]):not([data-ui-lang="ta"]) .header-style-two.main-header .main-menu .navigation,
-html[data-ui-lang]:not([data-ui-lang="en"]):not([data-ui-lang="ta"]) .sticky-header .main-menu .navigation {
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: stretch;
-  gap: 0;
-}
-
-html[data-ui-lang]:not([data-ui-lang="en"]):not([data-ui-lang="ta"]) .header-style-two.main-header .main-menu .navigation > li,
-html[data-ui-lang]:not([data-ui-lang="en"]):not([data-ui-lang="ta"]) .sticky-header .main-menu .navigation > li {
-  margin: 0 5px;
-  flex: 1 1 0;
-  min-width: 0;
-  max-width: 11.5rem;
-  display: flex;
-  align-items: stretch;
+html[data-ui-lang]:not([data-ui-lang="en"]) .mobile-menu .navigation li > a .vetham-nav-label {
+  font-family: var(--vetham-font) !important;
 }
 
 html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li > a {
   white-space: normal !important;
   font-size: var(--vetham-text-nav) !important;
+}
+
+@media only screen and (max-width: 1399px) {
+  html[data-ui-lang]:not([data-ui-lang="en"]) {
+    --vetham-text-nav: 14px;
+  }
+
+  html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li > a,
+  html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li > a {
+    min-height: 4.75em;
+    padding: 16px 2px !important;
+  }
 }
 
 .header-top .top-inner .top-left p,
@@ -298,37 +290,10 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner .info {
   gap: 6px 14px;
 }
 
-html[data-ui-lang]:not([data-ui-lang="en"]) .mobile-menu .navigation li > a {
-  white-space: normal !important;
-  line-height: 1.45 !important;
-  word-break: normal;
-  overflow-wrap: normal;
-  text-align: left;
-}
-
 html[data-ui-lang="en"] .vetham-nav-label,
 html:not([data-ui-lang]) .vetham-nav-label {
   display: inline-block;
   white-space: nowrap;
-}
-
-html[data-ui-lang="ta"] .mobile-menu .navigation li > a {
-  word-break: normal;
-  overflow-wrap: break-word;
-  text-align: left;
-  line-height: 1.45 !important;
-}
-
-@media only screen and (max-width: 1399px) {
-  html[data-ui-lang="ta"] {
-    --vetham-text-nav: 14px;
-  }
-
-  html[data-ui-lang="ta"] .header-style-two.main-header .main-menu .navigation > li > a,
-  html[data-ui-lang="ta"] .sticky-header .main-menu .navigation > li > a {
-    min-height: 4.75em;
-    padding: 16px 2px !important;
-  }
 }
 
 html[data-ui-lang]:not([data-ui-lang="en"]) body :where(
@@ -344,10 +309,24 @@ html[data-ui-lang]:not([data-ui-lang="en"]) body :where(
 html[data-ui-lang="ta"] body :where(
   p, li, span, h1, h2, h3, h4, h5, h6,
   .text, .lower-content, .content-box
+),
+html[data-ui-lang="hi"] body :where(
+  p, li, span, h1, h2, h3, h4, h5, h6,
+  .text, .lower-content, .content-box
+),
+html[data-ui-lang="kn"] body :where(
+  p, li, span, h1, h2, h3, h4, h5, h6,
+  .text, .lower-content, .content-box
+),
+html[data-ui-lang="ml"] body :where(
+  p, li, span, h1, h2, h3, h4, h5, h6,
+  .text, .lower-content, .content-box
+),
+html[data-ui-lang="te"] body :where(
+  p, li, span, h1, h2, h3, h4, h5, h6,
+  .text, .lower-content, .content-box
 ) {
-  word-break: keep-all;
   line-height: 1.65 !important;
-  letter-spacing: 0;
 }
 
 html[data-ui-lang]:not([data-ui-lang="en"]) p,
@@ -392,27 +371,17 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .theme-btn-two {
   align-items: center;
   justify-content: center;
   max-width: 100%;
-  overflow-wrap: normal;
+  overflow-wrap: break-word;
   word-break: normal;
-}
-
-html[data-ui-lang="ta"] .theme-btn-one,
-html[data-ui-lang="ta"] .theme-btn-two {
-  word-break: keep-all;
 }
 
 html[data-ui-lang]:not([data-ui-lang="en"]) .banner-carousel .content-box h2,
 html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title h2 {
-  overflow-wrap: normal;
+  overflow-wrap: break-word;
   word-break: normal;
   hyphens: none;
   max-width: 100%;
   text-align: inherit;
-}
-
-html[data-ui-lang="ta"] .banner-carousel .content-box h2,
-html[data-ui-lang="ta"] .sec-title h2 {
-  word-break: keep-all;
 }
 
 /* Google Translate injects <font> tags that change size — force inherit everywhere */
@@ -464,14 +433,6 @@ font * {
 .vetham-site-stat__label {
   font-size: 15px !important;
   line-height: 1.35 !important;
-}
-
-@media only screen and (max-width: 1399px) {
-  html[data-ui-lang]:not([data-ui-lang="en"]):not([data-ui-lang="ta"]) .header-style-two.main-header .main-menu .navigation > li,
-  html[data-ui-lang]:not([data-ui-lang="en"]):not([data-ui-lang="ta"]) .sticky-header .main-menu .navigation > li {
-    max-width: 10rem;
-    margin: 0 3px;
-  }
 }
 
 @media only screen and (max-width: 1199px) {
