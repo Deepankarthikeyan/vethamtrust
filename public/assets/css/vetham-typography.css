@@ -405,6 +405,18 @@ font * {
   line-height: 1.35 !important;
 }
 
+@media only screen and (max-width: 1399px) {
+  html[data-ui-lang="ta"] {
+    --vetham-text-nav: 15px;
+  }
+
+  html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li,
+  html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li {
+    max-width: 10rem;
+    margin: 0 3px;
+  }
+}
+
 @media only screen and (max-width: 1199px) {
   .banner-carousel .content-box h2 {
     font-size: 48px !important;
