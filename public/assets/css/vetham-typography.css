@@ -296,6 +296,17 @@ html:not([data-ui-lang]) .vetham-nav-label {
   white-space: nowrap;
 }
 
+.vetham-header-donate__btn .vetham-nav-label {
+  font-family: var(--vetham-font) !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .vetham-header-donate__btn {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
 html[data-ui-lang]:not([data-ui-lang="en"]) body :where(
   p, li, span, h1, h2, h3, h4, h5, h6,
   .text, .lower-content, .content-box, .sec-title h2, .sec-title .sub-title

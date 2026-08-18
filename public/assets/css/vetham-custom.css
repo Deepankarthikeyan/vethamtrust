@@ -226,6 +226,51 @@
   display: inline-block;
 }
 
+/* Header donate button — desktop + sticky */
+.main-header .nav-right li.btn-box,
+.sticky-header .nav-right li.btn-box {
+  flex-shrink: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.main-header .nav-right li.btn-box .theme-btn-one,
+.sticky-header .nav-right li.btn-box .theme-btn-one,
+.main-header .nav-right li.btn-box .vetham-header-donate__btn,
+.sticky-header .nav-right li.btn-box .vetham-header-donate__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  min-width: 148px;
+  padding: 14px 28px 12px;
+  box-sizing: border-box;
+  text-transform: none;
+  white-space: normal;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.main-header .nav-right li.btn-box .theme-btn-one span,
+.sticky-header .nav-right li.btn-box .theme-btn-one span,
+.main-header .nav-right li.btn-box .vetham-header-donate__btn span,
+.sticky-header .nav-right li.btn-box .vetham-header-donate__btn span {
+  display: block;
+  padding-right: 0;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
+}
+
+.main-header .nav-right li.btn-box .theme-btn-one span:before,
+.sticky-header .nav-right li.btn-box .theme-btn-one span:before,
+.main-header .nav-right li.btn-box .vetham-header-donate__btn span:before,
+.sticky-header .nav-right li.btn-box .vetham-header-donate__btn span:before {
+  display: none;
+}
+
 @media only screen and (min-width: 1201px) and (max-width: 1599px) {
   .header-style-two.main-header .main-menu .navigation > li,
   .sticky-header .main-menu .navigation > li {
@@ -2095,12 +2140,30 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
   .header-style-two.main-header .menu-area {
     flex: 0 0 auto;
     justify-content: flex-end;
-    margin-left: auto;
+    margin-left: 0;
     padding: 0;
+    order: 3;
   }
 
   .header-style-two.main-header .header-lower .nav-right {
-    margin-left: 4px;
+    display: flex !important;
+    align-items: center;
+    margin-left: auto;
+    order: 2;
+  }
+
+  .header-style-two.main-header .header-lower .nav-right li.search-toggler {
+    display: none !important;
+  }
+
+  .main-header .nav-right li.btn-box .theme-btn-one,
+  .sticky-header .nav-right li.btn-box .theme-btn-one,
+  .main-header .nav-right li.btn-box .vetham-header-donate__btn,
+  .sticky-header .nav-right li.btn-box .vetham-header-donate__btn {
+    min-width: 118px;
+    min-height: 46px;
+    padding: 10px 18px 9px;
+    font-size: 14px;
   }
 }
 
@@ -2133,6 +2196,16 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
   .header-style-two .menu-area .mobile-nav-toggler {
     margin: 0;
     padding: 8px;
+  }
+
+  .main-header .nav-right li.btn-box .theme-btn-one,
+  .sticky-header .nav-right li.btn-box .theme-btn-one,
+  .main-header .nav-right li.btn-box .vetham-header-donate__btn,
+  .sticky-header .nav-right li.btn-box .vetham-header-donate__btn {
+    min-width: 96px;
+    min-height: 42px;
+    padding: 8px 14px 7px;
+    font-size: 13px;
   }
 }
 

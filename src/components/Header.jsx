@@ -42,6 +42,18 @@ export default function Header() {
     document.body.classList.remove('mobile-menu-visible');
   };
 
+  const donateButton = (
+    <li className="btn-box vetham-header-donate">
+      <Link
+        to="/donate"
+        className={`theme-btn-one vetham-header-donate__btn${pathname === '/donate' ? ' current' : ''}`}
+        onClick={closeMobileMenu}
+      >
+        <span className="vetham-nav-label">{getNavLabel('donate', lang)}</span>
+      </Link>
+    </li>
+  );
+
   const navigation = (
     <ul className="navigation clearfix notranslate">
       {NAV_ITEMS.map((item) => (
@@ -87,8 +99,9 @@ export default function Header() {
                 </div>
               </nav>
             </div>
-            <ul className="nav-right">
+            <ul className="nav-right notranslate">
               <li className="search-box-outer search-toggler"><i className="icon-1" /></li>
+              {donateButton}
             </ul>
           </div>
         </div>
@@ -104,8 +117,9 @@ export default function Header() {
               <div className="menu-area clearfix">
                 <nav className="main-menu clearfix" />
               </div>
-              <ul className="nav-right">
+              <ul className="nav-right notranslate">
                 <li className="search-box-outer search-toggler"><i className="icon-1" /></li>
+                {donateButton}
               </ul>
             </div>
           </div>
