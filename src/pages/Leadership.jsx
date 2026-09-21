@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
-import LeadershipShowcase from '../components/LeadershipShowcase';
+import PremiumLeadership from '../components/premium/PremiumLeadership';
 
 export default function Leadership() {
   return (
@@ -8,7 +8,7 @@ export default function Leadership() {
       <Helmet>
         <title>Leadership – {SITE.name}</title>
       </Helmet>
-      <LeadershipShowcase linkToLeadership={false} fullPage />
+      <PremiumLeadership linkToLeadership={false} />
     </>
   );
 }

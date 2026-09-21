@@ -16,11 +16,7 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Donate = lazy(() => import('./pages/Donate'));
 
 function PageLoader() {
-  return (
-    <div className="section section-padding centred">
-      <div className="spinner-border text-primary" role="status" aria-label="Loading" />
-    </div>
-  );
+  return <div className="sec-pad centred"><div className="spinner" /></div>;
 }
 
 export default function App() {
