@@ -1,30 +1,25 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { getNavLabel } from '../config/languages';
-import { NAV_ITEMS, SITE } from '../config/site';
-import { img } from '../config/images';
-import { useUiLanguage } from '../hooks/useUiLanguage';
+import { KRISHNA_NAV } from '../config/krishnaNav';
+import { mht } from '../config/krishnaHome';
+import { SITE } from '../config/site';
 
 function isActive(pathname, item) {
   if (item.path === '/') return pathname === '/';
-  if (pathname === item.path) return true;
+  if (item.path && pathname === item.path) return true;
   if (item.children?.some((c) => pathname === c.path || pathname.startsWith(`${c.path}/`))) return true;
-  return pathname.startsWith(`${item.path}/`);
+  return item.path ? pathname.startsWith(`${item.path}/`) : false;
 }
 
-function NavItem({ item, pathname, lang, onNavigate }) {
+function NavItem({ item, pathname, onNavigate }) {
   if (item.children) {
     return (
       <li className={`menu-item menu-item-has-children${isActive(pathname, item) ? ' current' : ''}`}>
-        <Link to={item.path} onClick={onNavigate}>
-          <span className="vetham-nav-label notranslate">{getNavLabel(item.key, lang)}</span>
-        </Link>
+        <a href="#" onClick={(e) => e.preventDefault()}>{item.label}</a>
         <ul className="sub-menu">
           {item.children.map((child) => (
-            <li key={child.key} className={`menu-item${pathname === child.path ? ' current' : ''}`}>
-              <Link to={child.path} onClick={onNavigate}>
-                <span className="vetham-nav-label notranslate">{getNavLabel(child.key, lang)}</span>
-              </Link>
+            <li key={child.path} className={`menu-item${pathname === child.path ? ' current' : ''}`}>
+              <Link to={child.path} onClick={onNavigate}>{child.label}</Link>
             </li>
           ))}
         </ul>
@@ -34,16 +29,13 @@ function NavItem({ item, pathname, lang, onNavigate }) {
 
   return (
     <li className={`menu-item${isActive(pathname, item) ? ' current' : ''}`}>
-      <Link to={item.path} onClick={onNavigate}>
-        <span className="vetham-nav-label notranslate">{getNavLabel(item.key, lang)}</span>
-      </Link>
+      <Link to={item.path} onClick={onNavigate}>{item.label}</Link>
     </li>
   );
 }
 
 export default function Header({ onSearchOpen, onAsideRight, onAsideLeft }) {
   const { pathname } = useLocation();
-  const lang = useUiLanguage();
   const [sticky, setSticky] = useState(false);
 
   useEffect(() => {
@@ -52,23 +44,18 @@ export default function Header({ onSearchOpen, onAsideRight, onAsideLeft }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const closeAside = () => {
-    document.body.classList.remove('aside-open');
-    document.body.classList.remove('aside-open-left');
-  };
-
   return (
     <header className={`sigma_header header-2 can-sticky${sticky ? ' is-sticky' : ''}`}>
       <div className="sigma_header-middle">
         <nav className="navbar" role="navigation" aria-label="Primary">
           <div className="sigma_header-controls style-2">
             <ul className="sigma_header-controls-inner">
-              <li className="aside-toggler style-2 desktop-toggler">
+              <li className="aside-toggler style-2 aside-trigger-right desktop-toggler">
                 <button type="button" aria-label="Open side panel" onClick={onAsideRight}>
                   {Array.from({ length: 9 }).map((_, i) => <span key={i} />)}
                 </button>
               </li>
-              <li className="aside-toggler style-2">
+              <li className="aside-toggler style-2 aside-trigger-left">
                 <button type="button" aria-label="Open mobile menu" onClick={onAsideLeft}>
                   {Array.from({ length: 9 }).map((_, i) => <span key={i} />)}
                 </button>
@@ -76,15 +63,15 @@ export default function Header({ onSearchOpen, onAsideRight, onAsideLeft }) {
             </ul>
           </div>
 
-          <ul className="navbar-nav notranslate">
-            {NAV_ITEMS.map((item) => (
-              <NavItem key={item.key} item={item} pathname={pathname} lang={lang} onNavigate={closeAside} />
+          <ul className="navbar-nav">
+            {KRISHNA_NAV.map((item) => (
+              <NavItem key={item.label} item={item} pathname={pathname} onNavigate={() => {}} />
             ))}
           </ul>
 
           <div className="sigma_logo-wrapper">
             <Link className="navbar-brand" to="/">
-              <img width="208" height="60" src={img('logo')} alt={SITE.name} loading="eager" />
+              <img width="208" height="60" src={mht('assets/img/logo.webp')} alt="Maharatri" loading="eager" />
             </Link>
           </div>
 
@@ -96,9 +83,7 @@ export default function Header({ onSearchOpen, onAsideRight, onAsideLeft }) {
                 <h6>{SITE.phone}</h6>
               </div>
             </a>
-            <Link className="sigma_btn-custom" to="/donate">
-              <span className="vetham-nav-label notranslate">{getNavLabel('donate', lang)}</span>
-            </Link>
+            <Link className="sigma_btn-custom" to="/donate">Donate Now</Link>
           </div>
 
           <div className="sigma_header-controls style-1">

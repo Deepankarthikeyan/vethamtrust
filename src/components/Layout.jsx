@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useLanguageRetranslate } from '../hooks/useLanguageRetranslate';
 import useScrollReveal from '../hooks/useScrollReveal';
@@ -13,12 +13,24 @@ import Preloader from './Preloader';
 import SearchPopup from './SearchPopup';
 
 export default function Layout() {
+  const { pathname } = useLocation();
   const [searchOpen, setSearchOpen] = useState(false);
   const [rightOpen, setRightOpen] = useState(false);
   const [leftOpen, setLeftOpen] = useState(false);
+  const isHome = pathname === '/';
 
   useLanguageRetranslate();
   useScrollReveal();
+
+  useEffect(() => {
+    document.body.classList.remove('krishna-home', 'vetham-inner');
+    document.body.classList.add(isHome ? 'krishna-home' : 'vetham-inner');
+
+    const vethamCss = document.getElementById('vetham-custom-css');
+    const vethamType = document.getElementById('vetham-typography-css');
+    if (vethamCss) vethamCss.disabled = isHome;
+    if (vethamType) vethamType.disabled = isHome;
+  }, [isHome]);
 
   const closePanels = () => {
     setSearchOpen(false);
@@ -43,7 +55,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
-      <FloatingWidgets />
+      {isHome ? null : <FloatingWidgets />}
       <BackToTop />
     </>
   );

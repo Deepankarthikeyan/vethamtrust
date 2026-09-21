@@ -4,7 +4,7 @@ import useKrishnaSlider from '../../hooks/useKrishnaSlider';
 function Slide({ slide, isActive }) {
   return (
     <div className={`kr-slide${isActive ? ' is-active' : ''}`} aria-hidden={!isActive}>
-      <div className="kr-bg" role="presentation" style={{ backgroundImage: `url(${slide.bg})` }} />
+      <div className="kr-bg" role="presentation" />
       <div className="kr-overlay" role="presentation" />
       <div className="kr-vignette" role="presentation" />
       <div className="kr-content">
@@ -25,7 +25,7 @@ function Slide({ slide, isActive }) {
   );
 }
 
-export default function KrishnaHero({ id, slides, compact = false, enableKeyboard = false }) {
+export default function KrishnaHero({ id, slides, enableKeyboard = false }) {
   const {
     current,
     progress,
@@ -42,8 +42,7 @@ export default function KrishnaHero({ id, slides, compact = false, enableKeyboar
     <section
       className="kr-hero"
       id={id}
-      aria-label="Home slider"
-      style={compact ? { height: '70vh', minHeight: '520px' } : undefined}
+      aria-label="Krishna home slider"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={onTouchStart}

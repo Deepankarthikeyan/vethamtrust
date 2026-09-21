@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { img } from '../config/images';
+import { mht } from '../config/krishnaHome';
 
 export default function Preloader() {
   const [hidden, setHidden] = useState(false);
@@ -18,7 +18,7 @@ export default function Preloader() {
 
   return (
     <div className="sigma_preloader">
-      <img width="120" height="120" src={img('logo')} alt="Loading" className="vetham-preloader__logo" />
+      <img width="414" height="414" src={mht('assets/img/om.svg')} alt="preloader" loading="lazy" />
     </div>
   );
 }

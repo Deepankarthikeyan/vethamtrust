@@ -1,152 +1,143 @@
-import { HOME_BLOG_POSTS } from './blog';
-import { img } from './images';
-import { BANNERS, SITE, TEAM } from './site';
+export function mht(path) {
+  return `/maharatri/${path.replace(/^\//, '')}`;
+}
 
 export const GODS = [
   'Brahma', 'Vishnu', 'Shiva', 'Krishna', 'Rama', 'Hanuman', 'Durga', 'Lakshmi',
   'Saraswati', 'Ganesh', 'Kartikeya', 'Indra', 'Surya', 'Kali', 'Parvati', 'Radha',
-  'Balaji', 'Narasimha', 'Murugan', 'Ayyappa', 'Vethathiri',
+  'Balaji', 'Narasimha', 'Murugan', 'Ayyappa',
 ];
 
 export const HERO_SLIDES_1 = [
   {
-    subtitle: SITE.tagline,
-    title: BANNERS[0].title.replace(' — ', '\n').replace(' & ', ' &\n'),
-    cta: BANNERS[0].cta.label,
-    ctaPath: BANNERS[0].cta.path,
-    bg: img(BANNERS[0].image),
+    subtitle: 'Krishna embodies divine love.',
+    title: 'Strength lies not in the body,\nbut in the spirit.',
+    cta: 'Continue Your Journey',
+    ctaPath: '/contact',
   },
   {
-    subtitle: BANNERS[1].subtitle,
-    title: BANNERS[1].title.replace(' & ', ' &\n'),
-    cta: BANNERS[1].cta.label,
-    ctaPath: BANNERS[1].cta.path,
-    bg: img(BANNERS[1].image),
+    subtitle: 'Krishna inspires eternal devotion.',
+    title: 'Growth demands stepping beyond\nyour comfort zone.',
+    cta: 'Unleash Your Inner Warrior',
+    ctaPath: '/contact',
   },
 ];
 
 export const HERO_SLIDES_2 = [
   {
-    subtitle: BANNERS[2].subtitle,
-    title: BANNERS[2].title.replace(' & ', ' &\n'),
-    cta: BANNERS[2].cta.label,
-    ctaPath: BANNERS[2].cta.path,
-    bg: img(BANNERS[2].image),
+    subtitle: 'Wisdom Is Key',
+    title: 'Train your mind as fiercely\nas your body.',
+    cta: 'Follow Your Destiny',
+    ctaPath: '/contact',
   },
   {
-    subtitle: 'Spiritual Teachings & Yoga',
-    title: 'World Peace through\nIndividual Peace',
-    cta: 'Contact Us',
+    subtitle: 'Krishna symbolizes play.',
+    title: 'Enchanting hearts with\neternal love and wisdom.',
+    cta: 'Get It Now',
     ctaPath: '/contact',
-    bg: img('banner4'),
   },
 ];
 
 export const ABOUT_FEATURES = [
-  'Yoga & Meditation',
-  'Spiritual Village',
-  'Satsang & Guidance',
-  'World Peace Mission',
+  'Peace of Mind',
+  'Set For Pastor',
+  '100% Satisfaction',
+  'Trusted Company',
 ];
 
 export const SERVICES = [
   {
     icon: 'flaticon-temple',
-    title: 'Yoga & Meditation',
-    text: 'Workshops, meditation sessions, and discourses guiding individuals on a path of self-discovery.',
-    path: '/courses',
+    title: 'Temple',
+    text: 'Temple is place where hindu worship consectetur adipisicing elit, sed do',
+    href: '/services',
     variant: 'white',
   },
   {
     icon: 'flaticon-arti',
-    title: 'Spiritual Village',
-    text: 'Building Vethathiri Maharishi Spiritual Village — a peaceful retreat for meditation and enlightenment.',
-    path: '/our-village',
+    title: 'Puja',
+    text: 'Temple is place where hindu worship consectetur adipisicing elit, sed do',
+    href: '/courses',
     variant: 'primary',
   },
   {
     icon: 'flaticon-pooja',
-    title: 'Join Satsang',
-    text: 'Connect with the Guru, experience divine love and grace. Join our community for spiritual updates.',
-    path: '/contact',
+    title: 'Donation',
+    text: 'Temple is place where hindu worship consectetur adipisicing elit, sed do',
+    href: '/donate',
     variant: 'secondary',
   },
 ];
 
 export const ICON_BLOCKS = [
-  {
-    icon: 'flaticon-temple',
-    title: 'Yoga & Meditation',
-    text: 'Through yoga, meditation, and holistic teachings for inner peace and self-realization.',
-  },
-  {
-    icon: 'flaticon-powder-1',
-    title: 'Spiritual Village',
-    text: 'A sanctuary for spiritual tranquility and connection with nature in Coimbatore.',
-  },
+  { icon: 'flaticon-temple', title: 'Temple', text: 'Donation is a good act amet quam vehicula elementum sed.' },
+  { icon: 'flaticon-powder-1', title: 'Donation', text: 'Donation is a good act amet quam vehicula elementum sed.' },
 ];
 
 export const DONATIONS = [
-  {
-    image: img('villagePlan'),
-    title: 'Vethathiri Maharishi Spiritual Village',
-    raised: 'Ongoing',
-    goal: 'Village Plan',
-    percent: 72,
-    path: '/our-village',
-  },
-  {
-    image: img('construction'),
-    title: 'Retirement Home for Elders',
-    raised: 'In Progress',
-    goal: 'Elder Care',
-    percent: 58,
-    path: '/donate',
-  },
-  {
-    image: img('history'),
-    title: 'Mini Meditation Hall & Gurukul',
-    raised: 'Completed',
-    goal: 'Community Space',
-    percent: 100,
-    path: '/our-village',
-  },
+  { image: mht('assets/img/donation/5.webp'), title: 'Protecting Children', raised: '$52,384', goal: '$85,000', percent: 84 },
+  { image: mht('assets/img/donation/6.webp'), title: 'Donate Ngos', raised: '$49,444', goal: '$78,000', percent: 65 },
+  { image: mht('assets/img/donation/7.webp'), title: 'Feed The Poor', raised: '$78,334', goal: '$96,400', percent: 94 },
 ];
 
-export const PROGRAM_ITEMS = [
-  { image: img('galleryPreview1'), title: 'Foundation Course', categories: ['courses'] },
-  { image: img('galleryPreview2'), title: 'Youngness Yogic Practices', categories: ['yoga'] },
-  { image: img('galleryPreview3'), title: 'Mano Nirvan Kriya', categories: ['courses', 'yoga'] },
-  { image: img('galleryPreview4'), title: 'Appeasement Sittings', categories: ['meditation'] },
-  { image: img('serviceMeditation'), title: 'Meditation Sessions', categories: ['meditation', 'yoga'] },
-  { image: img('serviceSelfRealization'), title: 'Self Realization Training', categories: ['courses'] },
+export const PUJA_ITEMS = [
+  { image: mht('assets/img/puja/1.webp'), title: 'Durga Puja', classes: 'col-lg-4 coaching' },
+  { image: mht('assets/img/puja/2.webp'), title: 'Raksha Bandhan', classes: 'col-lg-4 strategy' },
+  { image: mht('assets/img/puja/3.webp'), title: 'Janmashtmi', classes: 'col-lg-4 coaching strategy' },
+  { image: mht('assets/img/puja/4.webp'), title: 'Mahashivratri', classes: 'col-lg-4 relations coaching' },
+  { image: mht('assets/img/puja/5.webp'), title: 'Holi', classes: 'col-lg-4 stakeholder strategy' },
+  { image: mht('assets/img/puja/6.webp'), title: 'Diwali', classes: 'col-lg-4 stakeholder' },
 ];
 
-export const PROGRAM_FILTERS = [
-  { key: '*', label: 'All' },
-  { key: 'courses', label: 'Courses' },
-  { key: 'yoga', label: 'Yoga' },
-  { key: 'meditation', label: 'Meditation' },
+export const PUJA_FILTERS = [
+  { key: '*', label: 'All', filterClass: '*' },
+  { key: 'coaching', label: 'Durga Puja', filterClass: 'coaching' },
+  { key: 'stakeholder', label: 'Raksha Bandhan', filterClass: 'stakeholder' },
+  { key: 'relations', label: 'Holi', filterClass: 'relations' },
 ];
 
-export const VOLUNTEERS = TEAM.map((member) => ({
-  image: img(member.image),
-  role: member.role,
-  name: member.name,
-  path: '/leadership',
-}));
+export const PUJA_TEXT = 'Puja is the worship of the Lord, consectet ur adipisicing elit, sed do eiusmod';
+
+export const VOLUNTEERS = [
+  { image: mht('assets/img/volunteers/4.webp'), role: 'Temple Pandit', name: 'Rakesh K Pandey' },
+  { image: mht('assets/img/volunteers/6.webp'), role: 'Temple Memember', name: 'Yesh Chopra' },
+  { image: mht('assets/img/volunteers/5.webp'), role: 'Temple Memember', name: 'M Kapoor' },
+  { image: mht('assets/img/volunteers/3.webp'), role: 'Temple Memember', name: 'Mohan Das' },
+];
 
 export const VIDEOS = [
-  { image: img('galleryPreview3'), title: 'Foundation Course' },
-  { image: img('galleryPreview4'), title: 'Event Photos' },
-  { image: img('meditationHall'), title: 'Meditation Hall' },
-  { image: img('villageAbout'), title: 'Spiritual Village' },
+  { image: mht('assets/img/video-gallery/1.webp'), title: 'Varansi at Night' },
+  { image: mht('assets/img/video-gallery/2.webp'), title: 'Chaar Dhaam Yatra' },
+  { image: mht('assets/img/video-gallery/3.webp'), title: 'Mahashivratri Temple' },
+  { image: mht('assets/img/video-gallery/4.webp'), title: 'OM Mahashivratri' },
 ];
 
-export const BLOG_POSTS = HOME_BLOG_POSTS.map((post) => ({
-  ...post,
-  image: img(post.image),
-  author: 'Vetham Trust',
-  authorImg: img('trustee1'),
-  date: '2026',
-}));
+export const BLOG_POSTS = [
+  {
+    image: mht('assets/img/blog/2.webp'),
+    title: 'Education for all rural children are necessary.',
+    author: 'Yesh Chopra',
+    authorImg: mht('assets/img/people/1.webp'),
+    date: 'May 20, 2026',
+  },
+  {
+    image: mht('assets/img/blog/1.webp'),
+    title: 'Reconstruct or new construct Temple krishna',
+    author: 'Yesh Chopra',
+    authorImg: mht('assets/img/people/2.webp'),
+    date: 'May 20, 2026',
+  },
+  {
+    image: mht('assets/img/blog/3.webp'),
+    title: 'Ensure child safety & health in World Temple',
+    author: 'Yesh Chopra',
+    authorImg: mht('assets/img/people/1.webp'),
+    date: 'May 20, 2026',
+  },
+];
+
+export const FOOTER_POSTS = [
+  { image: mht('assets/img/blog/1.webp'), title: 'Temple companies are being so transparent with their work', date: 'May 20, 2026' },
+  { image: mht('assets/img/blog/2.webp'), title: 'Testimony love offering so blessed', date: 'May 20, 2026' },
+  { image: mht('assets/img/blog/3.webp'), title: "As we've all discovered by now, the world can change", date: 'May 20, 2026' },
+];

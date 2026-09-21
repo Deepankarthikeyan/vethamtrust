@@ -8,19 +8,18 @@ import {
   BroadcastSection,
   CtaBlock,
   DonationCards,
-  ProgramsGallery,
+  PujaGallery,
   ServiceCards,
   VolunteersSection,
-} from '../components/krishna/VethamHomeSections';
+} from '../components/krishna/KrishnaHomeSections';
 import { HERO_SLIDES_1, HERO_SLIDES_2 } from '../config/krishnaHome';
-import { SITE } from '../config/site';
 
 export default function Home() {
   return (
     <>
       <Helmet>
-        <title>{SITE.name} – Spiritual Teachings & Yoga Centre</title>
-        <meta name="description" content={`${SITE.tagline}. Yoga, meditation, and spiritual teachings in Coimbatore.`} />
+        <title>Home Krishna | Maharatri Temple</title>
+        <meta name="description" content="Krishna — Maharatri Hindu Temple. Divine love and eternal devotion home page variant." />
       </Helmet>
 
       <KrishnaHero id="kr-hero" slides={HERO_SLIDES_1} enableKeyboard />
@@ -31,9 +30,9 @@ export default function Home() {
       <CtaBlock />
       <DonationCards />
       <GodsTicker />
-      <KrishnaHero id="kr-hero-2" slides={HERO_SLIDES_2} compact />
+      <KrishnaHero id="kr-hero-2" slides={HERO_SLIDES_2} />
       <GodsTicker />
-      <ProgramsGallery />
+      <PujaGallery />
       <VolunteersSection />
       <BroadcastSection />
       <BlogSection />
