@@ -1,10 +1,19 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import MaharatriLayout from './maharatri/components/Layout';
+import Layout from './components/Layout';
 
-const KrishnaHome = lazy(() => import('./maharatri/pages/KrishnaHome'));
-const SimplePage = lazy(() => import('./maharatri/pages/SimplePage'));
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const OurVillage = lazy(() => import('./pages/OurVillage'));
+const Courses = lazy(() => import('./pages/Courses'));
+const Services = lazy(() => import('./pages/Services'));
+const Leadership = lazy(() => import('./pages/Leadership'));
+const Events = lazy(() => import('./pages/Events'));
+const Blog = lazy(() => import('./pages/Blog'));
+const SocialMedia = lazy(() => import('./pages/SocialMedia'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Donate = lazy(() => import('./pages/Donate'));
 
 function PageLoader() {
   return (
@@ -14,27 +23,24 @@ function PageLoader() {
   );
 }
 
-function Placeholder({ title, subtitle, text }) {
-  return (
-    <SimplePage title={title} subtitle={subtitle}>
-      <p>{text}</p>
-    </SimplePage>
-  );
-}
-
 export default function App() {
   return (
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MaharatriLayout />}>
-            <Route index element={<Suspense fallback={<PageLoader />}><KrishnaHome /></Suspense>} />
-            <Route path="about" element={<Suspense fallback={<PageLoader />}><Placeholder title="About Us" subtitle="Temple" text="We are a Hindu that believes in Lord Rama and Vishnu Deva. This page can be expanded with full about content from the Maharatri theme." /></Suspense>} />
-            <Route path="contact" element={<Suspense fallback={<PageLoader />}><Placeholder title="Contact Us" subtitle="Reach Us" text="14/A, Poor Street City Tower, New York USA — 987-987-930-302 — info@example.com" /></Suspense>} />
-            <Route path="donate" element={<Suspense fallback={<PageLoader />}><Placeholder title="Donation" subtitle="Donate To Help" text="Make a donation to help the Hindu community. Integrate your payment gateway here." /></Suspense>} />
-            <Route path="blog" element={<Suspense fallback={<PageLoader />}><Placeholder title="Blog" subtitle="News Feed" text="Temple news and spiritual articles will appear here." /></Suspense>} />
-            <Route path="services" element={<Suspense fallback={<PageLoader />}><Placeholder title="Services" subtitle="Puja & Temple" text="Temple services, puja schedules, and community programs." /></Suspense>} />
-            <Route path="events" element={<Suspense fallback={<PageLoader />}><Placeholder title="Events" subtitle="Festival Calendar" text="Upcoming temple events and festival celebrations." /></Suspense>} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Suspense fallback={<PageLoader />}><Home /></Suspense>} />
+            <Route path="about" element={<Suspense fallback={<PageLoader />}><About /></Suspense>} />
+            <Route path="our-village" element={<Suspense fallback={<PageLoader />}><OurVillage /></Suspense>} />
+            <Route path="courses" element={<Suspense fallback={<PageLoader />}><Courses /></Suspense>} />
+            <Route path="services" element={<Suspense fallback={<PageLoader />}><Services /></Suspense>} />
+            <Route path="services/page/:pageNum" element={<Suspense fallback={<PageLoader />}><Services /></Suspense>} />
+            <Route path="leadership" element={<Suspense fallback={<PageLoader />}><Leadership /></Suspense>} />
+            <Route path="events" element={<Suspense fallback={<PageLoader />}><Events /></Suspense>} />
+            <Route path="blog" element={<Suspense fallback={<PageLoader />}><Blog /></Suspense>} />
+            <Route path="social-media" element={<Suspense fallback={<PageLoader />}><SocialMedia /></Suspense>} />
+            <Route path="contact" element={<Suspense fallback={<PageLoader />}><Contact /></Suspense>} />
+            <Route path="donate" element={<Suspense fallback={<PageLoader />}><Donate /></Suspense>} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,11 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { SITE, NAV_ITEMS } from '../config/site';
 import { getNavLabel } from '../config/languages';
+import { NAV_ITEMS, SITE } from '../config/site';
 import { img } from '../config/images';
 import { useUiLanguage } from '../hooks/useUiLanguage';
-import { loadThemeScripts, setupMobileMenu } from '../utils/themeInit';
-import LazyImage from './LazyImage';
 
 function isActive(pathname, item) {
   if (item.path === '/') return pathname === '/';
@@ -14,143 +12,102 @@ function isActive(pathname, item) {
   return pathname.startsWith(`${item.path}/`);
 }
 
-function navClass(pathname, item) {
-  const active = isActive(pathname, item);
-  if (item.children) return active ? 'dropdown current' : 'dropdown';
-  return active ? 'current' : '';
-}
+function NavItem({ item, pathname, lang, onNavigate }) {
+  if (item.children) {
+    return (
+      <li className={`menu-item menu-item-has-children${isActive(pathname, item) ? ' current' : ''}`}>
+        <Link to={item.path} onClick={onNavigate}>
+          <span className="vetham-nav-label notranslate">{getNavLabel(item.key, lang)}</span>
+        </Link>
+        <ul className="sub-menu">
+          {item.children.map((child) => (
+            <li key={child.key} className={`menu-item${pathname === child.path ? ' current' : ''}`}>
+              <Link to={child.path} onClick={onNavigate}>
+                <span className="vetham-nav-label notranslate">{getNavLabel(child.key, lang)}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </li>
+    );
+  }
 
-function childClass(pathname, child) {
-  return pathname === child.path ? 'current' : '';
-}
-
-export default function Header() {
-  const { pathname } = useLocation();
-  const lang = useUiLanguage();
-
-  useEffect(() => {
-    document.body.classList.remove('mobile-menu-visible');
-  }, [pathname]);
-
-  useEffect(() => {
-    loadThemeScripts().then(() => {
-      setupMobileMenu();
-    });
-  }, [lang, pathname]);
-
-  const closeMobileMenu = () => {
-    document.body.classList.remove('mobile-menu-visible');
-  };
-
-  const donateButton = (
-    <li className="btn-box vetham-header-donate">
-      <Link
-        to="/donate"
-        className={`theme-btn-one vetham-header-donate__btn${pathname === '/donate' ? ' current' : ''}`}
-        onClick={closeMobileMenu}
-      >
-        <span className="vetham-nav-label">{getNavLabel('donate', lang)}</span>
+  return (
+    <li className={`menu-item${isActive(pathname, item) ? ' current' : ''}`}>
+      <Link to={item.path} onClick={onNavigate}>
+        <span className="vetham-nav-label notranslate">{getNavLabel(item.key, lang)}</span>
       </Link>
     </li>
   );
+}
 
-  const navigation = (
-    <ul className="navigation clearfix notranslate">
-      {NAV_ITEMS.map((item) => (
-        <li key={item.key} className={navClass(pathname, item)}>
-          <Link to={item.path} onClick={closeMobileMenu}>
-            <span className="vetham-nav-label">{getNavLabel(item.key, lang)}</span>
-          </Link>
-          {item.children && (
-            <ul>
-              {item.children.map((child) => (
-                <li key={child.key} className={childClass(pathname, child)}>
-                  <Link to={child.path} onClick={closeMobileMenu}>
-                    <span className="vetham-nav-label">{getNavLabel(child.key, lang)}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </li>
-      ))}
-    </ul>
-  );
+export default function Header({ onSearchOpen, onAsideRight, onAsideLeft }) {
+  const { pathname } = useLocation();
+  const lang = useUiLanguage();
+  const [sticky, setSticky] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setSticky(window.scrollY > 80);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const closeAside = () => {
+    document.body.classList.remove('aside-open');
+    document.body.classList.remove('aside-open-left');
+  };
 
   return (
-    <>
-      <header className="main-header header-style-two">
-        <div className="header-lower">
-          <div className="outer-box">
-            <div className="logo-box">
-              <figure className="logo">
-                <Link to="/"><LazyImage src={img('logo')} alt={SITE.name} loading="eager" /></Link>
-              </figure>
-            </div>
-            <div className="menu-area clearfix">
-              <div className="mobile-nav-toggler">
-                <i className="icon-bar" />
-                <i className="icon-bar" />
-                <i className="icon-bar" />
-              </div>
-              <nav className="main-menu navbar-expand-md navbar-light">
-                <div className="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                  {navigation}
-                </div>
-              </nav>
-            </div>
-            <ul className="nav-right notranslate">
-              <li className="search-box-outer search-toggler"><i className="icon-1" /></li>
-              {donateButton}
+    <header className={`sigma_header header-2 can-sticky${sticky ? ' is-sticky' : ''}`}>
+      <div className="sigma_header-middle">
+        <nav className="navbar" role="navigation" aria-label="Primary">
+          <div className="sigma_header-controls style-2">
+            <ul className="sigma_header-controls-inner">
+              <li className="aside-toggler style-2 desktop-toggler">
+                <button type="button" aria-label="Open side panel" onClick={onAsideRight}>
+                  {Array.from({ length: 9 }).map((_, i) => <span key={i} />)}
+                </button>
+              </li>
+              <li className="aside-toggler style-2">
+                <button type="button" aria-label="Open mobile menu" onClick={onAsideLeft}>
+                  {Array.from({ length: 9 }).map((_, i) => <span key={i} />)}
+                </button>
+              </li>
             </ul>
           </div>
-        </div>
 
-        <div className="sticky-header">
-          <div className="outer-container">
-            <div className="outer-box">
-              <div className="logo-box">
-                <figure className="logo">
-                  <Link to="/"><LazyImage src={img('logo')} alt={SITE.name} loading="eager" /></Link>
-                </figure>
-              </div>
-              <div className="menu-area clearfix">
-                <nav className="main-menu clearfix" />
-              </div>
-              <ul className="nav-right notranslate">
-                <li className="search-box-outer search-toggler"><i className="icon-1" /></li>
-                {donateButton}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </header>
+          <ul className="navbar-nav notranslate">
+            {NAV_ITEMS.map((item) => (
+              <NavItem key={item.key} item={item} pathname={pathname} lang={lang} onNavigate={closeAside} />
+            ))}
+          </ul>
 
-      <div className="mobile-menu">
-        <div className="menu-backdrop" />
-        <div className="close-btn"><i className="fas fa-times" /></div>
-        <nav className="menu-box">
-          <div className="nav-logo">
-            <Link to="/"><LazyImage src={img('logo')} alt={SITE.name} /></Link>
+          <div className="sigma_logo-wrapper">
+            <Link className="navbar-brand" to="/">
+              <img width="208" height="60" src={img('logo')} alt={SITE.name} loading="eager" />
+            </Link>
           </div>
-          <div className="menu-outer" />
-          <div className="contact-info">
-            <h4>Contact Info</h4>
-            <ul>
-              <li>{SITE.addressShort}</li>
-              <li><a href={SITE.phoneHref}>{SITE.phone}</a></li>
-              <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
-            </ul>
+
+          <div className="sigma_header-controls sigma_header-button">
+            <a href={SITE.phoneHref} className="sigma_header-contact">
+              <i className="fal fa-phone" />
+              <div className="sigma_header-contact-inner">
+                <span>Get Support</span>
+                <h6>{SITE.phone}</h6>
+              </div>
+            </a>
+            <Link className="sigma_btn-custom" to="/donate">
+              <span className="vetham-nav-label notranslate">{getNavLabel('donate', lang)}</span>
+            </Link>
           </div>
-          <div className="social-links">
-            <ul className="clearfix">
-              <li><a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer"><span className="fab fa-facebook-square" /></a></li>
-              <li><a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer"><span className="fab fa-instagram" /></a></li>
-              <li><a href={SITE.social.youtube} target="_blank" rel="noopener noreferrer"><span className="fab fa-youtube" /></a></li>
-            </ul>
+
+          <div className="sigma_header-controls style-1">
+            <button type="button" className="sigma_search-trigger" aria-label="Open search" onClick={onSearchOpen}>
+              <i className="flaticon-magnifying-glass" />
+            </button>
           </div>
         </nav>
       </div>
-    </>
+    </header>
   );
 }

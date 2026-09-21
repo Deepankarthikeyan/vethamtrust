@@ -1,51 +1,37 @@
-# Maharatri Krishna — React Theme
+# Vetham Kuzhumam Spiritual Trust
 
-React + Vite recreation of the [Maharatri Krishna](https://metropolitanhost.com/themes/themeforest/html/maharatri/krishna.html) Hindu temple homepage, built with modern React instead of jQuery.
+React + Vite website for Vetham Kuzhumam Spiritual Trust with the **Maharatri Krishna** theme design and original Vetham content.
 
 ## Quick Start
 
 ```bash
 npm install
-npm run download-maharatri   # fetch theme CSS & images from demo CDN
+npm run download-images      # fetch Vetham images from CDN
+npm run download-maharatri   # fetch Maharatri theme CSS/images (if missing)
 npm run dev                  # http://localhost:5173
-npm run build                # production build to dist/
-npm run preview              # preview production build
+npm run build
+npm run preview
 ```
 
 ## Stack
 
-- **React 18** + **React Router 6** — component-based routing
-- **Vite 5** — fast dev server and production builds
-- **react-helmet-async** — per-page SEO meta tags
-- **react-countup** — animated year counter
-- **Maharatri theme CSS** — original styles in `public/maharatri/`
+- React 18 + React Router 6 + Vite 5
+- Maharatri Krishna theme (header, hero sliders, sections, footer)
+- react-countup, react-helmet-async
+- GTranslate multi-language support
+- Original Vetham contact, donation, and page content
 
-## Krishna Home Sections
-
-| Section | React Component |
-|---------|-----------------|
-| Hero slider (×2) | `KrishnaHero` + `useKrishnaSlider` hook |
-| Gods name ticker | `GodsTicker` |
-| About intro | `AboutIntro` |
-| Temple / Puja / Donation cards | `ServiceCards` |
-| Years of service counter | `AboutCounter` |
-| Hotline + newsletter CTA | `CtaBlock` |
-| Donation progress cards | `DonationCards` |
-| Puja portfolio filter | `PujaGallery` |
-| Volunteers | `VolunteersSection` |
-| Live broadcast | `BroadcastSection` |
-| Blog feed | `BlogSection` |
-
-## Routes
+## Pages
 
 | Route | Page |
 |-------|------|
-| `/` | Krishna Home (full theme) |
-| `/about` | About placeholder |
-| `/contact` | Contact placeholder |
-| `/donate` | Donation placeholder |
-| `/blog` | Blog placeholder |
-| `/services` | Services placeholder |
-| `/events` | Events placeholder |
-
-Legacy Vetham static HTML is preserved in `legacy/`.
+| `/` | Home (Krishna theme layout, Vetham content) |
+| `/about` | About Us |
+| `/our-village` | Our Village |
+| `/courses` | Courses |
+| `/leadership` | Leadership |
+| `/events` | Events |
+| `/blog` | Blog |
+| `/social-media` | Gallery & Social Media |
+| `/contact` | Contact (original phone, email, address) |
+| `/donate` | Donate |
