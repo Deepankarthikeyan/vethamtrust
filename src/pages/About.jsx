@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
 import { img } from '../config/images';
-import PageTitle from '../components/PageTitle';
+import CinematicPageHero from '../components/cinematic/CinematicPageHero';
 import LeadershipShowcase from '../components/LeadershipShowcase';
 import LazyImage from '../components/LazyImage';
 
@@ -12,8 +12,9 @@ export default function About() {
       <Helmet>
         <title>About Us – {SITE.name}</title>
       </Helmet>
-      <PageTitle title="About Us" crumbs={['About Us']} />
+      <CinematicPageHero title="About Us" crumbs={['About Us']} />
 
+      <div className="vx-page-content">
       <section className="about-section p_relative sec-pad">
         <div className="auto-container">
           <div className="row align-items-center clearfix">
@@ -65,6 +66,7 @@ export default function About() {
       </section>
 
       <LeadershipShowcase linkToLeadership={false} />
+      </div>
     </>
   );
 }

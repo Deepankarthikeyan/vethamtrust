@@ -7,7 +7,7 @@ import {
   UPCOMING_EVENTS,
   WHATSAPP_GROUP,
 } from '../config/events';
-import PageTitle from '../components/PageTitle';
+import CinematicPageHero from '../components/cinematic/CinematicPageHero';
 
 export default function Events() {
   return (
@@ -15,8 +15,9 @@ export default function Events() {
       <Helmet>
         <title>Events – {SITE.name}</title>
       </Helmet>
-      <PageTitle title="Events" crumbs={['Events']} />
+      <CinematicPageHero title="Events" crumbs={['Events']} />
 
+      <div className="vx-page-content">
       <section className="vetham-events-section sec-pad">
         <div className="auto-container">
           <div className="vetham-events-empty centred mb_50">
@@ -104,6 +105,7 @@ export default function Events() {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 }

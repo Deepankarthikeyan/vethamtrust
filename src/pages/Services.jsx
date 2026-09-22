@@ -8,7 +8,7 @@ import {
   SERVICE_PAGE_COUNT,
 } from '../config/services';
 import { img } from '../config/images';
-import PageTitle from '../components/PageTitle';
+import CinematicPageHero from '../components/cinematic/CinematicPageHero';
 import BlogSidebar from '../components/BlogSidebar';
 import LazyImage from '../components/LazyImage';
 
@@ -37,8 +37,9 @@ export default function Services() {
       <Helmet>
         <title>All Services – {SITE.name}</title>
       </Helmet>
-      <PageTitle title="All Services" crumbs={['All Services']} />
+      <CinematicPageHero title="All Services" crumbs={['All Services']} />
 
+      <div className="vx-page-content">
       <section className="sidebar-page-container vetham-services-section">
         <div className="auto-container">
           <div className="row clearfix">
@@ -115,6 +116,7 @@ export default function Services() {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 }

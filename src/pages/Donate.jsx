@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
 import { DONATION } from '../config/donate';
 import { img } from '../config/images';
-import PageTitle from '../components/PageTitle';
+import CinematicPageHero from '../components/cinematic/CinematicPageHero';
 
 export default function Donate() {
   return (
@@ -10,8 +10,9 @@ export default function Donate() {
       <Helmet>
         <title>Donate – {SITE.name}</title>
       </Helmet>
-      <PageTitle title="Donate" crumbs={['Donate']} />
+      <CinematicPageHero title="Donate" crumbs={['Donate']} />
 
+      <div className="vx-page-content">
       <section className="donate-section sec-pad centred">
         <div className="auto-container">
           <div className="sec-title centred mb_40">
@@ -44,6 +45,7 @@ export default function Donate() {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 }

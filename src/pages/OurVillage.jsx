@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
 import { img } from '../config/images';
-import PageTitle from '../components/PageTitle';
+import CinematicPageHero from '../components/cinematic/CinematicPageHero';
 import LazyImage from '../components/LazyImage';
 
 const PROJECTS = [
@@ -16,8 +16,9 @@ export default function OurVillage() {
       <Helmet>
         <title>Our Village – {SITE.name}</title>
       </Helmet>
-      <PageTitle title="Our Village" crumbs={['Our Village']} />
+      <CinematicPageHero title="Our Village" crumbs={['Our Village']} />
 
+      <div className="vx-page-content">
       <section className="about-section p_relative sec-pad">
         <div className="auto-container">
           <div className="row align-items-center clearfix">
@@ -96,6 +97,7 @@ export default function OurVillage() {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 }

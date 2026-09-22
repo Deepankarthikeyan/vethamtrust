@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
 import { GALLERY_FILTERS, GALLERY_ITEMS, gallerySrc } from '../config/gallery';
-import PageTitle from '../components/PageTitle';
+import CinematicPageHero from '../components/cinematic/CinematicPageHero';
 
 export default function SocialMedia() {
   const [filter, setFilter] = useState('all');
@@ -16,8 +16,9 @@ export default function SocialMedia() {
       <Helmet>
         <title>Social Media & Gallery – {SITE.name}</title>
       </Helmet>
-      <PageTitle title="Social Media" crumbs={['Social Media']} />
+      <CinematicPageHero title="Social Media" crumbs={['Social Media']} />
 
+      <div className="vx-page-content">
       <section className="gallery-page-section sec-pad bg-color-1">
         <div className="auto-container">
           <div className="sec-title centred mb_50">
@@ -83,6 +84,7 @@ export default function SocialMedia() {
           </ul>
         </div>
       </section>
+      </div>
     </>
   );
 }

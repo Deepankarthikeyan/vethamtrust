@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
-import PageTitle from '../components/PageTitle';
+import CinematicPageHero from '../components/cinematic/CinematicPageHero';
 import ContactInfoCards from '../components/ContactInfoCards';
 import ContactForm from '../components/ContactForm';
 
@@ -18,10 +18,12 @@ export default function Contact() {
       <Helmet>
         <title>Contact Us – {SITE.name}</title>
       </Helmet>
-      <PageTitle title="Contact Us" crumbs={['Contact Us']} />
+      <CinematicPageHero title="Contact Us" crumbs={['Contact Us']} />
 
-      <ContactInfoCards />
-      <ContactForm onSubmit={handleSubmit} />
+      <div className="vx-page-content">
+        <ContactInfoCards />
+        <ContactForm onSubmit={handleSubmit} />
+      </div>
     </>
   );
 }

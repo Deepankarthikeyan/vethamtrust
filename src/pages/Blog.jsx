@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
 import { ALL_BLOG_POSTS } from '../config/blog';
 import { img } from '../config/images';
-import PageTitle from '../components/PageTitle';
+import CinematicPageHero from '../components/cinematic/CinematicPageHero';
 import LazyImage from '../components/LazyImage';
 
 export default function Blog() {
@@ -27,8 +27,9 @@ export default function Blog() {
       <Helmet>
         <title>Blog – {SITE.name}</title>
       </Helmet>
-      <PageTitle title="Blog" crumbs={['Blog']} />
+      <CinematicPageHero title="Blog" crumbs={['Blog']} />
 
+      <div className="vx-page-content">
       <section className="news-section sec-pad vetham-blog-section">
         <div className="auto-container">
           <div className="sec-title centred mb_55">
@@ -65,6 +66,7 @@ export default function Blog() {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
-import PageTitle from '../components/PageTitle';
-import { VolunteersSection } from '../components/krishna/KrishnaHomeSections';
+import CinematicPageHero from '../components/cinematic/CinematicPageHero';
+import LeadershipShowcase from '../components/LeadershipShowcase';
 
 export default function Leadership() {
   return (
@@ -9,8 +9,10 @@ export default function Leadership() {
       <Helmet>
         <title>Leadership – {SITE.name}</title>
       </Helmet>
-      <PageTitle title="Leadership" crumbs={['Leadership']} />
-      <VolunteersSection />
+      <CinematicPageHero title="Leadership" crumbs={['Leadership']} />
+      <div className="vx-page-content">
+        <LeadershipShowcase linkToLeadership={false} fullPage />
+      </div>
     </>
   );
 }
