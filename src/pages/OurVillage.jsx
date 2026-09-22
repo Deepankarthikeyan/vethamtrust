@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { SITE } from '../config/site';
 import { img } from '../config/images';
 import CinematicPageHero from '../components/cinematic/CinematicPageHero';
@@ -32,7 +33,7 @@ export default function OurVillage() {
                 <p>The village features a meditation hall, gurukul, spiritual garden, and plans for a retirement home — all dedicated to World Peace through Individual Peace.</p>
               </div>
               <div className="btn-box">
-                <button type="button" className="donate-box-btn theme-btn-one"><span>Donate Now</span></button>
+                <Link to="/donate" className="theme-btn-one"><span>Donate Now</span></Link>
               </div>
             </div>
             <div className="col-lg-6 col-md-12 col-sm-12 image-column">

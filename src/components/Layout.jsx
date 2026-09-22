@@ -9,7 +9,6 @@ import CinematicPreloader from './cinematic/CinematicPreloader';
 import CustomCursor from './cinematic/CustomCursor';
 import ScrollProgress from './cinematic/ScrollProgress';
 import FloatingWidgets from './FloatingWidgets';
-import DonatePopup from './DonatePopup';
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -33,7 +32,6 @@ export default function Layout() {
       <Helmet><html lang="en" /></Helmet>
       <a className="skip-link" href="#main-content" style={{ position: 'absolute', left: -9999 }}>Skip to main content</a>
       <CinematicPreloader />
-      <DonatePopup />
       <ScrollProgress />
       <CustomCursor />
       <CinematicHeader />
