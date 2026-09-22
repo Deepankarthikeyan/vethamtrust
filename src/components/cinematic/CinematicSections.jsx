@@ -165,7 +165,7 @@ export function PurposeSection() {
         <div className="vx-purpose__list">
           {PURPOSE_STATEMENTS.map((text, i) => (
             <div key={i} className={`vx-purpose__item${active === i ? ' is-active' : ''}`} data-purpose-item>
-              <p className="vx-text" style={{ fontSize: '1.15rem', color: 'var(--vx-cream)' }}>{text}</p>
+              <p className="vx-text" style={{ fontSize: '1.15rem', color: 'var(--vx-text)' }}>{text}</p>
             </div>
           ))}
         </div>
