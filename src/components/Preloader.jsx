@@ -1,25 +1,25 @@
+import { useEffect, useState } from 'react';
 import { img } from '../config/images';
+import { SITE } from '../config/site';
 
 export default function Preloader() {
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    const hide = () => setHidden(true);
+    if (document.readyState === 'complete') hide();
+    else {
+      window.addEventListener('load', hide);
+      return () => window.removeEventListener('load', hide);
+    }
+    return undefined;
+  }, []);
+
+  if (hidden) return null;
+
   return (
-    <div className="loader-wrap" aria-hidden="false">
-      <div className="preloader">
-        <div className="preloader-close">x</div>
-        <div id="handle-preloader" className="handle-preloader">
-          <div className="animation-preloader vetham-preloader">
-            <div className="vetham-preloader__logo-wrap">
-              <div className="spinner" aria-hidden="true" />
-              <img
-                src={img('logo')}
-                alt="Vetham Kuzhumam Spiritual Trust"
-                className="vetham-preloader__logo"
-                width={100}
-                height={100}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="sigma_preloader">
+      <img src={img('logo')} alt={SITE.name} className="vetham-preloader__logo" width={100} height={100} />
     </div>
   );
 }

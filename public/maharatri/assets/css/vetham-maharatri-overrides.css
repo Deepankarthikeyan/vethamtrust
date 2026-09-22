@@ -1,0 +1,195 @@
+/* Krishna home — isolate from legacy Vetham CSS conflicts */
+
+body.krishna-home {
+  overflow-x: hidden;
+}
+
+body.krishna-home .sigma_preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--mht-primary, #253d46);
+}
+
+body.krishna-home .sigma_aside.open { transform: translateX(0) !important; }
+body.krishna-home .sigma_aside-overlay.open { opacity: 1 !important; visibility: visible !important; }
+body.krishna-home .sigma_search-form-wrapper.open { opacity: 1 !important; visibility: visible !important; }
+
+body.krishna-home .sigma_header.can-sticky.is-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  animation: mht-slideDown 0.35s ease;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes mht-slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+body.krishna-home .aside-toggler button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+
+body.krishna-home .portfolio-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+body.krishna-home button.kr-nav,
+body.krishna-home button.kr-dot {
+  font: inherit;
+  color: inherit;
+}
+
+body.krishna-home .sigma_top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hero: ensure slide backgrounds from krishna.css apply */
+body.krishna-home #kr-hero .kr-slide:nth-child(1) .kr-bg,
+body.krishna-home #kr-hero .kr-slide:nth-child(2) .kr-bg,
+body.krishna-home #kr-hero-2 .kr-slide:nth-child(1) .kr-bg,
+body.krishna-home #kr-hero-2 .kr-slide:nth-child(2) .kr-bg {
+  background-size: cover;
+  background-position: center;
+}
+
+/* Section alignment fixes */
+body.krishna-home .section-title.flex-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+body.krishna-home .filter-items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+body.krishna-home .sigma_service.style-2 .sigma_service-body {
+  text-align: left;
+}
+
+body.krishna-home .sigma_cta-content h4 a {
+  text-decoration: none;
+}
+
+body.krishna-home .sigma_footer-middle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body.krishna-home .sigma_footer-middle a:hover {
+  color: var(--mht-accent);
+}
+
+/* Vetham logo in Maharatri header/footer */
+.vetham-mht-logo img,
+.sigma_footer-logo .vetham-footer-logo,
+body.krishna-home .sigma_preloader .vetham-preloader__logo {
+  max-height: 72px;
+  max-width: 72px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+body.krishna-home .sigma_logo-wrapper .vetham-mht-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.krishna-home .kr-bg {
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+body.krishna-home .sigma_volunteers-thumb img {
+  object-fit: cover;
+  object-position: center top;
+}
+
+body.krishna-home .img-group-3 img {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Inner pages */
+body.vetham-inner .sigma_page-header {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  margin-bottom: 0;
+}
+
+body.vetham-inner .sigma_breadcrumb {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  padding: 0;
+  margin: 16px 0 0;
+  justify-content: center;
+}
+
+body.vetham-inner .sigma_breadcrumb li { color: rgba(255,255,255,0.8); }
+body.vetham-inner .sigma_breadcrumb li a { color: #fff; }
+
+body.vetham-inner .sec-pad { padding: 90px 0; }
+body.vetham-inner .auto-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+body.vetham-inner .sec-title .sub-title,
+body.vetham-inner .sub-title {
+  color: var(--mht-accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+body.vetham-inner .theme-btn-one,
+body.vetham-inner .theme-btn-two {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: var(--mht-accent);
+  color: #fff !important;
+  border: 1px solid var(--mht-accent);
+  padding: 0 36px;
+  line-height: 52px;
+  height: 52px;
+  text-decoration: none;
+}
+
+body.vetham-inner .bg-color-1 { background: #f7f7f7; }
+
+body.vetham-inner .vetham-footer-donate__lead { font-size: 14px; margin-bottom: 10px; }
+body.vetham-inner .vetham-footer-donate__qr img { max-width: 120px; border-radius: 8px; }
