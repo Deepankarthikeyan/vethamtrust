@@ -142,7 +142,7 @@ export function PurposeSection() {
   useEffect(() => {
     if (!sectionRef.current) return undefined;
     const items = sectionRef.current.querySelectorAll('[data-purpose-item]');
-    const triggers = items.map((item, i) => ScrollTrigger.create({
+    const triggers = Array.from(items).map((item, i) => ScrollTrigger.create({
       trigger: item,
       start: 'top center',
       end: 'bottom center',
@@ -385,7 +385,7 @@ export function EventsSection() {
   useEffect(() => {
     if (!listRef.current) return undefined;
     const cards = listRef.current.querySelectorAll('.vx-event-card');
-    const triggers = cards.map((card, i) => ScrollTrigger.create({
+    const triggers = Array.from(cards).map((card, i) => ScrollTrigger.create({
       trigger: card,
       start: 'top center',
       end: 'bottom center',
