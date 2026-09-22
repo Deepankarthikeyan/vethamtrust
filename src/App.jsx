@@ -16,7 +16,11 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Donate = lazy(() => import('./pages/Donate'));
 
 function PageLoader() {
-  return <div className="sec-pad centred"><div className="spinner" /></div>;
+  return (
+    <div className="vx-section" style={{ minHeight: '40vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <img src="/assets/images/vetham/logo.png" alt="" width={60} height={60} style={{ opacity: 0.6 }} />
+    </div>
+  );
 }
 
 export default function App() {

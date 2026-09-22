@@ -1,108 +1,95 @@
 import { Link } from 'react-router-dom';
+import { FOOTER_ABOUT, FOOTER_POSTS } from '../config/vethamHome';
 import { SITE } from '../config/site';
-import { DONATION } from '../config/donate';
 import { img } from '../config/images';
+
+const INFO_LINKS = [
+  { label: 'Our Village', path: '/our-village' },
+  { label: 'Courses', path: '/courses' },
+  { label: 'About Us', path: '/about' },
+  { label: 'Events', path: '/events' },
+  { label: 'Leadership', path: '/leadership' },
+  { label: 'Donate', path: '/donate' },
+];
+
+const OTHER_LINKS = [
+  { label: 'Contact Us', path: '/contact' },
+  { label: 'Blog', path: '/blog' },
+  { label: 'Social Media', path: '/social-media' },
+];
 
 export default function Footer() {
   return (
-    <footer className="main-footer">
-      <div className="auto-container">
-        <div className="footer-top">
-          <figure className="footer-logo">
-            <Link to="/">
-              <img
-                src={img('logoFooter')}
-                alt={SITE.name}
-                className="vetham-footer-logo"
-                width={120}
-                height={120}
-                decoding="async"
-              />
-            </Link>
-          </figure>
-          <ul className="social-links">
-            <li><a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f" /></a></li>
-            <li><a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram" /></a></li>
-            <li><a href={SITE.social.youtube} target="_blank" rel="noopener noreferrer"><i className="fab fa-youtube" /></a></li>
-          </ul>
-        </div>
-        <div className="widget-section vetham-footer-grid-section">
-          <div className="row clearfix vetham-footer-grid">
-            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12 footer-column">
-              <div className="links-widget footer-widget">
-                <div className="widget-title"><h3>Quick Links</h3></div>
-                <div className="widget-content">
-                  <ul className="links-list clearfix">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/our-village">Our Village</Link></li>
-                    <li><Link to="/courses">Courses</Link></li>
-                    <li><Link to="/events">Events</Link></li>
-                    <li><Link to="/social-media">Social Media</Link></li>
-                    <li><Link to="/blog">Blogs</Link></li>
-                    <li><Link to="/donate">Donate</Link></li>
-                    <li><Link to="/contact">Contact us</Link></li>
-                  </ul>
-                </div>
+    <footer className="sigma_footer footer-2">
+      <div className="sigma_footer-middle">
+        <div className="container">
+          <div className="row">
+            <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 footer-widget">
+              <h5 className="widget-title">About Us</h5>
+              <p className="mb-4">{FOOTER_ABOUT}</p>
+              <div className="d-flex align-items-center justify-content-md-start justify-content-center">
+                <i className="far fa-phone custom-primary me-3" />
+                <a href={SITE.phoneHref}>{SITE.phone}</a>
+              </div>
+              <div className="d-flex align-items-center justify-content-md-start justify-content-center mt-2">
+                <i className="far fa-envelope custom-primary me-3" />
+                <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+              </div>
+              <div className="d-flex align-items-start justify-content-md-start justify-content-center mt-2">
+                <i className="far fa-map-marker custom-primary me-3" />
+                <span>{SITE.address}</span>
               </div>
             </div>
-            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12 footer-column">
-              <div className="about-widget footer-widget">
-                <div className="widget-title"><h3>Address</h3></div>
-                <div className="text">
-                  <p>{SITE.address}</p>
-                </div>
-              </div>
+            <div className="col-xl-2 col-lg-2 col-md-4 col-sm-12 footer-widget">
+              <h5 className="widget-title">Quick Links</h5>
+              <ul>
+                {INFO_LINKS.map((link) => (
+                  <li key={link.label}>
+                    <i className="fas fa-om" />
+                    <Link to={link.path}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12 footer-column">
-              <div className="donate-widget footer-widget">
-                <div className="widget-title"><h3>Donations</h3></div>
-                <div className="widget-content vetham-footer-donate">
-                  <p className="vetham-footer-donate__lead">Scan &amp; pay via UPI</p>
-                  <figure className="vetham-footer-donate__qr">
-                    <img src={img('qrCode')} alt="Donate to Vetham Kuzhumam Spiritual Trust" className="vetham-qr-code" />
-                    <figcaption>UPI: {DONATION.upiId}</figcaption>
-                  </figure>
-                  <a
-                    href={DONATION.razorpayUrl}
-                    className="vetham-footer-donate__razorpay"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img src={img('razorpayLogo')} alt="Razorpay" />
-                    <span>Donate via Razorpay</span>
-                  </a>
-                  <Link to="/donate" className="vetham-footer-donate__link">View donation details</Link>
-                </div>
-              </div>
+            <div className="col-xl-2 col-lg-2 col-md-4 col-sm-12 footer-widget">
+              <h5 className="widget-title">Others</h5>
+              <ul>
+                {OTHER_LINKS.map((link) => (
+                  <li key={link.label}>
+                    <i className="fas fa-om" />
+                    <Link to={link.path}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12 footer-column">
-              <div className="contact-widget footer-widget">
-                <div className="widget-title"><h3>Contact Information</h3></div>
-                <div className="widget-content vetham-footer-contact">
-                  <p><a href={`mailto:${SITE.email}`}>Email: {SITE.email}</a></p>
-                  <p><a href={SITE.phoneHref}>Call: {SITE.phone}</a></p>
-                  <div className="vetham-footer-social-names">
-                    <a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer">
-                      <i className="fab fa-facebook-f" /> Facebook
-                    </a>
-                    <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer">
-                      <i className="fab fa-instagram" /> Instagram
-                    </a>
-                    <a href={SITE.social.youtube} target="_blank" rel="noopener noreferrer">
-                      <i className="fab fa-youtube" /> Youtube
-                    </a>
+            <div className="col-xl-4 col-lg-4 col-md-3 col-sm-12 d-none d-lg-block footer-widget widget-recent-posts">
+              <h5 className="widget-title">Recent Posts</h5>
+              {FOOTER_POSTS.map((post) => (
+                <article key={post.title} className="sigma_recent-post">
+                  <Link to="/blog"><img width="80" height="60" src={post.image} alt="post" loading="lazy" /></Link>
+                  <div className="sigma_recent-post-body">
+                    <Link to="/blog"><i className="far fa-calendar" /> {post.date}</Link>
+                    <h6><Link to="/blog">{post.title}</Link></h6>
                   </div>
-                </div>
-              </div>
+                </article>
+              ))}
             </div>
           </div>
         </div>
-        <div className="footer-bottom centred">
-          <div className="copyright">
-            <p>
-              Copyright {new Date().getFullYear()} by <Link to="/">{SITE.name}</Link>. All Rights Reserved.
-            </p>
+      </div>
+      <div className="sigma_footer-bottom">
+        <div className="container-fluid">
+          <div className="sigma_footer-copyright">
+            <p>Copyright &copy; <Link to="/" className="custom-primary">{new Date().getFullYear()} {SITE.name}</Link>. All Rights Reserved.</p>
           </div>
+          <div className="sigma_footer-logo">
+            <img width="80" height="80" src={img('logoFooter')} alt={SITE.name} loading="lazy" className="vetham-footer-logo" />
+          </div>
+          <ul className="sigma_sm square">
+            <li><a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fab fa-facebook-f" /></a></li>
+            <li><a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fab fa-instagram" /></a></li>
+            <li><a href={SITE.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i className="fab fa-youtube" /></a></li>
+          </ul>
         </div>
       </div>
     </footer>

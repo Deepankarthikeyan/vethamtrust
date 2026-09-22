@@ -1,31 +1,26 @@
-import { Link } from 'react-router-dom';
-import { img } from '../config/images';
-import LazyImage from './LazyImage';
+import { useEffect } from 'react';
 
-export default function SearchPopup() {
+export default function SearchPopup({ open, onClose }) {
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
+  if (!open) return null;
+
   return (
-    <div id="search-popup" className="search-popup">
-      <div className="popup-inner">
-        <div className="upper-box clearfix">
-          <figure className="logo-box pull-left">
-            <Link to="/"><LazyImage src={img('logo')} alt="" /></Link>
-          </figure>
-          <div className="close-search pull-right"><span className="far fa-times" /></div>
+    <div className="sigma_search-form-wrapper open">
+      <button type="button" className="sigma_search-trigger close-btn" onClick={onClose} aria-label="Close search">
+        <span /><span />
+      </button>
+      <form className="sigma_search-form" onSubmit={(e) => e.preventDefault()}>
+        <div className="sigma_search-adv-input">
+          <button className="sigma_search-adv-btn" type="submit">
+            <i className="flaticon-magnifying-glass" />
+          </button>
+          <input type="text" className="form-control" name="s" placeholder="Search..." />
         </div>
-        <div className="overlay-layer" />
-        <div className="auto-container">
-          <div className="search-form">
-            <form onSubmit={(e) => e.preventDefault()}>
-              <div className="form-group">
-                <fieldset>
-                  <input type="search" className="form-control" name="search-input" placeholder="Type your keyword and hit" required />
-                  <button type="submit"><i className="far fa-search" /></button>
-                </fieldset>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+      </form>
     </div>
   );
 }

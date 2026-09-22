@@ -1,7 +1,8 @@
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { SITE } from '../config/site';
 import { img } from '../config/images';
-import PageTitle from '../components/PageTitle';
+import CinematicPageHero from '../components/cinematic/CinematicPageHero';
 import LazyImage from '../components/LazyImage';
 
 const PROJECTS = [
@@ -16,8 +17,9 @@ export default function OurVillage() {
       <Helmet>
         <title>Our Village – {SITE.name}</title>
       </Helmet>
-      <PageTitle title="Our Village" crumbs={['Our Village']} />
+      <CinematicPageHero title="Our Village" crumbs={['Our Village']} />
 
+      <div className="vx-page-content">
       <section className="about-section p_relative sec-pad">
         <div className="auto-container">
           <div className="row align-items-center clearfix">
@@ -31,7 +33,7 @@ export default function OurVillage() {
                 <p>The village features a meditation hall, gurukul, spiritual garden, and plans for a retirement home — all dedicated to World Peace through Individual Peace.</p>
               </div>
               <div className="btn-box">
-                <button type="button" className="donate-box-btn theme-btn-one"><span>Donate Now</span></button>
+                <Link to="/donate" className="theme-btn-one"><span>Donate Now</span></Link>
               </div>
             </div>
             <div className="col-lg-6 col-md-12 col-sm-12 image-column">
@@ -96,6 +98,7 @@ export default function OurVillage() {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 }

@@ -13,7 +13,7 @@ import {
   YOGA_REGISTRATION_FORM,
 } from '../config/courses';
 import { img } from '../config/images';
-import PageTitle from '../components/PageTitle';
+import CinematicPageHero from '../components/cinematic/CinematicPageHero';
 import LazyImage from '../components/LazyImage';
 
 export default function Courses() {
@@ -22,8 +22,9 @@ export default function Courses() {
       <Helmet>
         <title>Courses – {SITE.name}</title>
       </Helmet>
-      <PageTitle title="Courses" crumbs={['Courses']} />
+      <CinematicPageHero title="Courses" crumbs={['Courses']} />
 
+      <div className="vx-page-content">
       <section className="about-section sec-pad">
         <div className="auto-container">
           <div className="sec-title centred mb_50">
@@ -203,6 +204,7 @@ export default function Courses() {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 }
