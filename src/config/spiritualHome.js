@@ -8,7 +8,7 @@ export const SPIRITUAL_HERO = {
     'Spiritual based life living integrates simplified physical exercises, meditation, introspection, and the profound wisdom of Yogiraj Vethathiri Maharishi — guiding you toward holistic well-being and inner awakening.',
     'Discover a path where conscious living nurtures the body, calms the mind, and opens the heart to peace, purpose, and harmony with all life.',
   ],
-  image: img('homeHeroMeditation'),
+  image: img('homeHeroReference'),
   primaryCta: { label: 'Explore Spiritual Living', path: '/about' },
   secondaryCta: { label: 'Enquire Now', path: '/contact' },
   motto: 'Know Yourself • Understand Life • Live in Harmony',
@@ -22,7 +22,7 @@ export const SPIRITUAL_ABOUT = {
   ],
   quote: 'Know yourself. Understand life. Live in harmony.',
   quoteAttribution: 'Vethathiri Maharishi',
-  image: img('mahaan'),
+  image: img('homeAboutMaharishiReference'),
   backdrop: img('villageAbout'),
 };
 

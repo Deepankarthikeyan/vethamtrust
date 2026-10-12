@@ -184,7 +184,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: left center;
 }
 
 .sh-hero__shade {
@@ -1292,20 +1292,25 @@
 .sh-about__portrait {
   position: relative;
   z-index: 1;
-  width: min(300px, 78vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
+  width: 100%;
+  max-width: 520px;
+  border-radius: var(--vx-radius);
   overflow: hidden;
-  border: 6px solid #fff;
   box-shadow: var(--sh-shadow);
   background: #fff;
 }
 
 .sh-about__portrait img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 320px;
+  max-height: 480px;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
+}
+
+.sh-about__leaf-ring {
+  display: none;
 }
 
 .sh-quote {
