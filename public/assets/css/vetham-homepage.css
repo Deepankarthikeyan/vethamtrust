@@ -516,9 +516,14 @@
 
 .sh-village__layout {
   display: grid;
-  grid-template-columns: minmax(280px, 0.9fr) 1.1fr;
-  gap: clamp(24px, 4vw, 48px);
+  grid-template-columns: minmax(260px, 36%) 1fr;
+  gap: clamp(20px, 4vw, 40px);
   align-items: center;
+}
+
+.sh-village__tiles--row {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(10px, 1.5vw, 16px);
 }
 
 .sh-village__feature {
@@ -560,23 +565,27 @@
 /* Journey cards */
 .sh-journey__grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(12px, 1.8vw, 22px);
+  align-items: stretch;
 }
 
 .sh-journey-card {
   background: #fff;
-  border-radius: var(--vx-radius);
-  padding: 0 0 24px;
-  box-shadow: var(--sh-shadow);
+  border-radius: 14px;
+  padding: 14px 14px 22px;
+  box-shadow: 0 8px 28px rgba(30, 61, 42, 0.07);
   text-align: center;
-  border: 1px solid var(--vx-border);
+  border: 1px solid rgba(30, 61, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .sh-journey-card__img {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 11;
   overflow: hidden;
-  border-radius: var(--vx-radius) var(--vx-radius) 0 0;
+  border-radius: 12px;
 }
 
 .sh-journey-card__img img {
@@ -620,15 +629,21 @@
 }
 
 .sh-journey-card .sh-text {
-  margin: 0 16px;
+  margin: 0 4px;
+  flex: 1;
+}
+
+.sh-journey-card .sh-card-title {
+  margin: 0 4px 8px;
+  font-size: clamp(0.95rem, 1.2vw, 1.12rem);
 }
 
 /* Dimensions */
 .sh-dimensions__row {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  margin-bottom: 28px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(10px, 1.5vw, 18px);
+  margin-bottom: 0;
 }
 
 .sh-dimension {
@@ -696,13 +711,16 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 16px;
-  background: #fff;
-  border-radius: var(--vx-radius-sm);
-  border: 1px solid var(--vx-border);
+  padding: 8px 4px;
+  background: transparent;
+  border: none;
   font-size: 0.92rem;
   font-weight: 500;
-  color: var(--vx-green-deep);
+  color: #000;
+}
+
+.sh-way__item-text {
+  line-height: 1.45;
 }
 
 .sh-way__icon {
@@ -1004,8 +1022,24 @@
 .sh-cta__title {
   font-family: var(--vx-font-display);
   font-size: clamp(2rem, 4vw, 3rem);
-  color: #fff;
-  margin: 0 0 32px;
+  color: #1e3d2a;
+  margin: 0 0 16px;
+}
+
+.sh-cta__eyebrow {
+  color: #c45a1a;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+.sh-cta__text {
+  color: #3d4a42;
+  max-width: 640px;
+  margin: 0 auto 28px;
+  line-height: 1.7;
 }
 
 .sh-cta__pillars {
@@ -1030,7 +1064,7 @@
   flex: 1 1 0;
   min-width: 0;
   padding: 0 12px;
-  border-left: 1px solid rgba(255, 255, 255, 0.35);
+  border-left: 1px solid rgba(30, 61, 42, 0.2);
 }
 
 .sh-cta__pillars--divided li:first-child {
@@ -1042,7 +1076,7 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, 0.92);
+  color: #1e3d2a;
   font-size: 0.85rem;
   font-weight: 600;
 }
@@ -1054,7 +1088,7 @@
 
 .sh-cta__tagline {
   margin: 24px 0 0;
-  color: rgba(255, 255, 255, 0.92);
+  color: #1e3d2a;
   font-size: 0.95rem;
   display: flex;
   flex-direction: column;
@@ -1069,7 +1103,7 @@
 .sh-cta__tagline-sub {
   font-size: 0.88rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.82);
+  color: #3d4a42;
   letter-spacing: 0.02em;
   text-transform: none;
 }
@@ -1130,8 +1164,9 @@
     grid-template-columns: 1fr;
   }
 
-  .sh-village__tiles {
-    grid-template-columns: 1fr;
+  .sh-village__tiles,
+  .sh-village__tiles--row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .sh-balance-card__body ul {
@@ -1321,12 +1356,6 @@
 
 .sh-values--row i { color: var(--sh-primary); }
 
-.sh-cta__text {
-  max-width: 640px;
-  margin: 0 auto 28px;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.7;
-}
 
 @media (max-width: 900px) {
   .sh-purpose__grid { grid-template-columns: 1fr; }
@@ -1411,11 +1440,28 @@
 .sh-dimension-tile {
   position: relative;
   padding: 0;
-  min-height: 280px;
+  min-height: clamp(300px, 38vw, 420px);
   overflow: hidden;
   background-color: var(--sh-dim-color);
   align-items: stretch;
   justify-content: flex-start;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.sh-dimension-tile__icon-ring {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.sh-dimension-tile__icon-ring i {
+  font-size: 1.25rem;
 }
 
 .sh-dimension-tile__content {
@@ -1434,11 +1480,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 55%;
+  height: 58%;
   background-image: var(--sh-dim-image);
   background-size: cover;
-  background-position: center;
-  opacity: 0.45;
+  background-position: center bottom;
+  opacity: 0.55;
   mask-image: linear-gradient(180deg, transparent 0%, #000 65%);
   z-index: 1;
 }
@@ -1549,18 +1595,30 @@
   border: 1px solid var(--vx-border);
 }
 
-.sh-balance-col h3 {
-  margin: 0 0 12px;
+.sh-balance-col__label {
+  margin: 0 0 14px;
   font-family: var(--vx-font-display);
-  font-size: 1.45rem;
-  color: var(--vx-green-deep);
-  padding-bottom: 10px;
-  border-bottom: 3px solid var(--vx-primary);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 500;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
 }
 
-.sh-balance-col--physical h3 { border-bottom-color: #3d7a52; }
-.sh-balance-col--mental h3 { border-bottom-color: #4a7fb8; }
-.sh-balance-col--spiritual h3 { border-bottom-color: #d97706; }
+.sh-balance-col--physical .sh-balance-col__label {
+  color: #2f5f44;
+  background: rgba(61, 122, 82, 0.14);
+}
+
+.sh-balance-col--mental .sh-balance-col__label {
+  color: #2a5080;
+  background: rgba(74, 127, 184, 0.14);
+}
+
+.sh-balance-col--spiritual .sh-balance-col__label {
+  color: #9a4a12;
+  background: rgba(217, 119, 6, 0.14);
+}
 
 .sh-balance-col__img {
   border-radius: var(--vx-radius-sm);
@@ -1591,15 +1649,6 @@
   margin-right: 8px;
 }
 
-.sh-cta__eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 0 0 12px;
-}
-
 @media (max-width: 1024px) {
   .sh-village__row {
     grid-template-columns: repeat(2, 1fr);
@@ -1622,13 +1671,22 @@
 }
 
 @media (max-width: 600px) {
-  .sh-village__row {
+  .sh-village__row,
+  .sh-village__tiles--row {
     grid-template-columns: 1fr;
   }
 }
 
-.sh-container--wide {
-  width: min(1320px, calc(100% - 48px));
+.sh-container--wide,
+.sh-container--content {
+  width: min(1380px, calc(100% - clamp(24px, 5vw, 64px)));
+  margin-inline: auto;
+  padding-inline: clamp(8px, 2vw, 16px);
+}
+
+.sh-section-head__sub {
+  max-width: 720px;
+  margin-inline: auto;
 }
 
 .sh-about__maharishi-png {

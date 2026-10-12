@@ -210,50 +210,11 @@ export const BALANCE_CARDS = {
   ],
 };
 
-export const HOME_REFERENCE_SECTIONS = [
-  {
-    id: 'sh-practices',
-    label: 'The Journey Within',
-    image: img('homeSectionJourney'),
-  },
-  {
-    id: 'sh-dimensions',
-    label: 'Five Dimensions of Conscious Living',
-    image: img('homeSectionDimensions'),
-  },
-  {
-    id: 'sh-way',
-    label: 'More Than a Practice. A Way of Life.',
-    image: img('homeSectionWayOfLife'),
-  },
-  {
-    id: 'sh-benefits',
-    label: 'A Journey Towards Inner Peace',
-    image: img('homeSectionInnerPeace'),
-  },
-  {
-    id: 'sh-purpose',
-    label: 'Know Yourself. Understand Life.',
-    image: img('homeSectionPurposeBrotherhood'),
-  },
-  {
-    id: 'sh-village',
-    label: 'Life at the Spiritual Village',
-    image: img('homeSectionVillageLife'),
-    cta: { label: 'Explore the Village', path: '/our-village' },
-  },
-  {
-    id: 'sh-balance',
-    label: 'Bring Balance Into Everyday Life',
-    image: img('homeSectionBalance'),
-  },
-];
-
 export const FINAL_CTA = {
   eyebrow: 'A Simple Message',
   title: 'Begin Your Inner Journey',
   text: "You don't have to leave everyday life behind to discover inner peace.",
-  image: img('homeSectionFinalCta'),
+  image: img('homeCtaBanner'),
   pillars: [
     { icon: 'fas fa-leaf', label: 'Live consciously' },
     { icon: 'fas fa-heart', label: 'Live compassionately' },
