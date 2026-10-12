@@ -11,6 +11,7 @@ export default function Home() {
           name="description"
           content={`${SITE.tagline}. Yoga, meditation, and spiritual teachings in Coimbatore.`}
         />
+        <link rel="stylesheet" href="/assets/css/vetham-homepage.css" />
       </Helmet>
       <SpiritualHomePage />
     </>

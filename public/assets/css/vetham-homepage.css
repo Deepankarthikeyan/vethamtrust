@@ -1,151 +1,193 @@
-/* Vethathiri Spiritual Village — shared theme + homepage */
+/* Homepage-only styles — scoped to .sh-home (does not affect inner pages) */
 
-:root {
-  --vx-primary: #c45a1a;
-  --vx-primary-dark: #a34a14;
-  --vx-gold: #c9a227;
-  --vx-brown: #6b4e3d;
-  --vx-green: #2f5f44;
-  --vx-green-soft: #e8f0eb;
-  --vx-green-deep: #1e3d2a;
-  --vx-bg: #ffffff;
-  --vx-bg-soft: #f7f3ed;
-  --vx-bg-card: #ffffff;
-  --vx-footer-bg: #1e3d2a;
-  --vx-cream: #1e3d2a;
-  --vx-cream-muted: #5c6b62;
-  --vx-navy: #1e3d2a;
-  --vx-text: #3d4a42;
-  --vx-text-dim: #6b7a72;
-  --vx-border: rgba(30, 61, 42, 0.1);
-  --vx-radius: 16px;
-  --vx-radius-sm: 12px;
-  --vx-font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  --vx-font-body: 'Inter', 'Poppins', system-ui, sans-serif;
+.vx-main--home {
+  padding-top: 0 !important;
+}
+
+.sh-home {
+  --sh-primary: #c45a1a;
+  --sh-primary-dark: #a34a14;
+  --sh-gold: #c9a227;
+  --sh-green: #2f5f44;
+  --sh-green-soft: #e8f0eb;
+  --sh-green-deep: #1e3d2a;
+  --sh-teal: #2a5f5a;
+  --sh-text: #3d4a42;
+  --sh-text-dim: #6b7a72;
+  --sh-border: rgba(30, 61, 42, 0.1);
+  --sh-radius: 16px;
+  --sh-radius-sm: 12px;
   --sh-cream: #f7f3ed;
   --sh-cream-deep: #efe8dc;
   --sh-shadow: 0 12px 40px rgba(30, 61, 42, 0.08);
+  --sh-font-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --sh-font-body: 'Inter', 'Poppins', system-ui, sans-serif;
+  --sh-header-h: 76px;
 }
 
-/* —— Shared header / footer refinements —— */
-body.vx-site .vx-header {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--vx-border);
+/* Map legacy var names used below */
+.sh-home {
+  --vx-primary: var(--sh-primary);
+  --vx-primary-dark: var(--sh-primary-dark);
+  --vx-gold: var(--sh-gold);
+  --vx-green: var(--sh-green);
+  --vx-green-soft: var(--sh-green-soft);
+  --vx-green-deep: var(--sh-green-deep);
+  --vx-text: var(--sh-text);
+  --vx-text-dim: var(--sh-text-dim);
+  --vx-border: var(--sh-border);
+  --vx-radius: var(--sh-radius);
+  --vx-radius-sm: var(--sh-radius-sm);
+  --vx-font-display: var(--sh-font-display);
+  --vx-font-body: var(--sh-font-body);
 }
 
-body.vx-home .vx-header:not(.is-scrolled) {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.75) 100%);
+.sh-container {
+  width: min(1280px, calc(100% - 48px));
+  margin-inline: auto;
 }
 
-body.vx-home .vx-header:not(.is-scrolled) .vx-header__nav > li > a,
-body.vx-home .vx-header:not(.is-scrolled) .vx-header__nav > li > button {
-  color: var(--vx-green-deep);
+/* Header */
+.sh-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--sh-header-h);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--sh-border);
+  transition: box-shadow 0.25s ease;
 }
 
-body.vx-site .vx-header__nav > li > a.is-active {
-  color: var(--vx-primary);
+.sh-header.is-scrolled {
+  box-shadow: 0 8px 30px rgba(30, 61, 42, 0.08);
 }
 
-body.vx-site .vx-btn--primary {
-  background: var(--vx-primary);
-  border-radius: 999px;
-  box-shadow: 0 8px 24px rgba(196, 90, 26, 0.25);
+.sh-header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-body.vx-site .vx-btn--ghost {
-  border-radius: 999px;
-  border-color: rgba(30, 61, 42, 0.2);
-  color: var(--vx-green-deep);
+.sh-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  max-width: 220px;
 }
 
-body.vx-site .vx-footer {
-  background: linear-gradient(180deg, #1e3d2a 0%, #152a1e 100%);
+.sh-header__brand img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
 }
 
-body.vx-site .vx-page-hero::before {
-  background: linear-gradient(180deg, rgba(30, 61, 42, 0.55), rgba(30, 61, 42, 0.88));
+.sh-header__brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
 }
 
-body.vx-site .vx-page-hero .vx-title-xl {
-  color: #fff;
+.sh-header__brand-title {
+  font-family: var(--sh-font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--sh-green-deep);
 }
 
-/* —— Inner pages (structure unchanged, visual refresh) —— */
-body.vx-inner {
-  background: var(--sh-cream);
+.sh-header__brand-sub {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sh-text-dim);
 }
 
-body.vx-inner .vx-page-content {
-  background: transparent;
+.sh-header__nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
-body.vx-inner .sec-title h2,
-body.vx-inner h2 {
-  color: var(--vx-green-deep) !important;
+.sh-header__nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  justify-content: center;
 }
 
-body.vx-inner .sec-title .sub-title,
-body.vx-inner .sub-title {
-  color: var(--vx-primary) !important;
+.sh-header__nav a {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--sh-green-deep);
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
 }
 
-body.vx-inner .theme-btn-one,
-body.vx-inner .theme-btn-two {
-  border-radius: 999px !important;
-  background: var(--vx-primary) !important;
-  box-shadow: 0 8px 20px rgba(196, 90, 26, 0.2);
+.sh-header__nav a:hover {
+  color: var(--sh-primary);
 }
 
-body.vx-inner .bg-color-1 {
-  background: var(--sh-cream-deep) !important;
+.sh-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-body.vx-inner .feature-block-one .inner-box,
-body.vx-inner .service-block-one .inner-box,
-body.vx-inner .news-block-one .inner-box,
-body.vx-inner .cause-block-one .inner-box,
-body.vx-inner .vetham-leader-card,
-body.vx-inner .vetham-contact-card,
-body.vx-inner .contact-form-section {
+.sh-btn--sm {
+  padding: 10px 20px;
+  font-size: 0.75rem;
+}
+
+.sh-header__toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--sh-border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--sh-green-deep);
+}
+
+.sh-mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(30, 61, 42, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.sh-mobile-nav.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sh-mobile-nav ul {
+  position: absolute;
+  top: var(--sh-header-h);
+  left: 0;
+  right: 0;
+  background: #fff;
+  list-style: none;
+  margin: 0;
+  padding: 20px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   box-shadow: var(--sh-shadow);
-  border-color: var(--vx-border);
 }
 
-body.vx-inner .icon-box i,
-body.vx-inner [class^="icon-"] {
-  color: var(--vx-primary);
-}
-
-body.vx-inner figure.image img,
-body.vx-inner .image-box img,
-body.vx-inner .lazy-image,
-body.vx-inner img {
-  border-radius: var(--vx-radius-sm);
-}
-
-body.vx-inner .vetham-service-card,
-body.vx-inner .vetham-donate-card,
-body.vx-inner .vetham-village-highlight {
-  border-radius: var(--vx-radius);
-  box-shadow: var(--sh-shadow);
-  border: 1px solid var(--vx-border);
-}
-
-body.vx-inner .vetham-donate-cta {
-  background: linear-gradient(135deg, var(--vx-green-deep), var(--vx-green)) !important;
-  color: #fff;
-  border-radius: var(--vx-radius);
-}
-
-body.vx-inner .vetham-donate-cta h2,
-body.vx-inner .vetham-donate-cta p {
-  color: rgba(255, 255, 255, 0.92) !important;
-}
-
-body.vx-inner .vetham-blog-highlight .inner-box {
-  outline: 2px solid var(--vx-primary);
-  outline-offset: 4px;
+.sh-mobile-nav a {
+  font-weight: 600;
+  color: var(--sh-green-deep);
 }
 
 /* —— Homepage: Spiritual layout —— */
@@ -253,12 +295,12 @@ body.vx-inner .vetham-blog-highlight .inner-box {
   background: transparent;
 }
 
-.sh-btn--on-dark {
+.sh-btn--hero {
   border-color: rgba(255, 255, 255, 0.85);
   color: #fff;
 }
 
-.sh-btn--on-dark:hover {
+.sh-btn--hero:hover {
   background: rgba(255, 255, 255, 0.12);
 }
 
@@ -300,7 +342,7 @@ body.vx-inner .vetham-blog-highlight .inner-box {
 .sh-hero__grid {
   position: relative;
   z-index: 1;
-  padding-top: calc(var(--vx-header-h) + 48px);
+  padding-top: calc(var(--sh-header-h) + 48px);
   padding-bottom: 40px;
 }
 
@@ -882,10 +924,6 @@ body.vx-inner .vetham-blog-highlight .inner-box {
   text-transform: uppercase;
 }
 
-body.vx-home .vx-main {
-  padding-top: 0;
-}
-
 /* Responsive */
 @media (max-width: 1100px) {
   .sh-journey__grid {
@@ -961,4 +999,207 @@ body.vx-home .vx-main {
   .sh-balance-card__body ul {
     grid-template-columns: 1fr;
   }
+}
+
+
+.sh-eyebrow--center { text-align: center; }
+
+.sh-about__visual {
+  position: relative;
+  padding: 24px;
+}
+
+.sh-about__backdrop {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--vx-radius);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+  filter: blur(1px);
+}
+
+.sh-about__visual > img {
+  position: relative;
+  z-index: 1;
+}
+
+.sh-btn--hero {
+  border-color: var(--sh-primary);
+  color: var(--sh-primary);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.sh-dimension-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--vx-radius-sm);
+  overflow: hidden;
+  box-shadow: var(--sh-shadow);
+  border: 1px solid var(--vx-border);
+  background: #fff;
+}
+
+.sh-dimension-card__panel {
+  padding: 22px 14px;
+  color: #fff;
+  text-align: center;
+  min-height: 168px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sh-dimension-card__panel i { font-size: 1.4rem; }
+.sh-dimension-card__panel h3 {
+  margin: 0;
+  font-family: var(--vx-font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+}
+.sh-dimension-card__panel p { margin: 0; font-size: 0.78rem; opacity: 0.95; }
+
+.sh-dimension-card__photo {
+  flex: 1;
+  min-height: 120px;
+}
+.sh-dimension-card__photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+  object-fit: cover;
+}
+
+.sh-way__list li strong {
+  display: block;
+  font-family: var(--vx-font-display);
+  font-size: 1.05rem;
+  color: var(--vx-green-deep);
+  margin-bottom: 4px;
+}
+.sh-way__list li p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--vx-text-dim);
+  font-weight: 400;
+}
+
+.sh-purpose {
+  background: linear-gradient(135deg, #2f5f44 0%, #1e3d2a 100%);
+  color: #fff;
+}
+
+.sh-purpose__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.sh-purpose__media {
+  border-radius: var(--vx-radius);
+  overflow: hidden;
+  box-shadow: var(--sh-shadow);
+}
+
+.sh-purpose__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.sh-purpose__list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sh-purpose__list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.sh-purpose__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vx-gold);
+  flex-shrink: 0;
+}
+
+.sh-purpose__list h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.sh-purpose__list p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.sh-brotherhood__banner {
+  margin: 32px 0 24px;
+  border-radius: var(--vx-radius);
+  overflow: hidden;
+  box-shadow: var(--sh-shadow);
+}
+
+.sh-brotherhood__banner img {
+  width: 100%;
+  aspect-ratio: 21 / 8;
+  object-fit: cover;
+}
+
+.sh-values--row {
+  justify-content: center;
+  gap: 16px 28px;
+}
+
+.sh-values--row li {
+  background: var(--sh-cream-deep);
+  color: var(--sh-green-deep);
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 1px solid var(--sh-border);
+}
+
+.sh-values--row i { color: var(--sh-primary); }
+
+.sh-cta__text {
+  max-width: 640px;
+  margin: 0 auto 28px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+}
+
+.sh-home-footer {
+  background: var(--sh-green-deep);
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 1024px) {
+  .sh-header__nav { display: none; }
+  .sh-header__toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .sh-header__brand { max-width: 180px; }
+}
+
+@media (max-width: 900px) {
+  .sh-purpose__grid { grid-template-columns: 1fr; }
 }
