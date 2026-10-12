@@ -15,6 +15,7 @@ export const SPIRITUAL_HERO = {
 };
 
 export const SPIRITUAL_ABOUT = {
+  eyebrow: 'About',
   title: 'Live Better. Think Deeper. Know Yourself.',
   text: [
     'Vethathiri Maharishi Spiritual Village offers a tranquil space to learn, practice, and live the teachings of conscious life — where ancient wisdom meets mindful modern living.',
@@ -33,32 +34,37 @@ export const JOURNEY_WITHIN = {
     {
       title: 'Simplified Physical Exercises',
       text: 'Improve physical health, flexibility and overall well-being through simple and practical exercises.',
-      image: img('serviceSimplifiedYoga'),
+      image: img('homeJourneyCard1'),
       icon: 'fas fa-person-walking',
+      iconTone: 'green',
     },
     {
       title: 'Meditation',
       text: 'Develop a calm and focused mind through regular meditation and inner observation.',
-      image: img('serviceMeditation'),
+      image: img('homeJourneyCard2'),
       icon: 'fas fa-om',
+      iconTone: 'orange',
     },
     {
       title: 'Introspection',
       text: 'Understand your thoughts, emotions and actions through self-awareness and reflection.',
-      image: img('servicePhilosophy'),
+      image: img('homeJourneyCard3'),
       icon: 'fas fa-brain',
+      iconTone: 'green',
     },
     {
       title: 'Kayakalpa',
       text: 'A traditional practice focused on developing awareness of the body, mind and life force.',
-      image: img('serviceHealing'),
+      image: img('homeJourneyCard4'),
       icon: 'fas fa-leaf',
+      iconTone: 'orange',
     },
     {
       title: 'Wisdom of Vethathiri Maharishi',
       text: 'Explore profound teachings that help understand human life, relationships, nature and universal consciousness.',
-      image: img('serviceTeachings'),
+      image: img('homeJourneyCard5'),
       icon: 'fas fa-sun',
+      iconTone: 'green',
     },
   ],
 };
@@ -73,7 +79,7 @@ export const FIVE_DIMENSIONS = {
       color: '#3d7a52',
       icon: 'fas fa-user',
       text: 'Healthy physical living',
-      image: img('serviceHatha'),
+      image: img('homeDimensionPanel1'),
     },
     {
       key: 'mind',
@@ -81,7 +87,7 @@ export const FIVE_DIMENSIONS = {
       color: '#4a7fb8',
       icon: 'fas fa-brain',
       text: 'Clarity and emotional balance',
-      image: img('serviceMeditation'),
+      image: img('homeDimensionPanel2'),
     },
     {
       key: 'life',
@@ -89,7 +95,7 @@ export const FIVE_DIMENSIONS = {
       color: '#d97706',
       icon: 'fas fa-sun',
       text: 'Awareness of the energy within',
-      image: img('serviceKundalini'),
+      image: img('homeDimensionPanel3'),
     },
     {
       key: 'consciousness',
@@ -97,7 +103,7 @@ export const FIVE_DIMENSIONS = {
       color: '#7c5cbf',
       icon: 'fas fa-spa',
       text: 'Understanding oneself and life',
-      image: img('serviceSelfRealization'),
+      image: img('homeDimensionPanel4'),
     },
     {
       key: 'harmony',
@@ -105,7 +111,7 @@ export const FIVE_DIMENSIONS = {
       color: '#8b5e3c',
       icon: 'fas fa-users',
       text: 'Living peacefully with society and nature',
-      image: img('serviceAwareness'),
+      image: img('homeDimensionPanel5'),
     },
   ],
 };
@@ -156,7 +162,7 @@ export const BROTHERHOOD_PANEL = {
   title: 'One Humanity. One Consciousness.',
   text: 'The teachings encourage us to move beyond individual boundaries and develop a sense of universal brotherhood.',
   footer: 'Together, these values can create a more peaceful individual, family, society and world.',
-  image: img('aboutGroup'),
+  image: img('homeBrotherhoodHill'),
   values: [
     { icon: 'fas fa-heart', label: 'Love', tone: 'love' },
     { icon: 'fas fa-leaf', label: 'Compassion', tone: 'compassion' },
@@ -172,10 +178,10 @@ export const VILLAGE_LIFE = {
   text: 'Surrounded by nature, the Village provides an atmosphere where people can slow down, reflect, practise and reconnect with themselves.',
   cta: { label: 'Explore the Village', path: '/our-village' },
   tiles: [
-    { title: 'Nature', text: 'Connect with the natural environment.', image: img('villageAbout') },
-    { title: 'Meditation', text: 'Create space for inner silence.', image: img('meditationHall') },
-    { title: 'Yoga', text: 'Support physical and mental well-being.', image: img('serviceHatha') },
-    { title: 'Community', text: 'Grow together through shared values.', image: img('galleryPreview3') },
+    { title: 'Nature', text: 'Connect with the natural environment.', image: img('homeVillageTile1') },
+    { title: 'Meditation', text: 'Create space for inner silence.', image: img('homeVillageTile2') },
+    { title: 'Yoga', text: 'Support physical and mental well-being.', image: img('homeVillageTile3') },
+    { title: 'Community', text: 'Grow together through shared values.', image: img('homeVillageTile4') },
   ],
 };
 
@@ -186,19 +192,19 @@ export const BALANCE_CARDS = {
     {
       tone: 'physical',
       title: 'Physical',
-      image: img('serviceSimplifiedYoga'),
+      image: img('homeBalancePhysical'),
       points: ['Healthy body', 'Exercise', 'Vitality', 'Discipline'],
     },
     {
       tone: 'mental',
       title: 'Mental',
-      image: img('serviceMeditation'),
+      image: img('homeBalanceMental'),
       points: ['Clear mind', 'Meditation', 'Emotional balance', 'Focus'],
     },
     {
       tone: 'spiritual',
       title: 'Spiritual',
-      image: img('banner3'),
+      image: img('homeBalanceSpiritual'),
       points: ['Inner awareness', 'Introspection', 'Self-realisation', 'Inner peace'],
     },
   ],
@@ -208,7 +214,7 @@ export const FINAL_CTA = {
   eyebrow: 'A Simple Message',
   title: 'Begin Your Inner Journey',
   text: "You don't have to leave everyday life behind to discover inner peace.",
-  image: img('homeHeroLandscape'),
+  image: img('homeCtaBanner'),
   pillars: [
     { icon: 'fas fa-leaf', label: 'Live consciously' },
     { icon: 'fas fa-heart', label: 'Live compassionately' },
@@ -219,8 +225,3 @@ export const FINAL_CTA = {
   tagline: 'Spiritual Based Life Living',
   taglineSub: 'A journey towards knowing yourself and understanding life.',
 };
-
-/** Display order: last item first (reference layout). */
-export function reversedCopy(list) {
-  return [...list].reverse();
-}
