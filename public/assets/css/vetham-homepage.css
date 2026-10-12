@@ -1780,6 +1780,74 @@
   }
 }
 
+/* Reference section bands — pixel-match design mockups (Journey → CTA) */
+.sh-ref-band {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background: #f7f3ed;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.sh-ref-band + .sh-ref-band {
+  margin-top: -1px;
+}
+
+.sh-ref-band__frame {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  line-height: 0;
+}
+
+.sh-ref-band__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.sh-ref-band__cta-hit {
+  position: absolute;
+  z-index: 2;
+}
+
+#sh-village.sh-ref-band .sh-ref-band__cta-hit {
+  left: clamp(12px, 4vw, 48px);
+  bottom: clamp(24px, 12%, 80px);
+  width: min(240px, 42%);
+  height: clamp(40px, 8%, 52px);
+}
+
+.sh-ref-band--cta .sh-ref-band__cta-actions {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(28px, 8vw, 72px);
+  transform: translateX(-50%);
+  z-index: 3;
+  width: min(92%, 420px);
+  display: flex;
+  justify-content: center;
+}
+
+.sh-ref-band__cta-btn {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @media (max-width: 480px) {
   .sh-cta__pillars--divided li {
     flex: 1 1 100%;
