@@ -32,13 +32,13 @@ export default function Layout() {
       <Helmet><html lang="en" /></Helmet>
       <a className="skip-link" href="#main-content" style={{ position: 'absolute', left: -9999 }}>Skip to main content</a>
       <CinematicPreloader />
-      {!isHome && <ScrollProgress />}
-      {!isHome && <CustomCursor />}
-      {!isHome && <CinematicHeader />}
+      <ScrollProgress />
+      <CustomCursor />
+      <CinematicHeader />
       <main id="main-content" className={`vx-main${isHome ? ' vx-main--home' : ' vx-main--inner'}`}>
         <Outlet />
       </main>
-      {!isHome && <CinematicFooter />}
+      <CinematicFooter />
       {!isHome && <FloatingWidgets />}
     </>
   );

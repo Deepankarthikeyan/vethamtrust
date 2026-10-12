@@ -1,22 +1,6 @@
 import { img } from './images';
 import { SITE } from './site';
 
-export const HOME_BRAND = {
-  logo: img('logo'),
-  title: 'Vethathiri Maharishi',
-  subtitle: 'Spiritual Village',
-};
-
-export const HOME_NAV = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Practices', path: '/courses' },
-  { label: 'Life at Village', path: '/our-village' },
-  { label: 'Benefits', hash: '#sh-benefits' },
-  { label: 'Purpose', hash: '#sh-purpose' },
-  { label: 'Contact', path: '/contact' },
-];
-
 export const SPIRITUAL_HERO = {
   eyebrow: 'Spiritual Based',
   title: 'LIFE LIVING',

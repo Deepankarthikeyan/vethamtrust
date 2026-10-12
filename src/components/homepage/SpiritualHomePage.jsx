@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import LazyImage from '../LazyImage';
-import SpiritualHomeHeader from './SpiritualHomeHeader';
 import {
   BALANCE_CARDS,
   FINAL_CTA,
@@ -18,8 +17,6 @@ import {
 export default function SpiritualHomePage() {
   return (
     <div className="sh-home">
-      <SpiritualHomeHeader />
-
       <section className="sh-hero" aria-label="Hero">
         <div className="sh-hero__media">
           <LazyImage src={SPIRITUAL_HERO.image} alt="" className="sh-hero__img" loading="eager" />
@@ -272,12 +269,6 @@ export default function SpiritualHomePage() {
           <p className="sh-cta__tagline">{FINAL_CTA.tagline}</p>
         </div>
       </section>
-
-      <footer className="sh-home-footer">
-        <div className="sh-container">
-          <p>© {new Date().getFullYear()} Vetham Kuzhumam Spiritual Trust. {FINAL_CTA.tagline}.</p>
-        </div>
-      </footer>
     </div>
   );
 }

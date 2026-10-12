@@ -22,7 +22,6 @@
   --sh-shadow: 0 12px 40px rgba(30, 61, 42, 0.08);
   --sh-font-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
   --sh-font-body: 'Inter', 'Poppins', system-ui, sans-serif;
-  --sh-header-h: 76px;
 }
 
 /* Map legacy var names used below */
@@ -47,150 +46,7 @@
   margin-inline: auto;
 }
 
-/* Header */
-.sh-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  height: var(--sh-header-h);
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--sh-border);
-  transition: box-shadow 0.25s ease;
-}
-
-.sh-header.is-scrolled {
-  box-shadow: 0 8px 30px rgba(30, 61, 42, 0.08);
-}
-
-.sh-header__inner {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.sh-header__brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-  max-width: 220px;
-}
-
-.sh-header__brand img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-}
-
-.sh-header__brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.15;
-}
-
-.sh-header__brand-title {
-  font-family: var(--sh-font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--sh-green-deep);
-}
-
-.sh-header__brand-sub {
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--sh-text-dim);
-}
-
-.sh-header__nav {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.sh-header__nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 20px;
-  justify-content: center;
-}
-
-.sh-header__nav a {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--sh-green-deep);
-  letter-spacing: 0.02em;
-  transition: color 0.2s ease;
-}
-
-.sh-header__nav a:hover {
-  color: var(--sh-primary);
-}
-
-.sh-header__actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.sh-btn--sm {
-  padding: 10px 20px;
-  font-size: 0.75rem;
-}
-
-.sh-header__toggle {
-  display: none;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--sh-border);
-  border-radius: 10px;
-  background: #fff;
-  color: var(--sh-green-deep);
-}
-
-.sh-mobile-nav {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  background: rgba(30, 61, 42, 0.45);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.25s ease, visibility 0.25s ease;
-}
-
-.sh-mobile-nav.is-open {
-  opacity: 1;
-  visibility: visible;
-}
-
-.sh-mobile-nav ul {
-  position: absolute;
-  top: var(--sh-header-h);
-  left: 0;
-  right: 0;
-  background: #fff;
-  list-style: none;
-  margin: 0;
-  padding: 20px 24px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  box-shadow: var(--sh-shadow);
-}
-
-.sh-mobile-nav a {
-  font-weight: 600;
-  color: var(--sh-green-deep);
-}
-
-/* —— Homepage: Spiritual layout —— */
+/* —— Homepage content (shared site header/footer from Layout) —— */
 .sh-home {
   background: var(--sh-cream);
   color: var(--vx-text);
@@ -342,7 +198,7 @@
 .sh-hero__grid {
   position: relative;
   z-index: 1;
-  padding-top: calc(var(--sh-header-h) + 48px);
+  padding-top: calc(var(--vx-header-h, 80px) + 32px);
   padding-bottom: 40px;
 }
 
@@ -1184,20 +1040,6 @@
   margin: 0 auto 28px;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.7;
-}
-
-.sh-home-footer {
-  background: var(--sh-green-deep);
-  color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  padding: 20px 0;
-  font-size: 0.85rem;
-}
-
-@media (max-width: 1024px) {
-  .sh-header__nav { display: none; }
-  .sh-header__toggle { display: inline-flex; align-items: center; justify-content: center; }
-  .sh-header__brand { max-width: 180px; }
 }
 
 @media (max-width: 900px) {
