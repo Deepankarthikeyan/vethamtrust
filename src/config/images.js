@@ -10,6 +10,8 @@ const catalog = {
   banner2: [`${V}/banner-2.jpg`],
   banner3: [`${V}/banner-3.jpg`],
   banner4: [`${V}/banner-4.jpg`],
+  homeHeroLandscape: [`${V}/home-hero-landscape.jpg`],
+  homePurposeMeditation: [`${V}/home-purpose-meditation.jpg`],
   about1: [`${V}/village-about.jpg`],
   about2: [`${V}/meditation-hall.jpg`],
   villageAbout: [`${V}/village-about.jpg`],

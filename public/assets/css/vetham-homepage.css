@@ -165,14 +165,12 @@
   font-size: 0.9rem;
 }
 
-/* Hero */
+/* Hero — reference: scenic image right, copy left */
 .sh-hero {
   position: relative;
-  min-height: min(92vh, 900px);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 32px;
+  min-height: min(88vh, 820px);
+  margin-top: calc(-1 * var(--vx-header-h, 80px));
+  padding-top: var(--vx-header-h, 80px);
 }
 
 .sh-hero__media {
@@ -192,14 +190,18 @@
 .sh-hero__shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(105deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 42%, rgba(247, 243, 237, 0.35) 68%, rgba(30, 61, 42, 0.15) 100%);
+  background: linear-gradient(90deg, rgba(253, 251, 247, 0.97) 0%, rgba(253, 251, 247, 0.88) 36%, rgba(253, 251, 247, 0.45) 52%, rgba(30, 61, 42, 0.08) 100%);
 }
 
-.sh-hero__grid {
+.sh-hero__inner {
   position: relative;
   z-index: 1;
-  padding-top: calc(var(--vx-header-h, 80px) + 32px);
-  padding-bottom: 40px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  min-height: min(78vh, 720px);
+  padding: 48px 0 32px;
 }
 
 .sh-hero__copy {
@@ -232,14 +234,12 @@
 }
 
 .sh-hero__pillars {
-  position: relative;
-  z-index: 1;
   list-style: none;
-  margin: 0;
+  margin: 28px 0 0;
   padding: 20px 0 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 28px;
+  gap: 24px 32px;
   border-top: 1px solid rgba(30, 61, 42, 0.12);
 }
 
@@ -307,6 +307,229 @@
   color: var(--vx-primary);
   opacity: 0.35;
 }
+
+
+
+.sh-dimension-tile {
+  border-radius: var(--vx-radius-sm);
+  color: #fff;
+  text-align: center;
+  padding: 28px 14px 32px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  box-shadow: var(--sh-shadow);
+}
+
+.sh-dimension-tile i { font-size: 1.6rem; margin-top: 8px; }
+.sh-dimension-tile h3 {
+  margin: 0;
+  font-family: var(--vx-font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+}
+.sh-dimension-tile p { margin: 0; font-size: 0.78rem; opacity: 0.92; line-height: 1.45; }
+
+.sh-section--botanical {
+  position: relative;
+  overflow: hidden;
+}
+
+.sh-section--botanical::before,
+.sh-section--botanical::after {
+  content: '';
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  opacity: 0.12;
+  background: radial-gradient(circle at 30% 30%, var(--sh-green) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.sh-section--botanical::before { top: 12px; left: -40px; }
+.sh-section--botanical::after { bottom: 12px; right: -40px; }
+
+.sh-title__sep {
+  font-weight: 400;
+  color: var(--vx-primary);
+  margin: 0 0.15em;
+}
+
+.sh-split__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.sh-split-panel {
+  border-radius: var(--vx-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
+  box-shadow: var(--sh-shadow);
+}
+
+.sh-split-panel--purpose {
+  background: linear-gradient(180deg, #2f5f44 0%, #1e3d2a 100%);
+}
+
+.sh-split-panel--brotherhood {
+  background: linear-gradient(180deg, #4a4035 0%, #2d2620 100%);
+}
+
+.sh-split-panel__media {
+  position: relative;
+  flex: 1;
+  min-height: 200px;
+}
+
+.sh-split-panel__media img {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  object-fit: cover;
+}
+
+.sh-split-panel__media--short { flex: 0 0 auto; max-height: 220px; }
+
+.sh-split-panel__media--fill {
+  flex: 1;
+  min-height: 520px;
+}
+
+.sh-split-panel__media--fill img {
+  min-height: 520px;
+}
+
+.sh-split-panel__body--overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 24px 28px 28px;
+}
+
+.sh-split-panel__media-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(30, 61, 42, 0.15) 0%, rgba(30, 61, 42, 0.88) 72%);
+}
+
+.sh-split-panel__body {
+  padding: 28px 28px 32px;
+}
+
+.sh-split-panel__body--top { padding-bottom: 16px; }
+
+.sh-purpose-list {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sh-purpose-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.sh-purpose-list__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--vx-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sh-purpose-list h3 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.sh-purpose-list p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.45;
+}
+
+.sh-split-panel .sh-values {
+  padding: 16px 20px 24px;
+  justify-content: center;
+  gap: 10px 16px;
+}
+
+.sh-split-panel .sh-values li {
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.sh-village__head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 40px;
+}
+
+.sh-village__layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.sh-village__feature {
+  position: relative;
+  border-radius: var(--vx-radius);
+  overflow: hidden;
+  box-shadow: var(--sh-shadow);
+  min-height: 420px;
+}
+
+.sh-village__feature img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+}
+
+.sh-village__cta {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+}
+
+.sh-village__tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.sh-way__list li {
+  font-weight: 500;
+}
+
+.sh-way__list li > span:last-child {
+  line-height: 1.4;
+}
+
 
 /* Journey cards */
 .sh-journey__grid {
@@ -798,21 +1021,9 @@
 @media (max-width: 900px) {
   .sh-about__grid,
   .sh-way__grid,
-  .sh-dual__grid {
+  .sh-split__grid,
+  .sh-village__layout {
     grid-template-columns: 1fr;
-  }
-
-  .sh-village__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sh-village__hero-img {
-    grid-column: 1;
-    grid-row: auto;
-  }
-
-  .sh-village__tiles {
-    grid-column: 1;
   }
 
   .sh-balance-card {

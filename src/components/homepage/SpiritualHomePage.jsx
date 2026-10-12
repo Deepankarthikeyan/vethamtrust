@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom';
 import LazyImage from '../LazyImage';
 import {
   BALANCE_CARDS,
+  BROTHERHOOD_PANEL,
   FINAL_CTA,
   FIVE_DIMENSIONS,
   INNER_PEACE_STEPS,
   JOURNEY_WITHIN,
-  PURPOSE_JOURNEY,
+  PURPOSE_PANEL,
   SPIRITUAL_ABOUT,
   SPIRITUAL_HERO,
-  UNIVERSAL_BROTHERHOOD,
   VILLAGE_LIFE,
   WAY_OF_LIFE,
 } from '../../config/spiritualHome';
@@ -22,13 +22,13 @@ export default function SpiritualHomePage() {
           <LazyImage src={SPIRITUAL_HERO.image} alt="" className="sh-hero__img" loading="eager" />
           <div className="sh-hero__shade" />
         </div>
-        <div className="sh-container sh-hero__grid">
+        <div className="sh-container sh-hero__inner">
           <div className="sh-hero__copy">
             <p className="sh-eyebrow">{SPIRITUAL_HERO.eyebrow}</p>
             <h1 className="sh-hero__title">{SPIRITUAL_HERO.title}</h1>
             <p className="sh-hero__subtitle">{SPIRITUAL_HERO.subtitle}</p>
             {SPIRITUAL_HERO.paragraphs.map((p) => (
-              <p key={p.slice(0, 28)} className="sh-text">{p}</p>
+              <p key={p.slice(0, 32)} className="sh-text">{p}</p>
             ))}
             <div className="sh-hero__actions">
               <Link to={SPIRITUAL_HERO.primaryCta.path} className="sh-btn sh-btn--primary">
@@ -38,29 +38,30 @@ export default function SpiritualHomePage() {
                 {SPIRITUAL_HERO.secondaryCta.label}
               </Link>
             </div>
+            <ul className="sh-hero__pillars">
+              {SPIRITUAL_HERO.pillars.map((item) => (
+                <li key={item.label}>
+                  <i className={item.icon} aria-hidden="true" />
+                  <span>{item.label}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <ul className="sh-hero__pillars sh-container">
-          {SPIRITUAL_HERO.pillars.map((item) => (
-            <li key={item.label}>
-              <i className={item.icon} aria-hidden="true" />
-              <span>{item.label}</span>
-            </li>
-          ))}
-        </ul>
       </section>
 
-      <section className="sh-section sh-about" id="sh-about" aria-label="About">
+      <section className="sh-section sh-about sh-section--botanical" id="sh-about" aria-label="About">
         <div className="sh-container sh-about__grid">
           <div className="sh-about__visual">
             <div className="sh-about__backdrop" style={{ backgroundImage: `url(${SPIRITUAL_ABOUT.backdrop})` }} />
             <LazyImage src={SPIRITUAL_ABOUT.image} alt="Yogiraj Vethathiri Maharishi" />
           </div>
           <div className="sh-about__copy">
-            <p className="sh-eyebrow sh-eyebrow--green">{SPIRITUAL_ABOUT.eyebrow}</p>
-            <h2 className="sh-title">{SPIRITUAL_ABOUT.title}</h2>
+            <h2 className="sh-title">
+              About <span className="sh-title__sep">—</span> {SPIRITUAL_ABOUT.title}
+            </h2>
             {SPIRITUAL_ABOUT.text.map((p) => (
-              <p key={p.slice(0, 28)} className="sh-text">{p}</p>
+              <p key={p.slice(0, 32)} className="sh-text">{p}</p>
             ))}
             <blockquote className="sh-quote">
               <span className="sh-quote__mark" aria-hidden="true">&ldquo;</span>
@@ -71,10 +72,10 @@ export default function SpiritualHomePage() {
         </div>
       </section>
 
-      <section className="sh-section sh-section--cream sh-journey" id="sh-practices" aria-label="Journey within">
+      <section className="sh-section sh-section--cream sh-section--botanical sh-journey" id="sh-practices" aria-label="Journey within">
         <div className="sh-container">
           <div className="sh-section-head">
-            <p className="sh-eyebrow sh-eyebrow--center">{JOURNEY_WITHIN.subtitle}</p>
+            <p className="sh-eyebrow sh-eyebrow--center">{JOURNEY_WITHIN.eyebrow}</p>
             <h2 className="sh-title sh-title--center">{JOURNEY_WITHIN.title}</h2>
           </div>
           <div className="sh-journey__grid">
@@ -94,7 +95,7 @@ export default function SpiritualHomePage() {
         </div>
       </section>
 
-      <section className="sh-section sh-dimensions" aria-label="Five dimensions">
+      <section className="sh-section sh-dimensions sh-section--botanical" aria-label="Five dimensions">
         <div className="sh-container">
           <div className="sh-section-head">
             <h2 className="sh-title sh-title--center">{FIVE_DIMENSIONS.title}</h2>
@@ -102,20 +103,19 @@ export default function SpiritualHomePage() {
           </div>
           <div className="sh-dimensions__row">
             {FIVE_DIMENSIONS.items.map((dim) => (
-              <article key={dim.key} className="sh-dimension-card">
-                <div className="sh-dimension-card__panel" style={{ backgroundColor: dim.color }}>
-                  <i className={dim.icon} aria-hidden="true" />
-                  <h3>{dim.label}</h3>
-                  <p>{dim.text}</p>
-                </div>
-                <div className="sh-dimension-card__photo">
-                  <LazyImage src={dim.image} alt="" />
-                </div>
+              <article
+                key={dim.key}
+                className="sh-dimension-tile"
+                style={{ backgroundColor: dim.color }}
+              >
+                <i className={dim.icon} aria-hidden="true" />
+                <h3>{dim.label}</h3>
+                <p>{dim.text}</p>
               </article>
             ))}
           </div>
           <div className="sh-dimensions__banner">
-            <LazyImage src={FIVE_DIMENSIONS.bannerImage} alt="Peaceful landscape at the spiritual village" />
+            <LazyImage src={FIVE_DIMENSIONS.bannerImage} alt="Peaceful landscape" />
           </div>
         </div>
       </section>
@@ -128,12 +128,9 @@ export default function SpiritualHomePage() {
           </div>
           <ul className="sh-way__list">
             {WAY_OF_LIFE.items.map((item) => (
-              <li key={item.title}>
+              <li key={item.label}>
                 <span className="sh-way__icon" aria-hidden="true"><i className={item.icon} /></span>
-                <div>
-                  <strong>{item.title}</strong>
-                  <p>{item.text}</p>
-                </div>
+                <span>{item.label}</span>
               </li>
             ))}
           </ul>
@@ -156,72 +153,74 @@ export default function SpiritualHomePage() {
         </div>
       </section>
 
-      <section className="sh-section sh-purpose" id={PURPOSE_JOURNEY.id} aria-label="Purpose">
-        <div className="sh-container sh-purpose__grid">
-          <div className="sh-purpose__media">
-            <LazyImage src={PURPOSE_JOURNEY.image} alt="Meditation at the spiritual village" />
-          </div>
-          <div className="sh-purpose__copy">
-            <h2 className="sh-title sh-title--light">{PURPOSE_JOURNEY.title}</h2>
-            <p className="sh-text sh-text--light">{PURPOSE_JOURNEY.intro}</p>
-            <ul className="sh-purpose__list">
-              {PURPOSE_JOURNEY.items.map((item) => (
-                <li key={item.title}>
-                  <span className="sh-purpose__icon" aria-hidden="true"><i className={item.icon} /></span>
-                  <div>
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
-                  </div>
+      <section className="sh-section sh-split" id="sh-purpose" aria-label="Purpose and brotherhood">
+        <div className="sh-container sh-split__grid">
+          <article className="sh-split-panel sh-split-panel--purpose">
+            <div className="sh-split-panel__media sh-split-panel__media--fill">
+              <LazyImage src={PURPOSE_PANEL.image} alt="" />
+              <div className="sh-split-panel__media-shade" />
+              <div className="sh-split-panel__body sh-split-panel__body--overlay">
+                <h2 className="sh-title sh-title--light">{PURPOSE_PANEL.title}</h2>
+                <ul className="sh-purpose-list">
+                  {PURPOSE_PANEL.items.map((item) => (
+                    <li key={item.title}>
+                      <span className="sh-purpose-list__icon" aria-hidden="true"><i className={item.icon} /></span>
+                      <div>
+                        <h3>{item.title}</h3>
+                        <p>{item.text}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article className="sh-split-panel sh-split-panel--brotherhood">
+            <div className="sh-split-panel__body sh-split-panel__body--top">
+              <h2 className="sh-title sh-title--light">{BROTHERHOOD_PANEL.title}</h2>
+              <p className="sh-text sh-text--light">{BROTHERHOOD_PANEL.text}</p>
+            </div>
+            <div className="sh-split-panel__media sh-split-panel__media--short">
+              <LazyImage src={BROTHERHOOD_PANEL.image} alt="Community gathering" />
+            </div>
+            <ul className="sh-values">
+              {BROTHERHOOD_PANEL.values.map((v) => (
+                <li key={v.label}>
+                  <i className={v.icon} aria-hidden="true" />
+                  <span>{v.label}</span>
                 </li>
               ))}
             </ul>
-          </div>
+          </article>
         </div>
       </section>
 
-      <section className="sh-section sh-brotherhood" aria-label="Universal brotherhood">
+      <section className="sh-section sh-village sh-section--botanical" id="sh-village" aria-label="Village life">
         <div className="sh-container">
-          <div className="sh-brotherhood__head">
-            <h2 className="sh-title sh-title--center">{UNIVERSAL_BROTHERHOOD.title}</h2>
-            <p className="sh-text sh-text--center">{UNIVERSAL_BROTHERHOOD.text}</p>
+          <div className="sh-village__head">
+            <p className="sh-eyebrow sh-eyebrow--center">{VILLAGE_LIFE.sectionTitle}</p>
+            <h2 className="sh-title sh-title--center">{VILLAGE_LIFE.title}</h2>
+            <p className="sh-text sh-text--center">{VILLAGE_LIFE.text}</p>
           </div>
-          <div className="sh-brotherhood__banner">
-            <LazyImage src={UNIVERSAL_BROTHERHOOD.image} alt="Community meditation gathering" />
-          </div>
-          <ul className="sh-values sh-values--row">
-            {UNIVERSAL_BROTHERHOOD.values.map((v) => (
-              <li key={v.label}>
-                <i className={v.icon} aria-hidden="true" />
-                <span>{v.label}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="sh-section sh-village" id="sh-village" aria-label="Village life">
-        <div className="sh-container sh-village__grid">
-          <div className="sh-village__lead">
-            <p className="sh-eyebrow">{VILLAGE_LIFE.eyebrow}</p>
-            <h2 className="sh-title">{VILLAGE_LIFE.title}</h2>
-            <p className="sh-text">{VILLAGE_LIFE.text}</p>
-            <Link to={VILLAGE_LIFE.cta.path} className="sh-btn sh-btn--primary">
-              {VILLAGE_LIFE.cta.label}
-            </Link>
-          </div>
-          <div className="sh-village__hero-img">
-            <LazyImage src={VILLAGE_LIFE.heroImage} alt="Spiritual village surroundings" />
-          </div>
-          <div className="sh-village__tiles">
-            {VILLAGE_LIFE.tiles.map((tile) => (
-              <article key={tile.title} className="sh-village-tile">
-                <div className="sh-village-tile__img">
-                  <LazyImage src={tile.image} alt="" />
-                </div>
-                <h3>{tile.title}</h3>
-                <p>{tile.text}</p>
-              </article>
-            ))}
+          <div className="sh-village__layout">
+            <div className="sh-village__feature">
+              <LazyImage src={VILLAGE_LIFE.featureImage} alt="Spiritual village" />
+              <Link to={VILLAGE_LIFE.cta.path} className="sh-btn sh-btn--primary sh-village__cta">
+                {VILLAGE_LIFE.cta.label}
+              </Link>
+            </div>
+            <div className="sh-village__tiles">
+              {VILLAGE_LIFE.tiles.map((tile) => (
+                <article key={tile.title} className="sh-village-tile">
+                  <div className="sh-village-tile__img">
+                    <LazyImage src={tile.image} alt="" />
+                  </div>
+                  <h3>{tile.title}</h3>
+                  <p>{tile.text}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
