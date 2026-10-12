@@ -211,8 +211,9 @@ button {
 }
 
 .vx-header__logo img {
-  height: 52px;
+  height: 56px;
   width: auto;
+  max-width: min(280px, 42vw);
   object-fit: contain;
 }
 
