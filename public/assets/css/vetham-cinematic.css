@@ -10,8 +10,9 @@
   --vx-bg-soft: #faf6f2;
   --vx-bg-card: #f0ebe3;
   --vx-footer-bg: #232323;
-  --vx-cream: #1a1a1a;
-  --vx-cream-muted: #666666;
+  --vx-cream: #faf6f2;
+  --vx-cream-muted: rgba(255, 255, 255, 0.78);
+  --vx-heading: #1e3d2a;
   --vx-gold-soft: rgba(196, 90, 26, 0.2);
   --vx-navy: #232323;
   --vx-text: #333333;
@@ -210,11 +211,19 @@ button {
   width: 100%;
 }
 
+.vx-header__logo {
+  flex-shrink: 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
 .vx-header__logo img {
-  height: 56px;
+  height: clamp(52px, 7.5vw, 76px);
   width: auto;
-  max-width: min(280px, 42vw);
+  max-width: min(400px, 62vw);
   object-fit: contain;
+  display: block;
 }
 
 .vx-header__nav {
@@ -1110,7 +1119,25 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
 .vx-footer {
   background: var(--vx-footer-bg);
   padding: var(--vx-section) 0 40px;
-  border-top: 1px solid var(--vx-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.88);
+  position: relative;
+  z-index: 2;
+}
+
+.vx-footer .vx-text,
+.vx-footer p,
+.vx-footer__grid > div > p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.vx-footer__logo img {
+  height: clamp(64px, 10vw, 88px);
+  width: auto;
+  max-width: min(360px, 90vw);
+  object-fit: contain;
+  display: block;
+  margin-bottom: 20px;
 }
 
 .vx-footer__brand {
@@ -1126,7 +1153,7 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
 .vx-footer__tagline {
   font-family: var(--vx-font-display);
   font-size: 1.25rem;
-  color: var(--vx-peach);
+  color: #ffffff;
   margin-bottom: 48px;
 }
 
@@ -1141,7 +1168,7 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   font-size: 0.8rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--vx-peach);
+  color: #ffcc99;
   margin: 0 0 20px;
 }
 
@@ -1153,8 +1180,12 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
 
 .vx-footer__links li { margin-bottom: 10px; }
 
+.vx-footer__links li {
+  color: rgba(255, 255, 255, 0.85);
+}
+
 .vx-footer__links a {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 0.9rem;
   transition: color 0.25s ease;
 }
@@ -1170,7 +1201,11 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   padding-top: 32px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.vx-footer__bottom p {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .vx-footer__social {
@@ -1254,13 +1289,13 @@ body.vx-inner .sub-title {
 body.vx-inner .sec-title h2,
 body.vx-inner h2 {
   font-family: var(--vx-font-display);
-  color: var(--vx-cream) !important;
+  color: var(--vx-heading) !important;
   font-weight: 400;
 }
 
 body.vx-inner p,
 body.vx-inner .text p {
-  color: var(--vx-cream-muted);
+  color: var(--vx-text-dim) !important;
 }
 
 body.vx-inner .theme-btn-one,
@@ -1302,10 +1337,12 @@ body.vx-inner [class^="icon-"] {
   color: var(--vx-gold);
 }
 
-body.vx-inner .vetham-leader-card,
-body.vx-inner .vetham-leader-card__name,
+body.vx-inner .vetham-leader-card__name {
+  color: var(--vx-heading);
+}
+
 body.vx-inner .vetham-leader-card__bio {
-  color: var(--vx-cream);
+  color: var(--vx-text-dim);
 }
 
 body.vx-inner .vetham-leader-card {
@@ -1404,7 +1441,15 @@ body.vx-inner .main-header { display: none; }
   .vx-gallery__item--wide,
   .vx-gallery__item--sq { grid-column: span 12; }
 
-  .vx-container { width: calc(100% - 32px); }
+  .vx-container {
+    width: min(1120px, calc(100% - 24px));
+    padding-inline: 12px;
+  }
+
+  .vx-header__logo img {
+    max-width: min(320px, 72vw);
+    height: clamp(44px, 12vw, 60px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

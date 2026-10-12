@@ -30,7 +30,9 @@ export default function CinematicFooter() {
 
         <div className="vx-footer__grid">
           <div>
-            <img src={img('logoFooter')} alt={SITE.name} width={80} height={80} style={{ marginBottom: 20, objectFit: 'contain' }} />
+            <div className="vx-footer__logo">
+              <img src={img('logoFooter')} alt={SITE.name} loading="lazy" decoding="async" />
+            </div>
             <p className="vx-text">{SITE.name} — {SITE.tagline}. Yoga, meditation, and spiritual teachings in Coimbatore.</p>
           </div>
           <div>

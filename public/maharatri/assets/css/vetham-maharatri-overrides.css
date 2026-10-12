@@ -108,8 +108,8 @@ body.krishna-home .sigma_footer-middle a:hover {
 .vetham-mht-logo img,
 .sigma_footer-logo .vetham-footer-logo,
 body.krishna-home .sigma_preloader .vetham-preloader__logo {
-  max-height: 56px;
-  max-width: min(280px, 42vw);
+  max-height: clamp(52px, 8vw, 76px);
+  max-width: min(400px, 62vw);
   width: auto;
   height: auto;
   object-fit: contain;
