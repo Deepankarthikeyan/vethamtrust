@@ -12,6 +12,7 @@ import {
   SPIRITUAL_HERO,
   VILLAGE_LIFE,
   WAY_OF_LIFE,
+  reversedCopy,
 } from '../../config/spiritualHome';
 
 export default function SpiritualHomePage() {
@@ -49,9 +50,15 @@ export default function SpiritualHomePage() {
       <section className="sh-section sh-about sh-section--botanical" id="sh-about" aria-label="About">
         <div className="sh-container sh-about__grid">
           <div className="sh-about__visual">
-            <div className="sh-about__leaf-ring" aria-hidden="true" />
-            <div className="sh-about__portrait">
-              <LazyImage src={SPIRITUAL_ABOUT.image} alt="Yogiraj Vethathiri Maharishi" />
+            <div className="sh-about__portrait sh-about__portrait--png">
+              <img
+                src={SPIRITUAL_ABOUT.image}
+                alt="Yogiraj Vethathiri Maharishi"
+                width={520}
+                height={640}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
           <div className="sh-about__copy">
@@ -69,12 +76,13 @@ export default function SpiritualHomePage() {
 
       <section className="sh-section sh-section--cream sh-section--botanical sh-journey" id="sh-practices" aria-label="Journey within">
         <div className="sh-container">
-          <div className="sh-section-head">
+          <div className="sh-section-head sh-section-head--narrow">
             <p className="sh-eyebrow sh-eyebrow--center">{JOURNEY_WITHIN.eyebrow}</p>
             <h2 className="sh-title sh-title--center">{JOURNEY_WITHIN.title}</h2>
+            <p className="sh-text sh-text--center">{JOURNEY_WITHIN.subtitle}</p>
           </div>
           <div className="sh-journey__grid">
-            {JOURNEY_WITHIN.items.map((item) => (
+            {reversedCopy(JOURNEY_WITHIN.items).map((item) => (
               <article key={item.title} className="sh-journey-card">
                 <div className="sh-journey-card__img">
                   <LazyImage src={item.image} alt="" />
@@ -92,12 +100,12 @@ export default function SpiritualHomePage() {
 
       <section className="sh-section sh-dimensions sh-section--botanical" aria-label="Five dimensions">
         <div className="sh-container">
-          <div className="sh-section-head">
+          <div className="sh-section-head sh-section-head--narrow">
+            <p className="sh-eyebrow sh-eyebrow--center">{FIVE_DIMENSIONS.eyebrow}</p>
             <h2 className="sh-title sh-title--center">{FIVE_DIMENSIONS.title}</h2>
-            <p className="sh-text sh-text--center">{FIVE_DIMENSIONS.subtitle}</p>
           </div>
           <div className="sh-dimensions__row">
-            {FIVE_DIMENSIONS.items.map((dim) => (
+            {reversedCopy(FIVE_DIMENSIONS.items).map((dim) => (
               <article
                 key={dim.key}
                 className="sh-dimension-tile"
@@ -114,15 +122,13 @@ export default function SpiritualHomePage() {
               </article>
             ))}
           </div>
-          <div className="sh-dimensions__banner">
-            <LazyImage src={FIVE_DIMENSIONS.bannerImage} alt="Peaceful landscape" />
-          </div>
         </div>
       </section>
 
-      <section className="sh-section sh-way" aria-label="Way of life">
+      <section className="sh-section sh-way sh-section--botanical" aria-label="Way of life">
         <div className="sh-container sh-way__grid">
           <div className="sh-way__intro">
+            <p className="sh-eyebrow">{WAY_OF_LIFE.eyebrow}</p>
             <h2 className="sh-title">{WAY_OF_LIFE.title}</h2>
             <p className="sh-text">{WAY_OF_LIFE.text}</p>
           </div>
@@ -132,7 +138,7 @@ export default function SpiritualHomePage() {
                 <span className="sh-way__icon" aria-hidden="true"><i className={item.icon} /></span>
                 <div>
                   <strong>{item.title}</strong>
-                  <p>{item.text}</p>
+                  <span className="sh-way__hint"> ({item.hint})</span>
                 </div>
               </li>
             ))}
@@ -142,11 +148,18 @@ export default function SpiritualHomePage() {
 
       <section className="sh-section sh-section--beige sh-peace" id="sh-benefits" aria-label="Inner peace">
         <div className="sh-container">
-          <div className="sh-peace__mark" aria-hidden="true" />
-          <h2 className="sh-title sh-title--center">{INNER_PEACE_STEPS.title}</h2>
+          <div className="sh-section-head sh-section-head--narrow">
+            <p className="sh-eyebrow sh-eyebrow--center">{INNER_PEACE_STEPS.eyebrow}</p>
+            <h2 className="sh-title sh-title--center">{INNER_PEACE_STEPS.title}</h2>
+            <p className="sh-text sh-text--center">{INNER_PEACE_STEPS.intro}</p>
+          </div>
           <div className="sh-peace__grid">
-            {INNER_PEACE_STEPS.items.map((step) => (
-              <article key={step.num} className="sh-peace-card">
+            {reversedCopy(INNER_PEACE_STEPS.items).map((step) => (
+              <article
+                key={step.num}
+                className="sh-peace-card"
+                style={{ '--sh-peace-accent': step.accent }}
+              >
                 <span className="sh-peace-card__num">{step.num}</span>
                 <i className={step.icon} aria-hidden="true" />
                 <h3>{step.title}</h3>
@@ -164,6 +177,7 @@ export default function SpiritualHomePage() {
               <LazyImage src={PURPOSE_PANEL.image} alt="" />
               <div className="sh-split-panel__media-shade sh-split-panel__media-shade--purpose" />
               <div className="sh-purpose-side">
+                <p className="sh-eyebrow sh-eyebrow--light">{PURPOSE_PANEL.eyebrow}</p>
                 <h2 className="sh-title sh-title--light">{PURPOSE_PANEL.title}</h2>
                 <ul className="sh-purpose-list">
                   {PURPOSE_PANEL.items.map((item) => (
@@ -182,35 +196,38 @@ export default function SpiritualHomePage() {
 
           <article className="sh-split-panel sh-split-panel--brotherhood">
             <div className="sh-brotherhood__title-wrap">
-              <h2 className="sh-title sh-title--light">{BROTHERHOOD_PANEL.title}</h2>
+              <p className="sh-eyebrow">{BROTHERHOOD_PANEL.eyebrow}</p>
+              <h2 className="sh-title">{BROTHERHOOD_PANEL.title}</h2>
+              <p className="sh-text">{BROTHERHOOD_PANEL.text}</p>
             </div>
             <div className="sh-split-panel__media sh-split-panel__media--brotherhood">
               <LazyImage src={BROTHERHOOD_PANEL.image} alt="Community gathering" />
             </div>
             <ul className="sh-values sh-values--row">
               {BROTHERHOOD_PANEL.values.map((v) => (
-                <li key={v.label}>
+                <li key={v.label} className={`sh-values__item sh-values__item--${v.tone}`}>
                   <i className={v.icon} aria-hidden="true" />
                   <span>{v.label}</span>
                 </li>
               ))}
             </ul>
+            <p className="sh-text sh-text--center sh-brotherhood__footer">{BROTHERHOOD_PANEL.footer}</p>
           </article>
         </div>
       </section>
 
       <section className="sh-section sh-village sh-section--botanical" id="sh-village" aria-label="Village life">
-        <div className="sh-container">
+        <div className="sh-container sh-village__layout">
           <div className="sh-village__head sh-village__head--left">
             <p className="sh-eyebrow">{VILLAGE_LIFE.sectionTitle}</p>
             <h2 className="sh-title">{VILLAGE_LIFE.title}</h2>
             <p className="sh-text">{VILLAGE_LIFE.text}</p>
             <Link to={VILLAGE_LIFE.cta.path} className="sh-btn sh-btn--primary">
-              {VILLAGE_LIFE.cta.label}
+              {VILLAGE_LIFE.cta.label} <i className="fas fa-arrow-right" aria-hidden="true" />
             </Link>
           </div>
           <div className="sh-village__row">
-            {VILLAGE_LIFE.tiles.map((tile) => (
+            {reversedCopy(VILLAGE_LIFE.tiles).map((tile) => (
               <article key={tile.title} className="sh-village-tile">
                 <div className="sh-village-tile__img">
                   <LazyImage src={tile.image} alt="" />
@@ -223,16 +240,19 @@ export default function SpiritualHomePage() {
         </div>
       </section>
 
-      <section className="sh-section sh-section--cream sh-balance" aria-label="Balance">
+      <section className="sh-section sh-section--cream sh-balance sh-section--botanical" aria-label="Balance">
         <div className="sh-container">
-          <h2 className="sh-title sh-title--center">{BALANCE_CARDS.title}</h2>
+          <div className="sh-section-head sh-section-head--narrow">
+            <p className="sh-eyebrow sh-eyebrow--center">{BALANCE_CARDS.eyebrow}</p>
+            <h2 className="sh-title sh-title--center">{BALANCE_CARDS.title}</h2>
+          </div>
           <div className="sh-balance__grid">
-            {BALANCE_CARDS.cards.map((card) => (
+            {reversedCopy(BALANCE_CARDS.cards).map((card) => (
               <article key={card.title} className={`sh-balance-col sh-balance-col--${card.tone}`}>
-                <h3>{card.title}</h3>
                 <div className="sh-balance-col__img">
                   <LazyImage src={card.image} alt="" />
                 </div>
+                <h3>{card.title}</h3>
                 <ul>
                   {card.points.map((point) => (
                     <li key={point}><i className="fas fa-check" aria-hidden="true" /> {point}</li>
@@ -251,7 +271,7 @@ export default function SpiritualHomePage() {
           <p className="sh-cta__eyebrow">{FINAL_CTA.eyebrow}</p>
           <h2 className="sh-cta__title">{FINAL_CTA.title}</h2>
           <p className="sh-cta__text">{FINAL_CTA.text}</p>
-          <ul className="sh-cta__pillars">
+          <ul className="sh-cta__pillars sh-cta__pillars--divided">
             {FINAL_CTA.pillars.map((p) => (
               <li key={p.label}>
                 <i className={p.icon} aria-hidden="true" />
@@ -262,7 +282,10 @@ export default function SpiritualHomePage() {
           <Link to={FINAL_CTA.cta.path} className="sh-btn sh-btn--primary sh-btn--lg">
             {FINAL_CTA.cta.label} <i className="fas fa-arrow-right" aria-hidden="true" />
           </Link>
-          <p className="sh-cta__tagline">{FINAL_CTA.tagline}</p>
+          <p className="sh-cta__tagline">
+            <strong>{FINAL_CTA.tagline}</strong>
+            <span className="sh-cta__tagline-sub">{FINAL_CTA.taglineSub}</span>
+          </p>
         </div>
       </section>
     </div>

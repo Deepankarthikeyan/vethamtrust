@@ -23,40 +23,40 @@ export const SPIRITUAL_ABOUT = {
   quote: 'Know yourself. Understand life. Live in harmony.',
   quoteAttribution: 'Vethathiri Maharishi',
   image: img('homeAboutMaharishiReference'),
-  backdrop: img('villageAbout'),
 };
 
 export const JOURNEY_WITHIN = {
   eyebrow: 'The Journey Within',
   title: 'From Physical Well-being to Inner Transformation',
+  subtitle: 'Our approach brings together simple yet meaningful practices that encourage a balanced and conscious way of living.',
   items: [
     {
       title: 'Simplified Physical Exercises',
-      text: 'Gentle movements that strengthen the body and prepare the mind for meditation.',
+      text: 'Improve physical health, flexibility and overall well-being through simple and practical exercises.',
       image: img('serviceSimplifiedYoga'),
       icon: 'fas fa-person-walking',
     },
     {
       title: 'Meditation',
-      text: 'Calm the mind, deepen awareness, and experience inner stillness.',
+      text: 'Develop a calm and focused mind through regular meditation and inner observation.',
       image: img('serviceMeditation'),
       icon: 'fas fa-om',
     },
     {
       title: 'Introspection',
-      text: 'Reflect on thoughts and habits to release stress and gain clarity.',
+      text: 'Understand your thoughts, emotions and actions through self-awareness and reflection.',
       image: img('servicePhilosophy'),
       icon: 'fas fa-brain',
     },
     {
       title: 'Kayakalpa',
-      text: 'Holistic practices for vitality, longevity, and life-force balance.',
+      text: 'A traditional practice focused on developing awareness of the body, mind and life force.',
       image: img('serviceHealing'),
       icon: 'fas fa-leaf',
     },
     {
       title: 'Wisdom of Vethathiri Maharishi',
-      text: 'Timeless teachings on consciousness, peace, and human unity.',
+      text: 'Explore profound teachings that help understand human life, relationships, nature and universal consciousness.',
       image: img('serviceTeachings'),
       icon: 'fas fa-sun',
     },
@@ -64,135 +64,142 @@ export const JOURNEY_WITHIN = {
 };
 
 export const FIVE_DIMENSIONS = {
+  eyebrow: 'Five Dimensions',
   title: 'Five Dimensions of Conscious Living',
-  subtitle: 'Balance body, mind, life force, consciousness, and harmony',
   items: [
     {
       key: 'body',
       label: 'BODY',
       color: '#3d7a52',
-      icon: 'fas fa-heart-pulse',
-      text: 'Physical health & vitality',
+      icon: 'fas fa-user',
+      text: 'Healthy physical living',
       image: img('serviceHatha'),
     },
     {
       key: 'mind',
       label: 'MIND',
       color: '#4a7fb8',
-      icon: 'fas fa-lightbulb',
-      text: 'Mental clarity & focus',
+      icon: 'fas fa-brain',
+      text: 'Clarity and emotional balance',
       image: img('serviceMeditation'),
     },
     {
       key: 'life',
       label: 'LIFE FORCE',
       color: '#d97706',
-      icon: 'fas fa-fire',
-      text: 'Energy & renewal',
+      icon: 'fas fa-sun',
+      text: 'Awareness of the energy within',
       image: img('serviceKundalini'),
     },
     {
       key: 'consciousness',
       label: 'CONSCIOUSNESS',
       color: '#7c5cbf',
-      icon: 'fas fa-eye',
-      text: 'Awareness & insight',
+      icon: 'fas fa-spa',
+      text: 'Understanding oneself and life',
       image: img('serviceSelfRealization'),
     },
     {
       key: 'harmony',
       label: 'HARMONY',
       color: '#8b5e3c',
-      icon: 'fas fa-infinity',
-      text: 'Unity & peaceful living',
+      icon: 'fas fa-users',
+      text: 'Living peacefully with society and nature',
       image: img('serviceAwareness'),
     },
   ],
-  bannerImage: img('banner2'),
 };
 
 export const WAY_OF_LIFE = {
+  eyebrow: 'A Way of Living',
   title: 'More Than a Practice. A Way of Life.',
-  text: 'Spiritual living is not limited to practice alone — it shapes how we think, speak, serve, and relate every day.',
+  text: 'Spiritual living is not limited to meditation or yoga. It is about bringing awareness into everyday life.',
   items: [
-    { icon: 'fas fa-brain', title: 'Consciousness', text: 'Awareness in every thought and intention.' },
-    { icon: 'fas fa-scale-balanced', title: 'Discipline', text: 'Steady practice with patience and sincerity.' },
-    { icon: 'fas fa-hand-holding-heart', title: 'Compassion', text: 'Kindness and care in all relationships.' },
-    { icon: 'fas fa-leaf', title: 'Harmony', text: 'Balance with nature and daily life.' },
-    { icon: 'fas fa-dove', title: 'Peace', text: 'Stillness and calm within yourself.' },
-    { icon: 'fas fa-users', title: 'Responsibility', text: 'Service and integrity toward society.' },
-    { icon: 'fas fa-globe', title: 'Universal Brotherhood', text: 'Oneness with all humanity.' },
+    { icon: 'fas fa-brain', title: 'Consciousness', hint: 'in our thoughts' },
+    { icon: 'fas fa-book-open', title: 'Discipline', hint: 'in our actions' },
+    { icon: 'fas fa-hand-holding-heart', title: 'Compassion', hint: 'in our relationships' },
+    { icon: 'fas fa-leaf', title: 'Harmony', hint: 'with nature' },
+    { icon: 'fas fa-fire', title: 'Peace', hint: 'within ourselves' },
+    { icon: 'fas fa-user', title: 'Responsibility', hint: 'towards society' },
+    { icon: 'fas fa-globe', title: 'Universal Brotherhood', hint: 'towards all' },
   ],
 };
 
 export const INNER_PEACE_STEPS = {
+  eyebrow: 'What You Can Discover',
   title: 'A Journey Towards Inner Peace',
+  intro: 'Through regular practice and conscious living, seekers can develop:',
   items: [
-    { num: '01', title: 'Mental Clarity', text: 'Quiet mental noise through meditation and mindful living.', icon: 'fas fa-spa' },
-    { num: '02', title: 'Emotional Balance', text: 'Understand feelings with introspection and patience.', icon: 'fas fa-heart' },
-    { num: '03', title: 'Self-Awareness', text: 'Discover who you are beyond body and circumstance.', icon: 'fas fa-user' },
-    { num: '04', title: 'Inner Peace', text: 'Experience lasting calm rooted in conscious practice.', icon: 'fas fa-water' },
-    { num: '05', title: 'Harmony', text: 'Align thoughts, words, and actions in unity.', icon: 'fas fa-infinity' },
-    { num: '06', title: 'Wisdom', text: 'Live with insight from the teachings of Maharishi.', icon: 'fas fa-book-open' },
+    { num: '01', title: 'Mental Clarity', text: 'A calmer and more focused mind.', icon: 'fas fa-brain', accent: '#2f5f44' },
+    { num: '02', title: 'Emotional Balance', text: 'Greater understanding and control of emotions.', icon: 'fas fa-heart', accent: '#c45a1a' },
+    { num: '03', title: 'Self-Awareness', text: 'A deeper understanding of oneself.', icon: 'fas fa-user', accent: '#3d7a52' },
+    { num: '04', title: 'Inner Peace', text: 'A peaceful state beyond everyday distractions.', icon: 'fas fa-spa', accent: '#7c5cbf' },
+    { num: '05', title: 'Harmony', text: 'A balanced relationship with people, society and nature.', icon: 'fas fa-leaf', accent: '#4a7fb8' },
+    { num: '06', title: 'Wisdom', text: 'A deeper understanding of life and its purpose.', icon: 'fas fa-sun', accent: '#d97706' },
   ],
 };
 
 export const PURPOSE_PANEL = {
+  eyebrow: 'The Purpose of the Journey',
   title: 'Know Yourself. Understand Life.',
   image: img('homePurposeMeditation'),
   items: [
-    { icon: 'fas fa-user', title: 'Know Yourself', text: 'Recognize your true self beyond body and mind.' },
-    { icon: 'fas fa-book-open', title: 'Understand Life', text: 'See purpose through clarity and introspection.' },
-    { icon: 'fas fa-hands-holding-heart', title: 'Live in Harmony', text: 'Align daily life with peace and compassion.' },
-    { icon: 'fas fa-dove', title: 'Experience Inner Peace', text: 'Rest in stillness born of conscious practice.' },
+    { icon: 'fas fa-user', title: 'Know Yourself', text: 'Understand your thoughts, emotions, body and inner nature.' },
+    { icon: 'fas fa-book-open', title: 'Understand Life', text: 'Explore the purpose and deeper meaning of human life.' },
+    { icon: 'fas fa-spa', title: 'Live in Harmony', text: 'Build harmonious relationships with people and nature.' },
+    { icon: 'fas fa-fire', title: 'Experience Inner Peace', text: 'Discover the peace and wisdom that already exist within.' },
   ],
 };
 
 export const BROTHERHOOD_PANEL = {
+  eyebrow: 'Universal Brotherhood',
   title: 'One Humanity. One Consciousness.',
+  text: 'The teachings encourage us to move beyond individual boundaries and develop a sense of universal brotherhood.',
+  footer: 'Together, these values can create a more peaceful individual, family, society and world.',
   image: img('aboutGroup'),
   values: [
-    { icon: 'fas fa-heart', label: 'Love' },
-    { icon: 'fas fa-hand-holding-heart', label: 'Compassion' },
-    { icon: 'fas fa-comments', label: 'Understanding' },
-    { icon: 'fas fa-dove', label: 'Harmony' },
-    { icon: 'fas fa-hands-helping', label: 'Responsibility' },
+    { icon: 'fas fa-heart', label: 'Love', tone: 'love' },
+    { icon: 'fas fa-leaf', label: 'Compassion', tone: 'compassion' },
+    { icon: 'fas fa-comments', label: 'Understanding', tone: 'understanding' },
+    { icon: 'fas fa-users', label: 'Harmony', tone: 'harmony' },
+    { icon: 'fas fa-globe', label: 'Responsibility', tone: 'responsibility' },
   ],
 };
 
 export const VILLAGE_LIFE = {
   sectionTitle: 'Life at the Spiritual Village',
   title: 'A Peaceful Environment for Conscious Living',
-  text: 'Nestled in nature at Marisettipathi, the village welcomes seekers to meditation, yoga, satsang, and community living.',
+  text: 'Surrounded by nature, the Village provides an atmosphere where people can slow down, reflect, practise and reconnect with themselves.',
   cta: { label: 'Explore the Village', path: '/our-village' },
   tiles: [
-    { title: 'Nature', text: 'Lush landscapes and fresh air for renewal.', image: img('villageAbout') },
-    { title: 'Meditation', text: 'Dedicated halls for silence and introspection.', image: img('meditationHall') },
-    { title: 'Yoga', text: 'Daily practice for body–mind integration.', image: img('serviceHatha') },
-    { title: 'Community', text: 'Satsang, service, and shared spiritual growth.', image: img('galleryPreview3') },
+    { title: 'Nature', text: 'Connect with the natural environment.', image: img('villageAbout') },
+    { title: 'Meditation', text: 'Create space for inner silence.', image: img('meditationHall') },
+    { title: 'Yoga', text: 'Support physical and mental well-being.', image: img('serviceHatha') },
+    { title: 'Community', text: 'Grow together through shared values.', image: img('galleryPreview3') },
   ],
 };
 
 export const BALANCE_CARDS = {
+  eyebrow: 'Why Spiritual Based Life Living',
   title: 'Bring Balance Into Everyday Life',
   cards: [
     {
       tone: 'physical',
       title: 'Physical',
       image: img('serviceSimplifiedYoga'),
-      points: ['Healthy body', 'Steady energy', 'Restful sleep', 'Natural vitality'],
+      points: ['Healthy body', 'Exercise', 'Vitality', 'Discipline'],
     },
     {
       tone: 'mental',
       title: 'Mental',
       image: img('serviceMeditation'),
-      points: ['Clear mind', 'Emotional balance', 'Focused attention', 'Stress relief'],
+      points: ['Clear mind', 'Meditation', 'Emotional balance', 'Focus'],
     },
     {
       tone: 'spiritual',
       title: 'Spiritual',
-      image: img('serviceTeachings'),
-      points: ['Inner awareness', 'Purposeful living', 'Compassionate action', 'Lasting peace'],
+      image: img('banner3'),
+      points: ['Inner awareness', 'Introspection', 'Self-realisation', 'Inner peace'],
     },
   ],
 };
@@ -205,9 +212,15 @@ export const FINAL_CTA = {
   pillars: [
     { icon: 'fas fa-leaf', label: 'Live consciously' },
     { icon: 'fas fa-heart', label: 'Live compassionately' },
-    { icon: 'fas fa-dove', label: 'Live harmoniously' },
-    { icon: 'fas fa-eye', label: 'Live with awareness' },
+    { icon: 'fas fa-praying-hands', label: 'Live harmoniously' },
+    { icon: 'fas fa-spa', label: 'Live with awareness' },
   ],
   cta: { label: 'Begin Your Journey', path: '/contact' },
   tagline: 'Spiritual Based Life Living',
+  taglineSub: 'A journey towards knowing yourself and understanding life.',
 };
+
+/** Display order: last item first (reference layout). */
+export function reversedCopy(list) {
+  return [...list].reverse();
+}

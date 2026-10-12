@@ -65,8 +65,9 @@ button {
 }
 
 .vx-container {
-  width: min(1280px, calc(100% - 48px));
+  width: min(1120px, calc(100% - 64px));
   margin-inline: auto;
+  padding-inline: 8px;
 }
 
 .vx-eyebrow {
@@ -286,24 +287,24 @@ button {
   gap: 12px;
 }
 
-body.vx-home .vx-header:not(.is-scrolled) .vx-header__nav > li > a,
-body.vx-home .vx-header:not(.is-scrolled) .vx-header__nav > li > button {
-  color: var(--vx-on-dark);
+body.vx-home .vx-header .vx-header__nav > li > a,
+body.vx-home .vx-header .vx-header__nav > li > button {
+  color: #000;
 }
 
-body.vx-home .vx-header:not(.is-scrolled) .vx-header__toggle {
-  color: var(--vx-on-dark);
-  border-color: rgba(255, 255, 255, 0.35);
+body.vx-home .vx-header .vx-header__toggle {
+  color: #000;
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
-body.vx-home .vx-header:not(.is-scrolled) .vx-btn--ghost {
-  border-color: rgba(255, 255, 255, 0.45);
-  color: var(--vx-on-dark);
+body.vx-home .vx-header .vx-btn--ghost {
+  border-color: rgba(0, 0, 0, 0.35);
+  color: #000;
 }
 
-body.vx-home .vx-header:not(.is-scrolled) .vx-btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--vx-on-dark);
+body.vx-home .vx-header .vx-btn--ghost:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #000;
 }
 
 .vx-header__toggle {
