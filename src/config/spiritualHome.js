@@ -1,33 +1,27 @@
 import { img } from './images';
 
-/** Homepage copy aligned to the reference mockup (header excluded — uses site Layout). */
 export const SPIRITUAL_HERO = {
   eyebrow: 'Spiritual Based',
   title: 'LIFE LIVING',
   subtitle: 'A journey from physical well-being to inner transformation.',
   paragraphs: [
-    'Spiritual based life living is a holistic path that unites simplified physical exercises, meditation, introspection, and the wisdom of Yogiraj Vethathiri Maharishi.',
-    'Experience conscious living in harmony with nature — nurturing the body, calming the mind, and awakening the spirit for a balanced, purposeful life.',
+    'Spiritual based life living integrates simplified physical exercises, meditation, introspection, and the profound wisdom of Yogiraj Vethathiri Maharishi — guiding you toward holistic well-being and inner awakening.',
+    'Discover a path where conscious living nurtures the body, calms the mind, and opens the heart to peace, purpose, and harmony with all life.',
   ],
-  image: img('homeHeroLandscape'),
+  image: img('homeHeroMeditation'),
   primaryCta: { label: 'Explore Spiritual Living', path: '/about' },
   secondaryCta: { label: 'Enquire Now', path: '/contact' },
-  pillars: [
-    { icon: 'fas fa-seedling', label: 'Know Yourself' },
-    { icon: 'fas fa-book-open', label: 'Understand Life' },
-    { icon: 'fas fa-hands-holding-heart', label: 'Live in Harmony' },
-  ],
+  motto: 'Know Yourself • Understand Life • Live in Harmony',
 };
 
 export const SPIRITUAL_ABOUT = {
-  eyebrow: 'About',
   title: 'Live Better. Think Deeper. Know Yourself.',
   text: [
-    'Vethathiri Maharishi Spiritual Village is a serene sanctuary where seekers learn to live consciously — blending timeless spiritual wisdom with practical daily practices.',
-    'Here, every step guides you toward self-realization, inner peace, and harmony with yourself, society, and nature.',
+    'Vethathiri Maharishi Spiritual Village offers a tranquil space to learn, practice, and live the teachings of conscious life — where ancient wisdom meets mindful modern living.',
+    'Every program is designed to help you know yourself, understand life, and live in harmony with nature, community, and the world within.',
   ],
   quote: 'Know yourself. Understand life. Live in harmony.',
-  quoteAttribution: 'Yogiraj Vethathiri Maharishi',
+  quoteAttribution: 'Vethathiri Maharishi',
   image: img('mahaan'),
   backdrop: img('villageAbout'),
 };
@@ -38,19 +32,19 @@ export const JOURNEY_WITHIN = {
   items: [
     {
       title: 'Simplified Physical Exercises',
-      text: 'Gentle exercises to strengthen the body and prepare the mind for deeper practice.',
+      text: 'Gentle movements that strengthen the body and prepare the mind for meditation.',
       image: img('serviceSimplifiedYoga'),
       icon: 'fas fa-person-walking',
     },
     {
       title: 'Meditation',
-      text: 'Calm the mind, expand awareness, and experience inner stillness.',
+      text: 'Calm the mind, deepen awareness, and experience inner stillness.',
       image: img('serviceMeditation'),
       icon: 'fas fa-om',
     },
     {
       title: 'Introspection',
-      text: 'Understand thoughts and emotions to release stress and gain clarity.',
+      text: 'Reflect on thoughts and habits to release stress and gain clarity.',
       image: img('servicePhilosophy'),
       icon: 'fas fa-brain',
     },
@@ -62,7 +56,7 @@ export const JOURNEY_WITHIN = {
     },
     {
       title: 'Wisdom of Vethathiri Maharishi',
-      text: 'Learn timeless teachings on consciousness, peace, and unity.',
+      text: 'Timeless teachings on consciousness, peace, and human unity.',
       image: img('serviceTeachings'),
       icon: 'fas fa-sun',
     },
@@ -71,29 +65,63 @@ export const JOURNEY_WITHIN = {
 
 export const FIVE_DIMENSIONS = {
   title: 'Five Dimensions of Conscious Living',
-  subtitle: 'Integrate body, mind, life force, consciousness, and harmony',
+  subtitle: 'Balance body, mind, life force, consciousness, and harmony',
   items: [
-    { key: 'body', label: 'BODY', color: '#3d7a52', icon: 'fas fa-heart-pulse', text: 'Physical health & vitality' },
-    { key: 'mind', label: 'MIND', color: '#4a7fb8', icon: 'fas fa-lightbulb', text: 'Mental clarity & focus' },
-    { key: 'life', label: 'LIFE FORCE', color: '#d97706', icon: 'fas fa-fire', text: 'Energy & renewal' },
-    { key: 'consciousness', label: 'CONSCIOUSNESS', color: '#7c5cbf', icon: 'fas fa-eye', text: 'Awareness & insight' },
-    { key: 'harmony', label: 'HARMONY', color: '#8b5e3c', icon: 'fas fa-infinity', text: 'Unity & peaceful living' },
+    {
+      key: 'body',
+      label: 'BODY',
+      color: '#3d7a52',
+      icon: 'fas fa-heart-pulse',
+      text: 'Physical health & vitality',
+      image: img('serviceHatha'),
+    },
+    {
+      key: 'mind',
+      label: 'MIND',
+      color: '#4a7fb8',
+      icon: 'fas fa-lightbulb',
+      text: 'Mental clarity & focus',
+      image: img('serviceMeditation'),
+    },
+    {
+      key: 'life',
+      label: 'LIFE FORCE',
+      color: '#d97706',
+      icon: 'fas fa-fire',
+      text: 'Energy & renewal',
+      image: img('serviceKundalini'),
+    },
+    {
+      key: 'consciousness',
+      label: 'CONSCIOUSNESS',
+      color: '#7c5cbf',
+      icon: 'fas fa-eye',
+      text: 'Awareness & insight',
+      image: img('serviceSelfRealization'),
+    },
+    {
+      key: 'harmony',
+      label: 'HARMONY',
+      color: '#8b5e3c',
+      icon: 'fas fa-infinity',
+      text: 'Unity & peaceful living',
+      image: img('serviceAwareness'),
+    },
   ],
   bannerImage: img('banner2'),
 };
 
 export const WAY_OF_LIFE = {
   title: 'More Than a Practice. A Way of Life.',
-  text: 'Conscious living transforms how we think, act, and relate — turning spiritual practice into a graceful way of everyday life.',
+  text: 'Spiritual living is not limited to practice alone — it shapes how we think, speak, serve, and relate every day.',
   items: [
-    { icon: 'fas fa-brain', label: 'Consciousness in our thoughts' },
-    { icon: 'fas fa-scale-balanced', label: 'Discipline in our actions' },
-    { icon: 'fas fa-hand-holding-heart', label: 'Compassion in our relationships' },
-    { icon: 'fas fa-dove', label: 'Peace within ourselves' },
-    { icon: 'fas fa-users', label: 'Responsibility toward society' },
-    { icon: 'fas fa-leaf', label: 'Harmony with nature' },
-    { icon: 'fas fa-book', label: 'Wisdom in daily choices' },
-    { icon: 'fas fa-sun', label: 'Gratitude in every moment' },
+    { icon: 'fas fa-brain', title: 'Consciousness', text: 'Awareness in every thought and intention.' },
+    { icon: 'fas fa-scale-balanced', title: 'Discipline', text: 'Steady practice with patience and sincerity.' },
+    { icon: 'fas fa-hand-holding-heart', title: 'Compassion', text: 'Kindness and care in all relationships.' },
+    { icon: 'fas fa-leaf', title: 'Harmony', text: 'Balance with nature and daily life.' },
+    { icon: 'fas fa-dove', title: 'Peace', text: 'Stillness and calm within yourself.' },
+    { icon: 'fas fa-users', title: 'Responsibility', text: 'Service and integrity toward society.' },
+    { icon: 'fas fa-globe', title: 'Universal Brotherhood', text: 'Oneness with all humanity.' },
   ],
 };
 
@@ -122,7 +150,6 @@ export const PURPOSE_PANEL = {
 
 export const BROTHERHOOD_PANEL = {
   title: 'One Humanity. One Consciousness.',
-  text: 'When individual peace blossoms, world peace becomes possible.',
   image: img('aboutGroup'),
   values: [
     { icon: 'fas fa-heart', label: 'Love' },
@@ -136,14 +163,13 @@ export const BROTHERHOOD_PANEL = {
 export const VILLAGE_LIFE = {
   sectionTitle: 'Life at the Spiritual Village',
   title: 'A Peaceful Environment for Conscious Living',
-  text: 'Surrounded by nature in Marisettipathi, the village offers meditation halls, yoga spaces, and community satsang for seekers of all ages.',
+  text: 'Nestled in nature at Marisettipathi, the village welcomes seekers to meditation, yoga, satsang, and community living.',
   cta: { label: 'Explore the Village', path: '/our-village' },
-  featureImage: img('villagePlan'),
   tiles: [
-    { title: 'Nature', text: 'Lush greenery and fresh air for renewal.', image: img('villageAbout') },
-    { title: 'Meditation', text: 'Silent halls for introspection and calm.', image: img('meditationHall') },
+    { title: 'Nature', text: 'Lush landscapes and fresh air for renewal.', image: img('villageAbout') },
+    { title: 'Meditation', text: 'Dedicated halls for silence and introspection.', image: img('meditationHall') },
     { title: 'Yoga', text: 'Daily practice for body–mind integration.', image: img('serviceHatha') },
-    { title: 'Community', text: 'Satsang, service, and shared growth.', image: img('galleryPreview3') },
+    { title: 'Community', text: 'Satsang, service, and shared spiritual growth.', image: img('galleryPreview3') },
   ],
 };
 
@@ -172,9 +198,10 @@ export const BALANCE_CARDS = {
 };
 
 export const FINAL_CTA = {
+  eyebrow: 'A Simple Message',
   title: 'Begin Your Inner Journey',
-  text: 'Take the first step on the path of spiritual based life living — where peace within becomes peace for the world.',
-  image: img('banner4'),
+  text: "You don't have to leave everyday life behind to discover inner peace.",
+  image: img('homeHeroLandscape'),
   pillars: [
     { icon: 'fas fa-leaf', label: 'Live consciously' },
     { icon: 'fas fa-heart', label: 'Live compassionately' },

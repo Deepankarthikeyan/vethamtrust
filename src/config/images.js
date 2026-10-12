@@ -11,6 +11,7 @@ const catalog = {
   banner3: [`${V}/banner-3.jpg`],
   banner4: [`${V}/banner-4.jpg`],
   homeHeroLandscape: [`${V}/home-hero-landscape.jpg`],
+  homeHeroMeditation: [`${V}/home-hero-meditation-woman.jpg`],
   homePurposeMeditation: [`${V}/home-purpose-meditation.jpg`],
   about1: [`${V}/village-about.jpg`],
   about2: [`${V}/meditation-hall.jpg`],
