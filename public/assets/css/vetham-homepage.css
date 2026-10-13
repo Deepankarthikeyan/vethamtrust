@@ -997,7 +997,10 @@
 /* Final CTA */
 .sh-cta {
   position: relative;
-  padding: clamp(80px, 12vw, 140px) 0;
+  padding: clamp(44px, 6vw, 72px) 0;
+  min-height: clamp(260px, 30vw, 360px);
+  display: flex;
+  align-items: center;
   text-align: center;
   overflow: hidden;
   isolation: isolate;
@@ -1028,14 +1031,21 @@
 .sh-cta__content {
   position: relative;
   z-index: 2;
+  width: 100%;
+  padding: clamp(8px, 2vw, 20px) 0;
+  will-change: transform;
+}
+
+.sh-cta__scroll-item {
+  will-change: transform, opacity;
 }
 
 .sh-cta__title {
   font-family: var(--vx-font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.55rem, 2.8vw, 2.15rem);
   color: #fff;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
-  margin: 0 0 16px;
+  margin: 0 0 10px;
 }
 
 .sh-cta__eyebrow {
@@ -1049,15 +1059,16 @@
 
 .sh-cta__text {
   color: rgba(255, 255, 255, 0.95);
-  max-width: 640px;
-  margin: 0 auto 28px;
-  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 18px;
+  font-size: clamp(0.88rem, 1.05vw, 0.96rem);
+  line-height: 1.6;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
 }
 
 .sh-cta__pillars {
   list-style: none;
-  margin: 0 0 36px;
+  margin: 0 0 22px;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
@@ -1088,19 +1099,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: rgba(255, 255, 255, 0.95);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 600;
 }
 
 .sh-cta__pillars i {
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   color: var(--vx-gold);
 }
 
+.sh-cta .sh-btn--primary {
+  padding: 12px 24px;
+  font-size: 0.88rem;
+}
+
 .sh-cta__tagline {
-  margin: 24px 0 0;
+  margin: 16px 0 0;
   color: rgba(255, 255, 255, 0.92);
   font-size: 0.95rem;
   display: flex;
@@ -2070,20 +2086,9 @@
   line-height: 1.5;
 }
 
-.sh-cta {
-  min-height: clamp(380px, 42vw, 540px);
-  display: flex;
-  align-items: center;
-}
-
 .sh-cta__bg {
   object-fit: cover;
   object-position: center 55%;
-}
-
-.sh-cta__content {
-  padding: clamp(56px, 9vw, 100px) 0;
-  width: 100%;
 }
 
 .sh-cta__eyebrow {

@@ -268,10 +268,10 @@ export default function SpiritualHomePage() {
         <LazyImage src={FINAL_CTA.image} alt="" className="sh-cta__bg" />
         <div className="sh-cta__overlay" />
         <div className="sh-container sh-container--content sh-cta__content">
-          <p className="sh-cta__eyebrow">{FINAL_CTA.eyebrow}</p>
-          <h2 className="sh-cta__title">{FINAL_CTA.title}</h2>
-          <p className="sh-cta__text">{FINAL_CTA.text}</p>
-          <ul className="sh-cta__pillars sh-cta__pillars--divided">
+          <p className="sh-cta__eyebrow sh-cta__scroll-item">{FINAL_CTA.eyebrow}</p>
+          <h2 className="sh-cta__title sh-cta__scroll-item">{FINAL_CTA.title}</h2>
+          <p className="sh-cta__text sh-cta__scroll-item">{FINAL_CTA.text}</p>
+          <ul className="sh-cta__pillars sh-cta__pillars--divided sh-cta__scroll-item">
             {FINAL_CTA.pillars.map((p) => (
               <li key={p.label}>
                 <i className={p.icon} aria-hidden="true" />
@@ -279,10 +279,10 @@ export default function SpiritualHomePage() {
               </li>
             ))}
           </ul>
-          <Link to={FINAL_CTA.cta.path} className="sh-btn sh-btn--primary sh-btn--lg">
+          <Link to={FINAL_CTA.cta.path} className="sh-btn sh-btn--primary sh-cta__scroll-item">
             {FINAL_CTA.cta.label} <i className="fas fa-arrow-right" aria-hidden="true" />
           </Link>
-          <p className="sh-cta__tagline">
+          <p className="sh-cta__tagline sh-cta__scroll-item">
             <strong>{FINAL_CTA.tagline}</strong>
             <span className="sh-cta__tagline-sub">{FINAL_CTA.taglineSub}</span>
           </p>
