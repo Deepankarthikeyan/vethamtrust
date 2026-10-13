@@ -12,10 +12,10 @@ function FounderCard({ member, linkToLeadership }) {
       <figure className="vetham-founder-card__media">
         {linkToLeadership ? (
           <Link to="/leadership" className="vetham-founder-card__media-link">
-            <LazyImage src={img(member.image)} alt={member.name} />
+            <LazyImage src={img(member.portrait || member.image)} alt={member.name} />
           </Link>
         ) : (
-          <LazyImage src={img(member.image)} alt={member.name} />
+          <LazyImage src={img(member.portrait || member.image)} alt={member.name} />
         )}
       </figure>
 
