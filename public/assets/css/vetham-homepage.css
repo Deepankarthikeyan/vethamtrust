@@ -290,12 +290,18 @@
 /* About */
 .sh-about__grid {
   display: grid;
-  grid-template-columns: minmax(260px, 0.95fr) 1.05fr;
-  gap: clamp(32px, 5vw, 72px);
+  grid-template-columns: minmax(280px, 1.2fr) minmax(260px, 0.88fr);
+  gap: clamp(28px, 4vw, 56px);
   align-items: center;
 }
 
-.sh-about__visual img {
+.sh-about__visual {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.sh-about__visual img:not(.sh-about__maharishi-png) {
   width: 100%;
   max-height: 520px;
   object-fit: contain;
@@ -1762,10 +1768,13 @@
 
 .sh-about__maharishi-png {
   width: 100%;
-  max-width: 560px;
+  max-width: min(720px, 108%);
   height: auto;
   display: block;
   object-fit: contain;
+  object-position: center bottom;
+  image-rendering: auto;
+  filter: drop-shadow(0 20px 40px rgba(30, 61, 42, 0.12));
 }
 
 .sh-purpose-card {

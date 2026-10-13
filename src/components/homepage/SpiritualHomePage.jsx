@@ -53,8 +53,8 @@ export default function SpiritualHomePage() {
               className="sh-about__maharishi-png"
               src={SPIRITUAL_ABOUT.image}
               alt="Yogiraj Vethathiri Maharishi"
-              width={560}
-              height={680}
+              width={1200}
+              height={937}
               loading="lazy"
               decoding="async"
             />

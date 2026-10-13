@@ -1676,6 +1676,14 @@ body.vx-inner .vetham-leader-card__bio {
   color: var(--vx-text-dim);
 }
 
+/* Scroll animations: content stays visible without JS; GSAP enhances when active */
+@media (prefers-reduced-motion: reduce) {
+  .vx-scroll-anim * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 body.vx-inner .vetham-leader-card {
   background: var(--vx-bg-card);
   border: 1px solid var(--vx-border);
