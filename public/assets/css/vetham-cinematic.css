@@ -1195,8 +1195,7 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   margin-bottom: 16px;
 }
 
-.vx-footer__logo img,
-.vx-footer__logo-mark {
+.vx-footer__logo img {
   height: clamp(52px, 7.5vw, 76px);
   width: auto;
   max-width: min(400px, 62vw);
@@ -1204,6 +1203,16 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   display: block;
   margin-bottom: 12px;
   background: transparent;
+}
+
+.vx-footer__logo-banner {
+  height: clamp(52px, 7.5vw, 76px) !important;
+  width: auto !important;
+  max-width: min(400px, 92vw) !important;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 14px;
+  background: transparent !important;
 }
 
 .vx-footer__brand-lines {
