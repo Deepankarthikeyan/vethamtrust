@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useLanguageRetranslate } from '../hooks/useLanguageRetranslate';
 import useGsapRefresh from '../hooks/useGsapRefresh';
+import useScrollReveal from '../hooks/useScrollReveal';
 import CinematicFooter from './cinematic/CinematicFooter';
 import CinematicHeader from './cinematic/CinematicHeader';
 import CinematicPreloader from './cinematic/CinematicPreloader';
@@ -16,6 +17,7 @@ export default function Layout() {
 
   useLanguageRetranslate();
   useGsapRefresh();
+  useScrollReveal();
 
   useEffect(() => {
     document.body.classList.remove('krishna-home', 'vetham-inner', 'boxed_wrapper');

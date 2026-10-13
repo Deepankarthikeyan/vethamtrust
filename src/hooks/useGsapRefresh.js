@@ -15,7 +15,6 @@ export default function useGsapRefresh() {
 
     return () => {
       window.clearTimeout(timer);
-      ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, [pathname]);
 }
