@@ -5,12 +5,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const START = 'top 84%';
-const TOGGLE = 'play reverse play reverse';
-const DURATION = 0.8;
-const Y = 24;
-const STAGGER = 0.12;
-const EASE = 'power2.out';
+const START = 'top 88%';
+/** Reveal once when entering view — never reverse (avoids fade-out on scroll back / hover jitter). */
+const TOGGLE = 'play none none none';
+const DURATION = 0.85;
+const Y = 28;
+const STAGGER = 0.1;
+const EASE = 'power3.out';
 
 const CARD_SELECTOR = [
   '.service-block-one',
@@ -36,6 +37,19 @@ const CARD_SELECTOR = [
   '.vx-split-section__figure',
 ].join(', ');
 
+const SKIP_IMAGE_INSIDE = [
+  '.vx-page-hero',
+  '.sh-hero',
+  '.vx-testimonial-card__avatar',
+  CARD_SELECTOR,
+  '.sh-about__visual',
+  '.vx-split-section__media',
+  '.sh-purpose-card__media',
+  '.sh-brotherhood-hero',
+  '.sh-journey-card__img',
+  '.sh-village-tile__img',
+].join(', ');
+
 const SECTION_SELECTOR = [
   '.sh-home .sh-section',
   '.sh-home .sh-cta',
@@ -44,13 +58,13 @@ const SECTION_SELECTOR = [
   '.vx-split-section',
 ].join(', ');
 
-function scrollFromTo(targets, trigger, extra = {}) {
+function scrollReveal(targets, trigger, extra = {}) {
   const list = gsap.utils.toArray(targets);
   if (!list.length) return;
 
   gsap.fromTo(
     list,
-    { y: Y, opacity: 0, scale: extra.scaleFrom ?? 1, ...extra.from },
+    { y: extra.yFrom ?? Y, opacity: 0, scale: extra.scaleFrom ?? 1, ...extra.from },
     {
       y: 0,
       opacity: 1,
@@ -58,11 +72,14 @@ function scrollFromTo(targets, trigger, extra = {}) {
       duration: extra.duration ?? DURATION,
       ease: EASE,
       stagger: extra.stagger ?? STAGGER,
+      clearProps: 'transform',
       ...extra.to,
       scrollTrigger: {
         trigger: trigger || list[0],
-        start: START,
+        start: extra.start ?? START,
         toggleActions: TOGGLE,
+        once: true,
+        ...extra.scrollTrigger,
       },
     },
   );
@@ -79,30 +96,46 @@ function revealSplitRow(row) {
   if (visual) {
     gsap.fromTo(
       visual,
-      { x: -26, opacity: 0 },
+      { x: -32, opacity: 0 },
       {
         x: 0,
         opacity: 1,
         duration: DURATION,
         ease: EASE,
-        scrollTrigger: { trigger: row, start: START, toggleActions: TOGGLE },
+        clearProps: 'transform',
+        scrollTrigger: {
+          trigger: row,
+          start: START,
+          toggleActions: TOGGLE,
+          once: true,
+        },
       },
     );
   }
   if (copy) {
     gsap.fromTo(
       copy,
-      { x: 26, opacity: 0 },
+      { x: 32, opacity: 0 },
       {
         x: 0,
         opacity: 1,
         duration: DURATION,
         ease: EASE,
-        delay: 0.12,
-        scrollTrigger: { trigger: row, start: START, toggleActions: TOGGLE },
+        delay: 0.1,
+        clearProps: 'transform',
+        scrollTrigger: {
+          trigger: row,
+          start: START,
+          toggleActions: TOGGLE,
+          once: true,
+        },
       },
     );
   }
+}
+
+function shouldAnimateImage(img) {
+  return !img.closest(SKIP_IMAGE_INSIDE);
 }
 
 function revealSection(section) {
@@ -112,19 +145,19 @@ function revealSection(section) {
     '.sec-title, .sh-section-head, .vetham-contact-cards__header, .vetham-contact-form__header',
   );
   if (heading) {
-    scrollFromTo(heading.children, heading);
+    scrollReveal(heading.children, heading, { yFrom: 20, stagger: 0.08 });
   }
 
   gsap.utils.toArray(
     '.sh-way__intro, .sh-village__head, .content_block_one, .vetham-services-filter-summary',
     section,
   ).forEach((block) => {
-    scrollFromTo(block, section);
+    scrollReveal(block, section, { yFrom: 22 });
   });
 
   const cards = section.querySelectorAll(CARD_SELECTOR);
   if (cards.length) {
-    scrollFromTo(cards, section);
+    scrollReveal(cards, section, { yFrom: 32, stagger: 0.09 });
   }
 
   const grids = section.querySelectorAll(
@@ -132,7 +165,7 @@ function revealSection(section) {
   );
   grids.forEach((grid) => {
     if (!grid.querySelector(CARD_SELECTOR)) {
-      scrollFromTo(grid.children, grid);
+      scrollReveal(grid.children, grid, { stagger: 0.08 });
     }
   });
 
@@ -145,14 +178,18 @@ function revealSection(section) {
     '.text p, .vetham-donate-cta-text p, .vetham-event-tamil, .village-highlight-list li, .meditation-timetable table, .vx-reveal',
   );
   if (textOnly.length && !cards.length) {
-    scrollFromTo(textOnly, section, { stagger: 0.08 });
+    scrollReveal(textOnly, section, { stagger: 0.06, yFrom: 18 });
   }
 
-  const images = gsap.utils.toArray('img', section).filter(
-    (img) => !img.closest('.vx-page-hero, .sh-hero, .vx-testimonial-card__avatar'),
-  );
+  const images = gsap.utils.toArray('img', section).filter(shouldAnimateImage);
   if (images.length) {
-    scrollFromTo(images, section, { scaleFrom: 0.97, scaleTo: 1, duration: 0.85 });
+    scrollReveal(images, section, {
+      scaleFrom: 0.98,
+      scaleTo: 1,
+      duration: 0.9,
+      yFrom: 16,
+      stagger: 0.06,
+    });
   }
 }
 
@@ -180,6 +217,7 @@ export default function useScrollReveal() {
             duration: 0.72,
             stagger: 0.12,
             ease: EASE,
+            clearProps: 'transform',
           });
         }
 
@@ -192,6 +230,7 @@ export default function useScrollReveal() {
             stagger: 0.11,
             ease: EASE,
             delay: 0.12,
+            clearProps: 'transform',
           });
         }
 
@@ -201,15 +240,15 @@ export default function useScrollReveal() {
           if (ctaBg) {
             gsap.fromTo(
               ctaBg,
-              { yPercent: -6 },
+              { yPercent: -4 },
               {
-                yPercent: 10,
+                yPercent: 8,
                 ease: 'none',
                 scrollTrigger: {
                   trigger: cta,
                   start: 'top bottom',
                   end: 'bottom top',
-                  scrub: true,
+                  scrub: 0.6,
                 },
               },
             );
@@ -219,15 +258,15 @@ export default function useScrollReveal() {
           if (ctaContent) {
             gsap.fromTo(
               ctaContent,
-              { y: 40 },
+              { y: 24 },
               {
-                y: -55,
+                y: -20,
                 ease: 'none',
                 scrollTrigger: {
                   trigger: cta,
                   start: 'top bottom',
                   end: 'bottom top',
-                  scrub: 1,
+                  scrub: 0.6,
                 },
               },
             );
@@ -236,16 +275,15 @@ export default function useScrollReveal() {
           gsap.utils.toArray('.sh-cta__scroll-item').forEach((el, index) => {
             gsap.fromTo(
               el,
-              { y: 56 + index * 8, opacity: 0.2 },
+              { y: 36 + index * 6 },
               {
-                y: -(28 + index * 5),
-                opacity: 1,
+                y: -(16 + index * 4),
                 ease: 'none',
                 scrollTrigger: {
                   trigger: cta,
-                  start: 'top 95%',
-                  end: 'center 35%',
-                  scrub: 1.15,
+                  start: 'top 92%',
+                  end: 'center 40%',
+                  scrub: 0.5,
                 },
               },
             );
@@ -254,9 +292,15 @@ export default function useScrollReveal() {
 
         ScrollTrigger.refresh();
       });
-    }, 450);
+    }, 400);
+
+    const onResize = () => {
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener('resize', onResize);
 
     return () => {
+      window.removeEventListener('resize', onResize);
       window.clearTimeout(timer);
       document.documentElement.classList.remove('vx-scroll-anim');
       ctx?.revert();

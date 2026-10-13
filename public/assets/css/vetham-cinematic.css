@@ -2070,7 +2070,21 @@ body.vx-inner .vetham-leader-card__bio {
   color: var(--vx-text-dim);
 }
 
-/* Scroll animations: content stays visible without JS; GSAP enhances when active */
+/* Scroll animations: GSAP runs once per block; keep revealed content fully visible */
+html.vx-scroll-anim .sh-section,
+html.vx-scroll-anim .sh-cta,
+html.vx-scroll-anim .vx-page-content section {
+  visibility: visible;
+}
+
+html.vx-scroll-anim .sh-journey-card,
+html.vx-scroll-anim .sh-dimension-tile,
+html.vx-scroll-anim .sh-peace-card,
+html.vx-scroll-anim .sh-village-tile,
+html.vx-scroll-anim .sh-balance-col {
+  backface-visibility: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .vx-scroll-anim * {
     animation: none !important;
