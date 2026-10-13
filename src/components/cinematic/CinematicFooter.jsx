@@ -21,21 +21,28 @@ const MORE_LINKS = [
 ];
 
 export default function CinematicFooter() {
+  const logoPng = img('logoFooterPng');
+  const logoWebp = img('logoFooterWebp');
+
   return (
     <footer className="vx-footer">
       <div className="vx-container">
         <div className="vx-footer__grid">
-          <div>
+          <div className="vx-footer__brand-col">
             <div className="vx-footer__logo">
-              <img
-                className="vx-footer__logo-banner"
-                src={img('logoFooterBrand')}
-                alt={`${SITE.name} — Unified Divine Yoga`}
-                width={1600}
-                height={719}
-                loading="lazy"
-                decoding="async"
-              />
+              <picture className="vx-footer__logo-picture">
+                <source srcSet={logoWebp} type="image/webp" />
+                <img
+                  className="vx-footer__logo-banner"
+                  src={logoPng}
+                  alt={`${SITE.name} — Unified Divine Yoga`}
+                  width={1024}
+                  height={460}
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(max-width: 480px) 92vw, (max-width: 768px) 88vw, 420px"
+                />
+              </picture>
             </div>
             <p className="vx-text">{SITE.tagline}. Yoga, meditation, and spiritual teachings in Coimbatore.</p>
           </div>

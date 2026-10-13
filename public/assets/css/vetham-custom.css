@@ -4108,6 +4108,12 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
   align-items: stretch;
 }
 
+@media only screen and (max-width: 1199px) {
+  .vetham-leadership-cards__row {
+    grid-template-columns: 1fr;
+  }
+}
+
 .vetham-founder-card {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
