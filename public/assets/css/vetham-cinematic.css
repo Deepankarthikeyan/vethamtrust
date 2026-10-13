@@ -477,6 +477,12 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   font-size: 1.75rem;
   color: var(--vx-heading, var(--vx-cream));
   border-bottom: 1px solid var(--vx-border);
+  transition: color 0.3s ease, padding-left 0.3s var(--vx-ease);
+}
+
+.vx-mobile-menu__nav a:hover {
+  color: var(--vx-primary);
+  padding-left: 8px;
 }
 
 .vx-mobile-menu__sub a {
