@@ -2286,11 +2286,10 @@ body.vx-inner .vx-page-content > .vetham-contact-form:last-child {
   text-align: center;
 }
 
-.vx-preloader img {
+.vx-preloader__logo {
   width: auto;
-  height: auto;
-  max-width: min(92vw, 560px);
-  max-height: min(44vh, 300px);
+  height: clamp(120px, 32vw, 240px);
+  max-width: min(92vw, 520px);
   object-fit: contain;
   animation: vx-pulse 2s ease-in-out infinite;
 }

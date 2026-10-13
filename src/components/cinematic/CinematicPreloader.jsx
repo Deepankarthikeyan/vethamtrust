@@ -22,16 +22,15 @@ export default function CinematicPreloader() {
     return undefined;
   }, []);
 
-  const logoPng = img('logoFooterPng');
-  const logoWebp = img('logoFooterWebp');
-
   return (
     <div className={`vx-preloader${hidden ? ' is-hidden' : ''}`} aria-hidden={hidden}>
       <div className="vx-preloader__brand">
-        <picture>
-          <source srcSet={logoWebp} type="image/webp" />
-          <img src={logoPng} alt={SITE.name} width={1024} height={460} decoding="async" />
-        </picture>
+        <img
+          className="vx-preloader__logo"
+          src={img('logo')}
+          alt={SITE.name}
+          decoding="async"
+        />
       </div>
     </div>
   );
