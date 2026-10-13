@@ -5,10 +5,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const START = 'top 88%';
-/** Reveal once when entering view — never reverse (avoids fade-out on scroll back / hover jitter). */
+const START = 'top 86%';
 const TOGGLE = 'play none none none';
-const DURATION = 0.85;
+const DURATION = 0.88;
 const Y = 28;
 const STAGGER = 0.1;
 const EASE = 'power3.out';
@@ -58,29 +57,41 @@ const SECTION_SELECTOR = [
   '.vx-split-section',
 ].join(', ');
 
+function scrollTriggerConfig(trigger, extra = {}) {
+  return {
+    trigger,
+    start: extra.start ?? START,
+    toggleActions: TOGGLE,
+    once: true,
+    invalidateOnRefresh: true,
+    ...extra.scrollTrigger,
+  };
+}
+
 function scrollReveal(targets, trigger, extra = {}) {
   const list = gsap.utils.toArray(targets);
   if (!list.length) return;
 
   gsap.fromTo(
     list,
-    { y: extra.yFrom ?? Y, opacity: 0, scale: extra.scaleFrom ?? 1, ...extra.from },
+    {
+      y: extra.yFrom ?? Y,
+      autoAlpha: 0,
+      scale: extra.scaleFrom ?? 1,
+      immediateRender: false,
+      ...extra.from,
+    },
     {
       y: 0,
-      opacity: 1,
+      autoAlpha: 1,
       scale: extra.scaleTo ?? 1,
       duration: extra.duration ?? DURATION,
       ease: EASE,
       stagger: extra.stagger ?? STAGGER,
       clearProps: 'transform',
+      immediateRender: false,
       ...extra.to,
-      scrollTrigger: {
-        trigger: trigger || list[0],
-        start: extra.start ?? START,
-        toggleActions: TOGGLE,
-        once: true,
-        ...extra.scrollTrigger,
-      },
+      scrollTrigger: scrollTriggerConfig(trigger || list[0], extra),
     },
   );
 }
@@ -96,39 +107,31 @@ function revealSplitRow(row) {
   if (visual) {
     gsap.fromTo(
       visual,
-      { x: -32, opacity: 0 },
+      { x: -32, autoAlpha: 0, immediateRender: false },
       {
         x: 0,
-        opacity: 1,
+        autoAlpha: 1,
         duration: DURATION,
         ease: EASE,
         clearProps: 'transform',
-        scrollTrigger: {
-          trigger: row,
-          start: START,
-          toggleActions: TOGGLE,
-          once: true,
-        },
+        immediateRender: false,
+        scrollTrigger: scrollTriggerConfig(row),
       },
     );
   }
   if (copy) {
     gsap.fromTo(
       copy,
-      { x: 32, opacity: 0 },
+      { x: 32, autoAlpha: 0, immediateRender: false },
       {
         x: 0,
-        opacity: 1,
+        autoAlpha: 1,
         duration: DURATION,
         ease: EASE,
         delay: 0.1,
         clearProps: 'transform',
-        scrollTrigger: {
-          trigger: row,
-          start: START,
-          toggleActions: TOGGLE,
-          once: true,
-        },
+        immediateRender: false,
+        scrollTrigger: scrollTriggerConfig(row),
       },
     );
   }
@@ -193,6 +196,102 @@ function revealSection(section) {
   }
 }
 
+function runHomeHeroIntro() {
+  const homeHero = document.querySelector('.sh-hero__copy');
+  if (!homeHero) return;
+
+  gsap.from(homeHero.children, {
+    y: 26,
+    autoAlpha: 0,
+    duration: 0.82,
+    stagger: 0.11,
+    ease: EASE,
+    delay: 0.08,
+    clearProps: 'transform',
+  });
+}
+
+function mountScrollAnimations() {
+  const sections = gsap.utils.toArray(SECTION_SELECTOR);
+  sections.forEach(revealSection);
+
+  const pageHero = document.querySelector('.vx-page-hero__content');
+  if (pageHero) {
+    gsap.from(pageHero.children, {
+      y: 22,
+      autoAlpha: 0,
+      duration: 0.72,
+      stagger: 0.12,
+      ease: EASE,
+      clearProps: 'transform',
+    });
+  }
+
+  runHomeHeroIntro();
+
+  const cta = document.querySelector('.sh-cta');
+  if (cta) {
+    const ctaBg = cta.querySelector('.sh-cta__bg');
+    if (ctaBg) {
+      gsap.fromTo(
+        ctaBg,
+        { yPercent: -4 },
+        {
+          yPercent: 8,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: cta,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.6,
+            invalidateOnRefresh: true,
+          },
+        },
+      );
+    }
+
+    const ctaContent = cta.querySelector('.sh-cta__content');
+    if (ctaContent) {
+      gsap.fromTo(
+        ctaContent,
+        { y: 24 },
+        {
+          y: -20,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: cta,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.6,
+            invalidateOnRefresh: true,
+          },
+        },
+      );
+    }
+
+    gsap.utils.toArray('.sh-cta__scroll-item').forEach((el, index) => {
+      gsap.fromTo(
+        el,
+        { y: 36 + index * 6 },
+        {
+          y: -(16 + index * 4),
+          ease: 'none',
+          scrollTrigger: {
+            trigger: cta,
+            start: 'top 92%',
+            end: 'center 40%',
+            scrub: 0.5,
+            invalidateOnRefresh: true,
+          },
+        },
+      );
+    });
+  }
+
+  ScrollTrigger.refresh(true);
+  document.documentElement.classList.add('vx-scroll-anim-ready');
+}
+
 export default function useScrollReveal() {
   const { pathname } = useLocation();
 
@@ -200,109 +299,53 @@ export default function useScrollReveal() {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) return undefined;
 
+    document.documentElement.classList.remove('vx-scroll-anim-ready');
     document.documentElement.classList.add('vx-scroll-anim');
 
     let ctx;
+    let mounted = false;
 
-    const timer = window.setTimeout(() => {
+    const setup = () => {
+      if (mounted) return;
+      mounted = true;
       ctx = gsap.context(() => {
-        const sections = gsap.utils.toArray(SECTION_SELECTOR);
-        sections.forEach(revealSection);
-
-        const pageHero = document.querySelector('.vx-page-hero__content');
-        if (pageHero) {
-          gsap.from(pageHero.children, {
-            y: 22,
-            opacity: 0,
-            duration: 0.72,
-            stagger: 0.12,
-            ease: EASE,
-            clearProps: 'transform',
-          });
-        }
-
-        const homeHero = document.querySelector('.sh-hero__copy');
-        if (homeHero) {
-          gsap.from(homeHero.children, {
-            y: 26,
-            opacity: 0,
-            duration: 0.82,
-            stagger: 0.11,
-            ease: EASE,
-            delay: 0.12,
-            clearProps: 'transform',
-          });
-        }
-
-        const cta = document.querySelector('.sh-cta');
-        if (cta) {
-          const ctaBg = cta.querySelector('.sh-cta__bg');
-          if (ctaBg) {
-            gsap.fromTo(
-              ctaBg,
-              { yPercent: -4 },
-              {
-                yPercent: 8,
-                ease: 'none',
-                scrollTrigger: {
-                  trigger: cta,
-                  start: 'top bottom',
-                  end: 'bottom top',
-                  scrub: 0.6,
-                },
-              },
-            );
-          }
-
-          const ctaContent = cta.querySelector('.sh-cta__content');
-          if (ctaContent) {
-            gsap.fromTo(
-              ctaContent,
-              { y: 24 },
-              {
-                y: -20,
-                ease: 'none',
-                scrollTrigger: {
-                  trigger: cta,
-                  start: 'top bottom',
-                  end: 'bottom top',
-                  scrub: 0.6,
-                },
-              },
-            );
-          }
-
-          gsap.utils.toArray('.sh-cta__scroll-item').forEach((el, index) => {
-            gsap.fromTo(
-              el,
-              { y: 36 + index * 6 },
-              {
-                y: -(16 + index * 4),
-                ease: 'none',
-                scrollTrigger: {
-                  trigger: cta,
-                  start: 'top 92%',
-                  end: 'center 40%',
-                  scrub: 0.5,
-                },
-              },
-            );
-          });
-        }
-
-        ScrollTrigger.refresh();
+        mountScrollAnimations();
       });
-    }, 400);
-
-    const onResize = () => {
-      ScrollTrigger.refresh();
     };
+
+    const scheduleSetup = () => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(setup);
+      });
+    };
+
+    const onAppReady = () => scheduleSetup();
+    window.addEventListener('vx:app-ready', onAppReady);
+
+    const fallbackMs = pathname === '/' ? 900 : 120;
+    const fallbackTimer = window.setTimeout(scheduleSetup, fallbackMs);
+
+    const onLoad = () => {
+      window.setTimeout(() => ScrollTrigger.refresh(true), 200);
+    };
+    window.addEventListener('load', onLoad);
+
+    const onFirstScroll = () => {
+      ScrollTrigger.refresh(true);
+    };
+    window.addEventListener('scroll', onFirstScroll, { passive: true, once: true });
+
+    const onResize = () => ScrollTrigger.refresh();
     window.addEventListener('resize', onResize);
 
     return () => {
+      mounted = false;
+      window.removeEventListener('vx:app-ready', onAppReady);
+      window.removeEventListener('load', onLoad);
+      window.removeEventListener('scroll', onFirstScroll);
       window.removeEventListener('resize', onResize);
-      window.clearTimeout(timer);
-      document.documentElement.classList.remove('vx-scroll-anim');
+      window.clearTimeout(fallbackTimer);
+      document.documentElement.classList.remove('vx-scroll-anim', 'vx-scroll-anim-ready');
       ctx?.revert();
     };
   }, [pathname]);

@@ -6,12 +6,18 @@ export default function CinematicPreloader() {
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    const hide = () => setHidden(true);
+    const finish = () => {
+      setHidden(true);
+      window.setTimeout(() => {
+        window.dispatchEvent(new CustomEvent('vx:app-ready'));
+      }, 80);
+    };
     if (document.readyState === 'complete') {
-      setTimeout(hide, 400);
+      window.setTimeout(finish, 380);
     } else {
-      window.addEventListener('load', () => setTimeout(hide, 400));
-      return () => window.removeEventListener('load', hide);
+      const onLoad = () => window.setTimeout(finish, 380);
+      window.addEventListener('load', onLoad, { once: true });
+      return () => window.removeEventListener('load', onLoad);
     }
     return undefined;
   }, []);
