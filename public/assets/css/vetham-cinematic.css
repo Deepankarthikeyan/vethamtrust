@@ -1193,6 +1193,12 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
 
 .vx-footer__logo {
   margin-bottom: 16px;
+  display: inline-block;
+  max-width: 100%;
+  background: var(--vx-footer-bg, #232323);
+  border-radius: 6px;
+  line-height: 0;
+  padding: 2px 0;
 }
 
 .vx-footer__logo img {
@@ -1211,8 +1217,9 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   max-width: min(400px, 92vw) !important;
   object-fit: contain;
   display: block;
-  margin-bottom: 14px;
+  margin-bottom: 0;
   background: transparent !important;
+  mix-blend-mode: normal;
 }
 
 .vx-footer__brand-lines {
