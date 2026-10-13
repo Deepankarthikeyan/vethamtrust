@@ -13,7 +13,9 @@ import FloatingWidgets from './FloatingWidgets';
 
 export default function Layout() {
   const { pathname } = useLocation();
-  const isHome = pathname === '/';
+  const isCinematicHome = pathname === '/';
+  const isSpiritualVillage = pathname === '/our-village';
+  const fullBleedHero = isCinematicHome || isSpiritualVillage;
 
   useLanguageRetranslate();
   useGsapRefresh();
@@ -21,13 +23,13 @@ export default function Layout() {
 
   useEffect(() => {
     document.body.classList.remove('krishna-home', 'vetham-inner', 'boxed_wrapper');
-    document.body.classList.add('vx-site', isHome ? 'vx-home' : 'vx-inner');
+    document.body.classList.add('vx-site', fullBleedHero ? 'vx-home' : 'vx-inner');
 
     const vethamCss = document.getElementById('vetham-custom-css');
     const vethamType = document.getElementById('vetham-typography-css');
     if (vethamCss) vethamCss.disabled = false;
     if (vethamType) vethamType.disabled = false;
-  }, [isHome]);
+  }, [fullBleedHero]);
 
   return (
     <>
@@ -37,7 +39,7 @@ export default function Layout() {
       <ScrollProgress />
       <CustomCursor />
       <CinematicHeader />
-      <main id="main-content" className={`vx-main${isHome ? ' vx-main--home' : ' vx-main--inner'}`}>
+      <main id="main-content" className={`vx-main${fullBleedHero ? ' vx-main--home' : ' vx-main--inner'}`}>
         <Outlet />
       </main>
       <CinematicFooter />
