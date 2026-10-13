@@ -156,7 +156,13 @@
   font-size: 0.85rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  text-decoration: none;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.sh-btn:hover,
+.sh-btn:focus {
+  text-decoration: none;
 }
 
 .sh-btn--primary {

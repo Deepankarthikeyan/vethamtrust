@@ -61,6 +61,13 @@ a {
   text-decoration: none;
 }
 
+/* Bootstrap sets a:hover { text-decoration: underline } — keep cinematic hovers single-line only */
+body.vx-site a:hover,
+body.vx-site a:focus,
+body.vx-site a:active {
+  text-decoration: none;
+}
+
 button {
   font: inherit;
   cursor: pointer;
@@ -257,6 +264,7 @@ button {
   color: var(--vx-text);
   background: none;
   border: none;
+  text-decoration: none;
   transition: color 0.3s var(--vx-ease);
 }
 
@@ -395,6 +403,7 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border: 1px solid transparent;
+  text-decoration: none;
   transition: transform 0.3s var(--vx-ease), box-shadow 0.3s var(--vx-ease), background 0.3s ease;
 }
 
@@ -1214,19 +1223,18 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
 
 .vx-footer__logo-picture {
   display: block;
-  width: 100%;
-  max-width: min(480px, 100%);
+  width: auto;
+  max-width: min(400px, 62vw);
   line-height: 0;
 }
 
 .vx-footer__logo-banner {
-  width: 100%;
-  height: auto !important;
-  max-width: 100%;
-  aspect-ratio: 1024 / 460;
+  height: clamp(52px, 7.5vw, 76px);
+  width: auto;
+  max-width: min(400px, 62vw);
   object-fit: contain;
   display: block;
-  margin-bottom: 0;
+  margin-bottom: 12px;
   background: transparent !important;
 }
 
@@ -1313,6 +1321,7 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   display: inline-block;
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.9rem;
+  text-decoration: none;
   transition: color 0.3s var(--vx-ease), transform 0.3s var(--vx-ease);
 }
 
@@ -1368,6 +1377,7 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   align-items: center;
   justify-content: center;
   color: var(--vx-cream-muted);
+  text-decoration: none;
   transition: border-color 0.3s ease, color 0.3s ease, transform 0.35s var(--vx-ease), background 0.3s ease;
 }
 
@@ -2267,9 +2277,20 @@ body.vx-inner .vx-page-content > .vetham-contact-form:last-child {
   pointer-events: none;
 }
 
+.vx-preloader__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  text-align: center;
+}
+
 .vx-preloader img {
-  width: 80px;
-  height: 80px;
+  width: auto;
+  height: auto;
+  max-width: min(92vw, 560px);
+  max-height: min(44vh, 300px);
   object-fit: contain;
   animation: vx-pulse 2s ease-in-out infinite;
 }
@@ -2332,8 +2353,14 @@ body.vx-inner .vx-page-content > .vetham-contact-form:last-child {
     height: clamp(44px, 12vw, 60px);
   }
 
+  .vx-footer__logo img,
+  .vx-footer__logo-banner {
+    max-width: min(320px, 72vw);
+    height: clamp(44px, 12vw, 60px);
+  }
+
   .vx-footer__logo-picture {
-    max-width: 100%;
+    max-width: min(320px, 72vw);
   }
 
   .vx-footer__bottom {

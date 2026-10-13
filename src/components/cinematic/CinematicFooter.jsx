@@ -40,7 +40,7 @@ export default function CinematicFooter() {
                   height={460}
                   loading="lazy"
                   decoding="async"
-                  sizes="(max-width: 480px) 92vw, (max-width: 768px) 88vw, 420px"
+                  sizes="(max-width: 768px) 72vw, 400px"
                 />
               </picture>
             </div>
