@@ -25,21 +25,26 @@ export default function Courses() {
       <CinematicPageHero title="Courses" crumbs={['Courses']} />
 
       <div className="vx-page-content">
-      <section className="about-section sec-pad">
+      <section className="about-section sec-pad vx-course-types">
         <div className="auto-container">
           <div className="sec-title centred mb_50">
             <span className="sub-title">Open your mind</span>
             <h2>Join hands with Vetham Kuzhumam Spiritual Group</h2>
             <p>Finding inner peace through spiritual practices</p>
           </div>
-          <div className="row clearfix">
-            {COURSE_TYPES.map((course, i) => (
+          <div className="row clearfix vx-course-types__grid">
+            {COURSE_TYPES.map((course) => (
               <div key={course.title} className="col-lg-3 col-md-6 col-sm-12 service-block">
-                <div className="service-block-one wow fadeInUp animated" data-wow-delay={`${i * 150}ms`} data-wow-duration="1500ms">
+                <div className="service-block-one">
                   <div className="inner-box centred">
-                    <div className="icon-box">
-                      <div className="icon-bg" style={{ backgroundImage: `url(${img(course.iconBg)})` }} />
-                      <div className="icon"><i className={course.icon} /></div>
+                    <div className="icon-box" aria-hidden="true">
+                      <div
+                        className="icon-bg"
+                        style={{ backgroundImage: `url(${img(course.iconBg)})` }}
+                      />
+                      <div className="icon">
+                        <i className={course.icon} />
+                      </div>
                     </div>
                     <h3>{course.title}</h3>
                     <p>{course.text}</p>

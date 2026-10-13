@@ -1664,8 +1664,100 @@ body.vx-inner .cause-block-one .inner-box {
 }
 
 body.vx-inner .icon-box i,
-body.vx-inner [class^="icon-"] {
+body.vx-inner [class^="icon-"]:not([class*="fa-"]) {
   color: var(--vx-gold);
+}
+
+/* Courses — practice type cards (icon + decorative bg) */
+body.vx-inner .vx-course-types__grid {
+  align-items: stretch;
+}
+
+body.vx-inner .vx-course-types .service-block {
+  display: flex;
+}
+
+body.vx-inner .vx-course-types .service-block-one {
+  width: 100%;
+}
+
+body.vx-inner .vx-course-types .service-block-one .inner-box {
+  height: 100%;
+  padding: clamp(24px, 3vw, 36px) clamp(16px, 2.5vw, 24px);
+  text-align: center;
+  transition: box-shadow 0.35s var(--vx-ease), transform 0.35s var(--vx-ease);
+}
+
+body.vx-inner .vx-course-types .service-block-one .inner-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+body.vx-inner .vx-course-types .icon-box {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 132px;
+  height: 132px;
+  margin: 0 auto 20px;
+}
+
+body.vx-inner .vx-course-types .icon-bg {
+  position: absolute;
+  inset: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+}
+
+body.vx-inner .vx-course-types .icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+body.vx-inner .vx-course-types .icon i {
+  font-family: 'Font Awesome 5 Free' !important;
+  font-weight: 900;
+  font-size: 2.35rem;
+  line-height: 1;
+  color: var(--vx-primary);
+}
+
+body.vx-inner .vx-course-types .service-block:nth-child(1) .icon i {
+  color: #2f5f44;
+}
+
+body.vx-inner .vx-course-types .service-block:nth-child(2) .icon i {
+  color: #c45a1a;
+}
+
+body.vx-inner .vx-course-types .service-block:nth-child(3) .icon i {
+  color: #3d7a52;
+}
+
+body.vx-inner .vx-course-types .service-block:nth-child(4) .icon i {
+  color: #7c5cbf;
+}
+
+body.vx-inner .vx-course-types .service-block-one h3 {
+  font-family: var(--vx-font-display);
+  font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+  margin: 0 0 12px;
+  color: var(--vx-heading);
+}
+
+body.vx-inner .vx-course-types .service-block-one p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--vx-text-dim) !important;
 }
 
 body.vx-inner .vetham-leader-card__name {
