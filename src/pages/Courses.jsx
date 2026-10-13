@@ -8,13 +8,13 @@ import {
   MEDITATION_TIMETABLE,
   MENTORS,
   ONLINE_YOGA_TAMIL,
-  TESTIMONIALS,
   WHATSAPP_GROUP,
   YOGA_REGISTRATION_FORM,
 } from '../config/courses';
 import { img } from '../config/images';
 import CinematicPageHero from '../components/cinematic/CinematicPageHero';
 import LazyImage from '../components/LazyImage';
+import TestimonialMarquee from '../components/TestimonialMarquee';
 
 export default function Courses() {
   return (
@@ -147,30 +147,7 @@ export default function Courses() {
         </div>
       </section>
 
-      <section className="testimonial-style-two sec-pad">
-        <div className="auto-container">
-          <div className="sec-title centred mb_50">
-            <span className="sub-title">Testimonials</span>
-            <h2>What Our Community Says</h2>
-          </div>
-          <div className="row clearfix">
-            {TESTIMONIALS.map((item) => (
-              <div key={item.name} className="col-lg-6 col-md-12 col-sm-12">
-                <div className="testimonial-block-one">
-                  <div className="inner-box">
-                    <figure className="thumb-box">
-                      <LazyImage src={img(item.image)} alt={item.name} />
-                    </figure>
-                    <p>&ldquo;{item.quote}&rdquo;</p>
-                    <h3>{item.name}</h3>
-                    <span className="designation">{item.location}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialMarquee />
 
       <section className="vetham-donate-cta sec-pad bg-color-1 centred">
         <div className="auto-container">

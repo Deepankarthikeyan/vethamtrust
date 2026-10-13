@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 import LazyImage from '../LazyImage';
-import { img } from '../../config/images';
-import { TESTIMONIALS } from '../../config/courses';
 import {
   BALANCE_CARDS,
   BROTHERHOOD_PANEL,
@@ -238,31 +236,6 @@ export default function SpiritualHomePage() {
                 <p><span className="sh-village-tile__dash">—</span> {tile.text}</p>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="sh-section sh-testimonials sh-section--soft" id="sh-testimonials" aria-label="Testimonials">
-        <div className="sh-container sh-container--content">
-          <header className="sh-section-head sh-section-head--narrow">
-            <p className="sh-eyebrow sh-eyebrow--center">Voices of the Journey</p>
-            <h2 className="sh-title sh-title--center">What Practitioners Share</h2>
-          </header>
-          <div className="sh-testimonials__marquee" aria-hidden="true">
-            <div className="sh-testimonials__track">
-              {[...TESTIMONIALS, ...TESTIMONIALS].map((item, index) => (
-                <article key={`${item.name}-${index}`} className="sh-testimonial-card">
-                  <div className="sh-testimonial-card__avatar">
-                    <img src={img(item.image)} alt="" loading="lazy" decoding="async" />
-                  </div>
-                  <blockquote className="sh-testimonial-card__quote">&ldquo;{item.quote}&rdquo;</blockquote>
-                  <p className="sh-testimonial-card__meta">
-                    <strong>{item.name}</strong>
-                    <span>{item.location}</span>
-                  </p>
-                </article>
-              ))}
-            </div>
           </div>
         </div>
       </section>
