@@ -19,7 +19,6 @@ const REVEAL_SELECTOR = [
   '.sh-village__head',
   '.sh-village-tile',
   '.sh-balance-col',
-  '.sh-cta__content > *',
   '.content_block_one',
   '.image_block_one',
   '.vx-page-content .image-column figure',
@@ -49,7 +48,7 @@ export default function useScrollReveal() {
 
     const timer = window.setTimeout(() => {
       ctx = gsap.context(() => {
-        gsap.utils.toArray('.vx-page-content section, .sh-home .sh-section, .sh-cta').forEach((section) => {
+        gsap.utils.toArray('.vx-page-content section, .sh-home .sh-section').forEach((section) => {
           const blocks = section.querySelectorAll(REVEAL_SELECTOR);
           if (!blocks.length) return;
 
@@ -101,6 +100,63 @@ export default function useScrollReveal() {
             stagger: 0.1,
             ease: 'power2.out',
             delay: 0.15,
+          });
+        }
+
+        const cta = document.querySelector('.sh-cta');
+        if (cta) {
+          const ctaBg = cta.querySelector('.sh-cta__bg');
+          if (ctaBg) {
+            gsap.fromTo(
+              ctaBg,
+              { yPercent: -6 },
+              {
+                yPercent: 10,
+                ease: 'none',
+                scrollTrigger: {
+                  trigger: cta,
+                  start: 'top bottom',
+                  end: 'bottom top',
+                  scrub: true,
+                },
+              },
+            );
+          }
+
+          const ctaContent = cta.querySelector('.sh-cta__content');
+          if (ctaContent) {
+            gsap.fromTo(
+              ctaContent,
+              { y: 40 },
+              {
+                y: -55,
+                ease: 'none',
+                scrollTrigger: {
+                  trigger: cta,
+                  start: 'top bottom',
+                  end: 'bottom top',
+                  scrub: 1,
+                },
+              },
+            );
+          }
+
+          gsap.utils.toArray('.sh-cta__scroll-item').forEach((el, index) => {
+            gsap.fromTo(
+              el,
+              { y: 56 + index * 8, opacity: 0.2 },
+              {
+                y: -(28 + index * 5),
+                opacity: 1,
+                ease: 'none',
+                scrollTrigger: {
+                  trigger: cta,
+                  start: 'top 95%',
+                  end: 'center 35%',
+                  scrub: 1.15,
+                },
+              },
+            );
           });
         }
 
