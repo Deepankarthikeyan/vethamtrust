@@ -14,6 +14,7 @@ const catalog = {
   homeHeroMeditation: [`${V}/home-hero-meditation-woman.jpg`],
   homeHeroReference: [`${V}/home-hero-reference.png`],
   homeAboutMaharishiReference: [`${V}/home-about-maharishi-reference.png`],
+  homeAboutMaharishiHq: [`${V}/home-about-maharishi-hq.png`, `${V}/home-about-maharishi-reference.png`],
   homePurposeMeditation: [`${V}/home/purpose-meditation-sunset.png`],
   homeBrotherhoodHill: [`${V}/home/brotherhood-hill.png`],
   homeCtaBanner: [`${V}/home/cta-tea-valley.png`],

@@ -23,7 +23,7 @@ export const SPIRITUAL_ABOUT = {
   ],
   quote: 'Know yourself. Understand life. Live in harmony.',
   quoteAttribution: 'Vethathiri Maharishi',
-  image: img('homeAboutMaharishiReference'),
+  image: img('homeAboutMaharishiHq'),
 };
 
 export const JOURNEY_WITHIN = {
@@ -35,7 +35,7 @@ export const JOURNEY_WITHIN = {
       title: 'Simplified Physical Exercises',
       text: 'Improve physical health, flexibility and overall well-being through simple and practical exercises.',
       image: img('homeJourneyCard1'),
-      icon: 'fas fa-person-walking',
+      icon: 'fas fa-walking',
       iconTone: 'green',
     },
     {

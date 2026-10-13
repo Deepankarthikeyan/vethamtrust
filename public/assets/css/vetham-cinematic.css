@@ -1132,17 +1132,46 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   color: rgba(255, 255, 255, 0.85);
 }
 
-.vx-footer__logo img {
-  height: clamp(64px, 10vw, 88px);
-  width: auto;
-  max-width: min(360px, 90vw);
-  object-fit: contain;
-  display: block;
-  margin-bottom: 20px;
+.vx-footer__logo {
+  margin-bottom: 16px;
 }
 
-.vx-footer__logo + .vx-text,
-.vx-footer__grid > div:first-child .vx-text {
+.vx-footer__logo img {
+  height: clamp(56px, 9vw, 76px);
+  width: auto;
+  max-width: min(320px, 90vw);
+  object-fit: contain;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.vx-footer__brand-lines {
+  margin: 0;
+}
+
+.vx-footer__brand-name,
+.vx-footer__brand-sub {
+  margin: 0;
+  font-family: var(--vx-font-display);
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+.vx-footer__brand-name {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.vx-footer__brand-sub {
+  margin-top: 4px;
+  font-size: clamp(0.88rem, 1.6vw, 1.05rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.04em;
+}
+
+.vx-footer__grid > div:first-child > .vx-text {
   color: #fff;
 }
 
@@ -1246,8 +1275,12 @@ body.vx-site .vx-footer .vx-footer__bottom p {
   color: rgba(255, 255, 255, 0.9) !important;
 }
 
-body.vx-site .vx-footer .vx-footer__grid > div:first-child .vx-text,
-body.vx-site .vx-footer .vx-footer__logo + .vx-text {
+body.vx-site .vx-footer .vx-footer__grid > div:first-child > .vx-text {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+body.vx-site .vx-footer .vx-footer__brand-name,
+body.vx-site .vx-footer .vx-footer__brand-sub {
   color: #ffffff !important;
 }
 
