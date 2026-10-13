@@ -9,16 +9,6 @@ function FounderCard({ member, linkToLeadership }) {
 
   return (
     <article className="vetham-founder-card">
-      <figure className="vetham-founder-card__media">
-        {linkToLeadership ? (
-          <Link to="/leadership" className="vetham-founder-card__media-link">
-            <LazyImage src={img(member.portrait || member.image)} alt={member.name} />
-          </Link>
-        ) : (
-          <LazyImage src={img(member.portrait || member.image)} alt={member.name} />
-        )}
-      </figure>
-
       <div className="vetham-founder-card__body">
         <p className="vetham-founder-card__meta">
           Spiritual Master <span aria-hidden="true">•</span> {member.role}
@@ -44,6 +34,16 @@ function FounderCard({ member, linkToLeadership }) {
           </ul>
         ) : null}
       </div>
+
+      <figure className="vetham-founder-card__media">
+        {linkToLeadership ? (
+          <Link to="/leadership" className="vetham-founder-card__media-link">
+            <LazyImage src={img(member.portrait || member.image)} alt={member.name} />
+          </Link>
+        ) : (
+          <LazyImage src={img(member.portrait || member.image)} alt={member.name} />
+        )}
+      </figure>
     </article>
   );
 }
