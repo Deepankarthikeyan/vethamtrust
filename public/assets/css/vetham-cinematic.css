@@ -1236,6 +1236,29 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   color: var(--vx-gold);
 }
 
+/* Footer text must stay light (overrides body.vx-inner p { color: ... !important }) */
+body.vx-site .vx-footer,
+body.vx-site .vx-footer p,
+body.vx-site .vx-footer .vx-text,
+body.vx-site .vx-footer .vx-footer__links li,
+body.vx-site .vx-footer .vx-footer__links a,
+body.vx-site .vx-footer .vx-footer__bottom p {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.vx-site .vx-footer .vx-footer__grid > div:first-child .vx-text,
+body.vx-site .vx-footer .vx-footer__logo + .vx-text {
+  color: #ffffff !important;
+}
+
+body.vx-site .vx-footer .vx-footer__grid h4 {
+  color: #ffcc99 !important;
+}
+
+body.vx-site .vx-footer .vx-footer__links a:hover {
+  color: var(--vx-peach) !important;
+}
+
 /* Inner pages */
 .vx-page-hero {
   position: relative;
