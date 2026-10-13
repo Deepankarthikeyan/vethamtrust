@@ -20,84 +20,86 @@ export default function OurVillage() {
       <CinematicPageHero title="Our Village" crumbs={['Our Village']} />
 
       <div className="vx-page-content">
-      <section className="about-section p_relative sec-pad">
-        <div className="auto-container">
-          <div className="row align-items-center clearfix">
-            <div className="col-lg-6 col-md-12 col-sm-12 content-column">
-              <div className="sec-title mb_40">
-                <span className="sub-title">Vethathiri Maharishi Village</span>
-                <h2>A Divine Spiritual Sanctuary</h2>
-              </div>
-              <div className="text mb_35">
-                <p>Nestled in Marisettipathi Village near Coimbatore, our spiritual village is being developed as a sanctuary where individuals can immerse in meditation, yoga, and satsang surrounded by nature.</p>
-                <p>The village features a meditation hall, gurukul, spiritual garden, and plans for a retirement home — all dedicated to World Peace through Individual Peace.</p>
-              </div>
-              <div className="btn-box">
-                <Link to="/donate" className="theme-btn-one"><span>Donate Now</span></Link>
-              </div>
-            </div>
-            <div className="col-lg-6 col-md-12 col-sm-12 image-column">
-              <figure className="image"><LazyImage src={img('villageAbout')} alt="Spiritual Village" /></figure>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="cause-section sec-pad">
-        <div className="auto-container">
-          <div className="sec-title centred mb_50">
-            <span className="sub-title">Projects</span>
-            <h2>Support Our Spiritual Village</h2>
-          </div>
-          <div className="row clearfix">
-            {PROJECTS.map((p) => (
-              <div key={p.title} className="col-lg-4 col-md-6 col-sm-12 cause-block">
-                <div className="cause-block-one">
-                  <div className="inner-box">
-                    <div className="image-box">
-                      <figure className="image"><LazyImage src={img(p.image)} alt="" /></figure>
-                    </div>
-                    <div className="lower-content">
-                      <div className="text">
-                        <h3>{p.title}</h3>
-                        <p>{p.text}</p>
-                      </div>
-                    </div>
-                  </div>
+        <section className="vx-split-section sec-pad">
+          <div className="auto-container">
+            <div className="vx-split-section__grid">
+              <div className="vx-split-section__content">
+                <div className="sec-title vx-split-section__title">
+                  <span className="sub-title">Vethathiri Maharishi Village</span>
+                  <h2>A Divine Spiritual Sanctuary</h2>
+                </div>
+                <div className="text vx-split-section__text">
+                  <p>Nestled in Marisettipathi Village near Coimbatore, our spiritual village is being developed as a sanctuary where individuals can immerse in meditation, yoga, and satsang surrounded by nature.</p>
+                  <p>The village features a meditation hall, gurukul, spiritual garden, and plans for a retirement home — all dedicated to World Peace through Individual Peace.</p>
+                </div>
+                <div className="btn-box">
+                  <Link to="/donate" className="theme-btn-one"><span>Donate Now</span></Link>
                 </div>
               </div>
-            ))}
+              <div className="vx-split-section__media">
+                <figure className="vx-split-section__figure">
+                  <LazyImage src={img('villageAbout')} alt="Spiritual Village" />
+                </figure>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="about-section bg-color-1 sec-pad vetham-village-highlights">
-        <div className="auto-container">
-          <div className="row clearfix">
-            <div className="col-lg-4 col-md-6 col-sm-12 vetham-village-highlight">
-              <figure className="vetham-village-highlight__image">
-                <LazyImage src={img('history')} alt="History" />
-              </figure>
-              <h3 className="mt_20">Our History</h3>
-              <p>Founded in 2017, the Trust has grown from humble beginnings to a vibrant spiritual community.</p>
+        <section className="vx-split-section vx-split-section--soft sec-pad">
+          <div className="auto-container">
+            <div className="sec-title centred vx-split-section__title">
+              <span className="sub-title">Projects</span>
+              <h2>Support Our Spiritual Village</h2>
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 vetham-village-highlight">
-              <figure className="vetham-village-highlight__image">
-                <LazyImage src={img('leader')} alt="Leadership" />
-              </figure>
-              <h3 className="mt_20">Guided Leadership</h3>
-              <p>Our founders and trustees dedicate their lives to spreading Maharishi&apos;s teachings.</p>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 vetham-village-highlight">
-              <figure className="vetham-village-highlight__image">
-                <LazyImage src={img('villagePlan')} alt="Village Plan" />
-              </figure>
-              <h3 className="mt_20">Village Plan</h3>
-              <p>A comprehensive plan for meditation halls, gardens, and community spaces.</p>
+            <div className="vx-card-grid vx-card-grid--3">
+              {PROJECTS.map((p) => (
+                <article key={p.title} className="vx-spirit-card">
+                  <figure className="vx-spirit-card__media">
+                    <LazyImage src={img(p.image)} alt="" />
+                  </figure>
+                  <div className="vx-spirit-card__body">
+                    <h3>{p.title}</h3>
+                    <p>{p.text}</p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section className="vx-split-section sec-pad">
+          <div className="auto-container">
+            <div className="vx-card-grid vx-card-grid--3">
+              <article className="vx-spirit-card vx-spirit-card--text">
+                <figure className="vx-spirit-card__media">
+                  <LazyImage src={img('history')} alt="History" />
+                </figure>
+                <div className="vx-spirit-card__body">
+                  <h3>Our History</h3>
+                  <p>Founded in 2017, the Trust has grown from humble beginnings to a vibrant spiritual community.</p>
+                </div>
+              </article>
+              <article className="vx-spirit-card vx-spirit-card--text">
+                <figure className="vx-spirit-card__media">
+                  <LazyImage src={img('leader')} alt="Leadership" />
+                </figure>
+                <div className="vx-spirit-card__body">
+                  <h3>Guided Leadership</h3>
+                  <p>Our founders and trustees dedicate their lives to spreading Maharishi&apos;s teachings.</p>
+                </div>
+              </article>
+              <article className="vx-spirit-card vx-spirit-card--text">
+                <figure className="vx-spirit-card__media">
+                  <LazyImage src={img('villagePlan')} alt="Village Plan" />
+                </figure>
+                <div className="vx-spirit-card__body">
+                  <h3>Village Plan</h3>
+                  <p>A comprehensive plan for meditation halls, gardens, and community spaces.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );

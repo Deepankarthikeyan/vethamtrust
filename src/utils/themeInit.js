@@ -211,7 +211,13 @@ export function reinitThemePlugins() {
   }
 
   if ($.fn.fancybox) {
-    $('[data-fancybox]').fancybox({ buttons: ['close'], loop: true });
+    $('[data-fancybox]').fancybox({
+      buttons: ['zoom', 'slideShow', 'fullScreen', 'thumbs', 'close'],
+      loop: true,
+      animationEffect: 'fade',
+      transitionEffect: 'slide',
+      protect: true,
+    });
   }
 }
 

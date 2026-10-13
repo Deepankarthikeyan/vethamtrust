@@ -15,57 +15,57 @@ export default function About() {
       <CinematicPageHero title="About Us" crumbs={['About Us']} />
 
       <div className="vx-page-content">
-      <section className="about-section p_relative sec-pad">
-        <div className="auto-container">
-          <div className="row align-items-center clearfix">
-            <div className="col-lg-6 col-md-12 col-sm-12 content-column">
-              <div className="content_block_one">
-                <div className="content-box p_relative mr_30">
-                  <div className="sec-title mb_40">
-                    <span className="sub-title">Our Story &amp; Trust</span>
-                    <h2>Building a Legacy of Integrity and Excellence</h2>
-                  </div>
-                  <div className="text mb_35">
-                    <p>{SITE.name}, founded in 2017 and inspired by the great yogi Shri Vethathiri Maharishi, is rooted in the timeless vision of &quot;{SITE.tagline}.&quot; Carrying forward his mission, the Trust works to spread his teachings and provide spiritual guidance to seekers from all walks of life.</p>
-                    <p>Over the years, the Trust has touched countless lives in Coimbatore and beyond, offering pathways to inner peace, clarity of thought, and harmony in daily living.</p>
-                  </div>
-                  <div className="btn-box"><Link to="/contact" className="theme-btn-one">Contact Us</Link></div>
+        <section className="vx-split-section sec-pad">
+          <div className="auto-container">
+            <div className="vx-split-section__grid">
+              <div className="vx-split-section__content">
+                <div className="sec-title vx-split-section__title">
+                  <span className="sub-title">Our Story &amp; Trust</span>
+                  <h2>Building a Legacy of Integrity and Excellence</h2>
+                </div>
+                <div className="text vx-split-section__text">
+                  <p>{SITE.name}, founded in 2017 and inspired by the great yogi Shri Vethathiri Maharishi, is rooted in the timeless vision of &quot;{SITE.tagline}.&quot; Carrying forward his mission, the Trust works to spread his teachings and provide spiritual guidance to seekers from all walks of life.</p>
+                  <p>Over the years, the Trust has touched countless lives in Coimbatore and beyond, offering pathways to inner peace, clarity of thought, and harmony in daily living.</p>
+                </div>
+                <div className="btn-box">
+                  <Link to="/contact" className="theme-btn-one">Contact Us</Link>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-6 col-md-12 col-sm-12 image-column">
-              <div className="image_block_one">
-                <div className="image-box p_relative d_block ml_40">
-                  <figure className="image image-1"><LazyImage src={img('about1')} alt="Community" /></figure>
-                  <figure className="image image-2"><LazyImage src={img('about2')} alt="Meditation Hall" /></figure>
-                </div>
+              <div className="vx-split-section__media vx-about-collage" aria-hidden="true">
+                <figure className="vx-about-collage__primary">
+                  <LazyImage src={img('about1')} alt="Community at the spiritual trust" />
+                </figure>
+                <figure className="vx-about-collage__secondary">
+                  <LazyImage src={img('about2')} alt="Meditation hall" />
+                </figure>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="about-section bg-color-1 p_relative sec-pad">
-        <div className="auto-container">
-          <div className="row align-items-center clearfix">
-            <div className="col-lg-6 col-md-12 col-sm-12 image-column">
-              <figure className="image"><LazyImage src={img('mahaan')} alt="Vethathiri Maharishi" /></figure>
-            </div>
-            <div className="col-lg-6 col-md-12 col-sm-12 content-column">
-              <div className="sec-title mb_40">
-                <span className="sub-title">Our Inspiration</span>
-                <h2>Yogiraj Vethathiri Maharishi</h2>
+        <section className="vx-split-section vx-split-section--soft sec-pad">
+          <div className="auto-container">
+            <div className="vx-split-section__grid vx-split-section__grid--reverse">
+              <div className="vx-split-section__content">
+                <div className="sec-title vx-split-section__title">
+                  <span className="sub-title">Our Inspiration</span>
+                  <h2>Yogiraj Vethathiri Maharishi</h2>
+                </div>
+                <div className="text vx-split-section__text">
+                  <p>Shri Vethathiri Maharishi dedicated his life to the cause of World Peace through Individual Peace. His teachings on Kundalini Yoga, introspection, and simplified spiritual practices continue to guide millions worldwide.</p>
+                  <p>At Vetham Kuzhumam Spiritual Trust, we carry forward his vision by creating spaces for meditation, yoga, and community satsang.</p>
+                </div>
               </div>
-              <div className="text">
-                <p>Shri Vethathiri Maharishi dedicated his life to the cause of World Peace through Individual Peace. His teachings on Kundalini Yoga, introspection, and simplified spiritual practices continue to guide millions worldwide.</p>
-                <p>At Vetham Kuzhumam Spiritual Trust, we carry forward his vision by creating spaces for meditation, yoga, and community satsang.</p>
+              <div className="vx-split-section__media">
+                <figure className="vx-split-section__figure">
+                  <LazyImage src={img('mahaan')} alt="Vethathiri Maharishi" />
+                </figure>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <LeadershipShowcase linkToLeadership={false} />
+        <LeadershipShowcase linkToLeadership={false} />
       </div>
     </>
   );

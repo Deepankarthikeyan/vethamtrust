@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { reinitThemePlugins } from '../utils/themeInit';
 import { Helmet } from 'react-helmet-async';
 import { SITE } from '../config/site';
 import { GALLERY_FILTERS, GALLERY_ITEMS, gallerySrc } from '../config/gallery';
@@ -16,8 +17,14 @@ export default function SocialMedia() {
     key: item.file,
     src: gallerySrc(item.file),
     title: item.title,
+    label: item.label,
     cat: item.cat,
   }));
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => reinitThemePlugins(), 250);
+    return () => window.clearTimeout(timer);
+  }, [filter, galleryItems.length]);
 
   return (
     <>
@@ -27,7 +34,7 @@ export default function SocialMedia() {
       <CinematicPageHero title="Social Media" crumbs={['Social Media']} />
 
       <div className="vx-page-content">
-        <section className="sec-pad bg-color-1 vx-gallery-section">
+        <section className="sec-pad bg-color-1 vx-gallery-section vx-gallery-section--spirit">
           <div className="auto-container">
             <div className="sec-title centred mb_50 vx-reveal">
               <span className="sub-title">Photo Gallery</span>

@@ -30,6 +30,10 @@ const CARD_SELECTOR = [
   '.vx-gallery-masonry__cell',
   '.vx-testimonial-card',
   '.feature-block-one .inner-box',
+  '.vx-spirit-card',
+  '.vx-about-collage__primary',
+  '.vx-about-collage__secondary',
+  '.vx-split-section__figure',
 ].join(', ');
 
 const SECTION_SELECTOR = [
@@ -37,6 +41,7 @@ const SECTION_SELECTOR = [
   '.sh-home .sh-cta',
   '.vx-page-content section',
   '.vx-page-content .sidebar-page-container',
+  '.vx-split-section',
 ].join(', ');
 
 function scrollFromTo(targets, trigger, extra = {}) {
@@ -65,10 +70,10 @@ function scrollFromTo(targets, trigger, extra = {}) {
 
 function revealSplitRow(row) {
   const visual = row.querySelector(
-    '.sh-about__visual, .image-column, .image_block_one, .vetham-leader-card__media, figure.image',
+    '.sh-about__visual, .vx-split-section__media, .image-column, .image_block_one, .vetham-leader-card__media, figure.image',
   );
   const copy = row.querySelector(
-    '.sh-about__copy, .content-column, .content_block_one, .vetham-leader-card__text',
+    '.sh-about__copy, .vx-split-section__content, .content-column, .content_block_one, .vetham-leader-card__text',
   );
 
   if (visual) {
@@ -131,7 +136,10 @@ function revealSection(section) {
     }
   });
 
-  gsap.utils.toArray('.sh-about__grid, .row.align-items-center, .row.g-5', section).forEach(revealSplitRow);
+  gsap.utils.toArray(
+    '.sh-about__grid, .vx-split-section__grid, .row.align-items-center, .row.g-5',
+    section,
+  ).forEach(revealSplitRow);
 
   const textOnly = section.querySelectorAll(
     '.text p, .vetham-donate-cta-text p, .vetham-event-tamil, .village-highlight-list li, .meditation-timetable table, .vx-reveal',
