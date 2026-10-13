@@ -1,19 +1,12 @@
 import { TESTIMONIALS } from '../config/courses';
 import { img } from '../config/images';
 
-export default function TestimonialMarquee({
-  eyebrow = 'Testimonials',
-  title = 'What Our Community Says',
-}) {
+export default function TestimonialMarquee() {
   const items = [...TESTIMONIALS, ...TESTIMONIALS];
 
   return (
-    <section className="vx-testimonials sec-pad" aria-label="Testimonials">
+    <section className="vx-testimonials sec-pad" aria-label="Community testimonials">
       <div className="auto-container">
-        <div className="sec-title centred mb_50">
-          <span className="sub-title">{eyebrow}</span>
-          <h2>{title}</h2>
-        </div>
         <div className="vx-testimonials__marquee">
           <div className="vx-testimonials__track">
             {items.map((item, index) => (

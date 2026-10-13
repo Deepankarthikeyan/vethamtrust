@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SITE } from '../../config/site';
 import { DONATION } from '../../config/donate';
-import { FOOTER_TAGLINE } from '../../config/cinematic';
 import { img } from '../../config/images';
 
 const QUICK_LINKS = [
@@ -25,9 +24,6 @@ export default function CinematicFooter() {
   return (
     <footer className="vx-footer">
       <div className="vx-container">
-        <div className="vx-footer__brand" aria-hidden="true">VETHAM</div>
-        <p className="vx-footer__tagline">{FOOTER_TAGLINE}</p>
-
         <div className="vx-footer__grid">
           <div>
             <div className="vx-footer__logo">

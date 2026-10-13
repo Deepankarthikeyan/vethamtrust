@@ -317,35 +317,6 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   color: #000;
 }
 
-body.vx-home .vx-header.is-scrolled {
-  background: rgba(30, 61, 42, 0.96);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
-}
-
-body.vx-home .vx-header.is-scrolled .vx-header__nav > li > a,
-body.vx-home .vx-header.is-scrolled .vx-header__nav > li > button,
-body.vx-home .vx-header.is-scrolled .vx-header__toggle {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.35);
-}
-
-body.vx-home .vx-header.is-scrolled .vx-header__nav > li > a:hover,
-body.vx-home .vx-header.is-scrolled .vx-header__nav > li > a.is-active,
-body.vx-home .vx-header.is-scrolled .vx-header__nav > li > button:hover {
-  color: var(--vx-peach);
-}
-
-body.vx-home .vx-header.is-scrolled .vx-btn--ghost {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.88);
-}
-
-body.vx-home .vx-header.is-scrolled .vx-btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-}
-
 .vx-header__toggle {
   display: none;
   width: 44px;
