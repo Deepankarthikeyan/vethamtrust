@@ -233,7 +233,7 @@ export default function SpiritualHomePage() {
                   <LazyImage src={tile.image} alt="" />
                 </div>
                 <h3>{tile.title}</h3>
-                <p>{tile.text}</p>
+                <p><span className="sh-village-tile__dash">—</span> {tile.text}</p>
               </article>
             ))}
           </div>

@@ -16,7 +16,7 @@ const catalog = {
   homeAboutMaharishiReference: [`${V}/home-about-maharishi-reference.png`],
   homePurposeMeditation: [`${V}/home/purpose-meditation-sunset.png`],
   homeBrotherhoodHill: [`${V}/home/brotherhood-hill.png`],
-  homeCtaBanner: [`${V}/home/cta-banner.jpg`],
+  homeCtaBanner: [`${V}/home/cta-tea-valley.png`],
   homeJourneyCard1: [`${V}/home/journey-card-1.jpg`],
   homeJourneyCard2: [`${V}/home/journey-card-2.jpg`],
   homeJourneyCard3: [`${V}/home/journey-card-3.jpg`],

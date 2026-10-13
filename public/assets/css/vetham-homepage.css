@@ -882,7 +882,7 @@
   object-fit: cover;
 }
 
-.sh-village__tiles {
+.sh-village__tiles:not(.sh-village__tiles--row) {
   grid-column: 1;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1010,7 +1010,12 @@
 .sh-cta__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.22));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.15) 35%,
+    rgba(30, 61, 42, 0.45) 100%
+  );
   z-index: 1;
 }
 
@@ -1022,7 +1027,8 @@
 .sh-cta__title {
   font-family: var(--vx-font-display);
   font-size: clamp(2rem, 4vw, 3rem);
-  color: #1e3d2a;
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
   margin: 0 0 16px;
 }
 
@@ -1036,10 +1042,11 @@
 }
 
 .sh-cta__text {
-  color: #3d4a42;
+  color: rgba(255, 255, 255, 0.95);
   max-width: 640px;
   margin: 0 auto 28px;
   line-height: 1.7;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
 }
 
 .sh-cta__pillars {
@@ -1064,7 +1071,7 @@
   flex: 1 1 0;
   min-width: 0;
   padding: 0 12px;
-  border-left: 1px solid rgba(30, 61, 42, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 .sh-cta__pillars--divided li:first-child {
@@ -1076,7 +1083,7 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  color: #1e3d2a;
+  color: rgba(255, 255, 255, 0.95);
   font-size: 0.85rem;
   font-weight: 600;
 }
@@ -1088,7 +1095,7 @@
 
 .sh-cta__tagline {
   margin: 24px 0 0;
-  color: #1e3d2a;
+  color: rgba(255, 255, 255, 0.92);
   font-size: 0.95rem;
   display: flex;
   flex-direction: column;
@@ -1103,7 +1110,7 @@
 .sh-cta__tagline-sub {
   font-size: 0.88rem;
   font-weight: 400;
-  color: #3d4a42;
+  color: rgba(255, 255, 255, 0.85);
   letter-spacing: 0.02em;
   text-transform: none;
 }
@@ -1932,5 +1939,129 @@
 
   .sh-container--wide {
     width: calc(100% - 24px);
+  }
+}
+
+/* Village & balance — aligned with reference mock */
+.sh-village__layout {
+  grid-template-columns: minmax(260px, 36%) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(20px, 3vw, 40px);
+}
+
+.sh-village__layout > .sh-village__tiles--row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(10px, 1.4vw, 16px);
+  width: 100%;
+  min-width: 0;
+}
+
+.sh-village__layout .sh-village-tile {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(30, 61, 42, 0.1);
+  box-shadow: 0 8px 24px rgba(30, 61, 42, 0.08);
+  min-width: 0;
+  height: 100%;
+}
+
+.sh-village__layout .sh-village-tile__img {
+  aspect-ratio: 16 / 11;
+  background: #e8efe9;
+}
+
+.sh-village__layout .sh-village-tile__img img {
+  object-fit: cover;
+  image-rendering: auto;
+}
+
+.sh-village__layout .sh-village-tile h3 {
+  margin: 10px 12px 4px;
+  font-family: var(--vx-font-display);
+  font-size: clamp(0.92rem, 1.05vw, 1.08rem);
+  color: #000;
+  line-height: 1.25;
+}
+
+.sh-village__layout .sh-village-tile p {
+  margin: 0 12px 14px;
+  font-size: clamp(0.78rem, 0.92vw, 0.86rem);
+  line-height: 1.45;
+  color: #5a6560;
+}
+
+.sh-village__head--left {
+  max-width: 100%;
+  padding-right: clamp(0px, 2vw, 12px);
+}
+
+.sh-balance__grid {
+  align-items: stretch;
+}
+
+.sh-balance-col {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 16px 22px;
+}
+
+.sh-balance-col__img {
+  margin-bottom: 14px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #eef2ee;
+}
+
+.sh-balance-col__img img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: clamp(120px, 14vw, 180px);
+  object-fit: cover;
+  display: block;
+}
+
+.sh-balance-col li {
+  line-height: 1.5;
+}
+
+.sh-cta {
+  min-height: clamp(380px, 42vw, 540px);
+  display: flex;
+  align-items: center;
+}
+
+.sh-cta__bg {
+  object-fit: cover;
+  object-position: center 55%;
+}
+
+.sh-cta__content {
+  padding: clamp(56px, 9vw, 100px) 0;
+  width: 100%;
+}
+
+.sh-cta__eyebrow {
+  color: #c45a1a;
+}
+
+@media (max-width: 1100px) {
+  .sh-village__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sh-village__layout > .sh-village__tiles--row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .sh-village__layout > .sh-village__tiles--row {
+    grid-template-columns: 1fr;
+  }
+
+  .sh-balance__grid {
+    max-width: none;
   }
 }
