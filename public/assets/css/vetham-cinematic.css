@@ -21,7 +21,8 @@
   --vx-on-dark: #ffffff;
   --vx-on-dark-muted: rgba(255, 255, 255, 0.85);
   --vx-radius: 20px;
-  --vx-section: clamp(72px, 10vw, 120px);
+  --vx-section-gap: clamp(44px, 5vw, 68px);
+  --vx-section: var(--vx-section-gap);
   --vx-font-display: 'Cormorant Garamond', Georgia, serif;
   --vx-font-body: 'Inter', 'Poppins', system-ui, sans-serif;
   --vx-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -1267,10 +1268,13 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
 .vx-breadcrumb a { color: var(--vx-gold); }
 
 .vx-page-content {
-  padding: var(--vx-section) 0;
+  padding: 0;
 }
 
-.vx-page-content .sec-pad { padding: var(--vx-section) 0; }
+.vx-page-content .sec-pad {
+  padding-top: var(--vx-section-gap);
+  padding-bottom: var(--vx-section-gap);
+}
 
 /* Inner page compatibility with existing Vetham components */
 body.vx-inner {
@@ -1791,6 +1795,27 @@ body.vx-inner .contact-form-section {
 
 body.vx-inner .main-footer { display: none; }
 body.vx-inner .main-header { display: none; }
+
+/* Unified vertical rhythm — one gap between all sections (no double padding) */
+body.vx-inner section,
+body.vx-inner .vx-page-content > section,
+body.vx-inner .sidebar-page-container,
+body.vx-inner .vetham-contact-cards,
+body.vx-inner .vetham-contact-form,
+body.vx-inner .cta-style-two {
+  padding-top: var(--vx-section-gap) !important;
+  padding-bottom: var(--vx-section-gap) !important;
+}
+
+body.vx-inner .vx-page-hero {
+  padding-top: calc(var(--vx-header-h) + var(--vx-section-gap)) !important;
+  padding-bottom: var(--vx-section-gap) !important;
+}
+
+body.vx-inner .vx-page-content > section:last-child,
+body.vx-inner .vx-page-content > .vetham-contact-form:last-child {
+  padding-bottom: var(--vx-section-gap) !important;
+}
 
 .vx-card {
   background: var(--vx-bg-card);

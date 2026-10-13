@@ -5,27 +5,55 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const START = 'top 82%';
+const START = 'top 84%';
 const TOGGLE = 'play reverse play reverse';
-const DURATION = 0.78;
-const Y = 26;
+const DURATION = 0.8;
+const Y = 24;
 const STAGGER = 0.12;
 const EASE = 'power2.out';
 
-function scrollFromTo(targets, vars, trigger) {
+const CARD_SELECTOR = [
+  '.service-block-one',
+  '.vetham-service-card',
+  '.vetham-contact-card',
+  '.vetham-leader-card',
+  '.vetham-event-card',
+  '.news-block-one .inner-box',
+  '.cause-block-one .inner-box',
+  '.sh-journey-card',
+  '.sh-dimension-tile',
+  '.sh-village-tile',
+  '.sh-balance-col',
+  '.sh-peace-card',
+  '.sh-purpose-card',
+  '.sh-brotherhood-card',
+  '.vx-gallery-masonry__cell',
+  '.vx-testimonial-card',
+  '.feature-block-one .inner-box',
+].join(', ');
+
+const SECTION_SELECTOR = [
+  '.sh-home .sh-section',
+  '.sh-home .sh-cta',
+  '.vx-page-content section',
+  '.vx-page-content .sidebar-page-container',
+].join(', ');
+
+function scrollFromTo(targets, trigger, extra = {}) {
   const list = gsap.utils.toArray(targets);
   if (!list.length) return;
 
   gsap.fromTo(
     list,
-    { y: Y, opacity: 0, ...vars.from },
+    { y: Y, opacity: 0, scale: extra.scaleFrom ?? 1, ...extra.from },
     {
       y: 0,
       opacity: 1,
-      duration: DURATION,
+      scale: extra.scaleTo ?? 1,
+      duration: extra.duration ?? DURATION,
       ease: EASE,
-      stagger: STAGGER,
-      ...vars.to,
+      stagger: extra.stagger ?? STAGGER,
+      ...extra.to,
       scrollTrigger: {
         trigger: trigger || list[0],
         start: START,
@@ -35,27 +63,89 @@ function scrollFromTo(targets, vars, trigger) {
   );
 }
 
-function scrollImage(targets, trigger) {
-  const list = gsap.utils.toArray(targets);
-  if (!list.length) return;
-
-  gsap.fromTo(
-    list,
-    { y: 24, opacity: 0, scale: 0.97 },
-    {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      duration: 0.85,
-      ease: EASE,
-      stagger: STAGGER,
-      scrollTrigger: {
-        trigger: trigger || list[0],
-        start: START,
-        toggleActions: TOGGLE,
-      },
-    },
+function revealSplitRow(row) {
+  const visual = row.querySelector(
+    '.sh-about__visual, .image-column, .image_block_one, .vetham-leader-card__media, figure.image',
   );
+  const copy = row.querySelector(
+    '.sh-about__copy, .content-column, .content_block_one, .vetham-leader-card__text',
+  );
+
+  if (visual) {
+    gsap.fromTo(
+      visual,
+      { x: -26, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: DURATION,
+        ease: EASE,
+        scrollTrigger: { trigger: row, start: START, toggleActions: TOGGLE },
+      },
+    );
+  }
+  if (copy) {
+    gsap.fromTo(
+      copy,
+      { x: 26, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: DURATION,
+        ease: EASE,
+        delay: 0.12,
+        scrollTrigger: { trigger: row, start: START, toggleActions: TOGGLE },
+      },
+    );
+  }
+}
+
+function revealSection(section) {
+  if (section.closest('.vx-page-hero, .sh-hero')) return;
+
+  const heading = section.querySelector(
+    '.sec-title, .sh-section-head, .vetham-contact-cards__header, .vetham-contact-form__header',
+  );
+  if (heading) {
+    scrollFromTo(heading.children, heading);
+  }
+
+  gsap.utils.toArray(
+    '.sh-way__intro, .sh-village__head, .content_block_one, .vetham-services-filter-summary',
+    section,
+  ).forEach((block) => {
+    scrollFromTo(block, section);
+  });
+
+  const cards = section.querySelectorAll(CARD_SELECTOR);
+  if (cards.length) {
+    scrollFromTo(cards, section);
+  }
+
+  const grids = section.querySelectorAll(
+    '.sh-journey__grid, .sh-dimensions__row, .sh-peace__grid, .sh-village__tiles--row, .sh-balance__grid, .sh-way__list, .vx-testimonials__track, .vetham-contact-cards__grid, .vetham-services-grid',
+  );
+  grids.forEach((grid) => {
+    if (!grid.querySelector(CARD_SELECTOR)) {
+      scrollFromTo(grid.children, grid);
+    }
+  });
+
+  gsap.utils.toArray('.sh-about__grid, .row.align-items-center, .row.g-5', section).forEach(revealSplitRow);
+
+  const textOnly = section.querySelectorAll(
+    '.text p, .vetham-donate-cta-text p, .vetham-event-tamil, .village-highlight-list li, .meditation-timetable table, .vx-reveal',
+  );
+  if (textOnly.length && !cards.length) {
+    scrollFromTo(textOnly, section, { stagger: 0.08 });
+  }
+
+  const images = gsap.utils.toArray('img', section).filter(
+    (img) => !img.closest('.vx-page-hero, .sh-hero, .vx-testimonial-card__avatar'),
+  );
+  if (images.length) {
+    scrollFromTo(images, section, { scaleFrom: 0.97, scaleTo: 1, duration: 0.85 });
+  }
 }
 
 export default function useScrollReveal() {
@@ -71,110 +161,9 @@ export default function useScrollReveal() {
 
     const timer = window.setTimeout(() => {
       ctx = gsap.context(() => {
-        /* —— Section titles: eyebrow/sub-title before heading —— */
-        gsap.utils.toArray('.sec-title, .sh-section-head').forEach((block) => {
-          scrollFromTo(block.children, {}, block);
-        });
+        const sections = gsap.utils.toArray(SECTION_SELECTOR);
+        sections.forEach(revealSection);
 
-        /* —— About copy: stagger text blocks —— */
-        const aboutCopy = document.querySelector('.sh-about__copy');
-        if (aboutCopy) {
-          scrollFromTo(
-            aboutCopy.querySelectorAll('.sh-eyebrow, .sh-title, .sh-text, .sh-quote, .sh-quote *'),
-            {},
-            aboutCopy,
-          );
-        }
-
-        /* —— Two-column: alternate horizontal reveal —— */
-        gsap.utils.toArray('.sh-about__grid, .vx-page-content .row.align-items-center').forEach((row) => {
-          const visual = row.querySelector('.sh-about__visual, .image-column, .image_block_one');
-          const copy = row.querySelector('.sh-about__copy, .content-column, .content_block_one');
-          const trigger = row;
-
-          if (visual) {
-            gsap.fromTo(
-              visual,
-              { x: -28, opacity: 0 },
-              {
-                x: 0,
-                opacity: 1,
-                duration: DURATION,
-                ease: EASE,
-                scrollTrigger: { trigger, start: START, toggleActions: TOGGLE },
-              },
-            );
-          }
-          if (copy) {
-            gsap.fromTo(
-              copy,
-              { x: 28, opacity: 0 },
-              {
-                x: 0,
-                opacity: 1,
-                duration: DURATION,
-                ease: EASE,
-                delay: 0.14,
-                scrollTrigger: { trigger, start: START, toggleActions: TOGGLE },
-              },
-            );
-          }
-        });
-
-        /* —— Card grids (stagger children per row) —— */
-        const gridSelectors = [
-          '.sh-journey__grid',
-          '.sh-dimensions__row',
-          '.sh-peace__grid',
-          '.sh-village__tiles--row',
-          '.sh-balance__grid',
-          '.sh-way__list',
-          '.vx-testimonials__track',
-        ];
-
-        gridSelectors.forEach((selector) => {
-          gsap.utils.toArray(selector).forEach((grid) => {
-            scrollFromTo(grid.children, {}, grid);
-          });
-        });
-
-        /* —— Split panels —— */
-        scrollFromTo('.sh-purpose-card', {}, '.sh-split');
-        scrollFromTo('.sh-brotherhood-card', {}, '.sh-split');
-
-        /* —— Way of life intro —— */
-        scrollFromTo('.sh-way__intro', {}, '.sh-way');
-
-        /* —— Village head —— */
-        scrollFromTo('.sh-village__head', {}, '.sh-village');
-
-        /* —— Inner page text blocks —— */
-        scrollFromTo(
-          '.vx-page-content .text p, .vx-page-content .btn-box a, .vx-page-content .theme-btn-one, .vx-reveal',
-          {},
-          '.vx-page-content',
-        );
-
-        /* —— Images —— */
-        const imageSelector = [
-          '.sh-about__maharishi-png',
-          '.sh-journey-card__img',
-          '.sh-village-tile__img',
-          '.sh-balance-col__img',
-          '.sh-purpose-card__media',
-          '.sh-brotherhood-hero img',
-          '.vx-gallery-masonry__media',
-          '.vx-page-content figure.image img',
-          '.vx-page-content .image-box img',
-          '.image_block_one img',
-        ].join(', ');
-
-        gsap.utils.toArray(imageSelector).forEach((el) => {
-          const wrap = el.closest('figure, .sh-journey-card__img, .vx-gallery-masonry__cell') || el;
-          scrollImage(wrap, el.closest('section') || wrap);
-        });
-
-        /* —— Page hero (load, not scroll) —— */
         const pageHero = document.querySelector('.vx-page-hero__content');
         if (pageHero) {
           gsap.from(pageHero.children, {
@@ -186,7 +175,6 @@ export default function useScrollReveal() {
           });
         }
 
-        /* —— Home hero (load only) —— */
         const homeHero = document.querySelector('.sh-hero__copy');
         if (homeHero) {
           gsap.from(homeHero.children, {
@@ -199,7 +187,6 @@ export default function useScrollReveal() {
           });
         }
 
-        /* —— Final CTA parallax (scrub) —— */
         const cta = document.querySelector('.sh-cta');
         if (cta) {
           const ctaBg = cta.querySelector('.sh-cta__bg');
