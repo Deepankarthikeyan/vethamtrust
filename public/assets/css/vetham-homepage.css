@@ -231,6 +231,11 @@
 
 .sh-hero__copy {
   max-width: 560px;
+  padding-top: clamp(20px, 3.5vh, 44px);
+}
+
+.sh-hero__copy > .sh-eyebrow:first-child {
+  margin-top: 0;
 }
 
 .sh-hero__title {
@@ -592,6 +597,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  image-rendering: auto;
 }
 
 .sh-journey-card__icon {
@@ -1474,11 +1480,35 @@
 .sh-dimension-tile__content {
   position: relative;
   z-index: 2;
-  padding: 26px 12px 20px;
+  padding: 18px 10px 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+}
+
+.sh-dimension-tile__content h3 {
+  font-size: clamp(0.72rem, 0.95vw, 0.88rem);
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+.sh-dimension-tile__content p {
+  font-size: clamp(0.62rem, 0.82vw, 0.74rem);
+  line-height: 1.35;
+  max-width: 11em;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.sh-dimension-tile__icon-ring {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 2px;
+}
+
+.sh-dimension-tile__icon-ring i {
+  font-size: 1rem;
 }
 
 .sh-dimension-tile::after {
@@ -1491,8 +1521,8 @@
   background-image: var(--sh-dim-image);
   background-size: cover;
   background-position: center bottom;
-  opacity: 0.55;
-  mask-image: linear-gradient(180deg, transparent 0%, #000 65%);
+  opacity: 0.72;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 55%);
   z-index: 1;
 }
 
@@ -1789,7 +1819,13 @@
   position: absolute;
   inset: auto 0 0;
   padding: 28px 24px 24px;
-  background: linear-gradient(180deg, transparent 0%, rgba(20, 30, 24, 0.55) 40%, rgba(20, 30, 24, 0.82) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(12, 22, 16, 0.65) 35%, rgba(12, 22, 16, 0.9) 100%);
+}
+
+.sh-brotherhood-hero__copy .sh-title--light,
+.sh-brotherhood-hero__copy .sh-eyebrow--light,
+.sh-brotherhood-hero__copy .sh-text--light {
+  color: #fff;
 }
 
 .sh-brotherhood-hero__copy .sh-title {
@@ -1799,6 +1835,7 @@
 .sh-brotherhood-hero__copy .sh-text {
   margin: 0;
   font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.94);
 }
 
 .sh-values--brotherhood {
@@ -1937,22 +1974,7 @@
   }
 
   .sh-brotherhood-hero__copy {
-    position: relative;
-    background: var(--sh-cream);
-    padding: 20px 16px;
-  }
-
-  .sh-brotherhood-hero__copy .sh-title--light,
-  .sh-brotherhood-hero__copy .sh-eyebrow--light {
-    color: #000;
-  }
-
-  .sh-brotherhood-hero__copy .sh-text--light {
-    color: var(--vx-text);
-  }
-
-  .sh-brotherhood-hero__copy .sh-eyebrow--light {
-    color: var(--vx-primary);
+    padding: 22px 16px 20px;
   }
 
   .sh-container--wide {
@@ -2086,4 +2108,88 @@
   .sh-balance__grid {
     max-width: none;
   }
+}
+
+/* Testimonials — horizontal scroll marquee */
+.sh-testimonials {
+  overflow: hidden;
+}
+
+.sh-testimonials__marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.sh-testimonials__track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: sh-testimonial-marquee 55s linear infinite;
+  padding: 8px 0 16px;
+}
+
+.sh-testimonials__track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes sh-testimonial-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sh-testimonials__track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.sh-testimonial-card {
+  flex: 0 0 min(340px, 82vw);
+  background: #fff;
+  border: 1px solid var(--vx-border);
+  border-radius: 16px;
+  padding: 22px 20px;
+  box-shadow: var(--sh-shadow);
+}
+
+.sh-testimonial-card__avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 12px;
+  border: 2px solid rgba(61, 122, 82, 0.25);
+}
+
+.sh-testimonial-card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sh-testimonial-card__quote {
+  margin: 0 0 14px;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--vx-text);
+  font-style: italic;
+}
+
+.sh-testimonial-card__meta {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--vx-text-dim);
+}
+
+.sh-testimonial-card__meta strong {
+  display: block;
+  color: var(--vx-green);
+  font-style: normal;
+}
+
+body.vx-home .vetham-fab-container {
+  z-index: 10050;
 }

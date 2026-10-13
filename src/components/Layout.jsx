@@ -23,7 +23,7 @@ export default function Layout() {
 
     const vethamCss = document.getElementById('vetham-custom-css');
     const vethamType = document.getElementById('vetham-typography-css');
-    if (vethamCss) vethamCss.disabled = isHome;
+    if (vethamCss) vethamCss.disabled = false;
     if (vethamType) vethamType.disabled = false;
   }, [isHome]);
 
@@ -39,7 +39,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <CinematicFooter />
-      {!isHome && <FloatingWidgets />}
+      <FloatingWidgets />
     </>
   );
 }

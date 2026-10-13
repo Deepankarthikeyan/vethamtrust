@@ -19,71 +19,85 @@ export default function SocialMedia() {
       <CinematicPageHero title="Social Media" crumbs={['Social Media']} />
 
       <div className="vx-page-content">
-      <section className="gallery-page-section sec-pad bg-color-1">
-        <div className="auto-container">
-          <div className="sec-title centred mb_50">
-            <span className="sub-title">Photo Gallery</span>
-            <h2>Our Spiritual Journey in Pictures</h2>
-          </div>
-          <div className="vetham-gallery-filters centred mb_40">
-            {GALLERY_FILTERS.map((f) => (
-              <button
-                key={f.key}
-                type="button"
-                className={`filter-btn${filter === f.key ? ' active' : ''}`}
-                onClick={() => setFilter(f.key)}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-          <div className="items-container row clearfix vetham-gallery-grid vetham-gallery-icon-only">
-            {visible.map((item) => {
-              const src = gallerySrc(item.file);
-              return (
-                <div
-                  key={item.file}
-                  className={`col-lg-4 col-md-6 col-sm-12 gallery-item ${item.cat}`}
-                  data-category={item.cat}
+        <section className="sec-pad bg-color-1">
+          <div className="auto-container">
+            <div className="sec-title centred mb_50">
+              <span className="sub-title">Photo Gallery</span>
+              <h2>Our Spiritual Journey in Pictures</h2>
+            </div>
+            <div className="vetham-gallery-filters centred">
+              {GALLERY_FILTERS.map((f) => (
+                <button
+                  key={f.key}
+                  type="button"
+                  className={`filter-btn${filter === f.key ? ' active' : ''}`}
+                  onClick={() => setFilter(f.key)}
                 >
-                  <div className="project-block-one">
-                    <div className="inner-box">
-                      <figure className="image-box">
-                        <a href={src} data-fancybox="vetham-gallery" data-caption={item.title}>
-                          <img src={src} alt={item.title} loading="lazy" />
-                        </a>
-                      </figure>
-                      <div className="content-box">
-                        <div className="inner">
-                          <div className="view-btn">
-                            <a href={src} className="lightbox-image" data-fancybox="vetham-gallery" data-caption={item.title}>
-                              <i className="icon-12" />
-                            </a>
+                  {f.label}
+                </button>
+              ))}
+            </div>
+            <div className="vetham-gallery-grid vetham-gallery-icon-only">
+              {visible.map((item) => {
+                const src = gallerySrc(item.file);
+                return (
+                  <article key={item.file} className={`gallery-item ${item.cat}`} data-category={item.cat}>
+                    <div className="project-block-one">
+                      <div className="inner-box">
+                        <figure className="image-box">
+                          <a href={src} data-fancybox="vetham-gallery" data-caption={item.title}>
+                            <img src={src} alt={item.title} loading="lazy" />
+                          </a>
+                        </figure>
+                        <div className="content-box">
+                          <div className="inner">
+                            <div className="view-btn">
+                              <a
+                                href={src}
+                                className="lightbox-image"
+                                data-fancybox="vetham-gallery"
+                                data-caption={item.title}
+                                aria-label={`View ${item.title}`}
+                              >
+                                <i className="icon-12" />
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              );
-            })}
+                  </article>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="contact-info-section bg-color-1 centred sec-pad">
-        <div className="auto-container">
-          <div className="sec-title centred mb_40">
-            <span className="sub-title">Follow Us</span>
-            <h2>Connect on Social Media</h2>
+        <section className="contact-info-section bg-color-1 centred sec-pad">
+          <div className="auto-container">
+            <div className="sec-title centred mb_40">
+              <span className="sub-title">Follow Us</span>
+              <h2>Connect on Social Media</h2>
+            </div>
+            <ul className="vetham-social-actions">
+              <li>
+                <a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" className="theme-btn-one">
+                  <i className="fab fa-facebook-f" /> Facebook
+                </a>
+              </li>
+              <li>
+                <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" className="theme-btn-one">
+                  <i className="fab fa-instagram" /> Instagram
+                </a>
+              </li>
+              <li>
+                <a href={SITE.social.youtube} target="_blank" rel="noopener noreferrer" className="theme-btn-one">
+                  <i className="fab fa-youtube" /> YouTube
+                </a>
+              </li>
+            </ul>
           </div>
-          <ul className="social-links clearfix centred" style={{ justifyContent: 'center', display: 'flex', gap: '20px' }}>
-            <li><a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" className="theme-btn-one"><i className="fab fa-facebook-f" /> Facebook</a></li>
-            <li><a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" className="theme-btn-one"><i className="fab fa-instagram" /> Instagram</a></li>
-            <li><a href={SITE.social.youtube} target="_blank" rel="noopener noreferrer" className="theme-btn-one"><i className="fab fa-youtube" /> YouTube</a></li>
-          </ul>
-        </div>
-      </section>
+        </section>
       </div>
     </>
   );

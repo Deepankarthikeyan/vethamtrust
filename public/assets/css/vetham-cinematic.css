@@ -317,6 +317,35 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   color: #000;
 }
 
+body.vx-home .vx-header.is-scrolled {
+  background: rgba(30, 61, 42, 0.96);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+}
+
+body.vx-home .vx-header.is-scrolled .vx-header__nav > li > a,
+body.vx-home .vx-header.is-scrolled .vx-header__nav > li > button,
+body.vx-home .vx-header.is-scrolled .vx-header__toggle {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+body.vx-home .vx-header.is-scrolled .vx-header__nav > li > a:hover,
+body.vx-home .vx-header.is-scrolled .vx-header__nav > li > a.is-active,
+body.vx-home .vx-header.is-scrolled .vx-header__nav > li > button:hover {
+  color: var(--vx-peach);
+}
+
+body.vx-home .vx-header.is-scrolled .vx-btn--ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.88);
+}
+
+body.vx-home .vx-header.is-scrolled .vx-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
 .vx-header__toggle {
   display: none;
   width: 44px;
@@ -1140,6 +1169,11 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   margin-bottom: 20px;
 }
 
+.vx-footer__logo + .vx-text,
+.vx-footer__grid > div:first-child .vx-text {
+  color: #fff;
+}
+
 .vx-footer__brand {
   font-family: var(--vx-font-display);
   font-size: clamp(3rem, 12vw, 8rem);
@@ -1321,6 +1355,84 @@ body.vx-inner .auto-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+body.vx-inner .vetham-gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+body.vx-inner .vetham-gallery-filters .filter-btn {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--vx-border);
+  background: var(--vx-bg-card);
+  color: var(--vx-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+body.vx-inner .vetham-gallery-filters .filter-btn.active,
+body.vx-inner .vetham-gallery-filters .filter-btn:hover {
+  background: var(--vx-primary);
+  border-color: var(--vx-primary);
+  color: #fff;
+}
+
+body.vx-inner .vetham-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+body.vx-inner .vetham-gallery-grid .gallery-item {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  float: none;
+}
+
+body.vx-inner .vetham-gallery-grid .project-block-one,
+body.vx-inner .vetham-gallery-grid .inner-box {
+  border-radius: var(--vx-radius);
+  overflow: hidden;
+  border: 1px solid var(--vx-border);
+  background: var(--vx-bg-card);
+}
+
+body.vx-inner .vetham-gallery-grid .image-box img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+body.vx-inner .vetham-social-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  body.vx-inner .vetham-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  body.vx-inner .vetham-gallery-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 body.vx-inner .feature-block-one .inner-box,
