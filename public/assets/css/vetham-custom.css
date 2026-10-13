@@ -4288,12 +4288,26 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
 
 @media only screen and (max-width: 991px) {
   .vetham-leadership-cards__matrix {
-    max-width: 440px;
+    max-width: 520px;
     margin-inline: auto;
   }
 
   .vetham-leadership-cards__row {
     grid-template-columns: 1fr;
+  }
+
+  .vetham-founder-card {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .vetham-founder-card__media {
+    order: 2;
+    min-height: 320px;
+  }
+
+  .vetham-founder-card__body {
+    order: 1;
   }
 }
 

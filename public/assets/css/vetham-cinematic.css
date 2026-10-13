@@ -1193,14 +1193,13 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
 
 .vx-footer__logo {
   margin-bottom: 16px;
-  display: inline-block;
+  display: block;
   max-width: 100%;
-  background: #000000;
-  border-radius: 8px;
+  background: transparent;
   line-height: 0;
-  padding: 10px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  padding: 0;
+  border: none;
+  box-shadow: none;
 }
 
 .vx-footer__logo img {
@@ -1216,12 +1215,11 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
 .vx-footer__logo-banner {
   height: clamp(52px, 7.5vw, 76px) !important;
   width: auto !important;
-  max-width: min(400px, 92vw) !important;
+  max-width: min(420px, 100%) !important;
   object-fit: contain;
   display: block;
   margin-bottom: 0;
-  background: #000000 !important;
-  border-radius: 4px;
+  background: transparent !important;
 }
 
 .vx-footer__brand-lines {
