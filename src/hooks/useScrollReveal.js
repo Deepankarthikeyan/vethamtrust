@@ -34,8 +34,6 @@ const CARD_SELECTOR = [
   '.vx-about-collage__primary',
   '.vx-about-collage__secondary',
   '.vx-split-section__figure',
-  '.vx-leadership-card',
-  '.vx-leadership-spotlight',
 ].join(', ');
 
 const SKIP_IMAGE_INSIDE = [

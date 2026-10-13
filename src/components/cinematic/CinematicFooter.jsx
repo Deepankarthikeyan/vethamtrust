@@ -28,12 +28,16 @@ export default function CinematicFooter() {
           <div>
             <div className="vx-footer__logo">
               <img
-                className="vx-footer__logo-banner"
-                src={img('logoFooterBrand')}
-                alt={`${SITE.name} — Unified Divine Yoga`}
+                className="vx-footer__logo-mark"
+                src={img('logoFooter')}
+                alt={SITE.name}
                 loading="lazy"
                 decoding="async"
               />
+              <div className="vx-footer__brand-lines" aria-label={SITE.name}>
+                <p className="vx-footer__brand-name">Vetham Kuzhumam Spiritual</p>
+                <p className="vx-footer__brand-sub">Unified Divine Yoga</p>
+              </div>
             </div>
             <p className="vx-text">{SITE.tagline}. Yoga, meditation, and spiritual teachings in Coimbatore.</p>
           </div>

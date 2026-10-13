@@ -4,8 +4,7 @@ const S = `${V}/services`;
 
 const catalog = {
   logo: [`${V}/logo.png`],
-  logoFooter: [`${V}/logo-footer-brand.png`, `${V}/logo-footer.png`],
-  logoFooterBrand: [`${V}/logo-footer-brand.png`, `${V}/logo-footer-brand.jpg`],
+  logoFooter: [`${V}/logo-footer.png`, `${V}/logo.png`],
   favicon: [`${V}/favicon.png`],
   banner1: [`${V}/banner-1.jpg`],
   banner2: [`${V}/banner-2.jpg`],
