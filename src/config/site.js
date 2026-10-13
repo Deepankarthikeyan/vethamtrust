@@ -39,7 +39,7 @@ export const TEAM = [
   {
     name: 'Gnana Rishi A S Rathakrishnan',
     role: 'Founder',
-    image: 'trustee1',
+    image: 'trustee1Pro',
     portrait: 'portraitFounder',
     headline: 'Guiding Souls. Building Peace.',
     bio: 'Spiritual master and founder of Vetham Kuzhumam Spiritual Trust, dedicated to spreading the teachings of Yogiraj Vethathiri Maharishi.',
@@ -52,7 +52,7 @@ export const TEAM = [
   {
     name: 'Gnanasiriyar Selvin',
     role: 'Co-Founder & President',
-    image: 'trustee2',
+    image: 'trustee2Pro',
     portrait: 'portraitPresident',
     headline: 'Leading with Devotion. Serving with Purpose.',
     bio: 'Co-founder and president guiding the trust’s spiritual programs, satsang, and community outreach with clarity and compassion.',
@@ -65,7 +65,7 @@ export const TEAM = [
   {
     name: 'Gnanasiriyar Balasubramanian',
     role: 'Co-Founder & Secretary',
-    image: 'trustee3',
+    image: 'trustee3Pro',
     portrait: 'portraitSecretary',
     headline: 'Nurturing Community. Growing Together.',
     bio: 'Co-founder and secretary fostering spiritual learning, village development, and the daily rhythm of trust activities.',
@@ -78,7 +78,7 @@ export const TEAM = [
   {
     name: 'Gnanasiriyar A S Sureash Kumaar',
     role: 'Co-Founder & Treasurer',
-    image: 'trustee4',
+    image: 'trustee4Pro',
     portrait: 'portraitTreasurer',
     headline: 'Stewarding Vision. Supporting Growth.',
     bio: 'Co-founder and treasurer helping build the spiritual village vision through careful stewardship and dedicated service.',

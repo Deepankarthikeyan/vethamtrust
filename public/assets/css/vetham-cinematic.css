@@ -1204,6 +1204,14 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   margin-bottom: 10px;
 }
 
+.vx-footer__logo-banner {
+  height: auto !important;
+  width: 100%;
+  max-width: min(420px, 100%);
+  margin-bottom: 0;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.25));
+}
+
 .vx-footer__brand-lines {
   margin: 0;
 }

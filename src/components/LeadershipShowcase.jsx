@@ -3,95 +3,108 @@ import { SITE, TEAM } from '../config/site';
 import { img } from '../config/images';
 import LazyImage from './LazyImage';
 
-function LeaderCard({ member, linkToLeadership }) {
+function LeadershipPanel({ member, linkToLeadership }) {
   const portraitLeft = member.portraitSide === 'left';
-  const NameTag = linkToLeadership ? Link : 'div';
+  const NameTag = linkToLeadership ? Link : 'span';
   const nameProps = linkToLeadership ? { to: '/leadership' } : {};
 
-  const textCol = (
-    <div className="col-md-5 vetham-leader-card__text">
-      <p className="vetham-leader-card__meta">
-        Spiritual Master <span aria-hidden="true">•</span> {member.role}
-      </p>
-      <h3 className="vetham-leader-card__name">
-        <NameTag {...nameProps}>{member.name}</NameTag>
-      </h3>
-      {member.headline ? <p className="vetham-leader-card__tagline">{member.headline}</p> : null}
-      {member.bio ? <p className="vetham-leader-card__bio">{member.bio}</p> : null}
-      {member.achievements?.length ? (
-        <div className="vetham-leader-card__stats">
-          {member.achievements.map((item) => (
-            <div key={item.title} className="vetham-leader-card__stat">
-              <span className="vetham-leader-card__stat-icon" aria-hidden="true" />
-              <div>
-                <strong>{item.title}</strong>
-                <span>{item.subtitle}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : null}
-    </div>
-  );
-
-  const portraitCol = (
-    <div className="col-md-7 vetham-leader-card__portrait-col">
-      <div className="vetham-leader-card__portrait-wrap">
-        <div className="vetham-leader-card__arc" aria-hidden="true" />
-        <figure className="vetham-leader-card__portrait">
-          {linkToLeadership ? (
-            <Link to="/leadership"><LazyImage src={img(member.image)} alt={member.name} /></Link>
-          ) : (
-            <LazyImage src={img(member.image)} alt={member.name} />
-          )}
-        </figure>
-      </div>
-    </div>
-  );
-
   return (
-    <div className="col-lg-6 col-12">
-      <article className={`card vetham-leader-card h-100 ${portraitLeft ? 'is-portrait-left' : ''}`}>
-        <div className="row g-0 h-100">
-          {portraitLeft ? (
-            <>
-              {portraitCol}
-              {textCol}
-            </>
-          ) : (
-            <>
-              {textCol}
-              {portraitCol}
-            </>
-          )}
+    <article
+      className={`vetham-leadership-panel${portraitLeft ? ' is-portrait-left' : ''}`}
+    >
+      <div className="vetham-leadership-panel__inner">
+        <div className="vetham-leadership-panel__content">
+          <p className="vetham-leadership-panel__meta">
+            Spiritual Master <span aria-hidden="true">•</span> {member.role}
+          </p>
+          <h3 className="vetham-leadership-panel__name">
+            <NameTag {...nameProps} className={linkToLeadership ? 'vetham-leadership-panel__name-link' : ''}>
+              {member.name}
+            </NameTag>
+          </h3>
+          {member.headline ? (
+            <p className="vetham-leadership-panel__headline">{member.headline}</p>
+          ) : null}
+          {member.bio ? <p className="vetham-leadership-panel__bio">{member.bio}</p> : null}
+          {member.achievements?.length ? (
+            <ul className="vetham-leadership-panel__achievements">
+              {member.achievements.map((item) => (
+                <li key={item.title} className="vetham-leadership-panel__achievement">
+                  <span className="vetham-leadership-panel__achievement-title">{item.title}</span>
+                  <span className="vetham-leadership-panel__achievement-sub">{item.subtitle}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          <div className="vetham-leadership-panel__footer-line" aria-hidden="true" />
+          <p className="vetham-leadership-panel__signature">Vetham Kuzhumam Spiritual Trust</p>
         </div>
-      </article>
-    </div>
+
+        <div className="vetham-leadership-panel__portrait-wrap">
+          <div className="vetham-leadership-panel__arc" aria-hidden="true" />
+          <figure className="vetham-leadership-panel__portrait vetham-leadership-panel__portrait--pro">
+            <div className="vetham-leadership-panel__image">
+              {linkToLeadership ? (
+                <Link to="/leadership">
+                  <LazyImage src={img(member.portrait || member.image)} alt={member.name} />
+                </Link>
+              ) : (
+                <LazyImage src={img(member.portrait || member.image)} alt={member.name} />
+              )}
+            </div>
+          </figure>
+        </div>
+      </div>
+    </article>
   );
 }
 
 export default function LeadershipShowcase({ linkToLeadership = true, fullPage = false }) {
   return (
     <section
-      className={`vetham-leadership-cards sec-pad ${fullPage ? 'vetham-leadership-cards--page' : ''}`}
+      className={`vetham-leadership-poster${fullPage ? ' vetham-leadership-poster--page' : ''}`}
       aria-label="Vetham Kuzhumam Spiritual Trust Leadership"
     >
-      <div className="auto-container">
-        <header className="sec-title centred mb_50">
-          <span className="sub-title">Leadership</span>
-          <h2>Our Founders &amp; <br />Spiritual Masters</h2>
-          <p className="vetham-leadership-cards__org">{SITE.name.toUpperCase()}</p>
+      <div className="vetham-leadership-poster__bg" aria-hidden="true">
+        <div className="vetham-leadership-poster__glow" />
+        <div className="vetham-leadership-poster__dots" />
+        <div className="vetham-leadership-poster__lotus" />
+      </div>
+
+      <div className="auto-container vetham-leadership-poster__container">
+        <header className="vetham-leadership-poster__header is-visible">
+          <p className="vetham-leadership-poster__org-tag">
+            <span aria-hidden="true">✦</span> Leadership <span aria-hidden="true">✦</span>
+          </p>
+          <h2 className="vetham-leadership-poster__title">
+            Our Founders &amp; <br />Spiritual Masters
+          </h2>
+          <p className="vetham-leadership-poster__org">{SITE.name}</p>
+          <p className="vetham-leadership-poster__mission">Unified Divine Yoga — guiding seekers with devotion, clarity, and service.</p>
         </header>
 
-        <div className="row g-5">
-          {TEAM.map((member) => (
-            <LeaderCard key={member.name} member={member} linkToLeadership={linkToLeadership} />
-          ))}
+        <div className="vetham-leadership-poster__frame">
+          <div className="vetham-leadership-poster__grid">
+            {TEAM.map((member) => (
+              <LeadershipPanel key={member.name} member={member} linkToLeadership={linkToLeadership} />
+            ))}
+          </div>
         </div>
 
+        <footer className="vetham-leadership-poster__footer is-visible">
+          <p className="vetham-leadership-poster__footer-title">{SITE.name}</p>
+          <p className="vetham-leadership-poster__footer-tagline">{SITE.tagline}</p>
+          <ul className="vetham-leadership-poster__footer-icons" aria-label="Core values">
+            <li className="vetham-leadership-poster__footer-item">Peace</li>
+            <li className="vetham-leadership-poster__footer-item">Wisdom</li>
+            <li className="vetham-leadership-poster__footer-item">Service</li>
+            <li className="vetham-leadership-poster__footer-item">Harmony</li>
+          </ul>
+        </footer>
+
         {linkToLeadership ? (
-          <div className="text-center mt_40">
-            <Link to="/leadership" className="theme-btn-two">
+          <div className="vetham-leadership-poster__cta-wrap text-center">
+            <Link to="/leadership" className="vetham-leadership-poster__cta">
               View Full Leadership
             </Link>
           </div>
