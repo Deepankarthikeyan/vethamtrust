@@ -105,21 +105,14 @@ export default function SpiritualHomePage() {
           </header>
           <div className="sh-dimensions__row">
             {FIVE_DIMENSIONS.items.map((dim) => (
-              <article
-                key={dim.key}
-                className="sh-dimension-tile"
-                style={{
-                  '--sh-dim-color': dim.color,
-                  '--sh-dim-image': `url(${dim.image})`,
-                }}
-              >
-                <div className="sh-dimension-tile__content">
-                  <span className="sh-dimension-tile__icon-ring" aria-hidden="true">
-                    <i className={dim.icon} />
-                  </span>
-                  <h3>{dim.label}</h3>
-                  <p>{dim.text}</p>
-                </div>
+              <article key={dim.key} className="sh-dimension-tile sh-dimension-tile--art">
+                <img
+                  src={dim.image}
+                  alt={`${dim.label} — ${dim.text}`}
+                  className="sh-dimension-tile__art"
+                  loading="lazy"
+                  decoding="async"
+                />
               </article>
             ))}
           </div>
