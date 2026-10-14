@@ -107,14 +107,28 @@ export default function CinematicHeader() {
                 <li key={item.key}><span style={{ color: 'var(--vx-gold)', fontSize: '0.9rem' }}>{getNavLabel(item.key, lang)}</span></li>,
                 ...item.children.map((child) => (
                   <li key={child.key} className="vx-mobile-menu__sub">
-                    <Link to={child.path} onClick={() => setMenuOpen(false)}>{getNavLabel(child.key, lang)}</Link>
+                    <Link
+                      to={child.path}
+                      onClick={() => setMenuOpen(false)}
+                      onMouseEnter={() => prefetchFromPath(child.path)}
+                      onFocus={() => prefetchFromPath(child.path)}
+                    >
+                      {getNavLabel(child.key, lang)}
+                    </Link>
                   </li>
                 )),
               ];
             }
             return (
               <li key={item.key}>
-                <Link to={item.path} onClick={() => setMenuOpen(false)}>{getNavLabel(item.key, lang)}</Link>
+                <Link
+                  to={item.path}
+                  onClick={() => setMenuOpen(false)}
+                  onMouseEnter={() => prefetchFromPath(item.path)}
+                  onFocus={() => prefetchFromPath(item.path)}
+                >
+                  {getNavLabel(item.key, lang)}
+                </Link>
               </li>
             );
           })}

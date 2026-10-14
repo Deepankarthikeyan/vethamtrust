@@ -77,7 +77,7 @@ function scrollReveal(targets, trigger, extra = {}) {
     list,
     {
       y: extra.yFrom ?? Y,
-      autoAlpha: 0,
+      autoAlpha: extra.skipFade ? 1 : 0,
       scale: extra.scaleFrom ?? 1,
       immediateRender: false,
       ...extra.from,
@@ -161,7 +161,14 @@ function revealSection(section) {
 
   const cards = section.querySelectorAll(CARD_SELECTOR);
   if (cards.length) {
-    scrollReveal(cards, section, { yFrom: 32, stagger: 0.09 });
+    const fadeCards = [];
+    const solidCards = [];
+    cards.forEach((el) => {
+      if (el.classList.contains('sh-dimension-tile')) solidCards.push(el);
+      else fadeCards.push(el);
+    });
+    if (fadeCards.length) scrollReveal(fadeCards, section, { yFrom: 32, stagger: 0.09 });
+    if (solidCards.length) scrollReveal(solidCards, section, { yFrom: 18, stagger: 0.07, skipFade: true });
   }
 
   const grids = section.querySelectorAll(

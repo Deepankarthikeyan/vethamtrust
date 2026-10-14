@@ -360,28 +360,7 @@
 
 
 
-.sh-dimension-tile {
-  border-radius: var(--vx-radius-sm);
-  color: #fff;
-  text-align: center;
-  padding: 28px 14px 32px;
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  box-shadow: var(--sh-shadow);
-}
-
-.sh-dimension-tile i { font-size: 1.6rem; margin-top: 8px; }
-.sh-dimension-tile h3 {
-  margin: 0;
-  font-family: var(--vx-font-display);
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
-}
-.sh-dimension-tile p { margin: 0; font-size: 0.78rem; opacity: 0.92; line-height: 1.45; }
+/* Dimension tiles — see consolidated rules below (.sh-dimension-tile at ~1492) */
 
 .sh-section--botanical {
   position: relative;
@@ -1048,9 +1027,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.35) 0%,
-    rgba(255, 255, 255, 0.15) 35%,
-    rgba(30, 61, 42, 0.45) 100%
+    rgba(18, 36, 26, 0.72) 0%,
+    rgba(15, 30, 22, 0.82) 45%,
+    rgba(10, 22, 16, 0.9) 100%
   );
   z-index: 1;
 }
@@ -1070,22 +1049,24 @@
 .sh-cta__title {
   font-family: var(--vx-font-display);
   font-size: clamp(1.55rem, 2.8vw, 2.15rem);
-  color: #fff;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
   margin: 0 0 10px;
+  font-weight: 600;
 }
 
 .sh-cta__eyebrow {
-  color: #c45a1a;
+  color: #ffffff;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   margin: 0 0 10px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
 }
 
 .sh-cta__text {
-  color: rgba(255, 255, 255, 0.95);
+  color: #ffffff;
   max-width: 520px;
   margin: 0 auto 18px;
   font-size: clamp(0.88rem, 1.05vw, 0.96rem);
@@ -1127,9 +1108,10 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 0.78rem;
+  color: #ffffff;
+  font-size: 0.85rem;
   font-weight: 600;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
 }
 
 .sh-cta__pillars i {
@@ -1144,22 +1126,24 @@
 
 .sh-cta__tagline {
   margin: 16px 0 0;
-  color: rgba(255, 255, 255, 0.92);
+  color: #ffffff;
   font-size: 0.95rem;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
 }
 
 .sh-cta__tagline strong {
-  font-size: 1rem;
+  font-size: 1.05rem;
   letter-spacing: 0.06em;
+  color: #ffffff;
 }
 
 .sh-cta__tagline-sub {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
   letter-spacing: 0.02em;
   text-transform: none;
 }
@@ -1537,20 +1521,22 @@
   margin: 0;
   font-family: var(--vx-font-display);
   font-size: clamp(1.1rem, 1.85vw, 1.5rem);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.12em;
   line-height: 1.15;
-  color: #ffffff;
+  color: #ffffff !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
 }
 
 .sh-dimension-tile__content p {
   font-size: clamp(0.95rem, 1.35vw, 1.12rem);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.45;
   max-width: 14em;
   margin: 0;
-  color: #ffffff;
+  color: #ffffff !important;
   opacity: 1;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
 .sh-dimension-tile__icon-ring {
@@ -1880,8 +1866,12 @@
 
 .sh-brotherhood-hero__copy .sh-title--light,
 .sh-brotherhood-hero__copy .sh-eyebrow--light,
-.sh-brotherhood-hero__copy .sh-text--light {
-  color: #fff;
+.sh-brotherhood-hero__copy .sh-text--light,
+.sh-brotherhood-hero__copy .sh-title,
+.sh-brotherhood-hero__copy .sh-text,
+.sh-brotherhood-hero__copy .sh-eyebrow {
+  color: #ffffff !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
 }
 
 .sh-brotherhood-hero__copy .sh-title {
@@ -1890,8 +1880,9 @@
 
 .sh-brotherhood-hero__copy .sh-text {
   margin: 0;
-  font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.94);
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.65;
 }
 
 .sh-values--brotherhood {
@@ -2166,7 +2157,7 @@
 }
 
 .sh-cta__eyebrow {
-  color: #c45a1a;
+  color: #ffffff;
 }
 
 @media (max-width: 1100px) {

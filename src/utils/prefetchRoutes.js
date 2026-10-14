@@ -12,6 +12,19 @@ const loaders = {
   '/donate': () => import('../pages/Donate'),
 };
 
+const NAV_PATHS = [
+  '/',
+  '/about',
+  '/our-village',
+  '/courses',
+  '/events',
+  '/blog',
+  '/services',
+  '/donate',
+  '/social-media',
+  '/contact',
+];
+
 const started = new Set();
 
 export function prefetchRoute(path) {
@@ -19,4 +32,8 @@ export function prefetchRoute(path) {
   if (!loader || started.has(path)) return;
   started.add(path);
   loader();
+}
+
+export function prefetchAllNavRoutes() {
+  NAV_PATHS.forEach((path) => prefetchRoute(path));
 }

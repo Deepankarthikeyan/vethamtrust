@@ -22,6 +22,10 @@ export default function Layout() {
   useScrollReveal();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  useEffect(() => {
     document.body.classList.remove('krishna-home', 'vetham-inner', 'boxed_wrapper');
     document.body.classList.add('vx-site', fullBleedHero ? 'vx-home' : 'vx-inner');
 
