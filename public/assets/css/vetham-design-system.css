@@ -360,9 +360,12 @@ body.vx-site .vx-gallery-masonry__cell img {
       inset 0 -8px 18px rgba(0, 0, 0, 0.28);
   }
 
-  .vetham-founder-tile:hover .vetham-founder-tile__portrait-link,
-  .vetham-founder-tile:hover .vetham-founder-tile__portrait > img {
+  .vetham-founder-tile:hover .vetham-founder-tile__portrait-link {
     transform: translateZ(42px);
+  }
+
+  .vetham-founder-tile:hover .vetham-founder-tile__portrait > img {
+    transform: translateZ(42px) scale(1.2);
   }
 
   .vetham-founder-tile:hover .vetham-founder-tile__portrait-stage::after {
@@ -370,7 +373,7 @@ body.vx-site .vx-gallery-masonry__cell img {
     transform: translateX(-50%) translateZ(-16px) scale(1.05);
   }
 
-  .vetham-founder-tile:hover .vetham-founder-tile__portrait img {
+  .vetham-founder-tile:hover .vetham-founder-tile__portrait-link img {
     transform: scale(1.2);
   }
 }
