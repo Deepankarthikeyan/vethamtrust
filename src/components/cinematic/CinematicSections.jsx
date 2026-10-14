@@ -100,6 +100,8 @@ export function AboutHorizontalSection() {
           start: 'top top',
           end: () => `+=${getScroll()}`,
           pin: true,
+          pinReparent: true,
+          anticipatePin: 1,
           scrub: 1,
           invalidateOnRefresh: true,
         },

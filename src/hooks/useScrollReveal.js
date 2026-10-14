@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { teardownScrollAnimations } from '../utils/gsapNavigation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,7 +78,7 @@ function scrollReveal(targets, trigger, extra = {}) {
     list,
     {
       y: extra.yFrom ?? Y,
-      autoAlpha: extra.skipFade ? 1 : 0,
+      autoAlpha: 1,
       scale: extra.scaleFrom ?? 1,
       immediateRender: false,
       ...extra.from,
@@ -108,7 +109,7 @@ function revealSplitRow(row) {
   if (visual) {
     gsap.fromTo(
       visual,
-      { x: -32, autoAlpha: 0, immediateRender: false },
+      { x: -32, autoAlpha: 1, immediateRender: false },
       {
         x: 0,
         autoAlpha: 1,
@@ -123,7 +124,7 @@ function revealSplitRow(row) {
   if (copy) {
     gsap.fromTo(
       copy,
-      { x: 32, autoAlpha: 0, immediateRender: false },
+      { x: 32, autoAlpha: 1, immediateRender: false },
       {
         x: 0,
         autoAlpha: 1,
@@ -366,6 +367,7 @@ export default function useScrollReveal() {
       window.clearTimeout(fallbackTimer);
       document.documentElement.classList.remove('vx-scroll-anim', 'vx-scroll-anim-ready');
       ctx?.revert();
+      teardownScrollAnimations();
     };
   }, [pathname]);
 }

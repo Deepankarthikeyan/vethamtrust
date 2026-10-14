@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { isInternalAppLink, teardownScrollAnimations } from '../utils/gsapNavigation';
 import useBodyPageMode from '../hooks/useBodyPageMode';
 import { useLanguageRetranslate } from '../hooks/useLanguageRetranslate';
 import useGsapRefresh from '../hooks/useGsapRefresh';
@@ -22,6 +23,20 @@ export default function Layout() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, [pathname]);
+
+  useEffect(() => {
+    const onNavigateIntent = (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const anchor = target.closest('a[href]');
+      if (!anchor || !isInternalAppLink(anchor)) return;
+      const next = new URL(anchor.href, window.location.href);
+      if (next.pathname === pathname) return;
+      teardownScrollAnimations();
+    };
+    document.addEventListener('pointerdown', onNavigateIntent, true);
+    return () => document.removeEventListener('pointerdown', onNavigateIntent, true);
   }, [pathname]);
 
   return (

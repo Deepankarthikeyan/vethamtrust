@@ -15,7 +15,6 @@ export default function CinematicPreloader() {
 
   useEffect(() => {
     if (hidden) {
-      window.dispatchEvent(new CustomEvent('vx:app-ready'));
       return undefined;
     }
 
