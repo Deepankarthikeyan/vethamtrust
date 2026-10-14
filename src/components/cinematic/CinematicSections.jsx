@@ -112,25 +112,37 @@ export function AboutHorizontalSection() {
   }, []);
 
   return (
-    <section className="vx-hscroll vx-section--soft" data-vx-section="3" ref={wrapRef}>
-      <div className="vx-hscroll__sticky">
-        <div className="vx-container vx-hscroll__head">
-          <span className="vx-eyebrow">Our Story</span>
-          <h2 className="vx-title-lg">A Journey Through Four Chapters</h2>
-        </div>
-        <div className="vx-hscroll__track" ref={trackRef}>
-          {ABOUT_CHAPTERS.map((ch) => (
-            <article key={ch.num} className="vx-hscroll__card" data-cursor="DRAG">
-              <div className="vx-hscroll__card-img">
-                <img src={ch.image} alt={ch.title} loading="lazy" />
-              </div>
-              <div className="vx-hscroll__card-body">
-                <p className="vx-hscroll__num">Chapter {ch.num}</p>
-                <h3 className="vx-title-md">{ch.title}</h3>
-                <p className="vx-text" style={{ marginTop: 12 }}>{ch.text}</p>
-              </div>
-            </article>
-          ))}
+    <section className="vx-chapters vx-section--soft" data-vx-section="3" aria-labelledby="vx-chapters-title">
+      <div className="vx-container vx-chapters__intro">
+        <span className="vx-eyebrow">Our Story</span>
+        <h2 id="vx-chapters-title" className="vx-title-lg vx-chapters__title">
+          A Journey Through Four Chapters
+        </h2>
+        <p className="vx-text vx-chapters__lede">
+          Four milestones on the path from vision to village — each chapter of our story in Coimbatore and beyond.
+        </p>
+      </div>
+      <div className="vx-hscroll vx-hscroll--chapters" ref={wrapRef}>
+        <div className="vx-hscroll__sticky">
+          <div className="vx-hscroll__track" ref={trackRef}>
+            {ABOUT_CHAPTERS.map((ch, i) => (
+              <article
+                key={ch.num}
+                className="vx-hscroll__card vx-chapters__card"
+                data-cursor="DRAG"
+                style={{ '--chapter-i': i }}
+              >
+                <div className="vx-hscroll__card-img">
+                  <img src={ch.image} alt={ch.title} loading="lazy" decoding="async" />
+                </div>
+                <div className="vx-hscroll__card-body">
+                  <p className="vx-hscroll__num">Chapter {ch.num}</p>
+                  <h3 className="vx-title-md">{ch.title}</h3>
+                  <p className="vx-text vx-chapters__card-text">{ch.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -593,8 +593,8 @@ body.vx-home .vx-quote-scroll {
   padding-bottom: var(--vx-section-gap);
 }
 
-body.vx-home .vx-hscroll__head {
-  padding-bottom: clamp(24px, 3vw, 40px);
+body.vx-home .vx-chapters__intro .vx-eyebrow {
+  color: #1a1a1a;
 }
 
 body.vx-home .vx-container > div[style*="marginBottom"] {
@@ -722,11 +722,47 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
   color: var(--vx-primary);
 }
 
-/* 03 Horizontal About */
+/* 03 Chapters — editorial intro + horizontal scroll track */
+.vx-chapters {
+  padding-top: var(--vx-section);
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.vx-chapters__intro {
+  position: relative;
+  z-index: 3;
+  max-width: 52rem;
+  margin: 0 auto clamp(28px, 4vw, 48px);
+  padding-inline: clamp(12px, 3vw, 24px);
+  text-align: center;
+}
+
+.vx-chapters__title {
+  font-size: clamp(1.65rem, 3.8vw, 2.65rem);
+  line-height: 1.18;
+  text-wrap: balance;
+  margin: 0;
+  color: var(--vx-heading);
+}
+
+.vx-chapters__lede {
+  margin: clamp(12px, 2vw, 18px) auto 0;
+  max-width: 40rem;
+  font-size: clamp(0.95rem, 1.35vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--vx-text-dim);
+}
+
 .vx-hscroll {
   position: relative;
   height: 100vh;
   overflow: hidden;
+}
+
+.vx-hscroll--chapters {
+  height: clamp(340px, 58vh, 560px);
+  min-height: 0;
 }
 
 .vx-hscroll__sticky {
@@ -739,28 +775,46 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
   overflow: hidden;
 }
 
+.vx-hscroll--chapters .vx-hscroll__sticky {
+  height: 100%;
+  justify-content: flex-start;
+  padding-top: clamp(8px, 1.5vw, 16px);
+}
+
 .vx-hscroll__head {
   padding: 0 0 32px;
 }
 
 .vx-hscroll__track {
   display: flex;
-  gap: 32px;
-  padding: 0 24px;
+  gap: clamp(18px, 2.5vw, 28px);
+  padding: 0 clamp(16px, 3vw, 32px) clamp(16px, 2vw, 24px);
   will-change: transform;
+  align-items: stretch;
 }
 
 .vx-hscroll__card {
-  flex: 0 0 min(420px, 85vw);
-  background: var(--vx-bg-card);
-  border: 1px solid var(--vx-border);
-  border-radius: var(--vx-radius);
+  flex: 0 0 min(360px, 82vw);
+  background: #fff;
+  border: 1px solid rgba(196, 90, 26, 0.12);
+  border-radius: var(--vds-radius-lg, 18px);
   overflow: hidden;
+  box-shadow: 0 14px 36px rgba(30, 61, 42, 0.08);
+  transition:
+    transform 0.45s var(--vx-ease),
+    box-shadow 0.45s var(--vx-ease);
+}
+
+.vx-chapters__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 44px rgba(30, 61, 42, 0.12);
 }
 
 .vx-hscroll__card-img {
-  aspect-ratio: 16/10;
+  aspect-ratio: 16 / 9;
+  max-height: clamp(140px, 18vw, 200px);
   overflow: hidden;
+  background: var(--vx-bg-soft);
 }
 
 .vx-hscroll__card-img img {
@@ -768,15 +822,30 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transition: transform 0.65s var(--vx-ease);
 }
 
-.vx-hscroll__card-body { padding: 28px; }
+.vx-chapters__card:hover .vx-hscroll__card-img img {
+  transform: scale(1.04);
+}
+
+.vx-hscroll__card-body {
+  padding: clamp(18px, 2.2vw, 24px);
+}
+
+.vx-chapters__card-text {
+  margin-top: 10px;
+  font-size: clamp(0.88rem, 1.1vw, 0.95rem);
+  line-height: 1.6;
+}
 
 .vx-hscroll__num {
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  color: var(--vx-gold);
-  margin-bottom: 12px;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vx-primary);
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
 /* 04 Purpose Parallax */
@@ -996,14 +1065,20 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
   position: relative;
   border-radius: var(--vx-radius);
   overflow: hidden;
-  aspect-ratio: 3/4;
+  aspect-ratio: 4 / 3;
+  max-height: clamp(260px, 36vw, 380px);
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+  border: 1px solid rgba(196, 90, 26, 0.12);
+  box-shadow: 0 16px 40px rgba(30, 61, 42, 0.1);
 }
 
 .vx-founder__portrait img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center bottom;
+  object-fit: cover;
+  object-position: center 12%;
   background: var(--vx-bg-soft);
   filter: none;
   transition: transform 0.8s var(--vx-ease);
@@ -1202,7 +1277,8 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
 .vx-gallery-masonry--home {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: clamp(10px, 1.8vw, 18px);
+  gap: clamp(12px, 1.6vw, 16px);
+  grid-auto-rows: minmax(0, auto);
 }
 
 .vx-gallery-home__item {
@@ -1273,24 +1349,48 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
 }
 
 .vx-gallery-masonry--home .vx-gallery-masonry__cell--featured {
-  grid-column: span 8;
-  min-height: 260px;
+  grid-column: span 7;
+  aspect-ratio: 16 / 10;
+  min-height: 0;
+  max-height: 280px;
 }
 
 .vx-gallery-masonry--home .vx-gallery-masonry__cell--wide {
-  grid-column: span 8;
-  min-height: 220px;
+  grid-column: span 7;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  max-height: 240px;
 }
 
 .vx-gallery-masonry--home .vx-gallery-masonry__cell--tall {
-  grid-column: span 4;
+  grid-column: span 5;
   grid-row: span 2;
-  min-height: 300px;
+  aspect-ratio: 3 / 4;
+  min-height: 0;
+  max-height: 320px;
 }
 
 .vx-gallery-masonry--home .vx-gallery-masonry__cell--sq {
-  grid-column: span 4;
-  min-height: 200px;
+  grid-column: span 5;
+  aspect-ratio: 4 / 3;
+  min-height: 0;
+  max-height: 200px;
+}
+
+.vx-gallery-masonry--home .vx-gallery-home__item {
+  aspect-ratio: inherit;
+  min-height: 0;
+}
+
+@media (max-width: 1024px) {
+  .vx-gallery-masonry--home .vx-gallery-home__caption,
+  .vx-gallery-masonry--home .vx-gallery-home__shade {
+    opacity: 1;
+  }
+
+  .vx-gallery-masonry--home .vx-gallery-home__caption {
+    transform: none;
+  }
 }
 
 @media (max-width: 900px) {
@@ -2611,10 +2711,39 @@ body.vx-inner .vx-page-content > .vetham-contact-form:last-child {
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .vx-hscroll { height: auto; }
-  .vx-hscroll__sticky { position: relative; height: auto; padding: var(--vx-section) 0; }
-  .vx-hscroll__track { flex-direction: column; transform: none !important; padding: 0 24px; }
-  .vx-hscroll__card { flex: none; width: 100%; }
+  .vx-chapters {
+    padding-bottom: var(--vx-section);
+  }
+
+  .vx-hscroll,
+  .vx-hscroll--chapters {
+    height: auto;
+  }
+
+  .vx-hscroll__sticky,
+  .vx-hscroll--chapters .vx-hscroll__sticky {
+    position: relative;
+    height: auto;
+    padding: 0 0 var(--vx-section);
+  }
+
+  .vx-hscroll__track {
+    flex-direction: column;
+    transform: none !important;
+    padding: 0 clamp(16px, 4vw, 24px);
+    gap: clamp(20px, 3vw, 28px);
+  }
+
+  .vx-hscroll__card {
+    flex: none;
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  .vx-hscroll__card-img {
+    max-height: clamp(160px, 42vw, 220px);
+  }
 
   .vx-purpose,
   .vx-founder,

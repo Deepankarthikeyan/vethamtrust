@@ -31,6 +31,11 @@ const CARD_SELECTOR = [
   '.sh-purpose-card',
   '.sh-brotherhood-card',
   '.vx-gallery-masonry__cell',
+  '.vx-chapters__card',
+  '.vx-hscroll__card',
+  '.vx-program-card',
+  '.vx-event-card',
+  '.vx-journey__step',
   '.vx-testimonial-card',
   '.feature-block-one .inner-box',
   '.vx-spirit-card',
@@ -50,6 +55,10 @@ const SKIP_IMAGE_INSIDE = [
   '.sh-brotherhood-hero',
   '.sh-journey-card__img',
   '.sh-village-tile__img',
+  '.vx-hscroll__card-img',
+  '.vx-program-card__img',
+  '.vx-journey__img',
+  '.vx-founder__portrait',
 ].join(', ');
 
 const SECTION_SELECTOR = [
@@ -144,6 +153,61 @@ function shouldAnimateImage(img) {
   return !img.closest(SKIP_IMAGE_INSIDE);
 }
 
+function revealCinematicHomeSection(section) {
+  if (
+    section.classList.contains('vx-hero')
+    || section.classList.contains('vx-philosophy')
+    || section.classList.contains('vx-quote-scroll')
+  ) {
+    return;
+  }
+
+  const chapterIntro = section.querySelector('.vx-chapters__intro');
+  if (chapterIntro) {
+    scrollReveal(chapterIntro.children, chapterIntro, { yFrom: 22, stagger: 0.1 });
+  } else {
+    const headerWrap = section.querySelector('.vx-container > div:first-child');
+    if (headerWrap?.querySelector('.vx-title-lg, .vx-eyebrow')) {
+      const headingEls = headerWrap.querySelectorAll(
+        '.vx-eyebrow, .vx-title-lg, .vx-text, p:not(.vx-founder__quote)',
+      );
+      if (headingEls.length) {
+        scrollReveal(headingEls, headerWrap, { yFrom: 20, stagger: 0.07 });
+      }
+    }
+  }
+
+  const cards = section.querySelectorAll(CARD_SELECTOR);
+  if (cards.length) {
+    scrollReveal(cards, section, { yFrom: 30, stagger: 0.09 });
+  }
+
+  const founderGrid = section.querySelector('.vx-founder');
+  if (founderGrid) {
+    const portrait = founderGrid.querySelector('.vx-founder__portrait');
+    const copyCol = founderGrid.querySelector('.vx-founder__portrait + div');
+    if (portrait) scrollReveal(portrait, founderGrid, { yFrom: 26 });
+    if (copyCol?.children?.length) {
+      scrollReveal(copyCol.children, copyCol, { yFrom: 22, stagger: 0.06 });
+    }
+  }
+
+  const purposeSticky = section.querySelector('.vx-purpose__sticky');
+  if (purposeSticky) {
+    scrollReveal(purposeSticky.children, purposeSticky, { yFrom: 20, stagger: 0.08 });
+  }
+
+  const purposeList = section.querySelector('.vx-purpose__list');
+  if (purposeList?.children?.length) {
+    scrollReveal(purposeList.children, purposeList, { yFrom: 22, stagger: 0.12 });
+  }
+
+  const impactGrid = section.querySelector('.vx-impact__grid');
+  if (impactGrid?.children?.length) {
+    scrollReveal(impactGrid.children, impactGrid, { yFrom: 24, stagger: 0.08 });
+  }
+}
+
 function revealSection(section) {
   if (section.closest('.vx-page-hero, .sh-hero')) return;
 
@@ -234,6 +298,10 @@ function mountScrollAnimations(pathname) {
     return true;
   });
   sections.forEach(revealSection);
+
+  if (pathname === '/') {
+    gsap.utils.toArray('[data-vx-section]').forEach(revealCinematicHomeSection);
+  }
 
   const pageHero = document.querySelector('.vx-page-hero__content');
   if (pageHero) {
