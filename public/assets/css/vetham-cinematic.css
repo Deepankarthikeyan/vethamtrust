@@ -213,11 +213,19 @@ button {
   transition: background 0.45s var(--vx-ease), backdrop-filter 0.45s var(--vx-ease);
 }
 
-.vx-header.is-scrolled {
+body.vx-inner .vx-header.is-scrolled {
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--vx-border);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Home / Our Village: keep header transparent; only nav text color changes on scroll */
+body.vx-home .vx-header.is-scrolled {
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: none;
+  box-shadow: none;
 }
 
 .vx-header__inner {
