@@ -4162,18 +4162,6 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
   display: block;
 }
 
-/* White kurta + left-shoulder thundu (saffron) portrait */
-.vetham-founder-card--traditional .vetham-founder-card__media {
-  background: linear-gradient(165deg, #f8f4ee 0%, #ebe4d8 55%, #e2d9c8 100%);
-  padding: clamp(12px, 2vw, 20px);
-}
-
-.vetham-founder-card--traditional .vetham-founder-card__media img {
-  object-fit: contain;
-  object-position: center bottom;
-  filter: drop-shadow(0 10px 24px rgba(30, 61, 42, 0.15));
-}
-
 .vetham-founder-card:hover .vetham-founder-card__media img {
   transform: none;
 }

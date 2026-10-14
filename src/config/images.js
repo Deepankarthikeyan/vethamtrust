@@ -61,7 +61,7 @@ const catalog = {
   trustee2: [`${V}/trustee-selvin.png`],
   trustee3: [`${V}/trustee-balasubramanian.png`],
   trustee4: [`${V}/trustee-sureash.jpg`],
-  portraitFounder: [`${V}/trustee-gnana-rishi-professional.jpg`, `${V}/trustee-gnana-rishi.jpg`],
+  portraitFounder: [`${V}/trustee-gnana-rishi-professional.jpg`],
   portraitPresident: [`${V}/trustee-selvin-professional.jpg`, `${V}/trustee-selvin.png`],
   portraitSecretary: [`${V}/trustee-balasubramanian-professional.jpg`, `${V}/trustee-balasubramanian.png`],
   portraitTreasurer: [`${V}/trustee-sureash-professional.jpg`, `${V}/trustee-sureash.jpg`],
@@ -114,7 +114,7 @@ const catalog = {
   sidebarPost3: [`${V}/sidebar-post-3.jpg`],
 };
 
-const VETHAM_ASSET_VERSION = 'maharishi-saffron-v2';
+const VETHAM_ASSET_VERSION = 'founder-portrait-v3';
 
 export function img(key) {
   const entry = catalog[key];

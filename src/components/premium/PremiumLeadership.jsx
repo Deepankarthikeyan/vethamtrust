@@ -4,12 +4,9 @@ import { img } from '../../config/images';
 import LazyImage from '../LazyImage';
 
 function TrusteeCard({ member, index }) {
-  const mediaClass =
-    member.portraitVariant === 'traditional' ? ' vp-trustee-card__media--traditional' : '';
-
   return (
     <article className="vp-trustee-card" data-reveal="fade-up" style={{ transitionDelay: `${index * 100}ms` }}>
-      <div className={`vp-trustee-card__media${mediaClass}`}>
+      <div className="vp-trustee-card__media">
         <LazyImage src={img(member.portrait || member.image)} alt={member.name} />
         <div className="vp-trustee-card__overlay">
           <span className="vp-trustee-card__role">{member.role}</span>

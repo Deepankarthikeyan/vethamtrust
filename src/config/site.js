@@ -40,8 +40,7 @@ export const TEAM = [
     name: 'Gnana Rishi A S Rathakrishnan',
     role: 'Founder',
     image: 'trustee1Pro',
-    portrait: 'maharishiSaffron',
-    portraitVariant: 'traditional',
+    portrait: 'portraitFounder',
     headline: 'Guiding Souls. Building Peace.',
     bio: 'Spiritual master and founder of Vetham Kuzhumam Spiritual Trust, dedicated to spreading the teachings of Yogiraj Vethathiri Maharishi.',
     achievements: [

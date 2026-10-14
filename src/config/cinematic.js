@@ -1,5 +1,5 @@
 import { img } from './images';
-import { SITE, BANNERS } from './site';
+import { SITE, TEAM, BANNERS } from './site';
 import { HOME_BLOG_POSTS } from './blog';
 import { UPCOMING_EVENTS, PAST_EVENTS } from './events';
 
@@ -97,13 +97,10 @@ export const JOURNEY_STAGES = [
 ];
 
 export const FOUNDER = {
-  name: 'Yogiraj Vethathiri Maharishi',
-  role: 'Spiritual Master',
-  image: img('maharishiSaffron'),
-  headline: 'World Peace through Individual Peace.',
-  bio: 'Shri Vethathiri Maharishi shared simplified yoga, meditation, and introspection with millions. His vision continues to guide Vetham Kuzhumam Spiritual Trust.',
+  ...TEAM[0],
+  image: img(TEAM[0].portrait || TEAM[0].image),
   quote: '"World Peace through Individual Peace begins with one awakened heart."',
-  since: '1911–2006',
+  since: '2017',
 };
 
 export const SCROLL_QUOTES = [
