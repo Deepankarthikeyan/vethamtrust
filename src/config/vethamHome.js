@@ -139,7 +139,7 @@ export const GALLERY_FILTERS = [
 ];
 
 export const VOLUNTEERS = TEAM.map((member) => ({
-  image: img(member.image),
+  image: img(member.portrait || member.image),
   role: member.role,
   name: member.name,
 }));

@@ -6,9 +6,10 @@ import LazyImage from './LazyImage';
 function FounderCard({ member, linkToLeadership }) {
   const NameTag = linkToLeadership ? Link : 'span';
   const nameProps = linkToLeadership ? { to: '/leadership' } : {};
+  const variantClass = member.portraitVariant === 'traditional' ? ' vetham-founder-card--traditional' : '';
 
   return (
-    <article className="vetham-founder-card">
+    <article className={`vetham-founder-card${variantClass}`}>
       <div className="vetham-founder-card__body">
         <p className="vetham-founder-card__meta">
           Spiritual Master <span aria-hidden="true">•</span> {member.role}

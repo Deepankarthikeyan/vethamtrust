@@ -114,7 +114,7 @@ const catalog = {
   sidebarPost3: [`${V}/sidebar-post-3.jpg`],
 };
 
-const VETHAM_ASSET_VERSION = 'maharishi-saffron-v1';
+const VETHAM_ASSET_VERSION = 'maharishi-saffron-v2';
 
 export function img(key) {
   const entry = catalog[key];
