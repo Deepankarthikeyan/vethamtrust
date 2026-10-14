@@ -19,6 +19,7 @@ const CARD_SELECTOR = [
   '.vetham-contact-card',
   '.vetham-leader-card',
   '.vetham-founder-card',
+  '.vetham-founder-tile',
   '.vetham-event-card',
   '.news-block-one .inner-box',
   '.cause-block-one .inner-box',
