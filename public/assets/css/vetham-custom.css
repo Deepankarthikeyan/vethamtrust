@@ -4105,24 +4105,19 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
   background: linear-gradient(90deg, transparent, #c45a1a, #e8c547, #c45a1a, transparent);
 }
 
-/* Founders showcase — rounded portrait on top, text below */
-.vetham-leadership-cards--showcase .vetham-leadership-cards__grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(18px, 2.2vw, 28px);
-  align-items: stretch;
+/* Founders showcase — 2×2 rows, rounded portrait on top, text below */
+.vetham-leadership-cards--showcase .vetham-leadership-cards__matrix {
+  gap: clamp(22px, 2.8vw, 32px);
 }
 
-@media only screen and (max-width: 1199px) {
-  .vetham-leadership-cards--showcase .vetham-leadership-cards__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.vetham-leadership-cards--showcase .vetham-leadership-cards__row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-@media only screen and (max-width: 575px) {
-  .vetham-leadership-cards--showcase .vetham-leadership-cards__grid {
+@media only screen and (max-width: 767px) {
+  .vetham-leadership-cards--showcase .vetham-leadership-cards__row {
     grid-template-columns: 1fr;
-    max-width: 400px;
+    max-width: 480px;
     margin-inline: auto;
   }
 }
@@ -4185,7 +4180,7 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
 .vetham-founder-card__media-frame {
   position: relative;
   width: 100%;
-  border-radius: 24px;
+  border-radius: 28px 28px 20px 20px;
   overflow: hidden;
   background: #0d1b2a;
   border: 2px solid rgba(232, 197, 71, 0.55);
@@ -4235,12 +4230,21 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
 
 .vetham-founder-card--stacked .vetham-founder-card__media img {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  min-height: 0;
+  aspect-ratio: 4 / 3;
+  min-height: clamp(200px, 22vw, 280px);
   max-height: none;
   object-fit: cover;
   object-position: center 12%;
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vetham-leadership-cards--showcase .vetham-founder-card--stacked .vetham-founder-card__body {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.vetham-leadership-cards--showcase .vetham-founder-card--stacked .vetham-founder-card__meta {
+  align-self: flex-start;
 }
 
 .vetham-founder-card--stacked:hover .vetham-founder-card__media img {

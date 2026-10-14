@@ -67,15 +67,27 @@ export default function LeadershipShowcase({ linkToLeadership = true, fullPage =
           <p className="vetham-leadership-cards__org">{SITE.nameUpper}</p>
         </header>
 
-        <div className="vetham-leadership-cards__grid" aria-label="Founders and spiritual masters">
-          {TEAM.map((member, index) => (
-            <FounderCard
-              key={member.name}
-              member={member}
-              linkToLeadership={linkToLeadership}
-              index={index}
-            />
-          ))}
+        <div className="vetham-leadership-cards__matrix">
+          <div className="vetham-leadership-cards__row" aria-label="Founders row one">
+            {TEAM.slice(0, 2).map((member, index) => (
+              <FounderCard
+                key={member.name}
+                member={member}
+                linkToLeadership={linkToLeadership}
+                index={index}
+              />
+            ))}
+          </div>
+          <div className="vetham-leadership-cards__row" aria-label="Founders row two">
+            {TEAM.slice(2, 4).map((member, index) => (
+              <FounderCard
+                key={member.name}
+                member={member}
+                linkToLeadership={linkToLeadership}
+                index={index + 2}
+              />
+            ))}
+          </div>
         </div>
 
         {linkToLeadership ? (
