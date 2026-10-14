@@ -13,15 +13,18 @@ function FounderTile({ member, linkToLeadership, index }) {
 
   return (
     <article className="vetham-founder-tile" style={{ '--tile-i': index }}>
-      <div className="vetham-founder-tile__portrait">
-        {linkToLeadership ? (
-          <Link to="/leadership" className="vetham-founder-tile__portrait-link">
-            {portrait}
-          </Link>
-        ) : (
-          portrait
-        )}
-        <span className="vetham-founder-tile__portrait-shine" aria-hidden="true" />
+      <div className="vetham-founder-tile__portrait-stage">
+        <div className="vetham-founder-tile__portrait">
+          {linkToLeadership ? (
+            <Link to="/leadership" className="vetham-founder-tile__portrait-link">
+              {portrait}
+            </Link>
+          ) : (
+            portrait
+          )}
+          <span className="vetham-founder-tile__portrait-shine" aria-hidden="true" />
+          <span className="vetham-founder-tile__portrait-rim" aria-hidden="true" />
+        </div>
       </div>
 
       <div className="vetham-founder-tile__content">
