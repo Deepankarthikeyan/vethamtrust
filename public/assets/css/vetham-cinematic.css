@@ -989,10 +989,11 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
 .vx-founder__portrait img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  filter: grayscale(0.3);
-  transition: filter 0.8s ease;
+  object-fit: contain;
+  object-position: center bottom;
+  background: var(--vx-bg-soft);
+  filter: none;
+  transition: transform 0.8s var(--vx-ease);
 }
 
 .vx-founder.is-revealed .vx-founder__portrait img { filter: grayscale(0); }

@@ -270,7 +270,7 @@ export function FounderSection() {
           <img src={FOUNDER.image} alt={FOUNDER.name} loading="lazy" />
         </div>
         <div>
-          <span className="vx-eyebrow">Founder & Spiritual Master</span>
+          <span className="vx-eyebrow">Spiritual Master</span>
           <h2 className="vx-title-lg">{FOUNDER.name}</h2>
           <p className="vx-text" style={{ marginTop: 8, color: 'var(--vx-gold)' }}>{FOUNDER.role} · Since {FOUNDER.since}</p>
           <p className="vx-text" style={{ marginTop: 20 }}>{FOUNDER.bio}</p>

@@ -114,10 +114,16 @@ const catalog = {
   sidebarPost3: [`${V}/sidebar-post-3.jpg`],
 };
 
+const VETHAM_ASSET_VERSION = 'maharishi-saffron-v1';
+
 export function img(key) {
   const entry = catalog[key];
   if (!entry) return '';
-  return entry[0];
+  const src = entry[0];
+  if (src.startsWith('/assets/images/vetham/')) {
+    return `${src}?v=${VETHAM_ASSET_VERSION}`;
+  }
+  return src;
 }
 
 export function imgCdn(key) {
