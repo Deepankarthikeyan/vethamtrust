@@ -5,6 +5,7 @@
 }
 
 .sh-home {
+  --sh-on-surface: #ffffff;
   --sh-primary: #c45a1a;
   --sh-primary-dark: #a34a14;
   --sh-gold: #c9a227;
@@ -1524,7 +1525,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   line-height: 1.15;
-  color: #ffffff !important;
+  color: var(--sh-on-surface);
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
 }
 
@@ -1534,7 +1535,7 @@
   line-height: 1.45;
   max-width: 14em;
   margin: 0;
-  color: #ffffff !important;
+  color: var(--sh-on-surface);
   opacity: 1;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
@@ -2184,27 +2185,29 @@ body.vx-home .vetham-fab-container {
   z-index: 10050;
 }
 
-/* Bright white copy — wins over legacy theme sheets */
-.sh-white-copy,
-body.vx-site .sh-home .sh-white-copy,
-body.vx-site .sh-home .sh-dimension-tile .sh-white-copy,
-body.vx-site .sh-home .sh-dimension-tile__content h3,
-body.vx-site .sh-home .sh-dimension-tile__content p,
-body.vx-site .sh-home .sh-dimension-tile__icon-ring i,
-body.vx-site .sh-home .sh-cta .sh-cta__eyebrow,
-body.vx-site .sh-home .sh-cta .sh-cta__title,
-body.vx-site .sh-home .sh-cta .sh-cta__text,
-body.vx-site .sh-home .sh-cta .sh-cta__pillars li,
-body.vx-site .sh-home .sh-cta .sh-cta__pillars li span {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  opacity: 1 !important;
+.sh-white-copy {
+  color: var(--sh-on-surface);
+}
+
+.sh-dimension-tile__content,
+.sh-dimension-tile__content h3,
+.sh-dimension-tile__content p,
+.sh-dimension-tile__icon-ring i,
+.sh-cta__eyebrow,
+.sh-cta__title,
+.sh-cta__text,
+.sh-cta__pillars li,
+.sh-cta__pillars li span,
+.sh-cta__tagline,
+.sh-cta__tagline strong,
+.sh-cta__tagline-sub {
+  color: var(--sh-on-surface);
 }
 
 .sh-dimension-tile__content {
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
 }
 
-.sh-cta .sh-white-copy {
+.sh-cta__content .sh-white-copy {
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
 }

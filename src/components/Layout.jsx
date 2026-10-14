@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import useBodyPageMode from '../hooks/useBodyPageMode';
 import { useLanguageRetranslate } from '../hooks/useLanguageRetranslate';
 import useGsapRefresh from '../hooks/useGsapRefresh';
 import useScrollReveal from '../hooks/useScrollReveal';
@@ -13,9 +14,7 @@ import FloatingWidgets from './FloatingWidgets';
 
 export default function Layout() {
   const { pathname } = useLocation();
-  const isCinematicHome = pathname === '/';
-  const isSpiritualVillage = pathname === '/our-village';
-  const fullBleedHero = isCinematicHome || isSpiritualVillage;
+  const { fullBleed: fullBleedHero } = useBodyPageMode();
 
   useLanguageRetranslate();
   useGsapRefresh();
@@ -24,16 +23,6 @@ export default function Layout() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
-  useEffect(() => {
-    document.body.classList.remove('krishna-home', 'vetham-inner', 'boxed_wrapper');
-    document.body.classList.add('vx-site', fullBleedHero ? 'vx-home' : 'vx-inner');
-
-    const vethamCss = document.getElementById('vetham-custom-css');
-    const vethamType = document.getElementById('vetham-typography-css');
-    if (vethamCss) vethamCss.disabled = false;
-    if (vethamType) vethamType.disabled = false;
-  }, [fullBleedHero]);
 
   return (
     <>

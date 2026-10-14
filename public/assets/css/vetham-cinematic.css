@@ -116,8 +116,17 @@ button {
 }
 
 .vx-text {
-  color: var(--vx-cream-muted);
+  color: var(--vx-text);
   margin: 0;
+}
+
+.vx-hero .vx-text,
+.vx-quote-scroll .vx-text,
+.vx-program-card__body .vx-text,
+.vx-footer .vx-text,
+.vx-section--dark .vx-text--on-dark,
+.vx-donate-cta .vx-text {
+  color: var(--vx-cream-muted);
 }
 
 /* Scroll progress */
@@ -1424,7 +1433,7 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
   transform: translateY(-3px);
 }
 
-/* Footer text must stay light (overrides body.vx-inner p { color: ... !important }) */
+/* Footer text on dark background */
 body.vx-site .vx-footer,
 body.vx-site .vx-footer p,
 body.vx-site .vx-footer .vx-text,
@@ -1501,25 +1510,30 @@ body.vx-inner .vx-page-content {
   background: var(--vx-bg-soft);
 }
 
-body.vx-inner .sec-title .sub-title,
-body.vx-inner .sub-title {
-  color: var(--vx-brown) !important;
+body.vx-inner .vx-page-content .sec-title .sub-title,
+body.vx-inner .vx-page-content .sub-title {
+  color: var(--vx-brown);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   font-size: 0.8rem;
   font-weight: 600;
 }
 
-body.vx-inner .sec-title h2,
-body.vx-inner h2 {
+body.vx-inner .vx-page-content .sec-title h2,
+body.vx-inner .vx-page-content h2 {
   font-family: var(--vx-font-display);
-  color: var(--vx-heading) !important;
+  color: var(--vx-heading);
   font-weight: 400;
 }
 
-body.vx-inner p,
-body.vx-inner .text p {
-  color: var(--vx-text-dim) !important;
+body.vx-inner .vx-page-content .text p,
+body.vx-inner .vx-page-content p:not([class]) {
+  color: var(--vx-text);
+}
+
+body.vx-inner .vx-page-content .text p + p,
+body.vx-inner .vx-page-content .vx-text-dim {
+  color: var(--vx-text-dim);
 }
 
 body.vx-inner .theme-btn-one,

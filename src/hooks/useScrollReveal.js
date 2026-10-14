@@ -215,12 +215,16 @@ function runHomeHeroIntro() {
     stagger: 0.11,
     ease: EASE,
     delay: 0.08,
-    clearProps: 'transform',
+    clearProps: 'transform,opacity,visibility',
   });
 }
 
-function mountScrollAnimations() {
-  const sections = gsap.utils.toArray(SECTION_SELECTOR);
+function mountScrollAnimations(pathname) {
+  const sections = gsap.utils.toArray(SECTION_SELECTOR).filter((section) => {
+    if (section.closest('.sh-home') && pathname !== '/our-village') return false;
+    if (section.closest('.vx-page-content') && pathname === '/our-village') return false;
+    return true;
+  });
   sections.forEach(revealSection);
 
   const pageHero = document.querySelector('.vx-page-hero__content');
@@ -237,7 +241,7 @@ function mountScrollAnimations() {
 
   runHomeHeroIntro();
 
-  const cta = document.querySelector('.sh-cta');
+  const cta = pathname === '/our-village' ? document.querySelector('.sh-cta') : null;
   if (cta) {
     const ctaBg = cta.querySelector('.sh-cta__bg');
     if (ctaBg) {
@@ -317,7 +321,7 @@ export default function useScrollReveal() {
       if (mounted) return;
       mounted = true;
       ctx = gsap.context(() => {
-        mountScrollAnimations();
+        mountScrollAnimations(pathname);
       });
     };
 
@@ -330,8 +334,15 @@ export default function useScrollReveal() {
     const onAppReady = () => scheduleSetup();
     window.addEventListener('vx:app-ready', onAppReady);
 
-    const fallbackMs = pathname === '/' || pathname === '/our-village' ? 320 : 80;
+    let seen = false;
+    try {
+      seen = sessionStorage.getItem('vx-preloader-seen') === '1';
+    } catch {
+      seen = false;
+    }
+    const fallbackMs = seen ? 0 : (pathname === '/' || pathname === '/our-village' ? 200 : 0);
     const fallbackTimer = window.setTimeout(scheduleSetup, fallbackMs);
+    if (seen) scheduleSetup();
 
     const onLoad = () => {
       window.setTimeout(() => ScrollTrigger.refresh(true), 200);
