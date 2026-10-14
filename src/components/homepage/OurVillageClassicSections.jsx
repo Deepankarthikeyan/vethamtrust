@@ -38,6 +38,14 @@ const HIGHLIGHTS = [
   },
 ];
 
+function SectionBanner({ imageKey, alt }) {
+  return (
+    <div className="our-village-legacy__banner">
+      <LazyImage src={img(imageKey)} alt={alt} loading="lazy" />
+    </div>
+  );
+}
+
 export default function OurVillageClassicSections() {
   return (
     <div className="our-village-legacy vx-page-content" id="village-projects">
@@ -93,6 +101,7 @@ export default function OurVillageClassicSections() {
               </article>
             ))}
           </div>
+          <SectionBanner imageKey="homeCtaBanner" alt="Spiritual village landscape" />
         </div>
       </section>
 
@@ -111,6 +120,7 @@ export default function OurVillageClassicSections() {
               </article>
             ))}
           </div>
+          <SectionBanner imageKey="homeSectionVillageLife" alt="Life at the spiritual village" />
         </div>
       </section>
     </div>
