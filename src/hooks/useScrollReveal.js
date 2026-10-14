@@ -224,7 +224,13 @@ function runHomeHeroIntro() {
 function mountScrollAnimations(pathname) {
   const sections = gsap.utils.toArray(SECTION_SELECTOR).filter((section) => {
     if (section.closest('.sh-home') && pathname !== '/our-village') return false;
-    if (section.closest('.vx-page-content') && pathname === '/our-village') return false;
+    if (
+      section.closest('.vx-page-content')
+      && pathname === '/our-village'
+      && !section.closest('.our-village-legacy')
+    ) {
+      return false;
+    }
     return true;
   });
   sections.forEach(revealSection);

@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import OurVillageClassicSections from '../components/homepage/OurVillageClassicSections';
 import SpiritualHomePage from '../components/homepage/SpiritualHomePage';
 import { SITE } from '../config/site';
 
@@ -13,6 +14,7 @@ export default function OurVillage() {
         />
       </Helmet>
       <SpiritualHomePage />
+      <OurVillageClassicSections />
     </>
   );
 }

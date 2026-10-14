@@ -1742,6 +1742,33 @@ body.vx-inner .vx-page-content {
   background: var(--vx-bg-soft);
 }
 
+/* Classic village blocks below spiritual home (route uses vx-home, not vx-inner) */
+body.vx-home .our-village-legacy.vx-page-content {
+  background: var(--vx-bg-soft);
+  border-top: 1px solid rgba(196, 90, 26, 0.12);
+}
+
+body.vx-home .our-village-legacy .sec-title .sub-title,
+body.vx-home .our-village-legacy .sub-title {
+  color: var(--vx-brown);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+body.vx-home .our-village-legacy .sec-title h2,
+body.vx-home .our-village-legacy h3 {
+  font-family: var(--vx-font-display);
+  color: var(--vx-heading);
+  font-weight: 400;
+}
+
+body.vx-home .our-village-legacy .text p,
+body.vx-home .our-village-legacy .vx-spirit-card__body p {
+  color: var(--vx-text);
+}
+
 body.vx-inner .vx-page-content .sec-title .sub-title,
 body.vx-inner .vx-page-content .sub-title {
   color: var(--vx-brown);
