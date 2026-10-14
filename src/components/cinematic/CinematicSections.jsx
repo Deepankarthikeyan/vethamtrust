@@ -155,6 +155,7 @@ export function PurposeSection() {
 
   useEffect(() => {
     if (!sectionRef.current) return undefined;
+    if (window.matchMedia('(max-width: 1024px)').matches) return undefined;
     const items = sectionRef.current.querySelectorAll('[data-purpose-item]');
     const triggers = Array.from(items).map((item, i) => ScrollTrigger.create({
       trigger: item,
@@ -179,7 +180,7 @@ export function PurposeSection() {
         <div className="vx-purpose__list">
           {PURPOSE_STATEMENTS.map((text, i) => (
             <div key={i} className={`vx-purpose__item${active === i ? ' is-active' : ''}`} data-purpose-item>
-              <p className="vx-text" style={{ fontSize: '1.15rem', color: 'var(--vx-text)' }}>{text}</p>
+              <p className="vx-text vx-purpose__text">{text}</p>
             </div>
           ))}
         </div>
@@ -447,6 +448,7 @@ export function EventsSection() {
 
   useEffect(() => {
     if (!listRef.current) return undefined;
+    if (window.matchMedia('(max-width: 1024px)').matches) return undefined;
     const cards = listRef.current.querySelectorAll('.vx-event-card');
     const triggers = Array.from(cards).map((card, i) => ScrollTrigger.create({
       trigger: card,
