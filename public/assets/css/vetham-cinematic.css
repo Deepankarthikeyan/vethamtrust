@@ -12,7 +12,7 @@
   --vx-footer-bg: #232323;
   --vx-cream: #faf6f2;
   --vx-cream-muted: rgba(255, 255, 255, 0.78);
-  --vx-heading: #1e3d2a;
+  --vx-heading: #1a1a1a;
   --vx-gold-soft: rgba(196, 90, 26, 0.2);
   --vx-navy: #232323;
   --vx-text: #2a2a2a;
@@ -564,6 +564,15 @@ body.vx-home .vx-header.is-scrolled .vx-btn--ghost:hover {
 .vx-hscroll .vx-title-md,
 .vx-hscroll__card-body .vx-title-md {
   color: var(--vx-heading);
+}
+
+.vx-section--soft .vx-eyebrow,
+.vx-hscroll .vx-eyebrow,
+.vx-founder .vx-eyebrow,
+.vx-programs .vx-eyebrow,
+.vx-gallery .vx-eyebrow,
+.vx-testimonials .vx-eyebrow {
+  color: #1a1a1a;
 }
 
 .vx-section--dark .vx-text,
