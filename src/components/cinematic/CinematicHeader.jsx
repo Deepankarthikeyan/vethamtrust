@@ -41,6 +41,8 @@ export default function CinematicHeader() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
+    document.body.classList.toggle('vx-mobile-nav-open', menuOpen);
+    return () => document.body.classList.remove('vx-mobile-nav-open');
   }, [menuOpen]);
 
   return (

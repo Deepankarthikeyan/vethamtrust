@@ -493,7 +493,7 @@ body.vx-home .vx-header.is-scrolled .vx-btn--ghost:hover {
 .vx-mobile-menu {
   position: fixed;
   inset: 0;
-  z-index: 10001;
+  z-index: 100020;
   display: flex;
   justify-content: flex-end;
   pointer-events: none;
@@ -635,6 +635,9 @@ body.vx-home .vx-header.is-scrolled .vx-btn--ghost:hover {
   color: var(--vx-heading);
   background: rgba(255, 255, 255, 0.55);
   border: none;
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
   border-radius: 16px;
   text-align: left;
   text-decoration: none;
@@ -654,6 +657,27 @@ body.vx-home .vx-header.is-scrolled .vx-btn--ghost:hover {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 236, 220, 0.75));
   box-shadow: 0 10px 28px rgba(196, 90, 26, 0.12);
   transform: translateX(4px);
+  border: none;
+  outline: none;
+}
+
+.vx-mobile-menu__link:focus,
+.vx-mobile-menu__trigger:focus,
+.vx-mobile-menu__sublink:focus,
+.vx-mobile-menu__chip:focus,
+.vx-mobile-menu__close:focus {
+  outline: none;
+  border: none;
+  box-shadow: 0 10px 28px rgba(196, 90, 26, 0.12);
+}
+
+.vx-mobile-menu__link:focus-visible,
+.vx-mobile-menu__trigger:focus-visible,
+.vx-mobile-menu__sublink:focus-visible,
+.vx-mobile-menu__chip:focus-visible,
+.vx-mobile-menu__close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(196, 90, 26, 0.28);
 }
 
 .vx-mobile-menu__label {
@@ -715,6 +739,8 @@ body.vx-home .vx-header.is-scrolled .vx-btn--ghost:hover {
   color: var(--vx-heading);
   text-decoration: none;
   border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.35);
   transition:
@@ -756,6 +782,9 @@ body.vx-home .vx-header.is-scrolled .vx-btn--ghost:hover {
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   padding-top: 12px;
+  padding-bottom: max(8px, env(safe-area-inset-bottom, 0px));
+  position: relative;
+  z-index: 3;
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 0.45s var(--vx-ease) 0.2s, transform 0.45s var(--vx-ease) 0.2s;
@@ -780,6 +809,8 @@ body.vx-home .vx-header.is-scrolled .vx-btn--ghost:hover {
   color: var(--vx-primary);
   background: rgba(255, 255, 255, 0.75);
   border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
   box-shadow: 0 8px 22px rgba(30, 61, 42, 0.08);
   transition: transform 0.35s var(--vx-ease), box-shadow 0.35s ease, background 0.35s ease;
 }
@@ -792,6 +823,27 @@ body.vx-home .vx-header.is-scrolled .vx-btn--ghost:hover {
 .vx-mobile-menu__chip--primary {
   color: #fff;
   background: linear-gradient(135deg, var(--vx-primary), var(--vx-primary-dark));
+}
+
+/* Hide floating WhatsApp / donate FABs while mobile nav is open */
+body.vx-mobile-nav-open .vetham-fab-container {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+body.vx-mobile-nav-open .vx-mobile-menu__trigger,
+body.vx-mobile-nav-open .vx-mobile-menu__link,
+body.vx-mobile-nav-open .vx-mobile-menu__sublink,
+body.vx-mobile-nav-open .vx-mobile-menu__chip {
+  border: none !important;
+}
+
+body.vx-mobile-nav-open .vx-mobile-menu__trigger:active,
+body.vx-mobile-nav-open .vx-mobile-menu__link:active {
+  border: none !important;
+  outline: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3158,8 +3210,19 @@ body.vx-inner .vx-page-content > .vetham-contact-form:last-child {
 
   .vx-footer__bottom {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 16px;
+  }
+
+  .vx-footer__bottom p {
+    width: 100%;
+  }
+
+  .vx-footer__social {
+    justify-content: center;
+    width: 100%;
   }
 }
 
