@@ -8,13 +8,13 @@ import {
   INNER_PEACE_STEPS,
   JOURNEY_WITHIN,
   PURPOSE_PANEL,
-  SPIRITUAL_ABOUT,
   SPIRITUAL_HERO,
   VILLAGE_LIFE,
   WAY_OF_LIFE,
 } from '../../config/spiritualHome';
+import SpiritualAboutSection from './SpiritualAboutSection';
 
-export default function SpiritualHomePage() {
+export default function SpiritualHomePage({ showAboutSection = true }) {
   return (
     <div className="sh-home">
       <section className="sh-hero" aria-label="Hero">
@@ -46,32 +46,7 @@ export default function SpiritualHomePage() {
         </div>
       </section>
 
-      <section className="sh-section sh-about sh-section--botanical" id="sh-about" aria-label="About">
-        <div className="sh-container sh-about__grid">
-          <div className="sh-about__visual">
-            <img
-              className="sh-about__maharishi-png"
-              src={SPIRITUAL_ABOUT.image}
-              alt="Yogiraj Vethathiri Maharishi"
-              width={1644}
-              height={1156}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div className="sh-about__copy">
-            <p className="sh-eyebrow">{SPIRITUAL_ABOUT.eyebrow}</p>
-            <h2 className="sh-title">{SPIRITUAL_ABOUT.title}</h2>
-            {SPIRITUAL_ABOUT.text.map((p) => (
-              <p key={p.slice(0, 32)} className="sh-text">{p}</p>
-            ))}
-            <blockquote className="sh-quote">
-              <p>{SPIRITUAL_ABOUT.quote}</p>
-              <cite>— {SPIRITUAL_ABOUT.quoteAttribution}</cite>
-            </blockquote>
-          </div>
-        </div>
-      </section>
+      {showAboutSection ? <SpiritualAboutSection /> : null}
 
       <section className="sh-section sh-section--cream sh-section--botanical sh-journey" id="sh-practices" aria-label="Journey within">
         <div className="sh-container sh-container--content">
