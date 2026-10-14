@@ -337,42 +337,91 @@ export function ImpactSection() {
   );
 }
 
-const GALLERY_LAYOUT = ['vx-gallery__item--wide', 'vx-gallery__item--sq', 'vx-gallery__item--tall', 'vx-gallery__item--sq', 'vx-gallery__item--wide', 'vx-gallery__item--sq'];
+const GALLERY_CELL_LAYOUT = ['featured', 'sq', 'sq', 'wide', 'tall', 'sq'];
 
-export function GallerySection() {
-  const [lightbox, setLightbox] = useState(null);
+function GalleryLightbox({ index, onClose, onChange }) {
+  const item = GALLERY_ITEMS[index];
+
+  useEffect(() => {
+    const onKey = (event) => {
+      if (event.key === 'Escape') onClose();
+      if (event.key === 'ArrowLeft') onChange((index - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length);
+      if (event.key === 'ArrowRight') onChange((index + 1) % GALLERY_ITEMS.length);
+    };
+    window.addEventListener('keydown', onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [index, onClose, onChange]);
+
+  if (!item) return null;
+
+  const goPrev = () => onChange((index - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length);
+  const goNext = () => onChange((index + 1) % GALLERY_ITEMS.length);
 
   return (
-    <section className="vx-section vx-section--soft" data-vx-section="10">
+    <div
+      className="vx-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Gallery preview"
+      onClick={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+    >
+      <p className="vx-lightbox__counter">{index + 1} / {GALLERY_ITEMS.length}</p>
+      <button type="button" className="vx-lightbox__close" onClick={onClose} aria-label="Close preview">
+        <i className="fas fa-times" />
+      </button>
+      <button type="button" className="vx-lightbox__nav vx-lightbox__nav--prev" onClick={goPrev} aria-label="Previous image">
+        <i className="fas fa-chevron-left" aria-hidden="true" />
+      </button>
+      <figure className="vx-lightbox__figure">
+        <img src={item.image} alt={item.title} />
+        <figcaption className="vx-lightbox__caption">{item.title}</figcaption>
+      </figure>
+      <button type="button" className="vx-lightbox__nav vx-lightbox__nav--next" onClick={goNext} aria-label="Next image">
+        <i className="fas fa-chevron-right" aria-hidden="true" />
+      </button>
+    </div>
+  );
+}
+
+export function GallerySection() {
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+
+  return (
+    <section className="vx-section vx-section--soft vx-gallery-section" data-vx-section="10">
       <div className="vx-container">
         <div style={{ marginBottom: 48 }}>
           <span className="vx-eyebrow">Gallery</span>
           <h2 className="vx-title-lg">Spiritual Moments & Community Events</h2>
         </div>
-        <div className="vx-gallery">
+        <div className="vx-gallery-masonry vx-gallery-masonry--home">
           {GALLERY_ITEMS.map((item, i) => (
             <button
               key={`${item.title}-${i}`}
               type="button"
-              className={`vx-gallery__item ${GALLERY_LAYOUT[i % GALLERY_LAYOUT.length]}`}
-              onClick={() => setLightbox(item)}
+              className={`vx-gallery-masonry__cell vx-gallery-masonry__cell--${GALLERY_CELL_LAYOUT[i % GALLERY_CELL_LAYOUT.length]} vx-gallery-home__item`}
+              onClick={() => setLightboxIndex(i)}
               data-cursor="VIEW"
             >
-              <img src={item.image} alt={item.title} loading="lazy" />
-              <div className="vx-gallery__overlay">
-                <span>{item.title}</span>
-              </div>
+              <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+              <span className="vx-gallery-home__shade" aria-hidden="true" />
+              <span className="vx-gallery-home__caption">{item.title}</span>
             </button>
           ))}
         </div>
       </div>
-      {lightbox && (
-        <div className="vx-lightbox" role="dialog" aria-label="Image preview">
-          <button type="button" className="vx-lightbox__close" onClick={() => setLightbox(null)} aria-label="Close">
-            <i className="fas fa-times" />
-          </button>
-          <img src={lightbox.image} alt={lightbox.title} />
-        </div>
+      {lightboxIndex !== null && (
+        <GalleryLightbox
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onChange={setLightboxIndex}
+        />
       )}
     </section>
   );

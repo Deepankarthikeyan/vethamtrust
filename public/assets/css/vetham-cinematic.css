@@ -820,7 +820,7 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
 .vx-program-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 30%, rgba(10,15,20,0.95) 100%);
+  background: linear-gradient(180deg, rgba(10, 15, 20, 0.15) 0%, rgba(10, 15, 20, 0.55) 45%, rgba(10, 15, 20, 0.92) 100%);
 }
 
 .vx-program-card__body {
@@ -830,6 +830,7 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
   bottom: 0;
   padding: 32px;
   z-index: 2;
+  color: #ffffff;
 }
 
 .vx-program-card__icon {
@@ -850,8 +851,10 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
   overflow: hidden;
   opacity: 0;
   transition: max-height 0.4s var(--vx-ease), opacity 0.4s ease, margin 0.4s ease;
-  color: var(--vx-cream-muted);
+  color: rgba(255, 255, 255, 0.95);
   font-size: 0.92rem;
+  line-height: 1.55;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
 }
 
 .vx-program-card:hover .vx-program-card__desc {
@@ -861,7 +864,13 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
 }
 
 .vx-program-card__title {
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
   transition: transform 0.4s var(--vx-ease);
+}
+
+.vx-program-card__body .vx-title-md {
+  color: #ffffff;
 }
 
 .vx-program-card:hover .vx-program-card__title { transform: translateY(-4px); }
@@ -1065,18 +1074,36 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
   position: fixed;
   inset: 0;
   z-index: 10005;
-  background: rgba(0,0,0,0.92);
+  background: rgba(0, 0, 0, 0.94);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: clamp(16px, 4vw, 48px);
+  gap: 12px;
 }
 
-.vx-lightbox img {
-  max-height: 90vh;
-  max-width: 90vw;
+.vx-lightbox__figure {
+  margin: 0;
+  max-width: min(920px, 88vw);
+  text-align: center;
+}
+
+.vx-lightbox__figure img {
+  max-height: 78vh;
+  max-width: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.vx-lightbox__caption {
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
 }
 
 .vx-lightbox__close {
@@ -1087,9 +1114,171 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
   height: 48px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.3);
-  background: transparent;
+  background: rgba(0, 0, 0, 0.35);
   color: #fff;
   font-size: 1.2rem;
+  z-index: 2;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.vx-lightbox__close:hover {
+  background: rgba(196, 90, 26, 0.5);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.vx-lightbox__nav {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, transform 0.25s var(--vx-ease);
+}
+
+.vx-lightbox__nav:hover {
+  background: rgba(196, 90, 26, 0.65);
+  transform: scale(1.05);
+}
+
+.vx-lightbox__counter {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+}
+
+/* Home gallery — borderless masonry */
+.vx-gallery-masonry--home {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(10px, 1.8vw, 18px);
+}
+
+.vx-gallery-home__item {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 14px;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.vx-gallery-home__item img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s var(--vx-ease);
+}
+
+.vx-gallery-home__item:hover img,
+.vx-gallery-home__item:focus-visible img {
+  transform: scale(1.04);
+}
+
+.vx-gallery-home__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(10, 15, 20, 0.72) 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.vx-gallery-home__item:hover .vx-gallery-home__shade,
+.vx-gallery-home__item:focus-visible .vx-gallery-home__shade {
+  opacity: 1;
+}
+
+.vx-gallery-home__caption {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  z-index: 1;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease, transform 0.35s var(--vx-ease);
+  pointer-events: none;
+}
+
+.vx-gallery-home__item:hover .vx-gallery-home__caption,
+.vx-gallery-home__item:focus-visible .vx-gallery-home__caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vx-gallery-masonry--home .vx-gallery-masonry__cell--featured {
+  grid-column: span 8;
+  min-height: 260px;
+}
+
+.vx-gallery-masonry--home .vx-gallery-masonry__cell--wide {
+  grid-column: span 8;
+  min-height: 220px;
+}
+
+.vx-gallery-masonry--home .vx-gallery-masonry__cell--tall {
+  grid-column: span 4;
+  grid-row: span 2;
+  min-height: 300px;
+}
+
+.vx-gallery-masonry--home .vx-gallery-masonry__cell--sq {
+  grid-column: span 4;
+  min-height: 200px;
+}
+
+@media (max-width: 900px) {
+  .vx-gallery-masonry--home .vx-gallery-masonry__cell--featured,
+  .vx-gallery-masonry--home .vx-gallery-masonry__cell--wide,
+  .vx-gallery-masonry--home .vx-gallery-masonry__cell--tall,
+  .vx-gallery-masonry--home .vx-gallery-masonry__cell--sq {
+    grid-column: span 6;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .vx-gallery-masonry--home .vx-gallery-masonry__cell--featured,
+  .vx-gallery-masonry--home .vx-gallery-masonry__cell--wide,
+  .vx-gallery-masonry--home .vx-gallery-masonry__cell--tall,
+  .vx-gallery-masonry--home .vx-gallery-masonry__cell--sq {
+    grid-column: span 12;
+    min-height: 200px;
+  }
+
+  .vx-lightbox__nav {
+    position: absolute;
+    bottom: 24px;
+    top: auto;
+    width: 44px;
+    height: 44px;
+  }
+
+  .vx-lightbox__nav--prev { left: 20px; }
+  .vx-lightbox__nav--next { right: 20px; }
 }
 
 /* 11 Events sticky */
