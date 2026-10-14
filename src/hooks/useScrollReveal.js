@@ -89,7 +89,7 @@ function scrollReveal(targets, trigger, extra = {}) {
       duration: extra.duration ?? DURATION,
       ease: EASE,
       stagger: extra.stagger ?? STAGGER,
-      clearProps: 'transform',
+      clearProps: 'transform,opacity,visibility',
       immediateRender: false,
       ...extra.to,
       scrollTrigger: scrollTriggerConfig(trigger || list[0], extra),
@@ -114,7 +114,7 @@ function revealSplitRow(row) {
         autoAlpha: 1,
         duration: DURATION,
         ease: EASE,
-        clearProps: 'transform',
+        clearProps: 'transform,opacity,visibility',
         immediateRender: false,
         scrollTrigger: scrollTriggerConfig(row),
       },
@@ -130,7 +130,7 @@ function revealSplitRow(row) {
         duration: DURATION,
         ease: EASE,
         delay: 0.1,
-        clearProps: 'transform',
+        clearProps: 'transform,opacity,visibility',
         immediateRender: false,
         scrollTrigger: scrollTriggerConfig(row),
       },
@@ -224,7 +224,7 @@ function mountScrollAnimations() {
       duration: 0.72,
       stagger: 0.12,
       ease: EASE,
-      clearProps: 'transform',
+      clearProps: 'transform,opacity,visibility',
     });
   }
 
@@ -323,7 +323,7 @@ export default function useScrollReveal() {
     const onAppReady = () => scheduleSetup();
     window.addEventListener('vx:app-ready', onAppReady);
 
-    const fallbackMs = pathname === '/' ? 900 : 120;
+    const fallbackMs = pathname === '/' || pathname === '/our-village' ? 320 : 80;
     const fallbackTimer = window.setTimeout(scheduleSetup, fallbackMs);
 
     const onLoad = () => {

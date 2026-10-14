@@ -1,4 +1,5 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
+import { prefetchRoute } from './utils/prefetchRoutes';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/Layout';
@@ -24,6 +25,19 @@ function PageLoader() {
 }
 
 export default function App() {
+  useEffect(() => {
+    const warm = () => {
+      prefetchRoute('/our-village');
+      prefetchRoute('/about');
+      prefetchRoute('/contact');
+    };
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(warm, { timeout: 2500 });
+    } else {
+      window.setTimeout(warm, 1200);
+    }
+  }, []);
+
   return (
     <HelmetProvider>
       <BrowserRouter>

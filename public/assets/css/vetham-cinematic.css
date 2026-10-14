@@ -15,13 +15,13 @@
   --vx-heading: #1e3d2a;
   --vx-gold-soft: rgba(196, 90, 26, 0.2);
   --vx-navy: #232323;
-  --vx-text: #333333;
-  --vx-text-dim: #777777;
+  --vx-text: #2a2a2a;
+  --vx-text-dim: #4a4a4a;
+  --vx-section-gap: clamp(56px, 6.5vw, 84px);
   --vx-border: rgba(0, 0, 0, 0.08);
   --vx-on-dark: #ffffff;
   --vx-on-dark-muted: rgba(255, 255, 255, 0.85);
   --vx-radius: 20px;
-  --vx-section-gap: clamp(44px, 5vw, 68px);
   --vx-section: var(--vx-section-gap);
   --vx-font-display: 'Cormorant Garamond', Georgia, serif;
   --vx-font-body: 'Inter', 'Poppins', system-ui, sans-serif;
@@ -513,6 +513,43 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
 .vx-section--dark { background: var(--vx-bg); }
 .vx-section--soft { background: var(--vx-bg-soft); }
 
+/* Headings and body copy on light surfaces (avoid cream-on-cream) */
+.vx-section--dark .vx-title-lg,
+.vx-section--dark .vx-title-md,
+.vx-section--soft .vx-title-lg,
+.vx-section--soft .vx-title-md,
+.vx-hscroll .vx-title-lg,
+.vx-hscroll .vx-title-md,
+.vx-hscroll__card-body .vx-title-md {
+  color: var(--vx-heading);
+}
+
+.vx-section--dark .vx-text,
+.vx-section--soft .vx-text,
+.vx-hscroll__card-body .vx-text,
+.vx-purpose__item .vx-text {
+  color: var(--vx-text);
+}
+
+.vx-program-card__title {
+  color: var(--vx-on-dark);
+}
+
+body.vx-home .vx-section,
+body.vx-home .vx-philosophy,
+body.vx-home .vx-quote-scroll {
+  padding-top: var(--vx-section-gap);
+  padding-bottom: var(--vx-section-gap);
+}
+
+body.vx-home .vx-hscroll__head {
+  padding-bottom: clamp(24px, 3vw, 40px);
+}
+
+body.vx-home .vx-container > div[style*="marginBottom"] {
+  margin-bottom: clamp(32px, 4vw, 48px) !important;
+}
+
 /* 01 Hero */
 .vx-hero {
   position: relative;
@@ -618,14 +655,15 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   font-size: clamp(3rem, 10vw, 7rem);
   font-weight: 300;
   line-height: 1.05;
-  color: var(--vx-cream);
+  color: var(--vx-heading);
   max-width: 1100px;
 }
 
 .vx-philosophy__quote span {
   display: inline-block;
-  opacity: 0.15;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0.45;
+  color: var(--vx-text);
+  transition: opacity 0.4s ease, transform 0.4s ease, color 0.4s ease;
 }
 
 .vx-philosophy__quote span.is-lit {
@@ -711,7 +749,7 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
 }
 
 .vx-purpose__item {
-  opacity: 0.35;
+  opacity: 0.82;
   transition: opacity 0.5s ease;
   padding-left: 24px;
   border-left: 2px solid var(--vx-border);
@@ -847,11 +885,8 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
 .vx-journey__step {
   position: relative;
   padding: 48px 0 48px 32px;
-  opacity: 0.4;
-  transition: opacity 0.5s ease;
+  opacity: 1;
 }
-
-.vx-journey__step.is-active { opacity: 1; }
 
 .vx-journey__dot {
   position: absolute;
@@ -973,7 +1008,8 @@ body.vx-home .vx-header .vx-btn--ghost:hover {
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--vx-text-dim);
+  color: var(--vx-text);
+  font-weight: 500;
 }
 
 /* 10 Gallery */

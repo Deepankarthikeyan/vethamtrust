@@ -5,6 +5,12 @@ import { getNavLabel } from '../../config/languages';
 import { img } from '../../config/images';
 import { useUiLanguage } from '../../hooks/useUiLanguage';
 import LazyImage from '../LazyImage';
+import { prefetchRoute } from '../../utils/prefetchRoutes';
+
+function prefetchFromPath(path) {
+  prefetchRoute(path);
+  if (path.startsWith('/services')) prefetchRoute('/services');
+}
 
 function isActive(pathname, item) {
   if (item.path === '/') return pathname === '/';
@@ -53,7 +59,12 @@ export default function CinematicHeader() {
                       <ul className="vx-header__sub">
                         {item.children.map((child) => (
                           <li key={child.key}>
-                            <Link to={child.path} className={pathname === child.path ? 'is-active' : ''}>
+                            <Link
+                              to={child.path}
+                              className={pathname === child.path ? 'is-active' : ''}
+                              onMouseEnter={() => prefetchFromPath(child.path)}
+                              onFocus={() => prefetchFromPath(child.path)}
+                            >
                               {getNavLabel(child.key, lang)}
                             </Link>
                           </li>
@@ -61,7 +72,12 @@ export default function CinematicHeader() {
                       </ul>
                     </>
                   ) : (
-                    <Link to={item.path} className={isActive(pathname, item) ? 'is-active' : ''}>
+                    <Link
+                      to={item.path}
+                      className={isActive(pathname, item) ? 'is-active' : ''}
+                      onMouseEnter={() => prefetchFromPath(item.path)}
+                      onFocus={() => prefetchFromPath(item.path)}
+                    >
                       {getNavLabel(item.key, lang)}
                     </Link>
                   )}
@@ -71,8 +87,8 @@ export default function CinematicHeader() {
           </nav>
 
           <div className="vx-header__actions">
-            <Link to="/contact" className="vx-btn vx-btn--ghost notranslate" data-cursor="CONTACT">Contact</Link>
-            <Link to="/donate" className="vx-btn vx-btn--primary notranslate" data-cursor="DONATE">Donate</Link>
+            <Link to="/contact" className="vx-btn vx-btn--ghost notranslate" data-cursor="CONTACT" onMouseEnter={() => prefetchRoute('/contact')} onFocus={() => prefetchRoute('/contact')}>Contact</Link>
+            <Link to="/donate" className="vx-btn vx-btn--primary notranslate" data-cursor="DONATE" onMouseEnter={() => prefetchRoute('/donate')} onFocus={() => prefetchRoute('/donate')}>Donate</Link>
             <button type="button" className="vx-header__toggle" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
               <i className="fas fa-bars" />
             </button>

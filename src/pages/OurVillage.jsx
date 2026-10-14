@@ -11,7 +11,6 @@ export default function OurVillage() {
           name="description"
           content={`Explore ${SITE.name} spiritual village — conscious living, meditation, and community in Coimbatore.`}
         />
-        <link rel="stylesheet" href="/assets/css/vetham-homepage.css" />
       </Helmet>
       <SpiritualHomePage />
     </>
