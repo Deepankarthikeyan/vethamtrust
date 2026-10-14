@@ -4180,7 +4180,7 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
 .vetham-founder-card__media-frame {
   position: relative;
   width: 100%;
-  border-radius: 28px 28px 20px 20px;
+  border-radius: var(--vds-radius-xl, 24px);
   overflow: hidden;
   background: #0d1b2a;
   border: 2px solid rgba(232, 197, 71, 0.55);

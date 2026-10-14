@@ -1,4 +1,4 @@
-/* Vetham Spiritual Trust — Cinematic Design System */
+/* Vetham Kuzhumam Spiritual Trust — Cinematic Design System */
 
 :root {
   --vx-primary: #C45A1A;
@@ -21,7 +21,11 @@
   --vx-border: rgba(0, 0, 0, 0.08);
   --vx-on-dark: #ffffff;
   --vx-on-dark-muted: rgba(255, 255, 255, 0.85);
-  --vx-radius: 20px;
+  --vx-radius: 18px;
+  --vds-radius-sm: 10px;
+  --vds-radius-md: 14px;
+  --vds-radius-lg: 18px;
+  --vds-radius-xl: 24px;
   --vx-section: var(--vx-section-gap);
   --vx-font-display: 'Cormorant Garamond', Georgia, serif;
   --vx-font-body: 'Inter', 'Poppins', system-ui, sans-serif;
