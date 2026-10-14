@@ -2183,3 +2183,28 @@
 body.vx-home .vetham-fab-container {
   z-index: 10050;
 }
+
+/* Bright white copy — wins over legacy theme sheets */
+.sh-white-copy,
+body.vx-site .sh-home .sh-white-copy,
+body.vx-site .sh-home .sh-dimension-tile .sh-white-copy,
+body.vx-site .sh-home .sh-dimension-tile__content h3,
+body.vx-site .sh-home .sh-dimension-tile__content p,
+body.vx-site .sh-home .sh-dimension-tile__icon-ring i,
+body.vx-site .sh-home .sh-cta .sh-cta__eyebrow,
+body.vx-site .sh-home .sh-cta .sh-cta__title,
+body.vx-site .sh-home .sh-cta .sh-cta__text,
+body.vx-site .sh-home .sh-cta .sh-cta__pillars li,
+body.vx-site .sh-home .sh-cta .sh-cta__pillars li span {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.sh-dimension-tile__content {
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+}
+
+.sh-cta .sh-white-copy {
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}

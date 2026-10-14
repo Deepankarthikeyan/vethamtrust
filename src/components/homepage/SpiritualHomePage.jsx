@@ -117,8 +117,8 @@ export default function SpiritualHomePage() {
                   <span className="sh-dimension-tile__icon-ring" aria-hidden="true">
                     <i className={dim.icon} />
                   </span>
-                  <h3>{dim.label}</h3>
-                  <p>{dim.text}</p>
+                  <h3 className="sh-white-copy">{dim.label}</h3>
+                  <p className="sh-white-copy">{dim.text}</p>
                 </div>
               </article>
             ))}
@@ -268,9 +268,9 @@ export default function SpiritualHomePage() {
         <LazyImage src={FINAL_CTA.image} alt="" className="sh-cta__bg" />
         <div className="sh-cta__overlay" />
         <div className="sh-container sh-container--content sh-cta__content">
-          <p className="sh-cta__eyebrow sh-cta__scroll-item">{FINAL_CTA.eyebrow}</p>
-          <h2 className="sh-cta__title sh-cta__scroll-item">{FINAL_CTA.title}</h2>
-          <p className="sh-cta__text sh-cta__scroll-item">{FINAL_CTA.text}</p>
+          <p className="sh-cta__eyebrow sh-cta__scroll-item sh-white-copy">{FINAL_CTA.eyebrow}</p>
+          <h2 className="sh-cta__title sh-cta__scroll-item sh-white-copy">{FINAL_CTA.title}</h2>
+          <p className="sh-cta__text sh-cta__scroll-item sh-white-copy">{FINAL_CTA.text}</p>
           <ul className="sh-cta__pillars sh-cta__pillars--divided sh-cta__scroll-item">
             {FINAL_CTA.pillars.map((p) => (
               <li key={p.label}>
