@@ -4089,12 +4089,45 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
 .vetham-leadership-cards__org {
   margin: 14px 0 0;
   font-size: 11px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #777;
+  color: #5a4a3a;
+  font-weight: 600;
 }
 
-/* 2×2 founders — text left, full portrait right */
+.vetham-leadership-cards__head::after {
+  content: '';
+  display: block;
+  width: min(72px, 18vw);
+  height: 3px;
+  margin: 20px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #c45a1a, #e8c547, #c45a1a, transparent);
+}
+
+/* Founders showcase — rounded portrait on top, text below */
+.vetham-leadership-cards--showcase .vetham-leadership-cards__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(18px, 2.2vw, 28px);
+  align-items: stretch;
+}
+
+@media only screen and (max-width: 1199px) {
+  .vetham-leadership-cards--showcase .vetham-leadership-cards__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .vetham-leadership-cards--showcase .vetham-leadership-cards__grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-inline: auto;
+  }
+}
+
+/* Legacy 2×2 side-by-side layout (if reused elsewhere) */
 .vetham-leadership-cards__matrix {
   display: flex;
   flex-direction: column;
@@ -4131,6 +4164,114 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
 .vetham-founder-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 44px rgba(30, 61, 42, 0.12);
+}
+
+.vetham-founder-card--stacked {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: unset;
+  min-height: 0;
+  padding: clamp(16px, 2vw, 22px);
+  border-radius: 22px;
+  position: relative;
+  overflow: visible;
+  transition-delay: calc(var(--founder-i, 0) * 70ms);
+}
+
+.vetham-founder-card--stacked:hover {
+  transform: translateY(-8px);
+}
+
+.vetham-founder-card__media-frame {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0d1b2a;
+  border: 2px solid rgba(232, 197, 71, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 18px 40px rgba(13, 27, 42, 0.22);
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.65s ease,
+    border-color 0.45s ease;
+}
+
+.vetham-founder-card--stacked:hover .vetham-founder-card__media-frame {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(232, 197, 71, 0.92);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+    0 28px 52px rgba(13, 27, 42, 0.28);
+}
+
+.vetham-founder-card__media-shine {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    125deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.2) 48%,
+    transparent 62%
+  );
+  transform: translateX(-120%) skewX(-12deg);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.vetham-founder-card--stacked:hover .vetham-founder-card__media-shine {
+  transform: translateX(120%) skewX(-12deg);
+}
+
+.vetham-founder-card--stacked .vetham-founder-card__media {
+  order: 0;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  margin: 0 0 clamp(14px, 2vw, 18px);
+}
+
+.vetham-founder-card--stacked .vetham-founder-card__media img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  min-height: 0;
+  max-height: none;
+  object-fit: cover;
+  object-position: center 12%;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vetham-founder-card--stacked:hover .vetham-founder-card__media img {
+  transform: scale(1.045);
+}
+
+.vetham-founder-card--stacked .vetham-founder-card__body {
+  order: 0;
+  text-align: center;
+  align-items: center;
+  height: auto;
+  padding: 0 clamp(4px, 1vw, 8px) clamp(6px, 1vw, 10px);
+  opacity: 0.94;
+  transform: translateY(8px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vetham-founder-card--stacked:hover .vetham-founder-card__body,
+.vetham-founder-card--stacked:focus-within .vetham-founder-card__body {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vetham-founder-card--stacked .vetham-founder-card__meta {
+  align-self: center;
+}
+
+.vetham-founder-card--stacked .vetham-founder-card__stats {
+  width: 100%;
 }
 
 .vetham-founder-card__media {
@@ -4302,17 +4443,17 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
     grid-template-columns: 1fr;
   }
 
-  .vetham-founder-card {
+  .vetham-founder-card:not(.vetham-founder-card--stacked) {
     grid-template-columns: 1fr;
     min-height: 0;
   }
 
-  .vetham-founder-card__media {
+  .vetham-founder-card:not(.vetham-founder-card--stacked) .vetham-founder-card__media {
     order: 2;
     min-height: 320px;
   }
 
-  .vetham-founder-card__body {
+  .vetham-founder-card:not(.vetham-founder-card--stacked) .vetham-founder-card__body {
     order: 1;
   }
 }

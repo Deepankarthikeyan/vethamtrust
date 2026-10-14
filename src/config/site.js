@@ -1,5 +1,7 @@
 export const SITE = {
   name: 'Vetham Kuzhumam Spiritual Trust',
+  /** Full legal / display name (uppercase) used in heroes, leadership, and branding */
+  nameUpper: 'VETHAM KUZHUMAM SPIRITUAL TRUST',
   tagline: 'World Peace through Individual Peace',
   phone: '+91 9944511067',
   phoneHref: 'tel:+919944511067',

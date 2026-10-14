@@ -2679,16 +2679,16 @@ body.vx-site .sh-home img {
 }
 
 @media (max-width: 767px) {
-  .vetham-founder-card {
+  .vetham-founder-card:not(.vetham-founder-card--stacked) {
     grid-template-columns: 1fr;
   }
 
-  .vetham-founder-card__media {
+  .vetham-founder-card:not(.vetham-founder-card--stacked) .vetham-founder-card__media {
     order: 2;
     min-height: 280px;
   }
 
-  .vetham-founder-card__body {
+  .vetham-founder-card:not(.vetham-founder-card--stacked) .vetham-founder-card__body {
     order: 1;
   }
 }

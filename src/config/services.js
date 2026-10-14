@@ -1,3 +1,5 @@
+import { SITE } from './site';
+
 export const SERVICE_TAGS = [
   'Athma Sangamam',
   'Coimbatore',
@@ -110,7 +112,7 @@ export const ALL_SERVICES = [
     title: 'Philosophy',
     category: 'Session',
     excerpt:
-      'Philosophy in Yoga At Vetham Spiritual Trust, the philosophy of yoga is deeply rooted in the teachings of Gnana Rishi A S Rathakrishnan, emphasizing self-realization, moral living, and universal harmony.…',
+      `Philosophy in Yoga At ${SITE.name}, the philosophy of yoga is deeply rooted in the teachings of Gnana Rishi A S Rathakrishnan, emphasizing self-realization, moral living, and universal harmony.…`,
   },
   {
     page: 2,
@@ -182,7 +184,7 @@ export const ALL_SERVICES = [
     title: 'Teachings',
     category: 'Knowledge',
     excerpt:
-      'Yoga Teachings Rooted in the profound wisdom of Yogiraj Shri Vethathiri Maharishi, the yoga teachings at Vetham Spiritual Trust emphasize simplified physical exercises, conscious breathing, and deep meditation. These practices…',
+      `Yoga Teachings Rooted in the profound wisdom of Yogiraj Shri Vethathiri Maharishi, the yoga teachings at ${SITE.name} emphasize simplified physical exercises, conscious breathing, and deep meditation. These practices…`,
   },
 ];
 

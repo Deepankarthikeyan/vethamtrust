@@ -38,7 +38,7 @@ export default function PremiumLeadership({ linkToLeadership = true }) {
         <header className="vp-section__head centred" data-reveal="fade-up">
           <span className="vp-eyebrow">Leadership</span>
           <h2 className="vp-section__title">Our Founders &amp; <br />Spiritual Masters</h2>
-          <p className="vp-section__subtitle">{SITE.name.toUpperCase()}</p>
+          <p className="vp-section__subtitle">{SITE.nameUpper}</p>
         </header>
 
         <div className="vp-trustee-grid">

@@ -522,7 +522,7 @@ export function ContactSection() {
         </div>
         <div className="vx-contact-teaser__map">
           <iframe
-            title="Vetham Spiritual Trust location"
+            title="Vetham Kuzhumam Spiritual Trust location"
             src="https://maps.google.com/maps?q=Vetham+Kuzhumam+Spiritual+Trust+Coimbatore&t=&z=13&ie=UTF8&iwloc=&output=embed"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

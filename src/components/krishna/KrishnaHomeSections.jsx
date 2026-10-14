@@ -126,7 +126,7 @@ export function CtaBlock() {
         <div className="row position-relative">
           <div className="col-lg-7 col-md-6">
             <div className="sigma_cta lg primary-bg">
-              <img width="669" height="759" className="d-none d-lg-block" src={img('leader')} alt="Vetham Spiritual Trust" loading="lazy" />
+              <img width="669" height="759" className="d-none d-lg-block" src={img('leader')} alt={SITE.name} loading="lazy" />
               <div className="sigma_cta-content">
                 <span className="fw-600 custom-secondary">Need Help, Call Our HOTLINE!</span>
                 <h4 className="text-white"><a href={SITE.phoneHref} className="text-white">{SITE.phone}</a></h4>
