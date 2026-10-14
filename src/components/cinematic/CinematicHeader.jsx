@@ -98,57 +98,94 @@ export default function CinematicHeader() {
         </div>
       </header>
 
-      <div className={`vx-mobile-menu${menuOpen ? ' is-open' : ''}`} aria-hidden={!menuOpen}>
-        <button type="button" className="vx-mobile-menu__close" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
-          <i className="fas fa-times" />
-        </button>
-        <ul className="vx-mobile-menu__nav notranslate">
-          {NAV_ITEMS.map((item) => {
-            if (item.children) {
-              const isOpen = mobileDropdown === item.key;
-              return (
-                <li key={item.key} className="vx-mobile-menu__item vx-mobile-menu__item--dropdown">
-                  <button
-                    type="button"
-                    className="vx-mobile-menu__trigger"
-                    aria-expanded={isOpen}
-                    onClick={() => setMobileDropdown(isOpen ? null : item.key)}
-                  >
-                    <span>{getNavLabel(item.key, lang)}</span>
-                    <i className={`fas fa-chevron-down vx-mobile-menu__chevron${isOpen ? ' is-open' : ''}`} aria-hidden="true" />
-                  </button>
-                  <ul className={`vx-mobile-menu__sublist${isOpen ? ' is-open' : ''}`}>
-                    {item.children.map((child) => (
-                      <li key={child.key}>
-                        <Link
-                          to={child.path}
-                          onClick={() => setMenuOpen(false)}
-                          onMouseEnter={() => prefetchFromPath(child.path)}
-                          onFocus={() => prefetchFromPath(child.path)}
-                        >
-                          {getNavLabel(child.key, lang)}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              );
-            }
-            return (
-              <li key={item.key} className="vx-mobile-menu__item">
-                <Link
-                  to={item.path}
-                  className="vx-mobile-menu__link"
-                  onClick={() => setMenuOpen(false)}
-                  onMouseEnter={() => prefetchFromPath(item.path)}
-                  onFocus={() => prefetchFromPath(item.path)}
-                >
-                  {getNavLabel(item.key, lang)}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+      <div
+        className={`vx-mobile-menu${menuOpen ? ' is-open' : ''}`}
+        aria-hidden={!menuOpen}
+      >
+        <button
+          type="button"
+          className="vx-mobile-menu__backdrop"
+          aria-label="Close menu"
+          tabIndex={menuOpen ? 0 : -1}
+          onClick={() => setMenuOpen(false)}
+        />
+        <div className="vx-mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Site navigation">
+          <div className="vx-mobile-menu__glow" aria-hidden="true" />
+          <button
+            type="button"
+            className="vx-mobile-menu__close"
+            aria-label="Close menu"
+            onClick={() => setMenuOpen(false)}
+          >
+            <i className="fas fa-times" />
+          </button>
+          <div className="vx-mobile-menu__scroll">
+            <ul className="vx-mobile-menu__nav notranslate">
+              {NAV_ITEMS.map((item, index) => {
+                if (item.children) {
+                  const isOpen = mobileDropdown === item.key;
+                  return (
+                    <li
+                      key={item.key}
+                      className={`vx-mobile-menu__item vx-mobile-menu__item--dropdown${isOpen ? ' is-expanded' : ''}`}
+                      style={{ '--vx-nav-i': index }}
+                    >
+                      <button
+                        type="button"
+                        className="vx-mobile-menu__trigger"
+                        aria-expanded={isOpen}
+                        onClick={() => setMobileDropdown(isOpen ? null : item.key)}
+                      >
+                        <span className="vx-mobile-menu__label">{getNavLabel(item.key, lang)}</span>
+                        <span className="vx-mobile-menu__chevron-wrap" aria-hidden="true">
+                          <i className={`fas fa-chevron-down vx-mobile-menu__chevron${isOpen ? ' is-open' : ''}`} />
+                        </span>
+                      </button>
+                      <div className={`vx-mobile-menu__sublist${isOpen ? ' is-open' : ''}`}>
+                        <ul className="vx-mobile-menu__sublist-inner">
+                          {item.children.map((child) => (
+                            <li key={child.key}>
+                              <Link
+                                to={child.path}
+                                className={`vx-mobile-menu__sublink${pathname === child.path ? ' is-active' : ''}`}
+                                onClick={() => setMenuOpen(false)}
+                                onMouseEnter={() => prefetchFromPath(child.path)}
+                                onFocus={() => prefetchFromPath(child.path)}
+                              >
+                                {getNavLabel(child.key, lang)}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </li>
+                  );
+                }
+                return (
+                  <li key={item.key} className="vx-mobile-menu__item" style={{ '--vx-nav-i': index }}>
+                    <Link
+                      to={item.path}
+                      className={`vx-mobile-menu__link${isActive(pathname, item) ? ' is-active' : ''}`}
+                      onClick={() => setMenuOpen(false)}
+                      onMouseEnter={() => prefetchFromPath(item.path)}
+                      onFocus={() => prefetchFromPath(item.path)}
+                    >
+                      <span className="vx-mobile-menu__label">{getNavLabel(item.key, lang)}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="vx-mobile-menu__footer">
+            <Link to="/contact" className="vx-mobile-menu__chip" onClick={() => setMenuOpen(false)}>
+              Contact
+            </Link>
+            <Link to="/donate" className="vx-mobile-menu__chip vx-mobile-menu__chip--primary" onClick={() => setMenuOpen(false)}>
+              Donate
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   );
