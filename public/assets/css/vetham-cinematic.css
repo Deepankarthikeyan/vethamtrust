@@ -225,14 +225,19 @@ button {
 }
 
 .vx-header__inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 24px;
   width: 100%;
 }
 
+.vx-header__inner > nav {
+  justify-self: center;
+}
+
 .vx-header__logo {
+  justify-self: start;
   flex-shrink: 0;
   min-width: 0;
   display: flex;
@@ -371,7 +376,7 @@ button {
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
-  margin-left: auto;
+  justify-self: end;
 }
 
 /* Full-bleed pages: white nav over hero, dark nav after scroll */
@@ -3167,13 +3172,20 @@ body.vx-inner .vx-page-content > .vetham-contact-form:last-child {
   .vx-header__toggle { display: flex; align-items: center; justify-content: center; }
 
   .vx-header__inner {
+    display: flex;
+    justify-content: space-between;
     gap: 10px;
   }
 
   .vx-header__logo {
+    justify-self: auto;
     flex: 1 1 auto;
     min-width: 0;
     max-width: calc(100% - 56px);
+  }
+
+  .vx-header__actions {
+    justify-self: auto;
   }
 
   .vx-hero__explore { display: none; }
