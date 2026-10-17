@@ -17,7 +17,7 @@ import {
   PURPOSE_STATEMENTS,
   SCROLL_QUOTES,
 } from '../../config/cinematic';
-import { SITE } from '../../config/site';
+import { SITE, leaderDisplayName } from '../../config/site';
 import MagneticButton from './MagneticButton';
 
 export function HeroSection() {
@@ -326,11 +326,11 @@ export function FounderSection() {
     <section className="vx-section vx-section--soft" data-vx-section="7" ref={ref}>
       <div className="vx-container vx-founder">
         <div className="vx-founder__portrait">
-          <img src={FOUNDER.image} alt={FOUNDER.name} loading="lazy" />
+          <img src={FOUNDER.image} alt={leaderDisplayName(FOUNDER)} loading="lazy" />
         </div>
         <div>
           <span className="vx-eyebrow">Spiritual Master</span>
-          <h2 className="vx-title-lg">{FOUNDER.name}</h2>
+          <h2 className="vx-title-lg">{leaderDisplayName(FOUNDER)}</h2>
           <p className="vx-text" style={{ marginTop: 8, color: 'var(--vx-gold)' }}>{FOUNDER.role} · Since {FOUNDER.since}</p>
           <p className="vx-text" style={{ marginTop: 20 }}>{FOUNDER.bio}</p>
           {FOUNDER.headline ? <p className="vx-text" style={{ marginTop: 12, fontStyle: 'italic' }}>{FOUNDER.headline}</p> : null}
