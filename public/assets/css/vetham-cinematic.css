@@ -440,6 +440,35 @@ body.vx-home .vx-header.is-scrolled .vx-btn--ghost:hover {
   color: #000;
 }
 
+/* Inner pages: same solid header as home after scroll (About, Contact, etc.) */
+body.vx-inner .vx-header {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--vx-border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+body.vx-inner .vx-header .vx-header__nav > li > a,
+body.vx-inner .vx-header .vx-header__nav > li > button {
+  color: var(--vx-text);
+  text-shadow: none;
+}
+
+body.vx-inner .vx-header .vx-header__toggle {
+  color: #000;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+body.vx-inner .vx-header .vx-btn--ghost {
+  border-color: rgba(0, 0, 0, 0.35);
+  color: #000;
+}
+
+body.vx-inner .vx-header .vx-btn--ghost:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #000;
+}
+
 .vx-header__toggle {
   display: none;
   width: 44px;
@@ -2400,18 +2429,44 @@ body.vx-site .vx-footer .vx-footer__links a:hover {
 
 .vx-page-hero__content { position: relative; z-index: 1; }
 
+.vx-page-hero .vx-eyebrow {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.vx-page-hero .vx-title-xl {
+  color: #ffffff;
+}
+
 .vx-breadcrumb {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 8px 12px;
   list-style: none;
   padding: 0;
   margin: 16px 0 0;
   font-size: 0.85rem;
-  color: var(--vx-text-dim);
+  color: rgba(255, 255, 255, 0.88);
 }
 
-.vx-breadcrumb a { color: var(--vx-gold); }
+.vx-page-hero .vx-breadcrumb li {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.vx-breadcrumb a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.25s var(--vx-ease);
+}
+
+.vx-page-hero .vx-breadcrumb a:hover {
+  color: var(--vx-peach);
+}
+
+.vx-breadcrumb li + li::before {
+  content: '/';
+  margin-right: 12px;
+  color: rgba(255, 255, 255, 0.45);
+}
 
 .vx-page-content {
   padding: 0;

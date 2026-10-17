@@ -22,16 +22,22 @@ function isActive(pathname, item) {
 export default function CinematicHeader() {
   const { pathname } = useLocation();
   const lang = useUiLanguage();
+  const isHomeHero = pathname === '/';
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(null);
+  const solidHeader = !isHomeHero || scrolled;
 
   useEffect(() => {
+    if (!isHomeHero) {
+      setScrolled(false);
+      return undefined;
+    }
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [pathname]);
+  }, [pathname, isHomeHero]);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -47,7 +53,7 @@ export default function CinematicHeader() {
 
   return (
     <>
-      <header className={`vx-header${scrolled ? ' is-scrolled' : ''}`}>
+      <header className={`vx-header${solidHeader ? ' is-scrolled' : ''}`}>
         <div className="vx-container vx-header__inner">
           <Link to="/" className="vx-header__logo" data-cursor="HOME">
             <LazyImage src={img('logo')} alt={SITE.name} loading="eager" />
