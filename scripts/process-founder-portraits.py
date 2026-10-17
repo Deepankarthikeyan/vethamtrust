@@ -142,7 +142,7 @@ def to_uniform(im: Image.Image) -> Image.Image:
     for y in range(h):
         for x in range(w):
             r, g, b = px[x, y]
-            if is_yellow_thundu(r, g, b) or is_beads(r, g, b):
+            if is_yellow_thundu(r, g, b) or is_beads(r, g, b) or is_skin(r, g, b):
                 continue
             if in_face(x, y, w, h) or (r > 235 and g > 235 and b > 230):
                 continue
@@ -159,10 +159,12 @@ def is_yellow_thundu(r: int, g: int, b: int) -> bool:
 
 
 def is_studio_backdrop(r: int, g: int, b: int) -> bool:
-    h, s, v = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
-    if v < 0.42:
+    hsv_h, s, v = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+    if v < 0.36:
         return True
-    if 0.04 < h < 0.14 and s < 0.45 and 0.3 < v < 0.82:
+    if b > r + 6 and v < 0.42:
+        return True
+    if 0.05 < hsv_h < 0.13 and 0.12 < s < 0.55 and 0.34 < v < 0.88:
         return True
     return False
 
