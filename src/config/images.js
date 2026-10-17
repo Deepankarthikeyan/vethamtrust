@@ -61,13 +61,14 @@ const catalog = {
   trustee2: [`${V}/trustee-selvin.png`],
   trustee3: [`${V}/trustee-balasubramanian.png`],
   trustee4: [`${V}/trustee-sureash.jpg`],
-  portraitFounder: [`${V}/trustee-gnana-rishi-uniform.jpg`, `${V}/trustee-gnana-rishi-professional.jpg`],
+  // Founder & secretary: professional portraits (uniform pair looked like the same person).
+  portraitFounder: [`${V}/trustee-gnana-rishi-professional.jpg`, `${V}/trustee-gnana-rishi.jpg`],
   portraitPresident: [`${V}/trustee-selvin-uniform.jpg`, `${V}/trustee-selvin-professional.jpg`],
-  portraitSecretary: [`${V}/trustee-balasubramanian-uniform.jpg`, `${V}/trustee-balasubramanian-professional.jpg`],
+  portraitSecretary: [`${V}/trustee-balasubramanian-professional.jpg`, `${V}/trustee-balasubramanian.png`],
   portraitTreasurer: [`${V}/trustee-sureash-uniform.jpg`, `${V}/trustee-sureash-professional.jpg`],
-  trustee1Pro: [`${V}/trustee-gnana-rishi-uniform.jpg`],
+  trustee1Pro: [`${V}/trustee-gnana-rishi-professional.jpg`],
   trustee2Pro: [`${V}/trustee-selvin-uniform.jpg`],
-  trustee3Pro: [`${V}/trustee-balasubramanian-uniform.jpg`],
+  trustee3Pro: [`${V}/trustee-balasubramanian-professional.jpg`],
   trustee4Pro: [`${V}/trustee-sureash-uniform.jpg`],
   blog1: [`${V}/blog-1.jpg`],
   blog2: [`${V}/blog-2.jpg`],
@@ -114,7 +115,7 @@ const catalog = {
   sidebarPost3: [`${V}/sidebar-post-3.jpg`],
 };
 
-const VETHAM_ASSET_VERSION = 'founders-uniform-v3';
+const VETHAM_ASSET_VERSION = 'founders-distinct-v4';
 
 export function img(key) {
   const entry = catalog[key];
