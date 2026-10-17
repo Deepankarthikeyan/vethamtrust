@@ -4,6 +4,7 @@ import { SITE, NAV_ITEMS } from '../../config/site';
 import { getNavLabel } from '../../config/languages';
 import { img } from '../../config/images';
 import { useUiLanguage } from '../../hooks/useUiLanguage';
+import LazyImage from '../LazyImage';
 import { prefetchRoute } from '../../utils/prefetchRoutes';
 
 function prefetchFromPath(path) {
@@ -49,19 +50,7 @@ export default function CinematicHeader() {
       <header className={`vx-header${scrolled ? ' is-scrolled' : ''}`}>
         <div className="vx-container vx-header__inner">
           <Link to="/" className="vx-header__logo" data-cursor="HOME">
-            <picture className="vx-header__logo-picture">
-              <source srcSet={img('logoFooterWebp')} type="image/webp" />
-              <img
-                className="vx-header__logo-banner"
-                src={img('logoFooterPng')}
-                alt={SITE.name}
-                width={1024}
-                height={460}
-                loading="eager"
-                decoding="async"
-                sizes="(max-width: 768px) 72vw, 400px"
-              />
-            </picture>
+            <LazyImage src={img('logo')} alt={SITE.name} loading="eager" />
           </Link>
 
           <nav aria-label="Primary">
