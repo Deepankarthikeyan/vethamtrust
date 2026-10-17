@@ -105,6 +105,10 @@ export function getLeadershipGrid() {
   return LEADERSHIP_GRID_NAMES.map((name) => TEAM.find((member) => member.name === name)).filter(Boolean);
 }
 
+export function leaderDisplayName(member) {
+  return member.displayName || member.name;
+}
+
 export const BANNERS = [
   {
     image: 'banner1',

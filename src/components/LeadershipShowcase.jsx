@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { SITE, getLeadershipGrid } from '../config/site';
+import { SITE, getLeadershipGrid, leaderDisplayName } from '../config/site';
 import { img } from '../config/images';
 import LazyImage from './LazyImage';
 
@@ -8,7 +8,7 @@ function FounderTile({ member, linkToLeadership, index }) {
   const nameProps = linkToLeadership ? { to: '/leadership' } : {};
 
   const portrait = (
-    <LazyImage src={img(member.portrait || member.image)} alt={member.name} />
+    <LazyImage src={img(member.portrait || member.image)} alt={leaderDisplayName(member)} />
   );
 
   return (
@@ -33,7 +33,7 @@ function FounderTile({ member, linkToLeadership, index }) {
         </p>
         <h3 className="vetham-founder-tile__name">
           <NameTag {...nameProps} className={linkToLeadership ? 'vetham-founder-tile__name-link' : ''}>
-            {member.name}
+            {leaderDisplayName(member)}
           </NameTag>
         </h3>
         {member.headline ? <p className="vetham-founder-tile__headline">{member.headline}</p> : null}

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { SITE, getLeadershipGrid } from '../../config/site';
+import { SITE, getLeadershipGrid, leaderDisplayName } from '../../config/site';
 import { img } from '../../config/images';
 import LazyImage from '../LazyImage';
 
@@ -7,13 +7,13 @@ function TrusteeCard({ member, index }) {
   return (
     <article className="vp-trustee-card" data-reveal="fade-up" style={{ transitionDelay: `${index * 100}ms` }}>
       <div className="vp-trustee-card__media">
-        <LazyImage src={img(member.portrait || member.image)} alt={member.name} />
+        <LazyImage src={img(member.portrait || member.image)} alt={leaderDisplayName(member)} />
         <div className="vp-trustee-card__overlay">
           <span className="vp-trustee-card__role">{member.role}</span>
         </div>
       </div>
       <div className="vp-trustee-card__body">
-        <h3 className="vp-trustee-card__name">{member.name}</h3>
+        <h3 className="vp-trustee-card__name">{leaderDisplayName(member)}</h3>
         {member.headline ? <p className="vp-trustee-card__headline">{member.headline}</p> : null}
         {member.bio ? <p className="vp-trustee-card__bio">{member.bio}</p> : null}
         {member.achievements?.length ? (

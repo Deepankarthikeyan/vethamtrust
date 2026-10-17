@@ -1,5 +1,5 @@
 import { img } from './images';
-import { SITE, TEAM, BANNERS, getLeadershipGrid } from './site';
+import { SITE, TEAM, BANNERS, getLeadershipGrid, leaderDisplayName } from './site';
 import { HOME_BLOG_POSTS } from './blog';
 
 export function mht(path) {
@@ -141,7 +141,7 @@ export const GALLERY_FILTERS = [
 export const VOLUNTEERS = getLeadershipGrid().map((member) => ({
   image: img(member.portrait || member.image),
   role: member.role,
-  name: member.name,
+  name: leaderDisplayName(member),
 }));
 
 export const BROADCAST = {
