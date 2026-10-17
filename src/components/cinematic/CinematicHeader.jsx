@@ -25,8 +25,6 @@ export default function CinematicHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(null);
-  const isHome = pathname === '/';
-  const useLightHeaderLogo = isHome && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
