@@ -971,16 +971,29 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
   );
 }
 
-.vx-hero__content {
+.vx-hero__shell {
   position: relative;
   z-index: 2;
+  width: 100%;
+  padding-bottom: clamp(44px, 7vh, 88px);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.vx-hero__content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(10px, 1.6vh, 18px);
+  justify-content: flex-end;
+  text-align: left;
+  gap: 0;
   width: 100%;
-  max-width: min(36rem, 100%);
-  padding: clamp(8px, 2vh, 20px) 0 clamp(44px, 7vh, 88px);
+  max-width: min(38rem, 92vw);
+  margin: 0;
+  padding: clamp(8px, 2vh, 16px) 0 0;
+  border-left: 3px solid rgba(255, 204, 153, 0.55);
+  padding-left: clamp(16px, 2.5vw, 28px);
   opacity: 0;
   transform: translateY(40px);
   animation: vx-hero-in 1.2s var(--vx-ease) 0.3s forwards;
@@ -990,26 +1003,26 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
   to { opacity: 1; transform: translateY(0); }
 }
 
+.vx-hero__subtitle {
+  font-size: clamp(0.68rem, 1.35vw + 0.35rem, 0.95rem);
+  color: var(--vx-peach);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 clamp(14px, 2.2vh, 22px);
+  font-weight: 500;
+  line-height: 1.35;
+  max-width: 32ch;
+}
+
 .vx-hero__title {
   font-family: var(--vx-font-display);
   font-size: clamp(1.55rem, 3.6vw + 0.35rem, 3.15rem);
   font-weight: 400;
   line-height: 1.12;
   max-width: 22ch;
-  margin: 0;
+  margin: 0 0 clamp(16px, 2.4vh, 26px);
   color: var(--vx-on-dark);
   text-wrap: balance;
-}
-
-.vx-hero__subtitle {
-  font-size: clamp(0.68rem, 1.35vw + 0.35rem, 0.95rem);
-  color: var(--vx-peach);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin: 0;
-  font-weight: 500;
-  line-height: 1.35;
-  max-width: 28ch;
 }
 
 .vx-hero__text {
@@ -1017,17 +1030,17 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
   font-size: clamp(0.88rem, 1.1vw + 0.5rem, 1rem);
   line-height: 1.55;
   color: var(--vx-on-dark-muted);
-  margin: 0;
+  margin: 0 0 clamp(20px, 3vh, 32px);
 }
 
-.vx-hero__content .vx-btn,
-.vx-hero__content .vx-magnetic-btn {
-  margin-top: clamp(4px, 1vh, 12px);
+.vx-hero__cta {
+  margin-top: 0;
+  align-self: flex-start;
 }
 
 @media (min-width: 900px) {
   .vx-hero__content {
-    max-width: min(34rem, 42vw);
+    max-width: min(36rem, 40vw);
   }
 
   .vx-hero__title {
@@ -1041,10 +1054,13 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
     justify-content: flex-end;
   }
 
+  .vx-hero__shell {
+    padding-bottom: clamp(36px, 6vh, 56px);
+  }
+
   .vx-hero__content {
     max-width: 100%;
-    align-items: stretch;
-    padding-bottom: clamp(36px, 6vh, 56px);
+    padding-left: clamp(14px, 4vw, 20px);
   }
 
   .vx-hero__title {

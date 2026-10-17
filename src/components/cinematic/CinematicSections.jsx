@@ -39,11 +39,15 @@ export function HeroSection() {
     <section className="vx-hero" data-vx-section="1">
       <div ref={bgRef} className="vx-hero__bg" style={{ backgroundImage: `url(${HERO.image})` }} />
       <div className="vx-hero__overlay" />
-      <div className="vx-container vx-hero__content">
-        <p className="vx-hero__subtitle">{HERO.subtitle}</p>
-        <h1 className="vx-hero__title">{HERO.title}</h1>
-        <p className="vx-hero__text">{HERO.text}</p>
-        <MagneticButton to={HERO.cta.path}>{HERO.cta.label}</MagneticButton>
+      <div className="vx-container vx-hero__shell">
+        <div className="vx-hero__content">
+          <p className="vx-hero__subtitle">{HERO.subtitle}</p>
+          <h1 className="vx-hero__title">{HERO.title}</h1>
+          <p className="vx-hero__text">{HERO.text}</p>
+          <MagneticButton className="vx-btn vx-btn--primary vx-hero__cta" to={HERO.cta.path}>
+            {HERO.cta.label}
+          </MagneticButton>
+        </div>
       </div>
       <Link to="/about" className="vx-hero__explore" data-cursor="EXPLORE">Explore</Link>
     </section>
