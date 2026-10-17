@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { SITE, TEAM } from '../../config/site';
+import { SITE, getLeadershipGrid } from '../../config/site';
 import { img } from '../../config/images';
 import LazyImage from '../LazyImage';
 
@@ -42,7 +42,7 @@ export default function PremiumLeadership({ linkToLeadership = true }) {
         </header>
 
         <div className="vp-trustee-grid">
-          {TEAM.map((member, index) => (
+          {getLeadershipGrid().map((member, index) => (
             <TrusteeCard key={member.name} member={member} index={index} />
           ))}
         </div>
