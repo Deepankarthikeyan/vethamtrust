@@ -53,6 +53,7 @@ export const TEAM = [
   },
   {
     name: 'Gnanasiriyar Selvin',
+    displayName: 'Gnana Rishi A S Rathakrishnan',
     role: 'Co-Founder & President',
     image: 'trustee2Pro',
     portrait: 'portraitPresident',
