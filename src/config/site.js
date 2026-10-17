@@ -39,19 +39,6 @@ export const NAV_ITEMS = [
 
 export const TEAM = [
   {
-    name: 'Gnanasiriyar Balasubramanian',
-    role: 'Co-Founder & Secretary',
-    image: 'trustee3Pro',
-    portrait: 'portraitSecretary',
-    headline: 'Nurturing Community. Growing Together.',
-    bio: 'Co-founder and secretary fostering spiritual learning, village development, and the daily rhythm of trust activities.',
-    achievements: [
-      { title: 'Secretary', subtitle: 'Vetham Kuzhumam Spiritual Trust' },
-      { title: 'Guide', subtitle: 'For satsang and service' },
-    ],
-    portraitSide: 'right',
-  },
-  {
     name: 'Gnana Rishi A S Rathakrishnan',
     role: 'Founder',
     image: 'trustee1Pro',
@@ -78,6 +65,19 @@ export const TEAM = [
     portraitSide: 'left',
   },
   {
+    name: 'Gnanasiriyar Balasubramanian',
+    role: 'Co-Founder & Secretary',
+    image: 'trustee3Pro',
+    portrait: 'portraitSecretary',
+    headline: 'Nurturing Community. Growing Together.',
+    bio: 'Co-founder and secretary fostering spiritual learning, village development, and the daily rhythm of trust activities.',
+    achievements: [
+      { title: 'Secretary', subtitle: 'Vetham Kuzhumam Spiritual Trust' },
+      { title: 'Guide', subtitle: 'For satsang and service' },
+    ],
+    portraitSide: 'right',
+  },
+  {
     name: 'Gnanasiriyar A S Sureash Kumaar',
     role: 'Co-Founder & Treasurer',
     image: 'trustee4Pro',
@@ -91,6 +91,18 @@ export const TEAM = [
     portraitSide: 'left',
   },
 ];
+
+/** Card order in “Our Founders & Spiritual Masters” (name + photo stay matched per person). */
+export const LEADERSHIP_GRID_NAMES = [
+  'Gnanasiriyar Balasubramanian',
+  'Gnana Rishi A S Rathakrishnan',
+  'Gnanasiriyar Selvin',
+  'Gnanasiriyar A S Sureash Kumaar',
+];
+
+export function getLeadershipGrid() {
+  return LEADERSHIP_GRID_NAMES.map((name) => TEAM.find((member) => member.name === name)).filter(Boolean);
+}
 
 export const BANNERS = [
   {

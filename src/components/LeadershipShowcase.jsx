@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { SITE, TEAM } from '../config/site';
+import { SITE, getLeadershipGrid } from '../config/site';
 import { img } from '../config/images';
 import LazyImage from './LazyImage';
 
@@ -54,6 +54,8 @@ function FounderTile({ member, linkToLeadership, index }) {
 }
 
 export default function LeadershipShowcase({ linkToLeadership = true, fullPage = false }) {
+  const leadershipGrid = getLeadershipGrid();
+
   return (
     <section
       className={`vetham-founders sec-pad${fullPage ? ' vetham-founders--page' : ''}`}
@@ -68,7 +70,7 @@ export default function LeadershipShowcase({ linkToLeadership = true, fullPage =
 
         <div className="vetham-founders__matrix">
           <div className="vetham-founders__row" aria-label="Founders row one">
-            {TEAM.slice(0, 2).map((member, index) => (
+            {leadershipGrid.slice(0, 2).map((member, index) => (
               <FounderTile
                 key={member.name}
                 member={member}
@@ -78,7 +80,7 @@ export default function LeadershipShowcase({ linkToLeadership = true, fullPage =
             ))}
           </div>
           <div className="vetham-founders__row" aria-label="Founders row two">
-            {TEAM.slice(2, 4).map((member, index) => (
+            {leadershipGrid.slice(2, 4).map((member, index) => (
               <FounderTile
                 key={member.name}
                 member={member}
