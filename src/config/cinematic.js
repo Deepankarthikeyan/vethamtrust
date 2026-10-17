@@ -96,9 +96,11 @@ export const JOURNEY_STAGES = [
   },
 ];
 
+const founderMember = TEAM.find((member) => member.role === 'Founder') ?? TEAM[0];
+
 export const FOUNDER = {
-  ...TEAM[0],
-  image: img(TEAM[0].portrait || TEAM[0].image),
+  ...founderMember,
+  image: img(founderMember.portrait || founderMember.image),
   quote: '"World Peace through Individual Peace begins with one awakened heart."',
   since: '2017',
 };
