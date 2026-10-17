@@ -40,6 +40,7 @@ export const NAV_ITEMS = [
 export const TEAM = [
   {
     name: 'Gnana Rishi A S Rathakrishnan',
+    displayName: 'Gnanasiriyar Balasubramanian',
     role: 'Founder',
     image: 'trustee1Pro',
     portrait: 'portraitFounder',
