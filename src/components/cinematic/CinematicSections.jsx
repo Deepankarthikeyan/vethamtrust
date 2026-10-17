@@ -11,6 +11,7 @@ import {
   HERO,
   IMPACT_STATS,
   JOURNEY_STAGES,
+  PHILOSOPHY,
   PHILOSOPHY_QUOTE,
   PROGRAMS,
   PURPOSE_STATEMENTS,
@@ -51,31 +52,72 @@ export function HeroSection() {
 
 export function PhilosophySection() {
   const ref = useRef(null);
+  const quoteRef = useRef(null);
   const words = PHILOSOPHY_QUOTE.split(' ');
 
   useEffect(() => {
-    if (!ref.current) return undefined;
-    const spans = ref.current.querySelectorAll('span');
+    if (!quoteRef.current) return undefined;
+    const spans = quoteRef.current.querySelectorAll('span');
     const ctx = gsap.context(() => {
       spans.forEach((span, i) => {
         ScrollTrigger.create({
-          trigger: ref.current,
-          start: `top ${60 - i * 8}%`,
+          trigger: quoteRef.current,
+          start: `top ${72 - i * 6}%`,
           onEnter: () => span.classList.add('is-lit'),
           onLeaveBack: () => span.classList.remove('is-lit'),
         });
       });
+      const pillars = ref.current?.querySelectorAll('.vx-philosophy__pillar');
+      if (pillars?.length) {
+        gsap.from(pillars, {
+          opacity: 0,
+          y: 28,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: ref.current,
+            start: 'top 72%',
+          },
+        });
+      }
     }, ref);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section className="vx-philosophy vx-section--dark" data-vx-section="2" ref={ref}>
-      <p className="vx-philosophy__quote" aria-label={PHILOSOPHY_QUOTE}>
-        {words.map((word, i) => (
-          <span key={i}>{word}{i < words.length - 1 ? ' ' : ''}</span>
-        ))}
-      </p>
+    <section className="vx-philosophy" data-vx-section="2" ref={ref} aria-labelledby="vx-philosophy-title">
+      <div className="vx-container vx-philosophy__inner">
+        <header className="vx-philosophy__head">
+          <span className="vx-eyebrow">{PHILOSOPHY.eyebrow}</span>
+          <p id="vx-philosophy-title" className="vx-philosophy__ribbon">{PHILOSOPHY.ribbon}</p>
+        </header>
+
+        <div className="vx-philosophy__grid">
+          <div className="vx-philosophy__quote-wrap">
+            <p className="vx-philosophy__quote" ref={quoteRef} aria-label={PHILOSOPHY_QUOTE}>
+              {words.map((word, i) => (
+                <span key={i}>{word}{i < words.length - 1 ? ' ' : ''}</span>
+              ))}
+            </p>
+          </div>
+
+          <div className="vx-philosophy__detail">
+            <p className="vx-philosophy__lede">{PHILOSOPHY.lede}</p>
+            <ul className="vx-philosophy__pillars">
+              {PHILOSOPHY.pillars.map((pillar) => (
+                <li key={pillar.title} className="vx-philosophy__pillar">
+                  <span className="vx-philosophy__pillar-mark" aria-hidden="true" />
+                  <div>
+                    <h3 className="vx-philosophy__pillar-title">{pillar.title}</h3>
+                    <p className="vx-philosophy__pillar-text">{pillar.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

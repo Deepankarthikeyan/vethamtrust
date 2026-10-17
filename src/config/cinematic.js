@@ -5,6 +5,27 @@ import { UPCOMING_EVENTS, PAST_EVENTS } from './events';
 
 export const PHILOSOPHY_QUOTE = 'Peace begins within.';
 
+export const PHILOSOPHY = {
+  eyebrow: 'Core Teaching',
+  lede:
+    'Inspired by Yogiraj Vethathiri Maharishi, we invite every seeker to quiet the mind, strengthen the body, and live with clarity — so harmony at home becomes harmony in the world.',
+  pillars: [
+    {
+      title: 'Know Yourself',
+      text: 'Introspection and simplified yoga practices that reveal how thought and energy shape daily life.',
+    },
+    {
+      title: 'Live Consciously',
+      text: 'Satsang, meditation, and mindful service that align your actions with compassion and purpose.',
+    },
+    {
+      title: 'Radiate Peace',
+      text: 'When inner calm grows, families, communities, and nature feel the ripple of World Peace through Individual Peace.',
+    },
+  ],
+  ribbon: SITE.tagline,
+};
+
 export const ABOUT_CHAPTERS = [
   {
     num: '01',
