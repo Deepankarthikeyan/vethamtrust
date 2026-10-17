@@ -197,6 +197,22 @@
   font-size: 0.9rem;
 }
 
+/* Our Village: intro below centered page banner */
+.sh-village-intro {
+  background: #fdfbf7;
+  padding: clamp(36px, 5vw, 56px) 0 clamp(28px, 4vw, 40px);
+  border-bottom: 1px solid rgba(30, 61, 42, 0.08);
+}
+
+.sh-village-intro__inner {
+  max-width: 640px;
+  padding-top: clamp(8px, 1.5vh, 16px);
+}
+
+.sh-village-intro__title {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+}
+
 /* Hero — reference: scenic image right, copy left */
 .sh-hero {
   position: relative;

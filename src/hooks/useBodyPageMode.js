@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const FULL_BLEED_PATHS = new Set(['/', '/our-village']);
+const FULL_BLEED_PATHS = new Set(['/']);
 
 /**
  * Keeps a single body mode class (`vx-home` | `vx-inner`) in sync with the route.

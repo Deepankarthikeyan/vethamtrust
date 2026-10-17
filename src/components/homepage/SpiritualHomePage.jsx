@@ -12,39 +12,80 @@ import {
   VILLAGE_LIFE,
   WAY_OF_LIFE,
 } from '../../config/spiritualHome';
+import CinematicPageHero from '../cinematic/CinematicPageHero';
 import SpiritualAboutSection from './SpiritualAboutSection';
 
-export default function SpiritualHomePage({ showAboutSection = true }) {
+function SpiritualHeroIntro() {
+  return (
+    <section className="sh-village-intro" aria-label="Spiritual living intro">
+      <div className="sh-container sh-village-intro__inner">
+        <p className="sh-eyebrow">{SPIRITUAL_HERO.eyebrow}</p>
+        <h2 className="sh-hero__title sh-village-intro__title">{SPIRITUAL_HERO.title}</h2>
+        <p className="sh-hero__subtitle">{SPIRITUAL_HERO.subtitle}</p>
+        {SPIRITUAL_HERO.paragraphs.map((p) => (
+          <p key={p.slice(0, 32)} className="sh-text">{p}</p>
+        ))}
+        <div className="sh-hero__actions">
+          <Link to={SPIRITUAL_HERO.primaryCta.path} className="sh-btn sh-btn--primary">
+            {SPIRITUAL_HERO.primaryCta.label} <i className="fas fa-arrow-right" aria-hidden="true" />
+          </Link>
+          <Link to={SPIRITUAL_HERO.secondaryCta.path} className="sh-btn sh-btn--outline sh-btn--hero">
+            {SPIRITUAL_HERO.secondaryCta.label}
+          </Link>
+        </div>
+        <p className="sh-hero__motto">
+          <i className="fas fa-leaf" aria-hidden="true" />
+          {SPIRITUAL_HERO.motto}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function SpiritualFullHero() {
+  return (
+    <section className="sh-hero" aria-label="Hero">
+      <div className="sh-hero__media">
+        <LazyImage src={SPIRITUAL_HERO.image} alt="" className="sh-hero__img" loading="eager" />
+        <div className="sh-hero__shade" />
+      </div>
+      <div className="sh-container sh-hero__inner">
+        <div className="sh-hero__copy">
+          <p className="sh-eyebrow">{SPIRITUAL_HERO.eyebrow}</p>
+          <h1 className="sh-hero__title">{SPIRITUAL_HERO.title}</h1>
+          <p className="sh-hero__subtitle">{SPIRITUAL_HERO.subtitle}</p>
+          {SPIRITUAL_HERO.paragraphs.map((p) => (
+            <p key={p.slice(0, 32)} className="sh-text">{p}</p>
+          ))}
+          <div className="sh-hero__actions">
+            <Link to={SPIRITUAL_HERO.primaryCta.path} className="sh-btn sh-btn--primary">
+              {SPIRITUAL_HERO.primaryCta.label} <i className="fas fa-arrow-right" aria-hidden="true" />
+            </Link>
+            <Link to={SPIRITUAL_HERO.secondaryCta.path} className="sh-btn sh-btn--outline sh-btn--hero">
+              {SPIRITUAL_HERO.secondaryCta.label}
+            </Link>
+          </div>
+          <p className="sh-hero__motto">
+            <i className="fas fa-leaf" aria-hidden="true" />
+            {SPIRITUAL_HERO.motto}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default function SpiritualHomePage({ showAboutSection = true, usePageBanner = false }) {
   return (
     <div className="sh-home">
-      <section className="sh-hero" aria-label="Hero">
-        <div className="sh-hero__media">
-          <LazyImage src={SPIRITUAL_HERO.image} alt="" className="sh-hero__img" loading="eager" />
-          <div className="sh-hero__shade" />
-        </div>
-        <div className="sh-container sh-hero__inner">
-          <div className="sh-hero__copy">
-            <p className="sh-eyebrow">{SPIRITUAL_HERO.eyebrow}</p>
-            <h1 className="sh-hero__title">{SPIRITUAL_HERO.title}</h1>
-            <p className="sh-hero__subtitle">{SPIRITUAL_HERO.subtitle}</p>
-            {SPIRITUAL_HERO.paragraphs.map((p) => (
-              <p key={p.slice(0, 32)} className="sh-text">{p}</p>
-            ))}
-            <div className="sh-hero__actions">
-              <Link to={SPIRITUAL_HERO.primaryCta.path} className="sh-btn sh-btn--primary">
-                {SPIRITUAL_HERO.primaryCta.label} <i className="fas fa-arrow-right" aria-hidden="true" />
-              </Link>
-              <Link to={SPIRITUAL_HERO.secondaryCta.path} className="sh-btn sh-btn--outline sh-btn--hero">
-                {SPIRITUAL_HERO.secondaryCta.label}
-              </Link>
-            </div>
-            <p className="sh-hero__motto">
-              <i className="fas fa-leaf" aria-hidden="true" />
-              {SPIRITUAL_HERO.motto}
-            </p>
-          </div>
-        </div>
-      </section>
+      {usePageBanner ? (
+        <>
+          <CinematicPageHero title="Our Village" crumbs={['Our Village']} />
+          <SpiritualHeroIntro />
+        </>
+      ) : (
+        <SpiritualFullHero />
+      )}
 
       {showAboutSection ? <SpiritualAboutSection /> : null}
 

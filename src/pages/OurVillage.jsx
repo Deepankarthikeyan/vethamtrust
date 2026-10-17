@@ -14,7 +14,7 @@ export default function OurVillage() {
           content={`Explore ${SITE.name} spiritual village — conscious living, meditation, and community in Coimbatore.`}
         />
       </Helmet>
-      <SpiritualHomePage showAboutSection={false} />
+      <SpiritualHomePage showAboutSection={false} usePageBanner />
       <OurVillageClassicSections />
       <SpiritualAboutSection className="sh-about--village-footer" />
     </>
