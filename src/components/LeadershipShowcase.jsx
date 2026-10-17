@@ -3,7 +3,7 @@ import { SITE, TEAM } from '../config/site';
 import { img } from '../config/images';
 import LazyImage from './LazyImage';
 
-function FounderTile({ member, linkToLeadership, index, compact }) {
+function FounderTile({ member, linkToLeadership, index }) {
   const NameTag = linkToLeadership ? Link : 'span';
   const nameProps = linkToLeadership ? { to: '/leadership' } : {};
 
@@ -36,9 +36,9 @@ function FounderTile({ member, linkToLeadership, index, compact }) {
             {member.name}
           </NameTag>
         </h3>
-        {!compact && member.headline ? <p className="vetham-founder-tile__headline">{member.headline}</p> : null}
-        {!compact && member.bio ? <p className="vetham-founder-tile__bio">{member.bio}</p> : null}
-        {!compact && member.achievements?.length ? (
+        {member.headline ? <p className="vetham-founder-tile__headline">{member.headline}</p> : null}
+        {member.bio ? <p className="vetham-founder-tile__bio">{member.bio}</p> : null}
+        {member.achievements?.length ? (
           <ul className="vetham-founder-tile__stats">
             {member.achievements.map((item) => (
               <li key={item.title} className="vetham-founder-tile__stat">
@@ -54,30 +54,39 @@ function FounderTile({ member, linkToLeadership, index, compact }) {
 }
 
 export default function LeadershipShowcase({ linkToLeadership = true, fullPage = false }) {
-  const compact = !fullPage;
-
   return (
     <section
-      className={`vetham-founders sec-pad${fullPage ? ' vetham-founders--page' : ' vetham-founders--trustees'}`}
+      className={`vetham-founders sec-pad${fullPage ? ' vetham-founders--page' : ''}`}
       aria-label={`${SITE.name} Leadership`}
     >
-      <div className="auto-container vetham-founders__container">
+      <div className="auto-container">
         <header className="sec-title centred mb_50 vetham-founders__head">
           <span className="sub-title">Leadership</span>
           <h2>Our Founders &amp; <br />Spiritual Masters</h2>
           <p className="vetham-founders__org">{SITE.nameUpper}</p>
         </header>
 
-        <div className="vetham-founders__grid" aria-label="Founders and spiritual masters">
-          {TEAM.map((member, index) => (
-            <FounderTile
-              key={member.name}
-              member={member}
-              linkToLeadership={linkToLeadership}
-              index={index}
-              compact={compact}
-            />
-          ))}
+        <div className="vetham-founders__matrix">
+          <div className="vetham-founders__row" aria-label="Founders row one">
+            {TEAM.slice(0, 2).map((member, index) => (
+              <FounderTile
+                key={member.name}
+                member={member}
+                linkToLeadership={linkToLeadership}
+                index={index}
+              />
+            ))}
+          </div>
+          <div className="vetham-founders__row" aria-label="Founders row two">
+            {TEAM.slice(2, 4).map((member, index) => (
+              <FounderTile
+                key={member.name}
+                member={member}
+                linkToLeadership={linkToLeadership}
+                index={index + 2}
+              />
+            ))}
+          </div>
         </div>
 
         {linkToLeadership ? (
