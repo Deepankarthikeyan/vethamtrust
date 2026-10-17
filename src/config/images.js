@@ -8,6 +8,7 @@ const catalog = {
   logoFooterBrand: [`${V}/logo-footer-responsive.webp`, `${V}/logo-footer-responsive.png`],
   logoFooterWebp: [`${V}/logo-footer-responsive.webp`],
   logoFooterPng: [`${V}/logo-footer-responsive.png`],
+  logoHeaderLight: [`${V}/logo-header-light.png`],
   favicon: [`${V}/favicon.png`],
   banner1: [`${V}/banner-1.jpg`],
   banner2: [`${V}/banner-2.jpg`],
@@ -114,7 +115,7 @@ const catalog = {
   sidebarPost3: [`${V}/sidebar-post-3.jpg`],
 };
 
-const VETHAM_ASSET_VERSION = 'founders-rathakrishnan-balasubramanian-portrait-v1';
+const VETHAM_ASSET_VERSION = 'header-light-logo-v1';
 
 export function img(key) {
   const entry = catalog[key];
