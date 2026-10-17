@@ -137,36 +137,9 @@ def to_uniform(im: Image.Image) -> Image.Image:
     if shawl_mass_x(im) > im.size[0] * 0.52:
         im = ImageOps.mirror(im)
 
-    px = im.load()
-    w, h = im.size
-    for y in range(h):
-        for x in range(w):
-            r, g, b = px[x, y]
-            if is_yellow_thundu(r, g, b) or is_beads(r, g, b) or is_skin(r, g, b):
-                continue
-            if in_face(x, y, w, h) or (r > 235 and g > 235 and b > 230):
-                continue
-            if is_studio_backdrop(r, g, b):
-                px[x, y] = NAVY
-
-    im = ImageEnhance.Brightness(im).enhance(1.02)
-    im = ImageEnhance.Contrast(im).enhance(1.03)
+    im = ImageEnhance.Brightness(im).enhance(1.01)
+    im = ImageEnhance.Contrast(im).enhance(1.02)
     return im
-
-
-def is_yellow_thundu(r: int, g: int, b: int) -> bool:
-    return r > 130 and g > 85 and b < 130 and r > b + 25
-
-
-def is_studio_backdrop(r: int, g: int, b: int) -> bool:
-    hsv_h, s, v = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
-    if v < 0.36:
-        return True
-    if b > r + 6 and v < 0.42:
-        return True
-    if 0.05 < hsv_h < 0.13 and 0.12 < s < 0.55 and 0.34 < v < 0.88:
-        return True
-    return False
 
 
 def main() -> None:

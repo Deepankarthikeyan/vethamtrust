@@ -114,7 +114,7 @@ const catalog = {
   sidebarPost3: [`${V}/sidebar-post-3.jpg`],
 };
 
-const VETHAM_ASSET_VERSION = 'founders-reference-photos-v8';
+const VETHAM_ASSET_VERSION = 'founders-reference-photos-v10';
 
 export function img(key) {
   const entry = catalog[key];
