@@ -67,6 +67,7 @@ export const TEAM = [
   },
   {
     name: 'Gnanasiriyar Balasubramanian',
+    displayName: 'Gnanasiriyar Selvin',
     role: 'Co-Founder & Secretary',
     image: 'trustee3Pro',
     portrait: 'portraitSecretary',
