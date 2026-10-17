@@ -4,6 +4,7 @@ import { SITE, NAV_ITEMS } from '../../config/site';
 import { getNavLabel } from '../../config/languages';
 import { img } from '../../config/images';
 import { useUiLanguage } from '../../hooks/useUiLanguage';
+import LazyImage from '../LazyImage';
 import { prefetchRoute } from '../../utils/prefetchRoutes';
 
 function prefetchFromPath(path) {

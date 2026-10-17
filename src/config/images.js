@@ -8,7 +8,6 @@ const catalog = {
   logoFooterBrand: [`${V}/logo-footer-responsive.webp`, `${V}/logo-footer-responsive.png`],
   logoFooterWebp: [`${V}/logo-footer-responsive.webp`],
   logoFooterPng: [`${V}/logo-footer-responsive.png`],
-  logoHeaderLight: [`${V}/logo-header-light.png`],
   favicon: [`${V}/favicon.png`],
   banner1: [`${V}/banner-1.jpg`],
   banner2: [`${V}/banner-2.jpg`],
