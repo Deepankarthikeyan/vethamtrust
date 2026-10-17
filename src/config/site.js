@@ -94,9 +94,9 @@ export const TEAM = [
 
 /** Card order in “Our Founders & Spiritual Masters” (name + photo stay matched per person). */
 export const LEADERSHIP_GRID_NAMES = [
+  'Gnanasiriyar Selvin',
   'Gnanasiriyar Balasubramanian',
   'Gnana Rishi A S Rathakrishnan',
-  'Gnanasiriyar Selvin',
   'Gnanasiriyar A S Sureash Kumaar',
 ];
 
