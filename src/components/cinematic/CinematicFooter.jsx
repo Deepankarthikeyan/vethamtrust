@@ -28,9 +28,9 @@ export default function CinematicFooter() {
       <div className="vx-container">
         <div className="vx-footer__grid">
           <div className="vx-footer__brand-col">
-            <Link to="/" className="vx-footer__logo" aria-label={`${SITE.name} home`}>
+            <Link to="/" className="vx-footer__brand-mark" aria-label={`${SITE.name} home`}>
               <img
-                className="vx-footer__logo-banner"
+                className="vx-footer__logo-emblem"
                 src={logoSrc}
                 alt=""
                 width={1600}
@@ -38,13 +38,13 @@ export default function CinematicFooter() {
                 loading="lazy"
                 decoding="async"
               />
+              <span className="vx-footer__brand-lines">
+                <span className="vx-footer__brand-name">
+                  Vetham Kuzhumam Spiritual <span className="vx-footer__brand-accent">Trust</span>
+                </span>
+                <span className="vx-footer__brand-sub">Unified Divine Yoga</span>
+              </span>
             </Link>
-            <div className="vx-footer__brand-lines">
-              <p className="vx-footer__brand-name">
-                Vetham Kuzhumam Spiritual <span className="vx-footer__brand-accent">Trust</span>
-              </p>
-              <p className="vx-footer__brand-sub">Unified Divine Yoga</p>
-            </div>
             <p className="vx-text vx-footer__intro">{SITE.tagline}. Yoga, meditation, and spiritual teachings in Coimbatore.</p>
           </div>
           <div>
@@ -71,9 +71,6 @@ export default function CinematicFooter() {
         </div>
 
         <div className="vx-footer__bottom">
-          <Link to="/" className="vx-footer__bottom-logo" aria-label={`${SITE.name} home`}>
-            <img src={logoSrc} alt="" width={1600} height={1000} loading="lazy" decoding="async" />
-          </Link>
           <p>Copyright {new Date().getFullYear()} {SITE.name}. All Rights Reserved.</p>
           <div className="vx-footer__social">
             <a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fab fa-facebook-f" /></a>
