@@ -21,29 +21,23 @@ const MORE_LINKS = [
 ];
 
 export default function CinematicFooter() {
-  const logoSrc = img('logo');
+  const footerLogo = img('logoFooterPng');
 
   return (
     <footer className="vx-footer">
       <div className="vx-container">
         <div className="vx-footer__grid">
           <div className="vx-footer__brand-col">
-            <Link to="/" className="vx-footer__brand-mark" aria-label={`${SITE.name} home`}>
+            <Link to="/" className="vx-footer__logo" aria-label={`${SITE.name} home`}>
               <img
-                className="vx-footer__logo-emblem"
-                src={logoSrc}
-                alt=""
+                className="vx-footer__logo-banner"
+                src={footerLogo}
+                alt={`${SITE.name} — Unified Divine Yoga`}
                 width={1600}
                 height={1000}
                 loading="lazy"
                 decoding="async"
               />
-              <span className="vx-footer__brand-lines">
-                <span className="vx-footer__brand-name">
-                  Vetham Kuzhumam Spiritual <span className="vx-footer__brand-accent">Trust</span>
-                </span>
-                <span className="vx-footer__brand-sub">Unified Divine Yoga</span>
-              </span>
             </Link>
             <p className="vx-text vx-footer__intro">{SITE.tagline}. Yoga, meditation, and spiritual teachings in Coimbatore.</p>
           </div>

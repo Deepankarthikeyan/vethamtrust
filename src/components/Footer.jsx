@@ -83,7 +83,7 @@ export default function Footer() {
             <p>Copyright &copy; <Link to="/" className="custom-primary">{new Date().getFullYear()} {SITE.name}</Link>. All Rights Reserved.</p>
           </div>
           <div className="sigma_footer-logo">
-            <img width="320" height="200" src={img('logo')} alt={SITE.name} loading="lazy" className="vetham-footer-logo" />
+            <img width="620" height="140" src={img('logoFooter')} alt={SITE.name} loading="lazy" className="vetham-footer-logo" />
           </div>
           <ul className="sigma_sm square">
             <li><a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fab fa-facebook-f" /></a></li>

@@ -2196,28 +2196,25 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
   color: rgba(255, 255, 255, 0.85);
 }
 
-.vx-footer__brand-mark {
-  display: flex;
-  align-items: center;
-  gap: clamp(14px, 2.5vw, 22px);
+.vx-footer__logo {
+  display: block;
   margin-bottom: 18px;
-  max-width: min(560px, 100%);
+  max-width: 100%;
+  line-height: 0;
   text-decoration: none;
-  color: #ffffff;
 }
 
-.vx-footer__logo-emblem {
-  flex: 0 0 auto;
-  width: clamp(84px, 11vw, 118px);
-  height: clamp(84px, 11vw, 118px);
-  object-fit: cover;
-  object-position: 10% center;
+.vx-footer__logo-banner {
   display: block;
+  width: auto;
+  height: clamp(96px, 12vw, 140px);
+  max-width: min(620px, 96vw);
+  object-fit: contain;
+  object-position: left center;
   background: transparent;
   padding: 0;
   border: none;
   box-shadow: none;
-  border-radius: 0;
 }
 
 .vx-footer__brand-col {
@@ -2225,34 +2222,39 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
 }
 
 .vx-footer__brand-lines {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
 }
 
 .vx-footer__brand-name,
 .vx-footer__brand-sub {
+  display: block;
   margin: 0;
   font-family: var(--vx-font-display);
   color: #ffffff;
-  line-height: 1.25;
+  line-height: 1.28;
 }
 
 .vx-footer__brand-name {
-  font-size: clamp(1.2rem, 2.4vw, 1.75rem);
+  font-size: clamp(1.15rem, 2.2vw, 1.65rem);
   font-weight: 600;
   letter-spacing: 0.02em;
   color: #ffffff;
 }
 
 .vx-footer__brand-accent {
-  color: var(--vx-peach, #ff9f5a);
+  color: #ffffff;
 }
 
 .vx-footer__brand-sub {
-  margin-top: 6px;
-  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-size: clamp(0.95rem, 1.7vw, 1.15rem);
   font-weight: 500;
   color: #ffffff;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
 }
 
 .vx-footer__intro,
@@ -3530,14 +3532,9 @@ body.vx-inner .vx-page-content > .vetham-contact-form:last-child {
     height: clamp(44px, 12vw, 60px);
   }
 
-  .vx-footer__logo-emblem {
-    width: clamp(72px, 18vw, 100px);
-    height: clamp(72px, 18vw, 100px);
-  }
-
-  .vx-footer__brand-mark {
-    align-items: flex-start;
-    flex-wrap: wrap;
+  .vx-footer__logo-banner {
+    height: clamp(80px, 20vw, 120px);
+    max-width: min(480px, 94vw);
   }
 
   .vx-footer__bottom {
