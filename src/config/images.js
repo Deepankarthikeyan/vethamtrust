@@ -4,6 +4,7 @@ const S = `${V}/services`;
 
 const catalog = {
   logo: [`${V}/logo.png`],
+  logoOnDark: [`${V}/logo-footer-white.png`],
   logoFooter: [`${V}/logo-footer-white.png`],
   logoFooterBrand: [`${V}/logo-footer-white.png`],
   logoFooterWebp: [`${V}/logo-footer-white.png`],

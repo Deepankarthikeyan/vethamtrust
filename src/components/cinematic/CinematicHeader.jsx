@@ -56,7 +56,21 @@ export default function CinematicHeader() {
       <header className={`vx-header${solidHeader ? ' is-scrolled' : ''}`}>
         <div className="vx-container vx-header__inner">
           <Link to="/" className="vx-header__logo" data-cursor="HOME">
-            <LazyImage src={img('logo')} alt={SITE.name} loading="eager" />
+            <LazyImage
+              src={img('logo')}
+              alt=""
+              loading="eager"
+              className="vx-header__logo-img vx-header__logo-img--dark"
+              aria-hidden="true"
+            />
+            <LazyImage
+              src={img('logoOnDark')}
+              alt=""
+              loading="eager"
+              className="vx-header__logo-img vx-header__logo-img--light"
+              aria-hidden="true"
+            />
+            <span className="vx-header__logo-sr">{SITE.name}</span>
           </Link>
 
           <nav aria-label="Primary">
