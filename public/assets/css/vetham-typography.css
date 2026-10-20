@@ -340,9 +340,12 @@ html[data-ui-lang="te"] body :where(
   line-height: 1.65 !important;
 }
 
-html[data-ui-lang]:not([data-ui-lang="en"]) p,
+/* Left-align prose blocks only — do not target bare `p` (breaks centered Tamil/translate layout) */
 html[data-ui-lang]:not([data-ui-lang="en"]) .about-section .text p,
-html[data-ui-lang]:not([data-ui-lang="en"]) .lower-content p {
+html[data-ui-lang]:not([data-ui-lang="en"]) .lower-content p,
+html[data-ui-lang]:not([data-ui-lang="en"]) .row.align-items-center .content-column p,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-philosophy__pillar-text,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vetham-event-card > p:not(.vetham-event-tamil) {
   text-align: start;
 }
 
@@ -355,7 +358,32 @@ html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title.centred p,
 html[data-ui-lang]:not([data-ui-lang="en"]) .feature-block-one .inner-box.centred,
 html[data-ui-lang]:not([data-ui-lang="en"]) .service-block-one .inner-box.centred,
 html[data-ui-lang]:not([data-ui-lang="en"]) .cause-block-one .inner-box,
-html[data-ui-lang]:not([data-ui-lang="en"]) .banner-carousel .content-box {
+html[data-ui-lang]:not([data-ui-lang="en"]) .banner-carousel .content-box,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vetham-events-empty,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vetham-events-empty :where(h2, span, p),
+html[data-ui-lang]:not([data-ui-lang="en"]) .vetham-ashram-hours.centred,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vetham-ashram-hours.centred li,
+html[data-ui-lang]:not([data-ui-lang="en"]) .cta-style-two .inner-box.centred,
+html[data-ui-lang]:not([data-ui-lang="en"]) .cta-style-two .inner-box.centred h2,
+html[data-ui-lang]:not([data-ui-lang="en"]) .cta-style-two .inner-box.centred p,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sh-title--center,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sh-text--center,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sh-eyebrow--center,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sh-section-head--narrow .sh-text--center,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-philosophy__head,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-philosophy__head :where(p, h2, span),
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-chapters__intro,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-chapters__intro :where(p, h2),
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-quote-scroll,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-quote-scroll__text,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-impact__grid,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-impact__label,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-donate-cta,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-donate-cta__content,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-donate-cta__content :where(p, h2),
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-page-hero,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-page-hero__content,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vx-page-hero__content :where(p, h1, li) {
   text-align: center !important;
 }
 
