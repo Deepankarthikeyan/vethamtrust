@@ -21,30 +21,31 @@ const MORE_LINKS = [
 ];
 
 export default function CinematicFooter() {
-  const logoPng = img('logoFooterPng');
-  const logoWebp = img('logoFooterWebp');
+  const logoSrc = img('logo');
 
   return (
     <footer className="vx-footer">
       <div className="vx-container">
         <div className="vx-footer__grid">
           <div className="vx-footer__brand-col">
-            <div className="vx-footer__logo">
-              <picture className="vx-footer__logo-picture">
-                <source srcSet={logoWebp} type="image/webp" />
-                <img
-                  className="vx-footer__logo-banner"
-                  src={logoPng}
-                  alt={`${SITE.name} — Unified Divine Yoga`}
-                  width={1024}
-                  height={460}
-                  loading="lazy"
-                  decoding="async"
-                  sizes="(max-width: 768px) 72vw, 400px"
-                />
-              </picture>
+            <Link to="/" className="vx-footer__logo" aria-label={`${SITE.name} home`}>
+              <img
+                className="vx-footer__logo-banner"
+                src={logoSrc}
+                alt=""
+                width={1600}
+                height={1000}
+                loading="lazy"
+                decoding="async"
+              />
+            </Link>
+            <div className="vx-footer__brand-lines">
+              <p className="vx-footer__brand-name">
+                Vetham Kuzhumam Spiritual <span className="vx-footer__brand-accent">Trust</span>
+              </p>
+              <p className="vx-footer__brand-sub">Unified Divine Yoga</p>
             </div>
-            <p className="vx-text">{SITE.tagline}. Yoga, meditation, and spiritual teachings in Coimbatore.</p>
+            <p className="vx-text vx-footer__intro">{SITE.tagline}. Yoga, meditation, and spiritual teachings in Coimbatore.</p>
           </div>
           <div>
             <h4>Quick Links</h4>
@@ -70,6 +71,9 @@ export default function CinematicFooter() {
         </div>
 
         <div className="vx-footer__bottom">
+          <Link to="/" className="vx-footer__bottom-logo" aria-label={`${SITE.name} home`}>
+            <img src={logoSrc} alt="" width={1600} height={1000} loading="lazy" decoding="async" />
+          </Link>
           <p>Copyright {new Date().getFullYear()} {SITE.name}. All Rights Reserved.</p>
           <div className="vx-footer__social">
             <a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fab fa-facebook-f" /></a>

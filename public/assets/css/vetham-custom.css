@@ -4791,14 +4791,17 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
 }
 
 .footer-top .footer-logo img,
-.footer-top .footer-logo .vetham-footer-logo {
-  width: 120px !important;
-  height: 120px !important;
-  max-width: 120px;
-  max-height: 120px;
+.footer-top .footer-logo .vetham-footer-logo,
+.sigma_footer-logo .vetham-footer-logo {
+  width: auto !important;
+  height: clamp(72px, 10vw, 110px) !important;
+  max-width: min(420px, 90vw);
+  max-height: none;
   object-fit: contain;
   display: block;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 10px;
+  padding: 8px 12px;
 }
 
 .mobile-menu .nav-logo img {

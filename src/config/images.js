@@ -4,10 +4,10 @@ const S = `${V}/services`;
 
 const catalog = {
   logo: [`${V}/logo.png`],
-  logoFooter: [`${V}/logo-footer-responsive.webp`, `${V}/logo-footer-responsive.png`],
-  logoFooterBrand: [`${V}/logo-footer-responsive.webp`, `${V}/logo-footer-responsive.png`],
-  logoFooterWebp: [`${V}/logo-footer-responsive.webp`],
-  logoFooterPng: [`${V}/logo-footer-responsive.png`],
+  logoFooter: [`${V}/logo-customer.png`, `${V}/logo.png`],
+  logoFooterBrand: [`${V}/logo-customer.png`, `${V}/logo.png`],
+  logoFooterWebp: [`${V}/logo-customer.png`],
+  logoFooterPng: [`${V}/logo-customer.png`, `${V}/logo.png`],
   favicon: [`${V}/favicon.png`],
   banner1: [`${V}/banner-1.jpg`],
   banner2: [`${V}/banner-2.jpg`],
