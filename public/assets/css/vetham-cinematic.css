@@ -30,9 +30,9 @@
   --vx-font-display: 'Cormorant Garamond', Georgia, serif;
   --vx-font-body: 'Inter', 'Poppins', system-ui, sans-serif;
   --vx-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --vx-header-h: 80px;
   --vx-brand-logo-h: clamp(68px, 8.5vw, 96px);
   --vx-brand-logo-max-w: min(440px, 90vw);
+  --vx-header-h: clamp(92px, calc(var(--vx-brand-logo-h) + 12px), 108px);
   --vx-content-max: 1400px;
   --vx-gutter: clamp(16px, 3vw, 48px);
 }
@@ -254,6 +254,7 @@ button {
   position: relative;
   flex-shrink: 0;
   min-width: 0;
+  min-height: var(--vx-brand-logo-h);
   display: flex;
   align-items: center;
   transition: opacity 0.3s var(--vx-ease), transform 0.35s var(--vx-ease);
@@ -264,10 +265,16 @@ button {
   transform: scale(1.02);
 }
 
-.vx-header__logo-img {
-  height: var(--vx-brand-logo-h);
-  width: auto;
-  max-width: var(--vx-brand-logo-max-w);
+.vx-header__logo-img,
+.vx-header__logo-img--dark,
+.vx-header__logo-img--light,
+body.vx-home .vx-header:not(.is-scrolled) .vx-header__logo-img--light,
+body.vx-home .vx-header.is-scrolled .vx-header__logo-img--dark,
+body.vx-inner .vx-header .vx-header__logo-img--dark {
+  height: var(--vx-brand-logo-h) !important;
+  width: auto !important;
+  max-width: var(--vx-brand-logo-max-w) !important;
+  max-height: none !important;
   object-fit: contain;
   object-position: left center;
   display: block;
@@ -306,9 +313,10 @@ body.vx-home .vx-header.is-scrolled .vx-header__logo-img--dark {
 }
 
 .vx-header__logo img {
-  height: var(--vx-brand-logo-h);
-  width: auto;
-  max-width: var(--vx-brand-logo-max-w);
+  height: var(--vx-brand-logo-h) !important;
+  width: auto !important;
+  max-width: var(--vx-brand-logo-max-w) !important;
+  max-height: none !important;
   object-fit: contain;
   object-position: left center;
   display: block;
@@ -3498,7 +3506,9 @@ body.vx-inner .vx-page-content > .vetham-contact-form:last-child {
 
 @media (max-width: 768px) {
   :root {
-    --vx-header-h: 72px;
+    --vx-brand-logo-h: clamp(58px, 16vw, 82px);
+    --vx-brand-logo-max-w: min(360px, 92vw);
+    --vx-header-h: clamp(84px, calc(var(--vx-brand-logo-h) + 10px), 96px);
   }
 
   .vx-header__nav,
@@ -3536,11 +3546,6 @@ body.vx-inner .vx-page-content > .vetham-contact-form:last-child {
 
   .vx-container {
     padding-inline: 16px;
-  }
-
-  :root {
-    --vx-brand-logo-h: clamp(58px, 16vw, 82px);
-    --vx-brand-logo-max-w: min(360px, 92vw);
   }
 
   .vx-footer__bottom {

@@ -29,6 +29,15 @@
   display: block;
 }
 
+/* Cinematic header — match footer logo dimensions (default + scrolled) */
+body.vx-site .vx-header .vx-header__logo-img,
+body.vx-site .vx-header .vx-header__logo img {
+  height: var(--vx-brand-logo-h, clamp(68px, 8.5vw, 96px)) !important;
+  max-width: var(--vx-brand-logo-max-w, min(440px, 90vw)) !important;
+  max-height: none !important;
+  width: auto !important;
+}
+
 /* Header logo — transparent PNG, no white plate behind mark */
 .header-style-two.main-header .header-lower .logo-box,
 .sticky-header .logo-box {
@@ -4799,9 +4808,8 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
   max-height: none;
   object-fit: contain;
   display: block;
-  background: rgba(255, 255, 255, 0.94);
-  border-radius: 10px;
-  padding: 8px 12px;
+  background: transparent;
+  padding: 0;
 }
 
 .mobile-menu .nav-logo img {
