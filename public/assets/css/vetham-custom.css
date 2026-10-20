@@ -1569,11 +1569,19 @@ html[data-ui-lang] .sticky-header .menu-area {
   font-family: var(--vetham-font-ta, 'Noto Sans Tamil', system-ui, sans-serif) !important;
   font-size: var(--vetham-text-base, 16px) !important;
   line-height: 1.65 !important;
+  text-align: start;
+  direction: ltr;
+  unicode-bidi: isolate;
   overflow-wrap: break-word;
   word-break: normal;
   background: #faf6f2;
   border-radius: 10px;
   padding: 14px 16px;
+}
+
+html[data-ui-lang="ta"] .vetham-event-tamil,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vetham-event-tamil {
+  text-align: start !important;
 }
 
 .vetham-ashram-hours {
