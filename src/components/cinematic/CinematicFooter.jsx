@@ -21,30 +21,25 @@ const MORE_LINKS = [
 ];
 
 export default function CinematicFooter() {
-  const logoPng = img('logoFooterPng');
-  const logoWebp = img('logoFooterWebp');
+  const footerLogo = img('logoFooterPng');
 
   return (
     <footer className="vx-footer">
       <div className="vx-container">
         <div className="vx-footer__grid">
           <div className="vx-footer__brand-col">
-            <div className="vx-footer__logo">
-              <picture className="vx-footer__logo-picture">
-                <source srcSet={logoWebp} type="image/webp" />
-                <img
-                  className="vx-footer__logo-banner"
-                  src={logoPng}
-                  alt={`${SITE.name} — Unified Divine Yoga`}
-                  width={1024}
-                  height={460}
-                  loading="lazy"
-                  decoding="async"
-                  sizes="(max-width: 768px) 72vw, 400px"
-                />
-              </picture>
-            </div>
-            <p className="vx-text">{SITE.tagline}. Yoga, meditation, and spiritual teachings in Coimbatore.</p>
+            <Link to="/" className="vx-footer__logo" aria-label={`${SITE.name} home`}>
+              <img
+                className="vx-footer__logo-banner"
+                src={footerLogo}
+                alt={`${SITE.name} — Unified Divine Yoga`}
+                width={1600}
+                height={1000}
+                loading="lazy"
+                decoding="async"
+              />
+            </Link>
+            <p className="vx-text vx-footer__intro">{SITE.tagline}. Yoga, meditation, and spiritual teachings in Coimbatore.</p>
           </div>
           <div>
             <h4>Quick Links</h4>

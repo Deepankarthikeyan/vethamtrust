@@ -30,7 +30,9 @@
   --vx-font-display: 'Cormorant Garamond', Georgia, serif;
   --vx-font-body: 'Inter', 'Poppins', system-ui, sans-serif;
   --vx-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --vx-header-h: 80px;
+  --vx-brand-logo-h: clamp(68px, 8.5vw, 96px);
+  --vx-brand-logo-max-w: min(440px, 90vw);
+  --vx-header-h: clamp(92px, calc(var(--vx-brand-logo-h) + 12px), 108px);
   --vx-content-max: 1400px;
   --vx-gutter: clamp(16px, 3vw, 48px);
 }
@@ -249,8 +251,10 @@ button {
 }
 
 .vx-header__logo {
+  position: relative;
   flex-shrink: 0;
   min-width: 0;
+  min-height: var(--vx-brand-logo-h);
   display: flex;
   align-items: center;
   transition: opacity 0.3s var(--vx-ease), transform 0.35s var(--vx-ease);
@@ -261,11 +265,60 @@ button {
   transform: scale(1.02);
 }
 
-.vx-header__logo img {
-  height: clamp(52px, 7.5vw, 76px);
-  width: auto;
-  max-width: min(400px, 62vw);
+.vx-header__logo-img,
+.vx-header__logo-img--dark,
+.vx-header__logo-img--light,
+body.vx-home .vx-header:not(.is-scrolled) .vx-header__logo-img--light,
+body.vx-home .vx-header.is-scrolled .vx-header__logo-img--dark,
+body.vx-inner .vx-header .vx-header__logo-img--dark {
+  height: var(--vx-brand-logo-h) !important;
+  width: auto !important;
+  max-width: var(--vx-brand-logo-max-w) !important;
+  max-height: none !important;
   object-fit: contain;
+  object-position: left center;
+  display: block;
+}
+
+.vx-header__logo-img--light {
+  display: none;
+}
+
+.vx-header__logo-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+body.vx-home .vx-header:not(.is-scrolled) .vx-header__logo-img--dark {
+  display: none;
+}
+
+body.vx-home .vx-header:not(.is-scrolled) .vx-header__logo-img--light {
+  display: block;
+}
+
+body.vx-home .vx-header.is-scrolled .vx-header__logo-img--light {
+  display: none;
+}
+
+body.vx-home .vx-header.is-scrolled .vx-header__logo-img--dark {
+  display: block;
+}
+
+.vx-header__logo img {
+  height: var(--vx-brand-logo-h) !important;
+  width: auto !important;
+  max-width: var(--vx-brand-logo-max-w) !important;
+  max-height: none !important;
+  object-fit: contain;
+  object-position: left center;
   display: block;
 }
 
@@ -2197,75 +2250,37 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
 }
 
 .vx-footer__logo {
-  margin-bottom: 16px;
   display: block;
+  margin-bottom: 18px;
   max-width: 100%;
-  background: transparent;
   line-height: 0;
-  padding: 0;
-  border: none;
+  text-decoration: none;
+  background: transparent !important;
   box-shadow: none;
 }
 
-.vx-footer__logo img {
-  height: clamp(52px, 7.5vw, 76px);
-  width: auto;
-  max-width: min(400px, 62vw);
-  object-fit: contain;
-  display: block;
-  margin-bottom: 12px;
-  background: transparent;
-}
-
-.vx-footer__logo-picture {
-  display: block;
-  width: auto;
-  max-width: min(400px, 62vw);
-  line-height: 0;
-}
-
 .vx-footer__logo-banner {
-  height: clamp(52px, 7.5vw, 76px);
-  width: auto;
-  max-width: min(400px, 62vw);
-  object-fit: contain;
   display: block;
-  margin-bottom: 12px;
+  width: auto;
+  height: var(--vx-brand-logo-h);
+  max-width: var(--vx-brand-logo-max-w);
+  object-fit: contain;
+  object-position: left center;
   background: transparent !important;
+  padding: 0;
+  border: none;
+  box-shadow: none;
 }
 
 .vx-footer__brand-col {
   min-width: 0;
 }
 
-.vx-footer__brand-lines {
-  margin: 0;
-}
-
-.vx-footer__brand-name,
-.vx-footer__brand-sub {
-  margin: 0;
-  font-family: var(--vx-font-display);
-  color: #ffffff;
-  line-height: 1.25;
-}
-
-.vx-footer__brand-name {
-  font-size: clamp(1.05rem, 2vw, 1.35rem);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-.vx-footer__brand-sub {
-  margin-top: 4px;
-  font-size: clamp(0.88rem, 1.6vw, 1.05rem);
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.95);
-  letter-spacing: 0.04em;
-}
-
+.vx-footer__intro,
 .vx-footer__grid > div:first-child > .vx-text {
-  color: #fff;
+  color: #ffffff;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  line-height: 1.7;
 }
 
 .vx-footer__brand {
@@ -2351,12 +2366,13 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
   gap: 20px;
   padding-top: 32px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  color: #ffffff;
 }
 
 .vx-footer__bottom p {
-  color: rgba(255, 255, 255, 0.75);
+  color: #ffffff;
+  margin: 0;
 }
 
 .vx-footer__social {
@@ -3490,7 +3506,9 @@ body.vx-inner .vx-page-content > .vetham-contact-form:last-child {
 
 @media (max-width: 768px) {
   :root {
-    --vx-header-h: 72px;
+    --vx-brand-logo-h: clamp(58px, 16vw, 82px);
+    --vx-brand-logo-max-w: min(360px, 92vw);
+    --vx-header-h: clamp(84px, calc(var(--vx-brand-logo-h) + 10px), 96px);
   }
 
   .vx-header__nav,
@@ -3528,21 +3546,6 @@ body.vx-inner .vx-page-content > .vetham-contact-form:last-child {
 
   .vx-container {
     padding-inline: 16px;
-  }
-
-  .vx-header__logo img {
-    max-width: min(320px, 72vw);
-    height: clamp(44px, 12vw, 60px);
-  }
-
-  .vx-footer__logo img,
-  .vx-footer__logo-banner {
-    max-width: min(320px, 72vw);
-    height: clamp(44px, 12vw, 60px);
-  }
-
-  .vx-footer__logo-picture {
-    max-width: min(320px, 72vw);
   }
 
   .vx-footer__bottom {

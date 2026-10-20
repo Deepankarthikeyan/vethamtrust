@@ -29,6 +29,15 @@
   display: block;
 }
 
+/* Cinematic header — match footer logo dimensions (default + scrolled) */
+body.vx-site .vx-header .vx-header__logo-img,
+body.vx-site .vx-header .vx-header__logo img {
+  height: var(--vx-brand-logo-h, clamp(68px, 8.5vw, 96px)) !important;
+  max-width: var(--vx-brand-logo-max-w, min(440px, 90vw)) !important;
+  max-height: none !important;
+  width: auto !important;
+}
+
 /* Header logo — transparent PNG, no white plate behind mark */
 .header-style-two.main-header .header-lower .logo-box,
 .sticky-header .logo-box {
@@ -1569,11 +1578,19 @@ html[data-ui-lang] .sticky-header .menu-area {
   font-family: var(--vetham-font-ta, 'Noto Sans Tamil', system-ui, sans-serif) !important;
   font-size: var(--vetham-text-base, 16px) !important;
   line-height: 1.65 !important;
+  text-align: start;
+  direction: ltr;
+  unicode-bidi: isolate;
   overflow-wrap: break-word;
   word-break: normal;
   background: #faf6f2;
   border-radius: 10px;
   padding: 14px 16px;
+}
+
+html[data-ui-lang="ta"] .vetham-event-tamil,
+html[data-ui-lang]:not([data-ui-lang="en"]) .vetham-event-tamil {
+  text-align: start !important;
 }
 
 .vetham-ashram-hours {
@@ -4783,14 +4800,16 @@ html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
 }
 
 .footer-top .footer-logo img,
-.footer-top .footer-logo .vetham-footer-logo {
-  width: 120px !important;
-  height: 120px !important;
-  max-width: 120px;
-  max-height: 120px;
+.footer-top .footer-logo .vetham-footer-logo,
+.sigma_footer-logo .vetham-footer-logo {
+  width: auto !important;
+  height: clamp(72px, 10vw, 110px) !important;
+  max-width: min(420px, 90vw);
+  max-height: none;
   object-fit: contain;
   display: block;
   background: transparent;
+  padding: 0;
 }
 
 .mobile-menu .nav-logo img {

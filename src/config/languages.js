@@ -344,6 +344,7 @@ export function stabilizeTranslatedTypography() {
     node.style.removeProperty('font-size');
     node.style.removeProperty('font-family');
     node.style.removeProperty('line-height');
+    node.style.removeProperty('text-align');
     node.style.setProperty('display', 'inline', 'important');
     node.style.setProperty('white-space', 'inherit', 'important');
   });
