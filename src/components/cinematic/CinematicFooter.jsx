@@ -21,25 +21,56 @@ const MORE_LINKS = [
 ];
 
 export default function CinematicFooter() {
-  const footerLogo = img('logoFooterPng');
-
   return (
     <footer className="vx-footer">
       <div className="vx-container">
         <div className="vx-footer__grid">
           <div className="vx-footer__brand-col">
-            <Link to="/" className="vx-footer__logo" aria-label={`${SITE.name} home`}>
+            <Link to="/" className="vx-footer__brand-mark" aria-label={`${SITE.name} home`}>
               <img
-                className="vx-footer__logo-banner"
-                src={footerLogo}
-                alt={`${SITE.name} — Unified Divine Yoga`}
-                width={1600}
-                height={1000}
+                className="vx-footer__emblem"
+                src={img('logoEmblem')}
+                alt=""
+                width={400}
+                height={739}
+                loading="lazy"
+                decoding="async"
+              />
+              <span className="vx-footer__brand-stack">
+                <span className="vx-footer__brand-line vx-footer__brand-line--1">Vetham Kuzhumam</span>
+                <span className="vx-footer__brand-line vx-footer__brand-line--2">
+                  Spiritual <span className="vx-footer__brand-trust">Trust</span>
+                </span>
+                <span className="vx-footer__brand-line vx-footer__brand-line--3">
+                  <span className="vx-footer__brand-stars" aria-hidden="true">
+                    <i className="fas fa-star" />
+                    <i className="fas fa-star" />
+                    <i className="fas fa-star" />
+                  </span>
+                  <span className="vx-footer__brand-mid">Unified Divine Yoga</span>
+                  <span className="vx-footer__brand-stars" aria-hidden="true">
+                    <i className="fas fa-star" />
+                    <i className="fas fa-star" />
+                    <i className="fas fa-star" />
+                  </span>
+                </span>
+                <span className="vx-footer__brand-line vx-footer__brand-line--4">
+                  {SITE.tagline} · Coimbatore
+                </span>
+              </span>
+              <img
+                className="vx-footer__portrait"
+                src={img('logoPortrait')}
+                alt=""
+                width={280}
+                height={739}
                 loading="lazy"
                 decoding="async"
               />
             </Link>
-            <p className="vx-text vx-footer__intro">{SITE.tagline}. Yoga, meditation, and spiritual teachings in Coimbatore.</p>
+            <p className="vx-text vx-footer__intro">
+              Yoga, meditation, and spiritual teachings in Coimbatore.
+            </p>
           </div>
           <div>
             <h4>Quick Links</h4>
