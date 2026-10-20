@@ -31,6 +31,8 @@
   --vx-font-body: 'Inter', 'Poppins', system-ui, sans-serif;
   --vx-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --vx-header-h: 80px;
+  --vx-brand-logo-h: clamp(68px, 8.5vw, 96px);
+  --vx-brand-logo-max-w: min(440px, 90vw);
   --vx-content-max: 1400px;
   --vx-gutter: clamp(16px, 3vw, 48px);
 }
@@ -263,10 +265,11 @@ button {
 }
 
 .vx-header__logo-img {
-  height: clamp(46px, 6.5vw, 64px);
+  height: var(--vx-brand-logo-h);
   width: auto;
-  max-width: min(340px, 58vw);
+  max-width: var(--vx-brand-logo-max-w);
   object-fit: contain;
+  object-position: left center;
   display: block;
 }
 
@@ -303,10 +306,11 @@ body.vx-home .vx-header.is-scrolled .vx-header__logo-img--dark {
 }
 
 .vx-header__logo img {
-  height: clamp(52px, 7.5vw, 76px);
+  height: var(--vx-brand-logo-h);
   width: auto;
-  max-width: min(400px, 62vw);
+  max-width: var(--vx-brand-logo-max-w);
   object-fit: contain;
+  object-position: left center;
   display: block;
 }
 
@@ -2250,8 +2254,8 @@ body.vx-home .vx-container > div[style*="marginBottom"] {
 .vx-footer__logo-banner {
   display: block;
   width: auto;
-  height: clamp(68px, 8.5vw, 96px);
-  max-width: min(440px, 90vw);
+  height: var(--vx-brand-logo-h);
+  max-width: var(--vx-brand-logo-max-w);
   object-fit: contain;
   object-position: left center;
   background: transparent !important;
@@ -3534,15 +3538,9 @@ body.vx-inner .vx-page-content > .vetham-contact-form:last-child {
     padding-inline: 16px;
   }
 
-  .vx-header__logo img,
-  .vx-header__logo-img {
-    max-width: min(320px, 72vw);
-    height: clamp(44px, 12vw, 60px);
-  }
-
-  .vx-footer__logo-banner {
-    height: clamp(58px, 16vw, 82px);
-    max-width: min(360px, 92vw);
+  :root {
+    --vx-brand-logo-h: clamp(58px, 16vw, 82px);
+    --vx-brand-logo-max-w: min(360px, 92vw);
   }
 
   .vx-footer__bottom {
