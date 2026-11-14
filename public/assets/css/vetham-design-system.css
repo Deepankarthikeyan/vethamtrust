@@ -1,0 +1,575 @@
+/**
+ * Vetham Kuzhumam Spiritual Trust — rounded UI tokens & global polish
+ * Load after theme CSS. Scoped to body.vx-site where possible.
+ */
+
+:root {
+  --vds-radius-sm: 10px;
+  --vds-radius-md: 14px;
+  --vds-radius-lg: 18px;
+  --vds-radius-xl: 24px;
+  --vds-shadow-sm: 0 4px 16px rgba(30, 61, 42, 0.06);
+  --vds-shadow-md: 0 12px 32px rgba(30, 61, 42, 0.09);
+  --vds-shadow-lg: 0 20px 48px rgba(30, 61, 42, 0.12);
+  --vds-border-soft: rgba(196, 90, 26, 0.14);
+  --vds-transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  --vds-transition-fast: 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.vx-site {
+  --vx-radius: var(--vds-radius-lg);
+}
+
+/* —— Focus (keyboard) —— */
+body.vx-site a:focus-visible,
+body.vx-site button:focus-visible,
+body.vx-site input:focus-visible,
+body.vx-site textarea:focus-visible,
+body.vx-site select:focus-visible,
+body.vx-site .vx-btn:focus-visible {
+  outline: 2px solid var(--vx-primary);
+  outline-offset: 3px;
+}
+
+/* —— Forms —— */
+body.vx-site input:not([type='checkbox']):not([type='radio']):not([type='range']),
+body.vx-site textarea,
+body.vx-site select,
+body.vx-site .form-control {
+  border-radius: var(--vds-radius-md) !important;
+  border-color: var(--vds-border-soft) !important;
+  transition:
+    border-color var(--vds-transition-fast),
+    box-shadow var(--vds-transition-fast);
+}
+
+body.vx-site input:focus,
+body.vx-site textarea:focus,
+body.vx-site select:focus,
+body.vx-site .form-control:focus {
+  border-color: rgba(196, 90, 26, 0.45) !important;
+  box-shadow: 0 0 0 3px rgba(196, 90, 26, 0.12);
+}
+
+/* —— Buttons —— */
+body.vx-site .theme-btn-one,
+body.vx-site .theme-btn-two,
+body.vx-site .vx-btn {
+  border-radius: 999px;
+  transition:
+    transform var(--vds-transition-fast),
+    box-shadow var(--vds-transition-fast),
+    background-color var(--vds-transition-fast),
+    color var(--vds-transition-fast);
+}
+
+@media (hover: hover) {
+  body.vx-site .theme-btn-one:hover,
+  body.vx-site .theme-btn-two:hover,
+  body.vx-site .vx-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--vds-shadow-sm);
+  }
+}
+
+/* —— Cards & sections (inner pages) —— */
+body.vx-site .service-block-one .inner-box,
+body.vx-site .vetham-service-card,
+body.vx-site .vetham-contact-card,
+body.vx-site .vetham-event-card,
+body.vx-site .news-block-one .inner-box,
+body.vx-site .cause-block-one .inner-box,
+body.vx-site .feature-block-one .inner-box,
+body.vx-site .vetham-leader-card,
+body.vx-site .vx-testimonial-card,
+body.vx-site .vx-spirit-card {
+  border-radius: var(--vds-radius-lg);
+  overflow: hidden;
+  transition:
+    transform var(--vds-transition),
+    box-shadow var(--vds-transition);
+}
+
+@media (hover: hover) {
+  body.vx-site .service-block-one .inner-box:hover,
+  body.vx-site .vetham-service-card:hover,
+  body.vx-site .vetham-contact-card:hover,
+  body.vx-site .vetham-event-card:hover,
+  body.vx-site .news-block-one .inner-box:hover,
+  body.vx-site .feature-block-one .inner-box:hover,
+  body.vx-site .vetham-leader-card:hover,
+  body.vx-site .vx-testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--vds-shadow-md);
+  }
+}
+
+/* Image boxes inherit rounding */
+body.vx-site .service-block-one .image-box,
+body.vx-site .project-block-one .image-box,
+body.vx-site .news-block-one .image-box,
+body.vx-site .vetham-gallery-grid .image-box {
+  border-radius: var(--vds-radius-md);
+  overflow: hidden;
+}
+
+body.vx-site .project-block-one .inner-box .image-box img,
+body.vx-site .news-block-one .image-box img {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+  body.vx-site .project-block-one .inner-box:hover .image-box img,
+  body.vx-site .news-block-one .inner-box:hover .image-box img {
+    transform: scale(1.04);
+  }
+}
+
+/* —— Header dropdown (subtle polish) —— */
+body.vx-site .vx-header__sub {
+  border-radius: var(--vds-radius-md);
+  box-shadow: var(--vds-shadow-md);
+}
+
+body.vx-site .vx-header__sub a {
+  border-radius: var(--vds-radius-sm);
+}
+
+/* —— Cinematic gallery masonry —— */
+body.vx-site .vx-gallery-masonry__cell {
+  border-radius: var(--vds-radius-lg);
+  overflow: hidden;
+}
+
+body.vx-site .vx-gallery-masonry__cell img {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+  body.vx-site .vx-gallery-masonry__cell:hover img {
+    transform: scale(1.05);
+  }
+}
+
+/* —— Founders v2: 2×2 rows, rounded portrait on top, text below (no legacy card grid) —— */
+.vetham-founders {
+  position: relative;
+  overflow: hidden;
+  background: #faf6f2;
+  padding: 110px 0 100px;
+  border-top: 3px solid rgba(196, 90, 26, 0.25);
+}
+
+.vetham-founders--page {
+  padding-top: 100px;
+}
+
+.vetham-founders .sec-title .sub-title {
+  color: #8b4513;
+}
+
+.vetham-founders .sec-title h2 {
+  color: #1a1a1a;
+}
+
+.vetham-founders__org {
+  margin: 14px 0 0;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5a4a3a;
+  font-weight: 600;
+}
+
+.vetham-founders__head::after {
+  content: '';
+  display: block;
+  width: min(72px, 18vw);
+  height: 3px;
+  margin: 20px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #c45a1a, #e8c547, #c45a1a, transparent);
+}
+
+.vetham-founders__matrix {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(22px, 2.8vw, 32px);
+}
+
+.vetham-founders__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 2.5vw, 28px);
+  align-items: stretch;
+}
+
+@media only screen and (max-width: 767px) {
+  .vetham-founders__row {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+}
+
+.vetham-founder-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: clamp(24px, 3.2vw, 36px) clamp(20px, 2.5vw, 28px) clamp(26px, 3vw, 32px);
+  background: linear-gradient(165deg, #ffffff 0%, #faf7f2 100%);
+  border: 1px solid var(--vds-border-soft);
+  border-radius: 2rem;
+  box-shadow: var(--vds-shadow-sm);
+  transition:
+    transform var(--vds-transition),
+    box-shadow var(--vds-transition),
+    border-color var(--vds-transition-fast);
+  transition-delay: calc(var(--tile-i, 0) * 70ms);
+  overflow: visible;
+  perspective: 1100px;
+}
+
+@media (hover: hover) {
+  .vetham-founder-tile:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--vds-shadow-lg);
+  }
+}
+
+.vetham-founder-tile__portrait-stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto clamp(20px, 2.5vw, 28px);
+  padding-top: 8px;
+  transform-style: preserve-3d;
+}
+
+.vetham-founder-tile__portrait-stage::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: min(72%, 280px);
+  height: 28px;
+  transform: translateX(-50%) translateZ(-40px);
+  background: radial-gradient(ellipse at center, rgba(13, 27, 42, 0.38) 0%, transparent 72%);
+  filter: blur(10px);
+  pointer-events: none;
+  transition: opacity var(--vds-transition-fast), transform var(--vds-transition);
+}
+
+.vetham-founder-tile__portrait {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(168px, 38vw, 260px);
+  height: clamp(168px, 38vw, 260px);
+  max-width: min(260px, 78%);
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: visible;
+  background: transparent;
+  border: none;
+  transform: rotateX(8deg) translateZ(8px);
+  transform-style: preserve-3d;
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s ease;
+  will-change: transform;
+}
+
+/* Circular frame sits behind; photo pops forward in 3D */
+.vetham-founder-tile__portrait::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #0d1b2a;
+  border: 3px solid rgba(232, 197, 71, 0.7);
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.92),
+    0 0 0 6px rgba(196, 90, 26, 0.1),
+    0 16px 28px rgba(13, 27, 42, 0.22),
+    inset 0 -10px 22px rgba(0, 0, 0, 0.3);
+  transform: translateZ(0);
+  z-index: 0;
+}
+
+.vetham-founder-tile__portrait-rim {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+  z-index: 2;
+  transform: translateZ(4px);
+}
+
+.vetham-founder-tile__portrait-link {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translateZ(18px);
+  transform-style: preserve-3d;
+  box-shadow: 0 14px 24px rgba(13, 27, 42, 0.25);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vetham-founder-tile__portrait > img {
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+  box-shadow: 0 14px 24px rgba(13, 27, 42, 0.25);
+  transform: translateZ(18px) scale(1.14);
+}
+
+.vetham-founder-tile__portrait img {
+  width: 100%;
+  height: 100%;
+  min-height: 0 !important;
+  max-height: none !important;
+  object-fit: cover;
+  object-position: center 8%;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vetham-founder-tile__portrait-link img {
+  transform: scale(1.14);
+}
+
+@media (hover: hover) {
+  .vetham-founder-tile:hover .vetham-founder-tile__portrait {
+    transform: rotateX(2deg) rotateY(-5deg) translateZ(22px) scale(1.02);
+  }
+
+  .vetham-founder-tile:hover .vetham-founder-tile__portrait::before {
+    border-color: rgba(232, 197, 71, 0.95);
+    box-shadow:
+      0 0 0 4px rgba(255, 255, 255, 1),
+      0 0 0 7px rgba(196, 90, 26, 0.16),
+      0 20px 32px rgba(13, 27, 42, 0.28),
+      inset 0 -8px 18px rgba(0, 0, 0, 0.28);
+  }
+
+  .vetham-founder-tile:hover .vetham-founder-tile__portrait-link {
+    transform: translateZ(42px);
+  }
+
+  .vetham-founder-tile:hover .vetham-founder-tile__portrait > img {
+    transform: translateZ(42px) scale(1.2);
+  }
+
+  .vetham-founder-tile:hover .vetham-founder-tile__portrait-stage::after {
+    opacity: 0.75;
+    transform: translateX(-50%) translateZ(-16px) scale(1.05);
+  }
+
+  .vetham-founder-tile:hover .vetham-founder-tile__portrait-link img {
+    transform: scale(1.2);
+  }
+}
+
+.vetham-founder-tile__portrait-shine {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    125deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.22) 48%,
+    transparent 62%
+  );
+  transform: translateX(-120%) skewX(-12deg);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+  .vetham-founder-tile:hover .vetham-founder-tile__portrait-shine {
+    transform: translateX(120%) skewX(-12deg);
+  }
+}
+
+.vetham-founder-tile__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  flex: 1 1 auto;
+  opacity: 0.96;
+  transform: translateY(6px);
+  transition:
+    opacity var(--vds-transition-fast),
+    transform var(--vds-transition);
+}
+
+@media (hover: hover) {
+  .vetham-founder-tile:hover .vetham-founder-tile__content,
+  .vetham-founder-tile:focus-within .vetham-founder-tile__content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vetham-founder-tile__role {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 auto 12px;
+  padding: 6px 12px;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5a6560;
+  background: #f5efe4;
+  border: 1px solid rgba(196, 90, 26, 0.2);
+  border-radius: 999px;
+}
+
+.vetham-founder-tile__role span {
+  color: #c45a1a;
+}
+
+.vetham-founder-tile__name {
+  margin: 0 0 8px;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  line-height: 1.25;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.vetham-founder-tile__name-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.vetham-founder-tile__name-link:hover {
+  color: #c45a1a;
+}
+
+.vetham-founder-tile__headline {
+  margin: 0 0 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(30, 61, 42, 0.1);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.88rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: #c45a1a;
+}
+
+.vetham-founder-tile__bio {
+  margin: 0 0 14px;
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: #5a6560;
+}
+
+.vetham-founder-tile__stats {
+  list-style: none;
+  margin: auto 0 0;
+  padding: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.vetham-founder-tile__stat {
+  padding: 10px;
+  background: #faf7f2;
+  border: 1px solid rgba(196, 90, 26, 0.12);
+  border-radius: var(--vds-radius-md);
+  min-height: 64px;
+}
+
+.vetham-founder-tile__stat strong {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #c45a1a;
+  margin-bottom: 2px;
+}
+
+.vetham-founder-tile__stat span {
+  display: block;
+  font-size: 0.66rem;
+  line-height: 1.35;
+  color: #6b7280;
+}
+
+.vetham-founder-tile__details {
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 520px) {
+  .vetham-founder-tile__stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* —— Our Village / spiritual home tiles —— */
+body.vx-site .sh-journey-card,
+body.vx-site .sh-dimension-tile,
+body.vx-site .sh-village-tile,
+body.vx-site .sh-peace-card,
+body.vx-site .sh-purpose-card,
+body.vx-site .sh-brotherhood-card,
+body.vx-site .sh-balance-col {
+  border-radius: var(--vds-radius-lg);
+  overflow: hidden;
+  transition:
+    transform var(--vds-transition),
+    box-shadow var(--vds-transition);
+}
+
+@media (hover: hover) {
+  body.vx-site .sh-journey-card:hover,
+  body.vx-site .sh-dimension-tile:hover,
+  body.vx-site .sh-village-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--vds-shadow-md);
+  }
+}
+
+/* —— Floating widgets / search —— */
+body.vx-site .vetham-floating-widgets a,
+body.vx-site .search-popup .search-form input {
+  border-radius: var(--vds-radius-md);
+}
+
+/* —— Reduced motion —— */
+@media (prefers-reduced-motion: reduce) {
+  body.vx-site *,
+  body.vx-site *::before,
+  body.vx-site *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  body.vx-site .vetham-founder-card__media-shine,
+  body.vx-site .vetham-founder-tile__portrait-shine {
+    display: none;
+  }
+
+  .vetham-founder-tile__portrait {
+    transform: none;
+  }
+
+  .vetham-founder-tile:hover .vetham-founder-tile__portrait {
+    transform: none;
+  }
+}

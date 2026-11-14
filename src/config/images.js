@@ -1,0 +1,135 @@
+const V = '/assets/images/vetham';
+const G = `${V}/gallery`;
+const S = `${V}/services`;
+
+const catalog = {
+  logo: [`${V}/logo.png`],
+  logoFooter: [`${V}/logo-footer-responsive.webp`, `${V}/logo-footer-responsive.png`],
+  logoFooterBrand: [`${V}/logo-footer-responsive.webp`, `${V}/logo-footer-responsive.png`],
+  logoFooterWebp: [`${V}/logo-footer-responsive.webp`],
+  logoFooterPng: [`${V}/logo-footer-responsive.png`],
+  favicon: [`${V}/favicon.png`],
+  banner1: [`${V}/banner-1.jpg`],
+  banner2: [`${V}/banner-2.jpg`],
+  banner3: [`${V}/banner-3.jpg`],
+  banner4: [`${V}/banner-4.jpg`],
+  homeHeroLandscape: [`${V}/home-hero-landscape.jpg`],
+  homeHeroMeditation: [`${V}/home-hero-meditation-woman.jpg`],
+  homeHeroReference: [`${V}/home-hero-reference.png`],
+  homeAboutMaharishiReference: [`${V}/maharishi-white-yellow-shawl.png`, `${V}/home-about-maharishi-reference.png`],
+  homeAboutMaharishiHq: [`${V}/maharishi-white-yellow-shawl.png`, `${V}/home-about-maharishi-hq.png`],
+  maharishiSaffron: [`${V}/maharishi-white-yellow-shawl.png`],
+  homePurposeMeditation: [`${V}/home/purpose-meditation-sunset.png`],
+  homeBrotherhoodHill: [`${V}/home/brotherhood-hill.png`],
+  homeCtaBanner: [`${V}/home/cta-tea-valley.png`],
+  homeJourneyCard1: [`${V}/home/journey-card-1.jpg`],
+  homeJourneyCard2: [`${V}/home/journey-card-2.jpg`],
+  homeJourneyCard3: [`${V}/home/journey-card-3.jpg`],
+  homeJourneyCard4: [`${V}/home/journey-card-4.jpg`],
+  homeJourneyCard5: [`${V}/home/journey-card-5.jpg`],
+  homeDimensionPanel1: [`${V}/home/dimension-photo-1.jpg`],
+  homeDimensionPanel2: [`${V}/home/dimension-photo-2.jpg`],
+  homeDimensionPanel3: [`${V}/home/dimension-photo-3.jpg`],
+  homeDimensionPanel4: [`${V}/home/dimension-photo-4.jpg`],
+  homeDimensionPanel5: [`${V}/home/dimension-photo-5.jpg`],
+  homeVillageTile1: [`${V}/home/village-tile-1.jpg`],
+  homeVillageTile2: [`${V}/home/village-tile-2.jpg`],
+  homeVillageTile3: [`${V}/home/village-tile-3.jpg`],
+  homeVillageTile4: [`${V}/home/village-tile-4.jpg`],
+  homeBalancePhysical: [`${V}/home/balance-physical.jpg`],
+  homeBalanceMental: [`${V}/home/balance-mental.jpg`],
+  homeBalanceSpiritual: [`${V}/home/balance-spiritual.jpg`],
+  homeSectionJourney: [`${V}/home/sections/journey.png`],
+  homeSectionDimensions: [`${V}/home/sections/dimensions.png`],
+  homeSectionWayOfLife: [`${V}/home/sections/way-of-life.png`],
+  homeSectionInnerPeace: [`${V}/home/sections/inner-peace.png`],
+  homeSectionPurposeBrotherhood: [`${V}/home/sections/purpose-brotherhood.png`],
+  homeSectionVillageLife: [`${V}/home/sections/village-life.png`],
+  homeSectionBalance: [`${V}/home/sections/balance.png`],
+  homeSectionFinalCta: [`${V}/home/sections/final-cta.png`],
+  about1: [`${V}/village-about.jpg`],
+  about2: [`${V}/meditation-hall.jpg`],
+  villageAbout: [`${V}/village-about.jpg`],
+  meditationHall: [`${V}/meditation-hall.jpg`],
+  construction: [`${V}/construction.jpg`],
+  villagePlan: [`${V}/village-plan.jpg`],
+  history: [`${V}/history.jpg`],
+  mahaan: [`${V}/maharishi-white-yellow-shawl.png`, `${V}/mahaan.png`],
+  leader: [`${V}/leader.jpg`],
+  aboutGroup: [`${V}/about-group.jpg`],
+  trustee1: [`${V}/trustee-gnana-rishi.jpg`],
+  trustee2: [`${V}/trustee-selvin.png`],
+  trustee3: [`${V}/trustee-balasubramanian.png`],
+  trustee4: [`${V}/trustee-sureash.jpg`],
+  portraitFounder: [`${V}/trustee-gnana-rishi-uniform.jpg`, `${V}/trustee-gnana-rishi-professional.jpg`],
+  portraitPresident: [`${V}/trustee-selvin-uniform.jpg`, `${V}/trustee-selvin-professional.jpg`],
+  portraitSecretary: [`${V}/trustee-balasubramanian-uniform.jpg`, `${V}/trustee-balasubramanian-professional.jpg`],
+  portraitTreasurer: [`${V}/trustee-sureash-uniform.jpg`, `${V}/trustee-sureash-professional.jpg`],
+  trustee1Pro: [`${V}/trustee-gnana-rishi-uniform.jpg`],
+  trustee2Pro: [`${V}/trustee-selvin-uniform.jpg`],
+  trustee3Pro: [`${V}/trustee-balasubramanian-uniform.jpg`],
+  trustee4Pro: [`${V}/trustee-sureash-uniform.jpg`],
+  blog1: [`${V}/blog-1.jpg`],
+  blog2: [`${V}/blog-2.jpg`],
+  blog3: [`${V}/blog-3.jpg`],
+  blog4: [`${V}/blog-4.jpg`],
+  blog5: [`${V}/blog-5.jpg`],
+  pageTitle: [`${V}/village-about.jpg`],
+  feature1: [`${V}/village-about.jpg`],
+  feature2: [`${V}/meditation-hall.jpg`],
+  qrCode: [`${V}/qr-code-vkst-scan.png`],
+  razorpayLogo: [`${V}/razorpay-logo.png`],
+  contactPhone: [`${V}/contact-phone.png`],
+  contactEmail: [`${V}/contact-email.png`],
+  contactHome: [`${V}/contact-home.png`],
+  testimonialBoy: [`${V}/testimonial-boy.png`],
+  testimonialWoman: [`${V}/testimonial-woman.png`],
+  galleryPreview1: [`${G}/foundation-course-1.jpg`],
+  galleryPreview2: [`${G}/foundation-course-2-scaled.jpg`],
+  galleryPreview3: [`${G}/event-photos-1-scaled.jpg`],
+  galleryPreview4: [`${G}/event-photos-4-scaled.jpg`],
+  serviceYyp: [`${S}/service-yyp.png`],
+  serviceAwareness: [`${S}/service-awareness.png`],
+  serviceManoNirvan: [`${S}/service-mano-nirvan.png`],
+  serviceSelfRealization: [`${S}/service-self-realization.png`],
+  serviceAppeasement: [`${S}/service-appeasement.png`],
+  serviceDonation: [`${S}/service-donation.jpg`],
+  servicePhilosophy: [`${S}/service-philosophy.jpg`],
+  serviceMeditation: [`${S}/service-meditation.jpg`],
+  serviceAshram: [`${S}/service-ashram.jpg`],
+  serviceSimplifiedYoga: [`${S}/service-simplified-yoga.jpg`],
+  servicePrivate: [`${S}/service-private.jpg`],
+  serviceHealing: [`${S}/service-healing.jpg`],
+  serviceHatha: [`${S}/service-hatha.jpg`],
+  serviceVinyasa: [`${S}/service-vinyasa.jpg`],
+  serviceKundalini: [`${S}/service-kundalini.jpg`],
+  serviceTeachings: [`${S}/service-teachings.jpg`],
+  iconBg1: ['/assets/images/icons/icon-bg-1.png'],
+  iconBg2: ['/assets/images/icons/icon-bg-2.png'],
+  iconBg3: ['/assets/images/icons/icon-bg-3.png'],
+  iconBg4: ['/assets/images/icons/icon-bg-4.png'],
+  sidebarBanner: [`${V}/sidebar-banner.jpg`],
+  sidebarPost1: [`${V}/sidebar-post-1.jpg`],
+  sidebarPost2: [`${V}/sidebar-post-2.jpg`],
+  sidebarPost3: [`${V}/sidebar-post-3.jpg`],
+};
+
+const VETHAM_ASSET_VERSION = 'header-light-logo-v1';
+
+export function img(key) {
+  const entry = catalog[key];
+  if (!entry) return '';
+  const src = entry[0];
+  if (src.startsWith('/assets/images/vetham/')) {
+    return `${src}?v=${VETHAM_ASSET_VERSION}`;
+  }
+  return src;
+}
+
+export function imgCdn(key) {
+  return img(key);
+}
+
+export function imgSrcSet(key) {
+  return undefined;
+}

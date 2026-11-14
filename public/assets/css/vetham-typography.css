@@ -1,0 +1,542 @@
+/**
+ * Google Sans typography — one consistent size for every language (EN, TA, FR, etc.)
+ * Loaded after theme CSS so these rules win over Poppins/Fredoka and translate widgets.
+ */
+
+:root {
+  --vetham-font-en: 'Google Sans', system-ui, sans-serif;
+  --vetham-font-ta: 'Noto Sans Tamil', 'Lohit Tamil', system-ui, sans-serif;
+  --vetham-font-hi: 'Noto Sans Devanagari', system-ui, sans-serif;
+  --vetham-font-kn: 'Noto Sans Kannada', system-ui, sans-serif;
+  --vetham-font-ml: 'Noto Sans Malayalam', system-ui, sans-serif;
+  --vetham-font-te: 'Noto Sans Telugu', system-ui, sans-serif;
+  --vetham-font: var(--vetham-font-en);
+  --vetham-text-base: 16px;
+  --vetham-text-nav: 17px;
+  --vetham-text-sm: 14px;
+  --vetham-text-btn: 15px;
+  --vetham-leading: 1.6;
+  --vetham-title-section: 50px;
+  --vetham-title-banner: 65px;
+  --vetham-title-card: 24px;
+}
+
+html[data-ui-lang="en"] {
+  --vetham-font: var(--vetham-font-en);
+}
+
+html[data-ui-lang="ta"] {
+  --vetham-font: var(--vetham-font-ta);
+}
+
+html[data-ui-lang="hi"] {
+  --vetham-font: var(--vetham-font-hi);
+}
+
+html[data-ui-lang="kn"] {
+  --vetham-font: var(--vetham-font-kn);
+}
+
+html[data-ui-lang="ml"] {
+  --vetham-font: var(--vetham-font-ml);
+}
+
+html[data-ui-lang="te"] {
+  --vetham-font: var(--vetham-font-te);
+}
+
+html[data-ui-lang="fr"],
+html[data-ui-lang="de"],
+html[data-ui-lang="pt"],
+html[data-ui-lang="es"] {
+  --vetham-font: var(--vetham-font-en);
+}
+
+html {
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body,
+.boxed_wrapper {
+  font-family: var(--vetham-font) !important;
+  font-size: var(--vetham-text-base) !important;
+  line-height: var(--vetham-leading) !important;
+}
+
+body :where(
+  p, li, a, span, label, input, textarea, select, button,
+  td, th, div, figcaption, blockquote, small, strong, em
+) {
+  font-family: inherit;
+}
+
+body :where(
+  h1, h2, h3, h4, h5, h6,
+  .sec-title h2,
+  .sec-title .sub-title,
+  .special_fonts,
+  .banner-carousel .content-box h2,
+  .banner-carousel .content-box .special-text,
+  .feature-block-one .inner-box h3,
+  .service-block-one .inner-box h3,
+  .team-block-one .inner-box h3,
+  .news-block-one .inner-box h3,
+  .cause-block-one .inner-box .lower-content h3,
+  .theme-btn-one,
+  .theme-btn-two
+) {
+  font-family: var(--vetham-font) !important;
+}
+
+/* Keep icon fonts intact */
+[class^="icon-"]:before,
+[class*=" icon-"]:before,
+.fa, .fab, .fas, .far, .fal, .fal,
+.flaticon,
+.icomoon {
+  font-family: 'icomoon', 'Font Awesome 5 Pro', 'Font Awesome 5 Brands' !important;
+}
+
+/* Fixed type scale — same in every language */
+.sec-title h2 {
+  font-size: var(--vetham-title-section) !important;
+  line-height: 1.2 !important;
+}
+
+.sec-title .sub-title {
+  font-size: 18px !important;
+  line-height: 1.4 !important;
+}
+
+.banner-carousel .content-box h2 {
+  font-size: var(--vetham-title-banner) !important;
+  line-height: 1.1 !important;
+}
+
+.page-title .content-box h1,
+.vetham-page-title .content-box h1 {
+  font-size: 65px !important;
+  line-height: 1.15 !important;
+  text-align: center !important;
+}
+
+.page-title .content-box .bread-crumb li,
+.vetham-page-title .content-box .bread-crumb li {
+  font-family: var(--vetham-font) !important;
+  font-size: 20px !important;
+  line-height: 1.4 !important;
+}
+
+.banner-carousel .content-box .special-text {
+  font-size: 24px !important;
+  line-height: 1.35 !important;
+}
+
+.banner-carousel .content-box p {
+  font-size: 18px !important;
+  line-height: 1.55 !important;
+}
+
+.feature-block-one .inner-box h3,
+.service-block-one .inner-box h3,
+.team-block-one .inner-box h3,
+.news-block-one .inner-box h3,
+.cause-block-one .inner-box .lower-content h3 {
+  font-size: var(--vetham-title-card) !important;
+  line-height: 1.35 !important;
+}
+
+.feature-block-one .inner-box p,
+.service-block-one .inner-box p,
+.news-block-one .inner-box p,
+.cause-block-one .inner-box .lower-content p,
+.about-section .text p {
+  font-size: var(--vetham-text-base) !important;
+  line-height: var(--vetham-leading) !important;
+}
+
+.theme-btn-one,
+.theme-btn-two {
+  font-size: var(--vetham-text-btn) !important;
+  line-height: 1.4 !important;
+}
+
+/* Google Translate wraps words in <font> — keep inline so they stay on one line */
+html[data-ui-lang]:not([data-ui-lang="en"]) font,
+html[data-ui-lang]:not([data-ui-lang="en"]) .goog-text-highlight {
+  display: inline !important;
+  white-space: inherit !important;
+  vertical-align: baseline !important;
+}
+
+/* Navigation — English: single line; translated: word wrap, same font size */
+.header-style-two.main-header .main-menu .navigation > li > a,
+.sticky-header .main-menu .navigation > li > a {
+  font-size: var(--vetham-text-nav) !important;
+  line-height: 1.4 !important;
+  font-weight: 500;
+  text-align: center;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+html[data-ui-lang="en"] .header-style-two.main-header .main-menu .navigation > li > a,
+html[data-ui-lang="en"] .sticky-header .main-menu .navigation > li > a,
+html:not([data-ui-lang]) .header-style-two.main-header .main-menu .navigation > li > a,
+html:not([data-ui-lang]) .sticky-header .main-menu .navigation > li > a {
+  white-space: nowrap;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li > a,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li > a {
+  display: block !important;
+  white-space: normal !important;
+  width: 100%;
+  min-height: 4.5em;
+  padding: 18px 4px !important;
+  line-height: 1.38 !important;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: nowrap !important;
+  gap: 0;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li {
+  margin: 0 !important;
+  max-width: none !important;
+  flex: none !important;
+  display: block !important;
+  float: none !important;
+  min-width: 0;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .vetham-nav-label {
+  display: block;
+  width: 100%;
+  white-space: normal !important;
+  text-align: center;
+  line-height: 1.38;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+  font-family: var(--vetham-font) !important;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .mobile-menu .navigation li > a {
+  word-break: normal;
+  overflow-wrap: break-word;
+  text-align: left;
+  line-height: 1.45 !important;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .mobile-menu .navigation li > a .vetham-nav-label {
+  font-family: var(--vetham-font) !important;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li > a {
+  white-space: normal !important;
+  font-size: var(--vetham-text-nav) !important;
+}
+
+@media only screen and (max-width: 1399px) {
+  html[data-ui-lang]:not([data-ui-lang="en"]) {
+    --vetham-text-nav: 14px;
+  }
+
+  html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li > a,
+  html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li > a {
+    min-height: 4.75em;
+    padding: 16px 2px !important;
+  }
+}
+
+.header-top .top-inner .top-left p,
+.header-top .top-inner .info li {
+  font-size: var(--vetham-text-sm) !important;
+  line-height: 1.45 !important;
+  white-space: normal;
+  text-align: start;
+}
+
+/* Longer translations: word wrap at spaces, aligned sections site-wide */
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner {
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px 14px;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner .top-left,
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner .top-right {
+  min-width: 0;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .header-top .top-inner .info {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px 14px;
+}
+
+html[data-ui-lang="en"] .vetham-nav-label,
+html:not([data-ui-lang]) .vetham-nav-label {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.vetham-header-donate__btn .vetham-nav-label {
+  font-family: var(--vetham-font) !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .vetham-header-donate__btn {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) body :where(
+  p, li, span, h1, h2, h3, h4, h5, h6,
+  .text, .lower-content, .content-box, .sec-title h2, .sec-title .sub-title
+) {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: pretty;
+}
+
+html[data-ui-lang="ta"] body :where(
+  p, li, span, h1, h2, h3, h4, h5, h6,
+  .text, .lower-content, .content-box
+),
+html[data-ui-lang="hi"] body :where(
+  p, li, span, h1, h2, h3, h4, h5, h6,
+  .text, .lower-content, .content-box
+),
+html[data-ui-lang="kn"] body :where(
+  p, li, span, h1, h2, h3, h4, h5, h6,
+  .text, .lower-content, .content-box
+),
+html[data-ui-lang="ml"] body :where(
+  p, li, span, h1, h2, h3, h4, h5, h6,
+  .text, .lower-content, .content-box
+),
+html[data-ui-lang="te"] body :where(
+  p, li, span, h1, h2, h3, h4, h5, h6,
+  .text, .lower-content, .content-box
+) {
+  line-height: 1.65 !important;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) p,
+html[data-ui-lang]:not([data-ui-lang="en"]) .about-section .text p,
+html[data-ui-lang]:not([data-ui-lang="en"]) .lower-content p {
+  text-align: start;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .centred,
+html[data-ui-lang]:not([data-ui-lang="en"]) .text-center,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title.centred,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title.centred h2,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title.centred .sub-title,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title.centred p,
+html[data-ui-lang]:not([data-ui-lang="en"]) .feature-block-one .inner-box.centred,
+html[data-ui-lang]:not([data-ui-lang="en"]) .service-block-one .inner-box.centred,
+html[data-ui-lang]:not([data-ui-lang="en"]) .cause-block-one .inner-box,
+html[data-ui-lang]:not([data-ui-lang="en"]) .banner-carousel .content-box {
+  text-align: center !important;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .feature-block-one .inner-box h3,
+html[data-ui-lang]:not([data-ui-lang="en"]) .service-block-one .inner-box h3,
+html[data-ui-lang]:not([data-ui-lang="en"]) .feature-block-one .inner-box p,
+html[data-ui-lang]:not([data-ui-lang="en"]) .service-block-one .inner-box p {
+  text-align: center !important;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .row.align-items-center .content-column,
+html[data-ui-lang]:not([data-ui-lang="en"]) .about-section .text {
+  text-align: start;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .theme-btn-one,
+html[data-ui-lang]:not([data-ui-lang="en"]) .theme-btn-two {
+  white-space: normal !important;
+  text-align: center;
+  line-height: 1.35 !important;
+  height: auto !important;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+html[data-ui-lang]:not([data-ui-lang="en"]) .banner-carousel .content-box h2,
+html[data-ui-lang]:not([data-ui-lang="en"]) .sec-title h2 {
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+  max-width: 100%;
+  text-align: inherit;
+}
+
+/* Google Translate injects <font> tags that change size — force inherit everywhere */
+font,
+font * {
+  font: inherit !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  line-height: inherit !important;
+}
+
+.translated-ltr font,
+.translated-ltr span[style*="font-size"],
+.translated-ltr font[style*="font-size"] {
+  font-size: inherit !important;
+  font-family: inherit !important;
+}
+
+.goog-text-highlight {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.goog-te-banner-frame,
+.goog-te-gadget,
+.goog-te-gadget-simple,
+.goog-te-menu-value,
+.goog-te-menu-value span {
+  font-family: var(--vetham-font) !important;
+  font-size: var(--vetham-text-sm) !important;
+}
+
+.vetham-leader-card__name {
+  font-size: 24px !important;
+  line-height: 1.2 !important;
+}
+
+.vetham-leader-card__bio,
+.vetham-leader-card__tagline {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+.vetham-site-stat__value,
+.vetham-site-stat__suffix {
+  font-family: 'Google Sans', 'Product Sans', sans-serif !important;
+}
+
+.vetham-site-stat__label {
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+}
+
+@media only screen and (max-width: 1199px) {
+  .banner-carousel .content-box h2 {
+    font-size: 48px !important;
+  }
+
+  .sec-title h2 {
+    font-size: 40px !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  :root {
+    --vetham-title-banner: 36px;
+    --vetham-title-section: 32px;
+    --vetham-title-card: 20px;
+    --vetham-text-nav: 16px;
+  }
+
+  html[data-ui-lang]:not([data-ui-lang="en"]) .header-style-two.main-header .main-menu .navigation > li > a,
+  html[data-ui-lang]:not([data-ui-lang="en"]) .sticky-header .main-menu .navigation > li > a {
+    min-height: 3.5em;
+    padding: 18px 4px !important;
+  }
+}
+
+/* Inner page banners — centered text, village-about.jpg background */
+.vetham-page-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  padding: 110px 0 120px;
+}
+
+.vetham-page-title .bg-layer {
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+.vetham-page-title .auto-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vetham-page-title .content-box {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center !important;
+}
+
+.vetham-page-title .content-box h1 {
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vetham-page-title .content-box .bread-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vetham-page-title .content-box .bread-crumb li {
+  float: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 !important;
+  padding-right: 18px !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .vetham-page-title {
+    min-height: 260px;
+    padding: 80px 0 90px;
+  }
+
+  .vetham-page-title .content-box h1 {
+    font-size: 36px !important;
+    line-height: 1.15 !important;
+  }
+}

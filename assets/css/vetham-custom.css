@@ -1,0 +1,209 @@
+/* About section - fix stretched circular images */
+.image_block_one .image-box .image-1 {
+  width: 410px;
+  height: 410px;
+}
+
+.image_block_one .image-box .image-2 {
+  width: 260px;
+  height: 260px;
+}
+
+.image_block_one .image-box .image-1 img,
+.image_block_one .image-box .image-2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+
+.main-header .logo-box .logo img,
+.sticky-header .logo-box .logo img {
+  max-height: 65px;
+  width: auto;
+}
+
+/* Red logo background - main header */
+.header-style-two.main-header .header-lower .logo-box,
+.sticky-header .logo-box {
+  background: #C45A1A;
+  padding: 20px 45px 20px 55px;
+  margin-right: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.header-style-two.main-header .header-lower .logo-box:before,
+.sticky-header .logo-box:before {
+  display: block !important;
+  content: '';
+  position: absolute;
+  background: #C45A1A !important;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+}
+
+.header-style-two.main-header .header-lower .logo-box:after,
+.sticky-header .logo-box:after {
+  display: none !important;
+}
+
+/* Center navigation between logo and icons */
+.header-style-two.main-header .header-lower .outer-box,
+.sticky-header .outer-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-style-two.main-header .menu-area,
+.sticky-header .menu-area {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 0 15px;
+}
+
+.header-style-two.main-header .main-menu,
+.sticky-header .main-menu {
+  float: none;
+  width: auto;
+}
+
+.header-style-two.main-header .main-menu .navigation,
+.sticky-header .main-menu .navigation {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  float: none;
+}
+
+.header-style-two.main-header .main-menu .navigation > li,
+.sticky-header .main-menu .navigation > li {
+  float: none;
+  margin: 0 18px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.header-style-two.main-header .main-menu .navigation > li > a,
+.sticky-header .main-menu .navigation > li > a {
+  font-size: 18px;
+  line-height: 28px;
+  padding: 38px 0;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.header-style-two.main-header .header-lower .nav-right,
+.sticky-header .nav-right {
+  flex-shrink: 0;
+  margin: 20px 0;
+}
+
+/* Hide dropdown arrow icons on desktop */
+.main-header .main-menu .navigation > li.dropdown > a:before,
+.sticky-header .main-menu .navigation > li.dropdown > a:before {
+  display: none !important;
+  content: none !important;
+}
+
+@media only screen and (min-width: 1201px) {
+  .main-header .main-menu .navigation li.dropdown .dropdown-btn {
+    display: none !important;
+  }
+}
+
+/* Sticky header scroll overrides */
+.sticky-header .logo-box {
+  padding: 16px 40px 16px 50px !important;
+}
+
+.sticky-header .main-menu .navigation > li > a {
+  padding-top: 32px !important;
+  padding-bottom: 32px !important;
+}
+
+.sticky-header .outer-container {
+  padding-left: 0;
+  padding-right: 30px;
+}
+
+/* Dropdown opens directly under its parent menu item */
+.main-menu .navigation > li.dropdown {
+  position: relative;
+}
+
+.main-menu .navigation > li.dropdown:hover > ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.main-menu .navigation > li.dropdown > ul {
+  left: 0;
+  right: auto;
+  transform: none;
+  margin-top: 0;
+  top: 100%;
+  min-width: 210px;
+}
+
+/* Header top icons */
+.header-top .top-inner .info li i {
+  color: #D4A017;
+  margin-right: 8px;
+}
+
+.header-top .top-inner .social-links li a {
+  color: #fff;
+}
+
+.header-top .top-inner .social-links li a:hover {
+  color: #D4A017;
+}
+
+/* Search & donate icons */
+.header-style-two.main-header .nav-right li.search-toggler,
+.sticky-header .nav-right li.search-toggler {
+  color: #333;
+  font-size: 22px;
+}
+
+.header-style-two.main-header .nav-right li.search-toggler i,
+.sticky-header .nav-right li.search-toggler i {
+  display: inline-block;
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1599px) {
+  .header-style-two.main-header .main-menu .navigation > li,
+  .sticky-header .main-menu .navigation > li {
+    margin: 0 12px;
+  }
+
+  .header-style-two.main-header .main-menu .navigation > li > a,
+  .sticky-header .main-menu .navigation > li > a {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1399px) {
+  .header-style-two.main-header .main-menu .navigation > li,
+  .sticky-header .main-menu .navigation > li {
+    margin: 0 8px;
+  }
+
+  .header-style-two.main-header .main-menu .navigation > li > a,
+  .sticky-header .main-menu .navigation > li > a {
+    font-size: 15px;
+  }
+}
